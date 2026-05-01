@@ -213,6 +213,8 @@ body::before{content:"";position:fixed;inset:0;pointer-events:none;z-index:0;
 .q-item.wrong{border-color:rgba(231,76,60,.4)}
 .quiz-btn{background:rgba(0,201,184,.1);border:1px solid var(--teal);color:var(--teal);padding:.65rem 1.8rem;border-radius:5px;cursor:pointer;font-family:"Jost",sans-serif;font-size:.7rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;transition:all .2s;margin-top:.75rem}
 .quiz-btn:hover{background:rgba(0,201,184,.2)}
+.retake-btn{background:rgba(106,143,168,.12);border:1px solid var(--muted);color:var(--mt);padding:.55rem 1.5rem;border-radius:5px;cursor:pointer;font-family:"Jost",sans-serif;font-size:.68rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;transition:all .2s;margin-top:.6rem;margin-left:.5rem}
+.retake-btn:hover{background:rgba(106,143,168,.22);color:var(--tx)}
 .quiz-score{margin-top:.75rem;font-family:"Cormorant Garamond",serif;font-size:1.1rem;color:var(--teal)}
 
 /* ── PROGRESS BARS ── */
@@ -588,14 +590,6 @@ footer{background:rgba(2,11,24,.97);border-top:1px solid var(--br2);padding:1.4r
       </div>
     </div>
 
-    <div class="mhtip">
-      <div class="av">MH</div>
-      <div>
-        <div class="tlbl">Mike Hinsvark · Senior Agency Partner</div>
-        <div class="ttxt">"The system is proven. Your job in Week 1 is to duplicate success, not reinvent it. Find a successful person and do what they do — imitate, don't create. Everything you need is in this training center."</div>
-      </div>
-    </div>
-
     <!-- Key Links -->
     <div class="sdiv"><div class="sdiv-line"></div><div class="sdiv-label">Essential Links</div><div class="sdiv-line"></div></div>
     <div class="res-hub">
@@ -606,9 +600,31 @@ footer{background:rgba(2,11,24,.97);border-top:1px solid var(--br2);padding:1.4r
       <a href="https://drive.google.com/drive/folders/1AV-AJW-5Jp2RoK8ZQ77tItUnjMFVifx-?usp=sharing" target="_blank" class="link-badge">📁 Fast Start Docs</a>
       <a href="http://renewalsforlife.com/" target="_blank" class="link-badge" style="border-color:rgba(245,197,24,.3);color:var(--gold)">🎬 17-Min Overview</a>
       <a href="https://umustsee.net/DQY6HT" target="_blank" class="link-badge">📊 iDecide</a>
-      <a href="https://umustsee.net/KXN9XA" target="_blank" class="link-badge">📊 iDecide — GOALL IUL</a>
+      <a href="https://anthropic.skilljar.com/claude-101/383389" target="_blank" class="link-badge">🤖 Claude.ai 101</a>
       <a href="https://docs.google.com/document/d/18gDE0-NUoo0njYp3jp31h_PTpBOwyneOpK56IW427OU/edit?usp=drive_link" target="_blank" class="link-badge">🤝 Alliance Partner List</a>
       <a href="https://renewalsforlifestyle.com" target="_blank" class="link-badge" style="border-color:rgba(245,197,24,.3);color:var(--gold)">🌟 RenewalsForLifestyle</a>
+    </div>
+
+    <!-- Dreams Score Cards -->
+    <div class="sdiv" style="margin-top:2rem"><div class="sdiv-line"></div><div class="sdiv-label">Dreams Score Tools</div><div class="sdiv-line"></div></div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:1.2rem;margin-top:1rem">
+
+      <!-- Personal Dreams Score -->
+      <div style="background:linear-gradient(135deg,#051a2e 0%,#071f35 60%,#082840 100%);border:1px solid rgba(0,180,255,.18);border-radius:12px;padding:1.8rem;position:relative;overflow:hidden;transition:transform .2s,box-shadow .2s" onmouseover="this.style.transform='translateY(-3px)';this.style.boxShadow='0 12px 40px rgba(0,180,255,.15)'" onmouseout="this.style.transform='';this.style.boxShadow=''">
+        <div style="position:absolute;top:0;right:0;width:120px;height:120px;background:radial-gradient(circle,rgba(0,180,255,.08) 0%,transparent 70%);pointer-events:none"></div>
+        <div style="font-family:'Jost',sans-serif;font-size:.65rem;letter-spacing:.15em;text-transform:uppercase;color:rgba(0,180,255,.8);margin-bottom:.6rem">Personal Dreams Score</div>
+        <p style="font-size:.82rem;color:var(--mt);line-height:1.7;margin-bottom:1.4rem">AI-powered financial analysis for individuals — Debt, Retirement, Expenses, Assets, Money &amp; Security. Your personal prospect and recruiting tool.</p>
+        <a href="https://dreamscore-gcvvqauy.manus.space/" target="_blank" style="display:inline-block;padding:.65rem 1.4rem;border:1px solid rgba(0,180,255,.4);border-radius:6px;color:rgba(0,180,255,.9);font-family:'Jost',sans-serif;font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;text-decoration:none;transition:all .2s" onmouseover="this.style.background='rgba(0,180,255,.1)';this.style.borderColor='rgba(0,180,255,.7)'" onmouseout="this.style.background='';this.style.borderColor='rgba(0,180,255,.4)'">Tour with Robert the AI Guide →</a>
+      </div>
+
+      <!-- Business Dreams Score -->
+      <div style="background:linear-gradient(135deg,#041e18 0%,#062419 60%,#082e20 100%);border:1px solid rgba(0,201,184,.18);border-radius:12px;padding:1.8rem;position:relative;overflow:hidden;transition:transform .2s,box-shadow .2s" onmouseover="this.style.transform='translateY(-3px)';this.style.boxShadow='0 12px 40px rgba(0,201,184,.15)'" onmouseout="this.style.transform='';this.style.boxShadow=''">
+        <div style="position:absolute;top:0;right:0;width:120px;height:120px;background:radial-gradient(circle,rgba(0,201,184,.08) 0%,transparent 70%);pointer-events:none"></div>
+        <div style="font-family:'Jost',sans-serif;font-size:.65rem;letter-spacing:.15em;text-transform:uppercase;color:rgba(0,201,184,.9);margin-bottom:.6rem">Business Dreams Score</div>
+        <p style="font-size:.82rem;color:var(--mt);line-height:1.7;margin-bottom:1.4rem">Full business analysis — R&amp;D credits, payroll savings, benefits overpayments, energy &amp; AI optimization. Show this to every business owner you meet.</p>
+        <a href="https://dreamsscores.com/?refid=AA0233" target="_blank" style="display:inline-block;padding:.65rem 1.4rem;border:1px solid rgba(0,201,184,.4);border-radius:6px;color:rgba(0,201,184,.9);font-family:'Jost',sans-serif;font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;text-decoration:none;transition:all .2s" onmouseover="this.style.background='rgba(0,201,184,.1)';this.style.borderColor='rgba(0,201,184,.7)'" onmouseout="this.style.background='';this.style.borderColor='rgba(0,201,184,.4)'">Tour with Robert the AI Guide →</a>
+      </div>
+
     </div>
   </div>
 </div>
@@ -1381,6 +1397,9 @@ footer{background:rgba(2,11,24,.97);border-top:1px solid var(--br2);padding:1.4r
     <div class="sbtn" onclick="showSub('w3','email',this)">
       <div class="sbn">Week 3 Email</div><div class="sbs">Capital Conversation</div>
     </div>
+    <div class="sbtn" onclick="showSub('w3','quiz',this)">
+      <div class="sbn">Knowledge Check</div><div class="sbs">10 Questions · Pass 8/10</div>
+    </div>
   </div>
 
   <div class="split-body">
@@ -1596,6 +1615,106 @@ footer{background:rgba(2,11,24,.97);border-top:1px solid var(--br2);padding:1.4r
       </div>
     </div>
 
+    <!-- WEEK 3 QUIZ -->
+    <div class="sub-panel" id="w3-quiz">
+      <div class="sec-title">Week 3 Knowledge Check</div>
+      <div class="sec-tag">Bank Breezy Funding · 10 Questions · Pass 8/10</div>
+      <div class="quiz-wrap" id="quiz-w3">
+        <div class="q-block">
+          <div class="q-num">Question 1 of 10</div>
+          <div class="q-text">What is the typical funding range Bank Breezy provides to businesses?</div>
+          <label class="opt"><input type="radio" name="q3_1" value="a"> $1,000 – $10,000</label>
+          <label class="opt"><input type="radio" name="q3_1" value="b"> $5,000 – $500,000</label>
+          <label class="opt"><input type="radio" name="q3_1" value="c"> $1M – $5M only</label>
+          <label class="opt"><input type="radio" name="q3_1" value="d"> $500 – $5,000</label>
+          <div class="q-explain" id="exp-q3_1">Bank Breezy provides business funding from <strong>$5,000 to $500,000+</strong>, making it accessible for small businesses and scalable for larger ones.</div>
+        </div>
+        <div class="q-block">
+          <div class="q-num">Question 2 of 10</div>
+          <div class="q-text">What commission rate do certified Bank Breezy reps earn?</div>
+          <label class="opt"><input type="radio" name="q3_2" value="a"> 10%</label>
+          <label class="opt"><input type="radio" name="q3_2" value="b"> 20%</label>
+          <label class="opt"><input type="radio" name="q3_2" value="c"> 40%</label>
+          <label class="opt"><input type="radio" name="q3_2" value="d"> 60%</label>
+          <div class="q-explain" id="exp-q3_2">Certified reps earn <strong>40% commission</strong> vs. only 10% without certification. The certification takes a few hours and the pay increase lasts forever.</div>
+        </div>
+        <div class="q-block">
+          <div class="q-num">Question 3 of 10</div>
+          <div class="q-text">What commission rate do NON-certified Bank Breezy reps earn?</div>
+          <label class="opt"><input type="radio" name="q3_3" value="a"> 25%</label>
+          <label class="opt"><input type="radio" name="q3_3" value="b"> 15%</label>
+          <label class="opt"><input type="radio" name="q3_3" value="c"> 5%</label>
+          <label class="opt"><input type="radio" name="q3_3" value="d"> 10%</label>
+          <div class="q-explain" id="exp-q3_3">Non-certified reps earn only <strong>10% commission</strong>. Completing certification is one of the highest-ROI activities in your first 30 days.</div>
+        </div>
+        <div class="q-block">
+          <div class="q-num">Question 4 of 10</div>
+          <div class="q-text">Which of the following is NOT a Bank Breezy product type?</div>
+          <label class="opt"><input type="radio" name="q3_4" value="a"> Business Lines of Credit</label>
+          <label class="opt"><input type="radio" name="q3_4" value="b"> Equipment Financing</label>
+          <label class="opt"><input type="radio" name="q3_4" value="c"> Personal Home Mortgages</label>
+          <label class="opt"><input type="radio" name="q3_4" value="d"> Merchant Cash Advances</label>
+          <div class="q-explain" id="exp-q3_4"><strong>Personal home mortgages</strong> are not a Bank Breezy product. Bank Breezy focuses on business funding: lines of credit, equipment financing, merchant cash advances, and SBA loans.</div>
+        </div>
+        <div class="q-block">
+          <div class="q-num">Question 5 of 10</div>
+          <div class="q-text">What is the most powerful combo pitch when approaching a business owner?</div>
+          <label class="opt"><input type="radio" name="q3_5" value="a"> Tax savings + funding access + health benefits</label>
+          <label class="opt"><input type="radio" name="q3_5" value="b"> Funding only — keep it simple</label>
+          <label class="opt"><input type="radio" name="q3_5" value="c"> Health insurance only</label>
+          <label class="opt"><input type="radio" name="q3_5" value="d"> R&amp;D credits only</label>
+          <div class="q-explain" id="exp-q3_5">The power combo is <strong>tax savings + funding access + health benefits</strong>. Leading with "I can save you $50K in taxes, help you capture R&amp;D credits, AND get you access to $150K in capital" makes the meeting book itself.</div>
+        </div>
+        <div class="q-block">
+          <div class="q-num">Question 6 of 10</div>
+          <div class="q-text">Where do you complete the Bank Breezy Certification?</div>
+          <label class="opt"><input type="radio" name="q3_6" value="a"> On the Bank Breezy website directly</label>
+          <label class="opt"><input type="radio" name="q3_6" value="b"> In your DBR Back Office</label>
+          <label class="opt"><input type="radio" name="q3_6" value="c"> Via email from your upline</label>
+          <label class="opt"><input type="radio" name="q3_6" value="d"> At a local bank branch</label>
+          <div class="q-explain" id="exp-q3_6">The Bank Breezy Certification is completed <strong>in your DBR Back Office</strong>. Complete it before submitting any client applications to unlock the 40% commission rate.</div>
+        </div>
+        <div class="q-block">
+          <div class="q-num">Question 7 of 10</div>
+          <div class="q-text">Why is Bank Breezy described as a "conversation opener"?</div>
+          <label class="opt"><input type="radio" name="q3_7" value="a"> Because it requires a long sales process</label>
+          <label class="opt"><input type="radio" name="q3_7" value="b"> Because every business owner wants capital access — it gets you in the door</label>
+          <label class="opt"><input type="radio" name="q3_7" value="c"> Because it is the cheapest product to sell</label>
+          <label class="opt"><input type="radio" name="q3_7" value="d"> Because it only works for large corporations</label>
+          <div class="q-explain" id="exp-q3_7">Every business owner wants capital. Bank Breezy <strong>gets you in the door</strong> — once you're in, you can present R&amp;D credits, FICA savings, and health benefits. Capital is the conversation opener.</div>
+        </div>
+        <div class="q-block">
+          <div class="q-num">Question 8 of 10</div>
+          <div class="q-text">What types of businesses are ideal Bank Breezy prospects?</div>
+          <label class="opt"><input type="radio" name="q3_8" value="a"> Only Fortune 500 companies</label>
+          <label class="opt"><input type="radio" name="q3_8" value="b"> Only startups with no revenue</label>
+          <label class="opt"><input type="radio" name="q3_8" value="c"> Small to mid-size businesses with revenue and a need for growth capital</label>
+          <label class="opt"><input type="radio" name="q3_8" value="d"> Only businesses in the tech industry</label>
+          <div class="q-explain" id="exp-q3_8"><strong>Small to mid-size businesses with revenue</strong> are the ideal targets — they have existing cash flow, need capital to grow, and can qualify for Bank Breezy products.</div>
+        </div>
+        <div class="q-block">
+          <div class="q-num">Question 9 of 10</div>
+          <div class="q-text">How does Bank Breezy complement R&D Tax Credits in your value proposition?</div>
+          <label class="opt"><input type="radio" name="q3_9" value="a"> They compete with each other</label>
+          <label class="opt"><input type="radio" name="q3_9" value="b"> R&amp;D credits recover past taxes; Bank Breezy provides immediate capital — together they are unstoppable</label>
+          <label class="opt"><input type="radio" name="q3_9" value="c"> Bank Breezy replaces R&amp;D credits entirely</label>
+          <label class="opt"><input type="radio" name="q3_9" value="d"> They are completely unrelated products</label>
+          <div class="q-explain" id="exp-q3_9">R&amp;D credits recover <strong>past taxes owed</strong> while Bank Breezy provides <strong>immediate capital</strong>. Together they create an irresistible value proposition: money back AND money forward.</div>
+        </div>
+        <div class="q-block">
+          <div class="q-num">Question 10 of 10</div>
+          <div class="q-text">What should you do BEFORE submitting a client's Bank Breezy application?</div>
+          <label class="opt"><input type="radio" name="q3_10" value="a"> Nothing — just submit it</label>
+          <label class="opt"><input type="radio" name="q3_10" value="b"> Get approval from your upline first</label>
+          <label class="opt"><input type="radio" name="q3_10" value="c"> Complete your Bank Breezy Certification in the DBR Back Office</label>
+          <label class="opt"><input type="radio" name="q3_10" value="d"> Wait 90 days after joining</label>
+          <div class="q-explain" id="exp-q3_10">Always <strong>complete your Bank Breezy Certification first</strong>. Submitting without certification means you earn 10% instead of 40% — a costly mistake that's easily avoided.</div>
+        </div>
+        <button class="quiz-btn" onclick="scoreQuiz('quiz-w3',{'q3_1':'b','q3_2':'c','q3_3':'d','q3_4':'c','q3_5':'a','q3_6':'b','q3_7':'b','q3_8':'c','q3_9':'b','q3_10':'c'},8)">Submit Answers</button>
+        <div class="quiz-result" id="result-quiz-w3"></div>
+      </div>
+    </div>
+
   </div>
 </div>
 </div>
@@ -1622,6 +1741,9 @@ footer{background:rgba(2,11,24,.97);border-top:1px solid var(--br2);padding:1.4r
     </div>
     <div class="sbtn" onclick="showSub('w4','email',this)">
       <div class="sbn">Week 4 Email</div><div class="sbs">Residual Foundation</div>
+    </div>
+    <div class="sbtn" onclick="showSub('w4','quiz',this)">
+      <div class="sbn">Knowledge Check</div><div class="sbs">10 Questions · Pass 8/10</div>
     </div>
   </div>
 
@@ -1842,6 +1964,106 @@ footer{background:rgba(2,11,24,.97);border-top:1px solid var(--br2);padding:1.4r
       </div>
     </div>
 
+    <!-- WEEK 4 QUIZ -->
+    <div class="sub-panel" id="w4-quiz">
+      <div class="sec-title">Week 4 Knowledge Check</div>
+      <div class="sec-tag">Quantum Health · Section 125 · 10 Questions · Pass 8/10</div>
+      <div class="quiz-wrap" id="quiz-w4">
+        <div class="q-block">
+          <div class="q-num">Question 1 of 10</div>
+          <div class="q-text">What is a Section 125 Cafeteria Plan?</div>
+          <label class="opt"><input type="radio" name="q4_1" value="a"> A restaurant discount program for employees</label>
+          <label class="opt"><input type="radio" name="q4_1" value="b"> An IRS-approved plan allowing employees to pay benefits with pre-tax dollars, reducing FICA taxes</label>
+          <label class="opt"><input type="radio" name="q4_1" value="c"> A government subsidy for small businesses</label>
+          <label class="opt"><input type="radio" name="q4_1" value="d"> A retirement savings account</label>
+          <div class="q-explain" id="exp-q4_1">A Section 125 Cafeteria Plan is an <strong>IRS-approved plan</strong> that allows employees to pay for qualified benefits with pre-tax dollars, reducing both employee and employer FICA (Social Security &amp; Medicare) taxes.</div>
+        </div>
+        <div class="q-block">
+          <div class="q-num">Question 2 of 10</div>
+          <div class="q-text">What does FICA stand for and what percentage does it represent?</div>
+          <label class="opt"><input type="radio" name="q4_2" value="a"> Federal Income Credit Act — 5%</label>
+          <label class="opt"><input type="radio" name="q4_2" value="b"> Federal Insurance Contributions Act — 7.65% (employee) + 7.65% (employer)</label>
+          <label class="opt"><input type="radio" name="q4_2" value="c"> Financial Insurance Compliance Act — 10%</label>
+          <label class="opt"><input type="radio" name="q4_2" value="d"> Federal Income Contribution Allowance — 15%</label>
+          <div class="q-explain" id="exp-q4_2">FICA stands for <strong>Federal Insurance Contributions Act</strong>. Both employee and employer each pay 7.65% (6.2% Social Security + 1.45% Medicare), totaling 15.3% combined. Section 125 reduces this tax burden for both parties.</div>
+        </div>
+        <div class="q-block">
+          <div class="q-num">Question 3 of 10</div>
+          <div class="q-text">Which company provides the Quantum Health Efficiency Plans?</div>
+          <label class="opt"><input type="radio" name="q4_3" value="a"> Blue Cross and Aetna</label>
+          <label class="opt"><input type="radio" name="q4_3" value="b"> UnitedHealth and Cigna</label>
+          <label class="opt"><input type="radio" name="q4_3" value="c"> Trumark Health</label>
+          <label class="opt"><input type="radio" name="q4_3" value="d"> Humana and Kaiser</label>
+          <div class="q-explain" id="exp-q4_3">Quantum Health Efficiency Plans are offered through <strong>Trumark Health</strong>, giving you access to 150+ carriers for maximum flexibility and coverage options.</div>
+        </div>
+        <div class="q-block">
+          <div class="q-num">Question 4 of 10</div>
+          <div class="q-text">What is the monthly residual income estimate for 100 enrolled employees?</div>
+          <label class="opt"><input type="radio" name="q4_4" value="a"> $200 – $500/month</label>
+          <label class="opt"><input type="radio" name="q4_4" value="b"> $500 – $800/month</label>
+          <label class="opt"><input type="radio" name="q4_4" value="c"> $1,200 – $1,950/month</label>
+          <label class="opt"><input type="radio" name="q4_4" value="d"> $5,000 – $10,000/month</label>
+          <div class="q-explain" id="exp-q4_4">100 enrolled employees generates <strong>$1,200 – $1,950/month</strong> for the life of the contract. 10 accounts = $12,000 – $19,500/month. This is the RenewalsForLife residual model.</div>
+        </div>
+        <div class="q-block">
+          <div class="q-num">Question 5 of 10</div>
+          <div class="q-text">What is the minimum employee count for Chamber of Commerce members to qualify for Quantum Health?</div>
+          <label class="opt"><input type="radio" name="q4_5" value="a"> 50 employees</label>
+          <label class="opt"><input type="radio" name="q4_5" value="b"> 25 employees</label>
+          <label class="opt"><input type="radio" name="q4_5" value="c"> 10 employees</label>
+          <label class="opt"><input type="radio" name="q4_5" value="d"> 100 employees</label>
+          <div class="q-explain" id="exp-q4_5">Chamber of Commerce members can qualify with just <strong>10 employees</strong>, which dramatically opens your market. Non-Chamber businesses typically need 25+ employees. Joining your local Chamber is highly recommended.</div>
+        </div>
+        <div class="q-block">
+          <div class="q-num">Question 6 of 10</div>
+          <div class="q-text">What presentation tool do you use to schedule employer appointments?</div>
+          <label class="opt"><input type="radio" name="q4_6" value="a"> PowerPoint deck</label>
+          <label class="opt"><input type="radio" name="q4_6" value="b"> The iDecide presentation</label>
+          <label class="opt"><input type="radio" name="q4_6" value="c"> A printed brochure</label>
+          <label class="opt"><input type="radio" name="q4_6" value="d"> A YouTube video link</label>
+          <div class="q-explain" id="exp-q4_6">The <strong>iDecide presentation</strong> is the standard tool for scheduling and conducting employer appointments. It walks business owners through the Section 125 savings and Quantum Health benefits in a structured, professional format.</div>
+        </div>
+        <div class="q-block">
+          <div class="q-num">Question 7 of 10</div>
+          <div class="q-text">Where do you complete your Quantum Health Certification?</div>
+          <label class="opt"><input type="radio" name="q4_7" value="a"> On the Quantum website directly</label>
+          <label class="opt"><input type="radio" name="q4_7" value="b"> In your DBR Back Office only</label>
+          <label class="opt"><input type="radio" name="q4_7" value="c"> In the Trumark Training Center</label>
+          <label class="opt"><input type="radio" name="q4_7" value="d"> Via a phone call with your upline</label>
+          <div class="q-explain" id="exp-q4_7">Quantum Certification is completed in the <strong>Trumark Training Center</strong>. This certification is required before enrolling employer groups and unlocks your full commission rate.</div>
+        </div>
+        <div class="q-block">
+          <div class="q-num">Question 8 of 10</div>
+          <div class="q-text">How does the Quantum Health residual income model differ from traditional sales?</div>
+          <label class="opt"><input type="radio" name="q4_8" value="a"> You only earn once per sale</label>
+          <label class="opt"><input type="radio" name="q4_8" value="b"> You earn a monthly residual for the life of the contract without re-selling</label>
+          <label class="opt"><input type="radio" name="q4_8" value="c"> You earn a one-time annual bonus</label>
+          <label class="opt"><input type="radio" name="q4_8" value="d"> You must re-enroll clients every 6 months</label>
+          <div class="q-explain" id="exp-q4_8">Quantum Health generates <strong>monthly residual income for the life of the contract</strong> without re-selling. Each employer account compounds your income year over year — this is the RenewalsForLife model.</div>
+        </div>
+        <div class="q-block">
+          <div class="q-num">Question 9 of 10</div>
+          <div class="q-text">What is the primary benefit of Section 125 for the EMPLOYER?</div>
+          <label class="opt"><input type="radio" name="q4_9" value="a"> The employer pays higher wages</label>
+          <label class="opt"><input type="radio" name="q4_9" value="b"> The employer saves on their share of FICA taxes (7.65%) on every enrolled employee</label>
+          <label class="opt"><input type="radio" name="q4_9" value="c"> The employer gets a government grant</label>
+          <label class="opt"><input type="radio" name="q4_9" value="d"> The employer avoids all payroll taxes</label>
+          <div class="q-explain" id="exp-q4_9">The employer saves their <strong>7.65% FICA match</strong> on every dollar redirected through the Section 125 plan. For a company with 100 employees, this can mean tens of thousands in annual savings — making this an easy "yes" for business owners.</div>
+        </div>
+        <div class="q-block">
+          <div class="q-num">Question 10 of 10</div>
+          <div class="q-text">If you close 10 employer accounts each with 100 employees, what is your estimated monthly residual income?</div>
+          <label class="opt"><input type="radio" name="q4_10" value="a"> $1,200 – $1,950/month</label>
+          <label class="opt"><input type="radio" name="q4_10" value="b"> $5,000 – $7,500/month</label>
+          <label class="opt"><input type="radio" name="q4_10" value="c"> $12,000 – $19,500/month</label>
+          <label class="opt"><input type="radio" name="q4_10" value="d"> $50,000/month</label>
+          <div class="q-explain" id="exp-q4_10">10 accounts × $1,200–$1,950/month each = <strong>$12,000 – $19,500/month</strong>. This compounds annually without re-selling. One employer with 100 employees is already $1,950/month — forever.</div>
+        </div>
+        <button class="quiz-btn" onclick="scoreQuiz('quiz-w4',{'q4_1':'b','q4_2':'b','q4_3':'c','q4_4':'c','q4_5':'c','q4_6':'b','q4_7':'c','q4_8':'b','q4_9':'b','q4_10':'c'},8)">Submit Answers</button>
+        <div class="quiz-result" id="result-quiz-w4"></div>
+      </div>
+    </div>
+
   </div>
 </div>
 </div>
@@ -1862,11 +2084,11 @@ footer{background:rgba(2,11,24,.97);border-top:1px solid var(--br2);padding:1.4r
     <div class="sbtn" onclick="showSub('w5','tools',this)">
       <div class="sbn">Tools &amp; Stack</div><div class="sbs">AI Platforms</div>
     </div>
-    <div class="sbtn" onclick="showSub('w5','quiz',this)">
-      <div class="sbn">Knowledge Check</div><div class="sbs">10 Questions · Pass 8/10</div>
-    </div>
     <div class="sbtn" onclick="showSub('w5','email',this)">
       <div class="sbn">Week 5 Email</div><div class="sbs">Deploy Your AI Team</div>
+    </div>
+    <div class="sbtn" onclick="showSub('w5','quiz',this)">
+      <div class="sbn">Knowledge Check</div><div class="sbs">10 Questions · Pass 8/10</div>
     </div>
   </div>
 
@@ -2005,6 +2227,7 @@ footer{background:rgba(2,11,24,.97);border-top:1px solid var(--br2);padding:1.4r
           <ul>
             <li><strong>ChatGPT (GPT-4)</strong> — Content, proposals, scripts, email drafts</li>
             <li><strong>Claude (Anthropic)</strong> — Long-form analysis, research, strategy</li>
+            <li><a href="https://anthropic.skilljar.com/claude-101/383389" target="_blank" style="color:var(--teal);text-decoration:none;border-bottom:1px solid rgba(0,201,184,.3)">🎓 Claude.ai 101 — Free Training Course</a> — Learn Claude from scratch in under an hour</li>
             <li>Generate employer FICA savings proposals in 3 minutes</li>
             <li>Create personalized outreach messages for each prospect</li>
             <li>Draft follow-up sequences and objection responses</li>
@@ -3069,7 +3292,102 @@ function gradeQuiz(quizId, total) {
       ${pass ? '🎉' : '📚'} ${score}/${total} (${pct}%) — ${pass ? 'PASSED! Ready for next week.' : 'Review the material and try again.'}
     </div>`;
   scoreDiv.style.display = 'block';
-  quiz.querySelector('.quiz-btn').disabled = true;
+  const submitBtn = quiz.querySelector('.quiz-btn');
+  submitBtn.disabled = true;
+  // Add Retake button if not already present
+  if (!quiz.querySelector('.retake-btn')) {
+    const retakeBtn = document.createElement('button');
+    retakeBtn.className = 'retake-btn';
+    retakeBtn.textContent = '↺ Retake Quiz';
+    retakeBtn.onclick = function() { retakeQuiz(quizId, 'grade'); };
+    submitBtn.parentNode.insertBefore(retakeBtn, scoreDiv);
+  }
+}
+
+// ── SCORED QUIZ (Weeks 3 & 4 new format) ─────────────────
+function scoreQuiz(quizId, answerKey, passingScore) {
+  const wrap = document.getElementById(quizId);
+  const blocks = wrap.querySelectorAll('.q-block');
+  let score = 0;
+  const total = Object.keys(answerKey).length;
+  blocks.forEach(block => {
+    const inputs = block.querySelectorAll('input[type="radio"]');
+    if (!inputs.length) return;
+    const name = inputs[0].name;
+    const correct = answerKey[name];
+    const selected = block.querySelector('input[type="radio"]:checked');
+    const explain = block.querySelector('.q-explain');
+    // Style all options
+    block.querySelectorAll('.opt').forEach(o => {
+      o.style.opacity = '0.5';
+      o.style.background = '';
+      o.style.borderColor = '';
+      o.style.color = '';
+      o.style.fontWeight = '';
+      if (o.querySelector('input').value === correct) {
+        o.style.opacity = '1';
+        o.style.color = '#66BB6A';
+        o.style.fontWeight = '600';
+      }
+    });
+    if (selected) {
+      if (selected.value === correct) {
+        score++;
+        selected.closest('.opt').style.background = 'rgba(46,204,113,.12)';
+        selected.closest('.opt').style.borderColor = '#2ECC71';
+      } else {
+        selected.closest('.opt').style.background = 'rgba(231,76,60,.12)';
+        selected.closest('.opt').style.borderColor = '#E74C3C';
+      }
+    }
+    if (explain) explain.style.display = 'block';
+  });
+  const resultDiv = document.getElementById('result-' + quizId);
+  const pct = Math.round((score / total) * 100);
+  const pass = score >= passingScore;
+  resultDiv.innerHTML = `
+    <div class="score-badge ${pass ? 'pass' : 'fail'}">
+      ${pass ? '🎉' : '📚'} ${score}/${total} (${pct}%) — ${pass ? 'PASSED! Ready for next week.' : 'Review the material and try again.'}
+    </div>`;
+  resultDiv.style.display = 'block';
+  const submitBtn = wrap.querySelector('.quiz-btn');
+  submitBtn.disabled = true;
+  // Add Retake button if not already present
+  if (!wrap.querySelector('.retake-btn')) {
+    const retakeBtn = document.createElement('button');
+    retakeBtn.className = 'retake-btn';
+    retakeBtn.textContent = '↺ Retake Quiz';
+    retakeBtn.onclick = function() { retakeQuiz(quizId, 'score'); };
+    submitBtn.parentNode.insertBefore(retakeBtn, resultDiv);
+  }
+}
+
+// ── RETAKE QUIZ ───────────────────────────────────────────
+function retakeQuiz(quizId, mode) {
+  const container = document.getElementById(quizId);
+  // Clear all radio selections
+  container.querySelectorAll('input[type="radio"]').forEach(r => { r.checked = false; });
+  // Reset option styles
+  container.querySelectorAll('.opt').forEach(o => {
+    o.style.opacity = '';
+    o.style.background = '';
+    o.style.borderColor = '';
+    o.style.color = '';
+    o.style.fontWeight = '';
+  });
+  // Hide all explanations
+  container.querySelectorAll('.q-explain').forEach(e => { e.style.display = 'none'; });
+  // Hide result/score
+  const resultEl = document.getElementById('result-' + quizId) || document.getElementById(quizId + '-score');
+  if (resultEl) { resultEl.style.display = 'none'; resultEl.innerHTML = ''; }
+  // Re-enable submit button
+  const submitBtn = container.querySelector('.quiz-btn');
+  if (submitBtn) submitBtn.disabled = false;
+  // Remove retake button
+  const retakeBtn = container.querySelector('.retake-btn');
+  if (retakeBtn) retakeBtn.remove();
+  // Scroll to top of quiz
+  container.scrollIntoView({ behavior: 'smooth', block: 'start' });
 }
 
 // ── INCOME CALCULATOR ────────────────────────────────────
