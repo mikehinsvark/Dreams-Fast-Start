@@ -213,6 +213,8 @@ body::before{content:"";position:fixed;inset:0;pointer-events:none;z-index:0;
 .q-item.wrong{border-color:rgba(231,76,60,.4)}
 .quiz-btn{background:rgba(0,201,184,.1);border:1px solid var(--teal);color:var(--teal);padding:.65rem 1.8rem;border-radius:5px;cursor:pointer;font-family:"Jost",sans-serif;font-size:.7rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;transition:all .2s;margin-top:.75rem}
 .quiz-btn:hover{background:rgba(0,201,184,.2)}
+.retake-btn{background:rgba(106,143,168,.12);border:1px solid var(--muted);color:var(--mt);padding:.55rem 1.5rem;border-radius:5px;cursor:pointer;font-family:"Jost",sans-serif;font-size:.68rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;transition:all .2s;margin-top:.6rem;margin-left:.5rem}
+.retake-btn:hover{background:rgba(106,143,168,.22);color:var(--tx)}
 .quiz-score{margin-top:.75rem;font-family:"Cormorant Garamond",serif;font-size:1.1rem;color:var(--teal)}
 
 /* ── PROGRESS BARS ── */
@@ -3290,7 +3292,102 @@ function gradeQuiz(quizId, total) {
       ${pass ? '🎉' : '📚'} ${score}/${total} (${pct}%) — ${pass ? 'PASSED! Ready for next week.' : 'Review the material and try again.'}
     </div>`;
   scoreDiv.style.display = 'block';
-  quiz.querySelector('.quiz-btn').disabled = true;
+  const submitBtn = quiz.querySelector('.quiz-btn');
+  submitBtn.disabled = true;
+  // Add Retake button if not already present
+  if (!quiz.querySelector('.retake-btn')) {
+    const retakeBtn = document.createElement('button');
+    retakeBtn.className = 'retake-btn';
+    retakeBtn.textContent = '↺ Retake Quiz';
+    retakeBtn.onclick = function() { retakeQuiz(quizId, 'grade'); };
+    submitBtn.parentNode.insertBefore(retakeBtn, scoreDiv);
+  }
+}
+
+// ── SCORED QUIZ (Weeks 3 & 4 new format) ─────────────────
+function scoreQuiz(quizId, answerKey, passingScore) {
+  const wrap = document.getElementById(quizId);
+  const blocks = wrap.querySelectorAll('.q-block');
+  let score = 0;
+  const total = Object.keys(answerKey).length;
+  blocks.forEach(block => {
+    const inputs = block.querySelectorAll('input[type="radio"]');
+    if (!inputs.length) return;
+    const name = inputs[0].name;
+    const correct = answerKey[name];
+    const selected = block.querySelector('input[type="radio"]:checked');
+    const explain = block.querySelector('.q-explain');
+    // Style all options
+    block.querySelectorAll('.opt').forEach(o => {
+      o.style.opacity = '0.5';
+      o.style.background = '';
+      o.style.borderColor = '';
+      o.style.color = '';
+      o.style.fontWeight = '';
+      if (o.querySelector('input').value === correct) {
+        o.style.opacity = '1';
+        o.style.color = '#66BB6A';
+        o.style.fontWeight = '600';
+      }
+    });
+    if (selected) {
+      if (selected.value === correct) {
+        score++;
+        selected.closest('.opt').style.background = 'rgba(46,204,113,.12)';
+        selected.closest('.opt').style.borderColor = '#2ECC71';
+      } else {
+        selected.closest('.opt').style.background = 'rgba(231,76,60,.12)';
+        selected.closest('.opt').style.borderColor = '#E74C3C';
+      }
+    }
+    if (explain) explain.style.display = 'block';
+  });
+  const resultDiv = document.getElementById('result-' + quizId);
+  const pct = Math.round((score / total) * 100);
+  const pass = score >= passingScore;
+  resultDiv.innerHTML = `
+    <div class="score-badge ${pass ? 'pass' : 'fail'}">
+      ${pass ? '🎉' : '📚'} ${score}/${total} (${pct}%) — ${pass ? 'PASSED! Ready for next week.' : 'Review the material and try again.'}
+    </div>`;
+  resultDiv.style.display = 'block';
+  const submitBtn = wrap.querySelector('.quiz-btn');
+  submitBtn.disabled = true;
+  // Add Retake button if not already present
+  if (!wrap.querySelector('.retake-btn')) {
+    const retakeBtn = document.createElement('button');
+    retakeBtn.className = 'retake-btn';
+    retakeBtn.textContent = '↺ Retake Quiz';
+    retakeBtn.onclick = function() { retakeQuiz(quizId, 'score'); };
+    submitBtn.parentNode.insertBefore(retakeBtn, resultDiv);
+  }
+}
+
+// ── RETAKE QUIZ ───────────────────────────────────────────
+function retakeQuiz(quizId, mode) {
+  const container = document.getElementById(quizId);
+  // Clear all radio selections
+  container.querySelectorAll('input[type="radio"]').forEach(r => { r.checked = false; });
+  // Reset option styles
+  container.querySelectorAll('.opt').forEach(o => {
+    o.style.opacity = '';
+    o.style.background = '';
+    o.style.borderColor = '';
+    o.style.color = '';
+    o.style.fontWeight = '';
+  });
+  // Hide all explanations
+  container.querySelectorAll('.q-explain').forEach(e => { e.style.display = 'none'; });
+  // Hide result/score
+  const resultEl = document.getElementById('result-' + quizId) || document.getElementById(quizId + '-score');
+  if (resultEl) { resultEl.style.display = 'none'; resultEl.innerHTML = ''; }
+  // Re-enable submit button
+  const submitBtn = container.querySelector('.quiz-btn');
+  if (submitBtn) submitBtn.disabled = false;
+  // Remove retake button
+  const retakeBtn = container.querySelector('.retake-btn');
+  if (retakeBtn) retakeBtn.remove();
+  // Scroll to top of quiz
+  container.scrollIntoView({ behavior: 'smooth', block: 'start' });
 }
 
 // ── INCOME CALCULATOR ────────────────────────────────────
