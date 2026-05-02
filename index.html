@@ -49,6 +49,8 @@ body::before{content:"";position:fixed;inset:0;pointer-events:none;z-index:0;
 .nb.cta.active{color:var(--gold);border-bottom-color:var(--gold)}
 .nb.comp-btn{color:#FFCDD2}
 .nb.comp-btn.active{color:#FFCDD2;border-bottom-color:#EF9A9A}
+.nb.prospect-btn{color:#FFCC80}
+.nb.prospect-btn.active{color:#FFA726;border-bottom-color:#FFA726}
 
 /* ── TAB PANELS ── */
 .tab-panel{display:none}
@@ -276,6 +278,33 @@ body::before{content:"";position:fixed;inset:0;pointer-events:none;z-index:0;
 .wt-box h3{font-family:"Cormorant Garamond",serif;font-size:1.4rem;color:var(--teal);margin-bottom:.3rem}
 .wt-box p{font-size:.78rem;color:var(--mt);margin-bottom:.9rem;line-height:1.65}
 
+/* ── PROSPECT TYPE CARDS ── */
+.ptype-grid{display:grid;grid-template-columns:1fr 1fr;gap:.8rem;margin-bottom:1.2rem}
+.ptype-card{background:rgba(4,17,30,.85);border:1px solid var(--br2);border-radius:9px;padding:1.1rem}
+.ptype-badge{display:inline-block;font-size:.52rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;padding:2px 8px;border-radius:4px;margin-bottom:.5rem;font-family:"Jost",sans-serif}
+.ptype-badge.t1{background:rgba(66,165,245,.15);color:#64B5F6;border:1px solid rgba(66,165,245,.3)}
+.ptype-badge.t2{background:rgba(46,204,113,.15);color:#66BB6A;border:1px solid rgba(46,204,113,.3)}
+.ptype-badge.t3{background:rgba(245,197,24,.15);color:#FFD54F;border:1px solid rgba(245,197,24,.3)}
+.ptype-badge.t4{background:rgba(230,126,34,.15);color:#FFA726;border:1px solid rgba(230,126,34,.3)}
+.ptype-badge.t5{background:rgba(155,89,182,.15);color:#CE93D8;border:1px solid rgba(155,89,182,.3)}
+.ptype-card h4{font-family:"Cormorant Garamond",serif;font-size:1rem;color:var(--tx);margin-bottom:.4rem;line-height:1.3}
+.ptype-card p{font-size:.72rem;color:var(--mt);line-height:1.6;margin-bottom:.5rem}
+.ptype-best{font-size:.62rem;color:var(--mt);font-style:italic}
+.ptype-best span{color:var(--teal)}
+.ptype-full{grid-column:1/-1}
+
+/* ── PRODUCT MAP TABLE ── */
+.prod-map{width:100%;border-collapse:collapse;font-size:.72rem;margin-top:.5rem}
+.prod-map th{font-size:.58rem;letter-spacing:.12em;text-transform:uppercase;color:var(--mt);font-family:"Jost",sans-serif;padding:.6rem .7rem;border-bottom:1px solid var(--br);text-align:left}
+.prod-map td{padding:.55rem .7rem;border-bottom:1px solid var(--br2);color:var(--mt);vertical-align:top;line-height:1.45}
+.prod-map tr:last-child td{border-bottom:none}
+.prod-map td:first-child{color:var(--tx);font-weight:500}
+.prod-map .rev-res{color:var(--teal)}
+.prod-map .rev-fee{color:var(--gold)}
+.prod-map .rev-com{color:#FFA726}
+.prod-map .rev-sub{color:#AB47BC}
+.prod-map .rev-mix{color:#66BB6A}
+
 /* ── CALCULATOR SECTION ── */
 .calc-wrap{padding:1.4rem 1.6rem}
 .calc-title{font-family:"Cormorant Garamond",serif;font-size:1.7rem;color:var(--cr);margin-bottom:.2rem}
@@ -426,6 +455,7 @@ footer{background:rgba(2,11,24,.97);border-top:1px solid var(--br2);padding:1.4r
   .wh{gap:.8rem}
   .wt h2{font-size:1.35rem}
   .stat-grid-4{grid-template-columns:1fr 1fr}
+  .ptype-grid{grid-template-columns:1fr}
   .roadmap .step{padding:.8rem}
   .step-label{font-size:.82rem}
   .sdiv{margin:.9rem 0}
@@ -515,7 +545,7 @@ footer{background:rgba(2,11,24,.97);border-top:1px solid var(--br2);padding:1.4r
   <button class="nb" onclick="showTab('week4',this)">Week 4</button>
   <button class="nb" onclick="showTab('week5',this)">Week 5</button>
   <button class="nb" onclick="showTab('calc',this)">Calculator</button>
-  <button class="nb" onclick="showTab('prospecting',this)">Prospecting</button>
+  <button class="nb prospect-btn" onclick="showTab('prospecting',this)">Prospecting</button>
   <button class="nb cta" onclick="showTab('marketing',this)">Marketing</button>
   <button class="nb comp-btn" onclick="showTab('comp',this)">Comp Plan</button>
 </nav>
@@ -2499,8 +2529,20 @@ footer{background:rgba(2,11,24,.97);border-top:1px solid var(--br2);padding:1.4r
 <button class="mob-subnav-btn" onclick="toggleSubNav(this)">☰ Sections ▾</button>
 <div class="split">
   <div class="split-nav">
-    <div class="sbtn active" onclick="showSub('pr','overview',this)">
-      <div class="sbn">Overview</div><div class="sbs">Prospecting System</div>
+    <div class="sbtn active" onclick="showSub('pr','basics',this)">
+      <div class="sbn">B2B Basics</div><div class="sbs">Stats &amp; Strategies</div>
+    </div>
+    <div class="sbtn" onclick="showSub('pr','walktalk',this)">
+      <div class="sbn">Walk &amp; Talk</div><div class="sbs">$3M Game Plan</div>
+    </div>
+    <div class="sbtn" onclick="showSub('pr','5types',this)">
+      <div class="sbn">5 Types</div><div class="sbs">Who You're Looking For</div>
+    </div>
+    <div class="sbtn" onclick="showSub('pr','productmap',this)">
+      <div class="sbn">Product Map</div><div class="sbs">Full DBR Ecosystem</div>
+    </div>
+    <div class="sbtn" onclick="showSub('pr','followup',this)">
+      <div class="sbn">Follow-Up System</div><div class="sbs">5-Touch Sequence</div>
     </div>
     <div class="sbtn" onclick="showSub('pr','linkedin',this)">
       <div class="sbn">LinkedIn Strategy</div><div class="sbs">Profile &amp; Outreach</div>
@@ -2511,51 +2553,70 @@ footer{background:rgba(2,11,24,.97);border-top:1px solid var(--br2);padding:1.4r
     <div class="sbtn" onclick="showSub('pr','targets',this)">
       <div class="sbn">Target Industries</div><div class="sbs">Who to Call</div>
     </div>
-    <div class="sbtn" onclick="showSub('pr','followup',this)">
-      <div class="sbn">Follow-Up System</div><div class="sbs">5-Touch Sequence</div>
-    </div>
   </div>
 
   <div class="split-body">
 
-    <div class="sub-panel active" id="pr-overview">
+    <!-- ── B2B BASICS: SALES STATS + 6 STRATEGIES ── -->
+    <div class="sub-panel active" id="pr-basics">
       <div class="wh">
-        <div class="wbadge" style="background:linear-gradient(135deg,#00C9B8,#0097A7)"><span>📋</span></div>
+        <div class="wbadge" style="background:linear-gradient(135deg,#FFA726,#E65100)"><span>📊</span></div>
         <div class="wt">
-          <h2 style="color:var(--teal)">PROSPECTING HUB</h2>
-          <div class="wsub">Daily Activity System · Target Industries · Scripts · Follow-Up</div>
+          <h2 style="color:#FFA726">DREAMS B2B PROSPECTING BASICS</h2>
+          <div class="wsub">Master these fundamentals before spending a dollar on ads. This is how the top producers built their first $100K.</div>
         </div>
       </div>
 
-      <div class="srow">
-        <div class="sbox"><div class="sval">10</div><div class="slbl">New/Day</div></div>
-        <div class="sbox"><div class="sval">10</div><div class="slbl">Follow-Ups/Day</div></div>
-        <div class="sbox"><div class="sval">5-touch</div><div class="slbl">Sequence</div></div>
-        <div class="sbox"><div class="sval">1</div><div class="slbl">Event/Week</div></div>
+      <!-- Sales Stats -->
+      <div class="sdiv"><div class="sdiv-line"></div><div class="sdiv-label">Sales Statistics — National Sales Executive Association</div><div class="sdiv-line"></div></div>
+      <div class="stat-grid-4" style="margin-bottom:.4rem">
+        <div class="stat-box" style="background:rgba(231,76,60,.07);border:1px solid rgba(231,76,60,.2)">
+          <div class="stat-big" style="color:#EF5350">48%</div>
+          <div class="stat-desc">of salespeople <strong style="color:#EF5350">NEVER follow up</strong> with a prospect</div>
+        </div>
+        <div class="stat-box" style="background:rgba(245,197,24,.07);border:1px solid rgba(245,197,24,.2)">
+          <div class="stat-big" style="color:var(--gold)">25%</div>
+          <div class="stat-desc">make a <strong style="color:var(--gold)">2nd contact</strong> then stop</div>
+        </div>
+        <div class="stat-box" style="background:rgba(46,204,113,.07);border:1px solid rgba(46,204,113,.2)">
+          <div class="stat-big" style="color:var(--green)">80%</div>
+          <div class="stat-desc">of sales happen on <strong style="color:var(--green)">5th–12th contact</strong></div>
+        </div>
+        <div class="stat-box" style="background:rgba(0,201,184,.07);border:1px solid rgba(0,201,184,.2)">
+          <div class="stat-big" style="color:var(--teal)">10%</div>
+          <div class="stat-desc">of salespeople make <strong style="color:var(--teal)">more than 3 contacts</strong> — and they get 80% of the sales</div>
+        </div>
+      </div>
+      <div class="callout" style="text-align:center;font-style:italic;color:var(--gold);border-color:rgba(245,197,24,.2);background:rgba(245,197,24,.04);margin-bottom:1.2rem">
+        The fortune is in the follow-up. AI makes 5–12 touches effortless.
       </div>
 
+      <!-- 6 Strategies -->
+      <div class="sdiv"><div class="sdiv-line"></div><div class="sdiv-label">What Should I Do for Prospecting?</div><div class="sdiv-line"></div></div>
       <div class="g2">
         <div class="card">
-          <div class="ct teal">🎯 The 10-10-30 Daily System</div>
-          <ul>
-            <li><strong>10 new contacts</strong> per day — LinkedIn, phone, email, or in-person</li>
-            <li><strong>10 follow-ups</strong> per day — from your existing pipeline</li>
-            <li><strong>30 minutes</strong> of DBR training content daily</li>
-            <li>Log every activity in your Back Office CRM</li>
-            <li>Review your pipeline every morning — identify top 3 priorities</li>
-            <li>One networking event per week minimum</li>
-          </ul>
+          <div class="ct orange">A. Invest in a Digital Marketing Package</div>
+          <p style="font-size:.75rem;color:var(--mt);line-height:1.65">Dreams Cloud 3 gives you AI-powered ads, LinkedIn automation, and multiplied commission credits from Day 1. See the Marketing section below.</p>
         </div>
         <div class="card">
-          <div class="ct blue">🏆 Top Prospecting Targets</div>
-          <ul>
-            <li><strong>CPAs &amp; Accountants</strong> — R&amp;D credits + FICA Tip + Section 125</li>
-            <li><strong>Payroll Companies</strong> — ADP, Paychex clients are ideal</li>
-            <li><strong>HR Professionals</strong> — Section 125 + Quantum Health</li>
-            <li><strong>Restaurant Owners</strong> — FICA Tip + Bank Breezy</li>
-            <li><strong>Manufacturers</strong> — R&amp;D credits (highest average credit)</li>
-            <li><strong>Business Owners 25+ EE</strong> — Full suite opportunity</li>
-          </ul>
+          <div class="ct blue">B. Post on Social Media 2–3 Days/Week</div>
+          <p style="font-size:.75rem;color:var(--mt);line-height:1.65">Facebook and LinkedIn content builds awareness and inbound leads. Consistency over perfection — one educational post per day wins.</p>
+        </div>
+        <div class="card">
+          <div class="ct teal">C. Order Flyers &amp; Distribute 3–4 Days/Week</div>
+          <p style="font-size:.75rem;color:var(--mt);line-height:1.65">Pass out flyers to businesses Tues/Wed/Thu. Industrial parks, strip malls, and office buildings are goldmines. <a href="https://erctrainers.com/new-rep-sign-up/order-business-cards/" target="_blank" style="color:var(--teal)">Order your Connect Cards here →</a></p>
+        </div>
+        <div class="card">
+          <div class="ct green">D. Join Your Local Chamber of Commerce</div>
+          <p style="font-size:.75rem;color:var(--mt);line-height:1.65">Attend every event. Chamber members with 10+ employees qualify for Quantum Health. One event = multiple warm introductions. Free to join in most cities.</p>
+        </div>
+        <div class="card">
+          <div class="ct purple">E. Build Your Database &amp; SlyBroadcast</div>
+          <p style="font-size:.75rem;color:var(--mt);line-height:1.65">Build a database of contacts and send them emails, videos, and ringless voicemails via SlyBroadcast. 300 contacts × 12 touches = a real pipeline.</p>
+        </div>
+        <div class="card">
+          <div class="ct gold">F–G. Referral System + Follow Up*</div>
+          <p style="font-size:.75rem;color:var(--mt);line-height:1.65">Build a systematic referral program. Every closed client should refer 2–3 more. And follow up. Follow up. Follow up. 80% of sales happen between touches 5 and 12.</p>
         </div>
       </div>
 
@@ -2567,10 +2628,207 @@ footer{background:rgba(2,11,24,.97);border-top:1px solid var(--br2);padding:1.4r
       </div>
     </div>
 
+    <!-- ── WALK & TALK GAME PLAN ── -->
+    <div class="sub-panel" id="pr-walktalk">
+      <div class="wh">
+        <div class="wbadge" style="background:linear-gradient(135deg,#00C9B8,#007A72)"><span>🚶</span></div>
+        <div class="wt">
+          <h2 style="color:var(--teal)">WALK AND TALK</h2>
+          <div class="wsub">Part-Time $3 Million Game Plan · Build toward $9,600/month residual + $2.4M annuity value</div>
+        </div>
+      </div>
+
+      <div class="callout teal" style="border-color:rgba(0,201,184,.3);background:rgba(0,201,184,.04);margin-bottom:1.1rem">
+        Work part-time, walk industrial parks and business districts, build toward <strong style="color:var(--teal)">$9,600/month in residual income</strong> and a <strong style="color:var(--teal)">$2.4M annuity value</strong>.
+      </div>
+
+      <div class="g2">
+        <div class="card">
+          <div class="ct teal">✔ Daily Activities</div>
+          <ul>
+            <li>Join local Chamber of Commerce — attend every event</li>
+            <li>Work 2–3 days/week, 4 hrs/day (2+2 with 15-min break)</li>
+            <li>Target areas with dense businesses — industrial parks, strip malls</li>
+            <li>Pre-plan each day; commit to extreme diligent follow-up</li>
+          </ul>
+        </div>
+        <div class="card">
+          <div class="ct gold">💰 Income Math</div>
+          <ul>
+            <li>2 businesses of 10 employees/week = 80 employees/month</li>
+            <li>Add R&amp;D, Bank Breezy, Energy, or Accounting referrals on top</li>
+            <li style="color:var(--gold)"><strong>$600,000 cash flow + $2,400,000 annuity = $9,600/mo</strong></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="wt-box" style="margin-top:.8rem">
+        <h3>Order Your Connect Cards / Business Cards</h3>
+        <p>Your Connect Cards are your most important physical prospecting tool. Pass them out at every business you visit. Order at erctrainers.com.</p>
+        <a href="https://erctrainers.com/new-rep-sign-up/order-business-cards/" target="_blank" class="pbtn gold">🪪 Order Connect Cards / Business Cards →</a>
+      </div>
+    </div>
+
+    <!-- ── 5 TYPES OF PEOPLE ── -->
+    <div class="sub-panel" id="pr-5types">
+      <div class="wh">
+        <div class="wbadge" style="background:linear-gradient(135deg,#9B59B6,#6C3483)"><span>👥</span></div>
+        <div class="wt">
+          <h2 style="color:#CE93D8">THE 5 TYPES OF PEOPLE YOU'RE LOOKING FOR</h2>
+          <div class="wsub">Decide which type you are primarily focused on — then build your daily activity around finding and approaching them.</div>
+        </div>
+      </div>
+
+      <div class="ptype-grid">
+        <div class="ptype-card">
+          <span class="ptype-badge t1">Type 1</span>
+          <h4>The Entrepreneur / Recruiter</h4>
+          <p>Insurance Agents, Real Estate Agents, Loan Agents, Network Marketers — people who already know how to build organizations. They will create a big downline full of all 5 types, generating overrides at every level.</p>
+          <div class="ptype-best">Best for: <span>Team builders · Generational override Income</span></div>
+        </div>
+        <div class="ptype-card">
+          <span class="ptype-badge t2">Type 2</span>
+          <h4>The Business Client Producer</h4>
+          <p>Enrolls business owners directly — Dreams Score reports, R&amp;D credits, and Quantum Health for employers with 25+ W2 employees (10+ via Chamber). The direct revenue builder who fills your pipeline fast.</p>
+          <div class="ptype-best">Best for: <span>B2B sellers · Fast income production</span></div>
+        </div>
+        <div class="ptype-card">
+          <span class="ptype-badge t3">Type 3</span>
+          <h4>The Agent with Business Clients</h4>
+          <p>Merchant processing reps, CPAs, Accountants — they already serve business owners and will make sales even if they never build a team. One CPA with 100 clients is worth more than 20 random recruits.</p>
+          <div class="ptype-best">Best for: <span>Referral-heavy production · High-volume placements</span></div>
+        </div>
+        <div class="ptype-card">
+          <span class="ptype-badge t4">Type 4</span>
+          <h4>The Referral Partner</h4>
+          <p>P&amp;C Insurance Agents, Chamber of Commerce leaders, Insurance Agents — they don't want to sell or sign up, but they will refer their clients. One P&amp;C agent can send you 10 employer leads per month without lifting a finger.</p>
+          <div class="ptype-best">Best for: <span>Passive lead generation · Partnership Income</span></div>
+        </div>
+        <div class="ptype-card ptype-full">
+          <span class="ptype-badge t5">Type 5</span>
+          <h4>Centers of Influence</h4>
+          <p>Podcast hosts, social media influencers, community leaders, association presidents — they have a large network or following they can share the opportunity with. One center of influence with 5,000 followers who promotes DBR can build your entire organization. <strong style="color:var(--teal)">Everyone in their network needs residual income.</strong></p>
+          <div class="ptype-best">Best for: <span>Viral recruiting · One-to-many leverage</span></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── COMPLETE DBR PRODUCT MAP ── -->
+    <div class="sub-panel" id="pr-productmap">
+      <div class="wh">
+        <div class="wbadge" style="background:linear-gradient(135deg,#F5C518,#C49A00)"><span>🗃️</span></div>
+        <div class="wt">
+          <h2 style="color:var(--gold)">THE COMPLETE DBR PRODUCT MAP</h2>
+          <div class="wsub">Your full ecosystem at a glance — every product, every target, every revenue type and your role.</div>
+        </div>
+      </div>
+
+      <div style="overflow-x:auto;margin-top:.8rem">
+        <table class="prod-map">
+          <thead>
+            <tr>
+              <th>Product</th>
+              <th>Target Client</th>
+              <th>Revenue Type</th>
+              <th>Your Role</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Quantum 125 / QHB</td>
+              <td>Employers (any size via Chamber / 25+ standard)</td>
+              <td><span class="rev-res">FICA savings + $30 PEPM residual</span></td>
+              <td>Division Partner, Trumark Health</td>
+            </tr>
+            <tr>
+              <td>Group Health (CRC / BenefitMall)</td>
+              <td>5–25+ employee groups</td>
+              <td><span class="rev-res">Renewal commissions (residual)</span></td>
+              <td>Broker / Recruiter</td>
+            </tr>
+            <tr>
+              <td>R&amp;D Tax Credits</td>
+              <td>Innovating businesses (any industry)</td>
+              <td><span class="rev-fee">Fee-based, avg $250K–$300K</span></td>
+              <td>Tax Prep Advocates partner</td>
+            </tr>
+            <tr>
+              <td>FICA Tip Credit</td>
+              <td>Restaurants, bars, hotels, golf clubs</td>
+              <td><span class="rev-fee">Annual dollar-for-dollar credit</span></td>
+              <td>Referral (your link: AA0233)</td>
+            </tr>
+            <tr>
+              <td>Bank Breezy / DAC</td>
+              <td>All small businesses needing capital</td>
+              <td><span class="rev-com">Commission + overrides (up to 40% certified)</span></td>
+              <td>Certified Funding Broker</td>
+            </tr>
+            <tr>
+              <td>Personal Dreams Score</td>
+              <td>Individuals &amp; professionals</td>
+              <td><span class="rev-sub">Subscription + override residual</span></td>
+              <td>Agent / Recruiter</td>
+            </tr>
+            <tr>
+              <td>Business Dreams Score</td>
+              <td>Business owners (all sizes)</td>
+              <td><span class="rev-sub">Subscription + client acquisition</span></td>
+              <td>Agent / Recruiter</td>
+            </tr>
+            <tr>
+              <td>Dreams Technology Sandler Partners</td>
+              <td>Business owners (all sizes)</td>
+              <td><span class="rev-res">Renewal commissions (residual)</span></td>
+              <td>Agent / Recruiter</td>
+            </tr>
+            <tr>
+              <td>GOALL (IUL Benefits)</td>
+              <td>Employers wanting IUL benefits</td>
+              <td><span class="rev-mix">Override + residual</span></td>
+              <td>Partner (DIS)</td>
+            </tr>
+            <tr>
+              <td>DIS Life / Annuity</td>
+              <td>Individuals + business owners</td>
+              <td><span class="rev-com">Commission + generational overrides</span></td>
+              <td>CEO / NMD-level</td>
+            </tr>
+            <tr>
+              <td>Ethos Life</td>
+              <td>Digital term life leads</td>
+              <td><span class="rev-com">Commission</span></td>
+              <td>Agent</td>
+            </tr>
+            <tr>
+              <td>Better Bank / IUL</td>
+              <td>Wealth-building clients</td>
+              <td><span class="rev-com">Commission + override</span></td>
+              <td>FEG / DIS</td>
+            </tr>
+            <tr>
+              <td>Family Legacy Plan</td>
+              <td>Families building generational wealth</td>
+              <td><span class="rev-sub">Subscription + referral</span></td>
+              <td>Legacy Builder Partner</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="res-hub" style="margin-top:1.2rem">
+        <a href="https://dreams.poweredagency.com" target="_blank" class="pbtn">Personal Dreams Score</a>
+        <a href="https://dreams.poweredagency.com" target="_blank" class="pbtn">Business Dreams Score</a>
+        <a href="https://familylegacy.pro" target="_blank" class="pbtn gold">📜 FamilyLegacy.pro</a>
+        <a href="https://erctrainers.com/new-rep-sign-up/order-business-cards/" target="_blank" class="pbtn">Order Connect Cards</a>
+        <a href="https://drive.google.com/drive/folders/1AV-AJW-5Jp2RoK8ZQ77tItUnjMFVifx-?usp=sharing" target="_blank" class="pbtn">DBR Master Docs</a>
+      </div>
+    </div>
+
+    <!-- ── LINKEDIN STRATEGY ── -->
     <div class="sub-panel" id="pr-linkedin">
       <div class="sec-title">LinkedIn Strategy</div>
       <div class="sec-tag">Your digital storefront — optimize it before outreach</div>
-
       <div class="g2">
         <div class="card">
           <div class="ct blue">👤 Profile Optimization</div>
@@ -2595,27 +2853,24 @@ footer{background:rgba(2,11,24,.97);border-top:1px solid var(--br2);padding:1.4r
           </ul>
         </div>
       </div>
-
       <div class="script">
         <div class="script-lbl">📱 LinkedIn Connection Request Message</div>
         <p>"Hi [Name] — I work with [industry] professionals to identify federal tax credits and payroll savings most businesses don't know they qualify for. Would love to connect and share what I'm seeing in your space."</p>
       </div>
-
       <div class="script">
         <div class="script-lbl">📱 First Message After Connection</div>
         <p>"Thanks for connecting, [Name]. I specialize in helping businesses like yours identify R&amp;D Tax Credits (avg $250K) and Section 125 FICA savings ($600–$900/employee/year). Not a pitch — just wanted to share what I'm seeing. Would a quick 15-min call this week make sense?"</p>
       </div>
     </div>
 
+    <!-- ── CHAMBER & EVENTS ── -->
     <div class="sub-panel" id="pr-chamber">
       <div class="sec-title">Chamber of Commerce &amp; Networking</div>
       <div class="sec-tag">In-person relationships close faster than digital</div>
-
       <div class="callout teal" style="border-color:var(--teal)">
         <strong>💡 Chamber Membership = Lower Quantum Minimums</strong>
         Chamber of Commerce member businesses qualify for Quantum Health plans with just 10 employees instead of 25. Join your local Chamber. Attend every event. Every member is a potential Quantum client.
       </div>
-
       <div class="g2">
         <div class="card">
           <div class="ct teal">🏛️ Chamber Strategy</div>
@@ -2642,27 +2897,7 @@ footer{background:rgba(2,11,24,.97);border-top:1px solid var(--br2);padding:1.4r
       </div>
     </div>
 
-    <div class="sub-panel" id="pr-targets">
-      <div class="sec-title">Target Industries</div>
-      <div class="sec-tag">Who to call and what to lead with</div>
-
-      <table class="tbl">
-        <thead><tr><th>Target</th><th>Best Product</th><th>Opener</th><th>Avg Value</th></tr></thead>
-        <tbody>
-          <tr><td>CPAs / Accountants</td><td>R&amp;D + FICA Tip + Sec 125</td><td>Strategic Alliance Partner</td><td>$250K+ per client</td></tr>
-          <tr><td>Restaurants (20+ staff)</td><td>FICA Tip + Bank Breezy</td><td>FICA Tip Credit analysis</td><td>$20K–$60K/yr</td></tr>
-          <tr><td>Manufacturers</td><td>R&amp;D Tax Credits</td><td>R&amp;D credit analysis</td><td>$250K–$5M+</td></tr>
-          <tr><td>Software Companies</td><td>R&amp;D Tax Credits</td><td>PATH Act startup credit</td><td>$100K–$500K</td></tr>
-          <tr><td>Employers 25+ EE</td><td>Section 125 / Quantum</td><td>FICA savings analysis</td><td>$1,200–$1,950/mo</td></tr>
-          <tr><td>HR Professionals</td><td>Section 125 + Quantum</td><td>Benefits without budget</td><td>Referral pipeline</td></tr>
-          <tr><td>Payroll Companies</td><td>Full Suite</td><td>Client value-add partner</td><td>50–300 client pipeline</td></tr>
-          <tr><td>Hotels / Casinos</td><td>FICA Tip + Quantum</td><td>Tipped employee credits</td><td>$30K–$100K/yr</td></tr>
-          <tr><td>Contractors</td><td>Bank Breezy + R&amp;D</td><td>Capital + innovation credits</td><td>$50K–$300K</td></tr>
-          <tr><td>Medical / Dental</td><td>R&amp;D + Quantum</td><td>Innovation + benefits</td><td>$100K–$500K</td></tr>
-        </tbody>
-      </table>
-    </div>
-
+    <!-- ── FOLLOW-UP SYSTEM (kept from original) ── -->
     <div class="sub-panel" id="pr-followup">
       <div class="sec-title">5-Touch Follow-Up Sequence</div>
       <div class="sec-tag">Most reps give up after 1 touch. Don't be most reps.</div>
@@ -2709,6 +2944,28 @@ footer{background:rgba(2,11,24,.97);border-top:1px solid var(--br2);padding:1.4r
           </ul>
         </div>
       </div>
+    </div>
+
+    <!-- ── TARGET INDUSTRIES (kept from original) ── -->
+    <div class="sub-panel" id="pr-targets">
+      <div class="sec-title">Target Industries</div>
+      <div class="sec-tag">Who to call and what to lead with</div>
+
+      <table class="tbl">
+        <thead><tr><th>Target</th><th>Best Product</th><th>Opener</th><th>Avg Value</th></tr></thead>
+        <tbody>
+          <tr><td>CPAs / Accountants</td><td>R&amp;D + FICA Tip + Sec 125</td><td>Strategic Alliance Partner</td><td>$250K+ per client</td></tr>
+          <tr><td>Restaurants (20+ staff)</td><td>FICA Tip + Bank Breezy</td><td>FICA Tip Credit analysis</td><td>$20K–$60K/yr</td></tr>
+          <tr><td>Manufacturers</td><td>R&amp;D Tax Credits</td><td>R&amp;D credit analysis</td><td>$250K–$5M+</td></tr>
+          <tr><td>Software Companies</td><td>R&amp;D Tax Credits</td><td>PATH Act startup credit</td><td>$100K–$500K</td></tr>
+          <tr><td>Employers 25+ EE</td><td>Section 125 / Quantum</td><td>FICA savings analysis</td><td>$1,200–$1,950/mo</td></tr>
+          <tr><td>HR Professionals</td><td>Section 125 + Quantum</td><td>Benefits without budget</td><td>Referral pipeline</td></tr>
+          <tr><td>Payroll Companies</td><td>Full Suite</td><td>Client value-add partner</td><td>50–300 client pipeline</td></tr>
+          <tr><td>Hotels / Casinos</td><td>FICA Tip + Quantum</td><td>Tipped employee credits</td><td>$30K–$100K/yr</td></tr>
+          <tr><td>Contractors</td><td>Bank Breezy + R&amp;D</td><td>Capital + innovation credits</td><td>$50K–$300K</td></tr>
+          <tr><td>Medical / Dental</td><td>R&amp;D + Quantum</td><td>Innovation + benefits</td><td>$100K–$500K</td></tr>
+        </tbody>
+      </table>
     </div>
 
   </div>
@@ -3437,3 +3694,5 @@ calcAll();
 </script>
 </body>
 </html>
+
+<!-- cache-bust: 1777777777 linkedin-chamber-restored -->
