@@ -363,17 +363,110 @@
     }
 
     /* ── FOOTER ── */
-    footer {
+    .dbr-footer {
       background: #000d1a;
-      border-top: 1px solid rgba(0,201,184,0.15);
+      border-top: 1px solid rgba(0,201,184,0.12);
+      padding: 52px 24px 32px;
       text-align: center;
-      padding: 28px 20px;
+    }
+    .dbr-footer-monogram {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(3rem, 10vw, 5.5rem);
+      font-weight: 400;
+      color: #00C9B8;
+      letter-spacing: 0.55em;
+      line-height: 1;
+      margin-bottom: 32px;
+      padding-left: 0.55em;
+    }
+    .dbr-footer-nav {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 10px 36px;
+      margin-bottom: 28px;
+    }
+    .dbr-footer-nav a {
+      font-family: 'Jost', sans-serif;
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: #F0E8D5;
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .dbr-footer-nav a:hover { color: #00C9B8; }
+    .dbr-footer-rule {
+      width: 60px;
+      height: 1px;
+      background: rgba(0,201,184,0.35);
+      margin: 0 auto 24px;
+    }
+    .dbr-footer-copy {
       font-size: 0.78rem;
       color: #6A8FA8;
-      letter-spacing: 0.06em;
+      line-height: 1.7;
     }
-    footer a { color: #00C9B8; text-decoration: none; }
-    footer a:hover { text-decoration: underline; }
+    .dbr-footer-copy a { color: #00C9B8; text-decoration: none; }
+    .dbr-footer-copy a:hover { text-decoration: underline; }
+
+    /* ── SCROLL NAV BUTTONS ── */
+    .scroll-nav {
+      position: fixed;
+      right: 18px;
+      top: 50%;
+      transform: translateY(-50%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0;
+      z-index: 999;
+      pointer-events: none;
+    }
+    .scroll-btn {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      border: 2px solid #00C9B8;
+      background: rgba(1,8,16,0.85);
+      color: #fff;
+      font-size: 1.1rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      pointer-events: all;
+      transition: background 0.2s, transform 0.2s;
+      backdrop-filter: blur(6px);
+      -webkit-backdrop-filter: blur(6px);
+      text-decoration: none;
+      flex-shrink: 0;
+    }
+    .scroll-btn:hover {
+      background: rgba(0,201,184,0.18);
+      transform: scale(1.08);
+    }
+    .scroll-dots {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 5px;
+      padding: 8px 0;
+      pointer-events: none;
+    }
+    .scroll-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: #2a4a5e;
+      transition: background 0.3s;
+    }
+    .scroll-dot.active { background: #00C9B8; }
+    @media (max-width: 600px) {
+      .scroll-nav { right: 8px; }
+      .scroll-btn { width: 36px; height: 36px; font-size: 0.9rem; }
+    }
 
     /* ── RESPONSIVE ── */
     @media (max-width: 600px) {
@@ -914,10 +1007,62 @@
 <!-- ══════════════════════════════════════
      FOOTER
 ══════════════════════════════════════ -->
-<footer>
-  <p>© 2026 Mike Hinsvark · ERC Trainers · <a href="https://erctrainers.com">erctrainers.com</a> · <a href="https://dreamsfaststart.com">dreamsfaststart.com</a> · <a href="https://renewalsforlifestyle.com">renewalsforlifestyle.com</a></p>
-  <p style="margin-top:6px; font-size:0.72rem; color:#3a5a6a;">All content is for educational purposes only. Income results vary.</p>
+<footer class="dbr-footer">
+  <div class="dbr-footer-monogram">D &nbsp;B &nbsp;R</div>
+  <nav class="dbr-footer-nav">
+    <a href="https://dreamsfaststart.com">Fast Start</a>
+    <a href="https://dreamsfaststart.com/vf-video-book-summaries.html">Book Summaries</a>
+    <a href="https://dreamsfaststart.com/brian-moran-12-week-year.html">12 Week Year</a>
+    <a href="https://renewalsforlifestyle.com">Renewals for Life</a>
+  </nav>
+  <div class="dbr-footer-rule"></div>
+  <div class="dbr-footer-copy">
+    <p>© 2026 Dreams Business Resources · Mike Hinsvark, Senior Agency Partner · <a href="mailto:mikeceo@gmail.com">mikeceo@gmail.com</a> · All rights reserved.</p>
+    <p style="margin-top:4px;">Income results vary. This training material is for educational purposes only.</p>
+  </div>
 </footer>
+
+<!-- ══════════════════════════════════════
+     FLOATING SCROLL NAV
+══════════════════════════════════════ -->
+<div class="scroll-nav" id="scrollNav">
+  <button class="scroll-btn" id="scrollUp" title="Scroll to top" aria-label="Scroll up">&#8593;</button>
+  <div class="scroll-dots" id="scrollDots">
+    <div class="scroll-dot active"></div>
+    <div class="scroll-dot"></div>
+    <div class="scroll-dot"></div>
+    <div class="scroll-dot"></div>
+    <div class="scroll-dot"></div>
+    <div class="scroll-dot"></div>
+    <div class="scroll-dot"></div>
+    <div class="scroll-dot"></div>
+  </div>
+  <button class="scroll-btn" id="scrollDown" title="Scroll to bottom" aria-label="Scroll down">&#8595;</button>
+</div>
+
+<script>
+  // Scroll up/down buttons
+  document.getElementById('scrollUp').addEventListener('click', function() {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+  document.getElementById('scrollDown').addEventListener('click', function() {
+    window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
+  });
+
+  // Active dot indicator
+  var dots = document.querySelectorAll('.scroll-dot');
+  function updateDots() {
+    var scrolled = window.scrollY;
+    var total = document.body.scrollHeight - window.innerHeight;
+    var progress = total > 0 ? scrolled / total : 0;
+    var activeDot = Math.round(progress * (dots.length - 1));
+    dots.forEach(function(d, i) {
+      d.classList.toggle('active', i === activeDot);
+    });
+  }
+  window.addEventListener('scroll', updateDots, { passive: true });
+  updateDots();
+</script>
 
 </body>
 </html>
