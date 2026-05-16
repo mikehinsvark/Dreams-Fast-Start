@@ -1,0 +1,669 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The DBR Business Portfolio — Dreams Business Resources</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg:        #010810;
+      --bg2:       #071428;
+      --teal:      #00C9B8;
+      --teal-dim:  #00a89a;
+      --cream:     #F0E8D5;
+      --muted:     #6A8FA8;
+      --green-glow:#39d353;
+      --card-bg:   #0a1a2e;
+      --border:    #1a3050;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--cream);
+      font-family: 'Jost', sans-serif;
+      font-weight: 400;
+      min-height: 100vh;
+    }
+
+    /* ─── HEADER ─────────────────────────────────────────────── */
+    header {
+      background: var(--bg2);
+      border-bottom: 1px solid var(--border);
+      padding: 0 1.5rem;
+    }
+    .header-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1.1rem 0;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+    .header-brand {
+      display: flex;
+      flex-direction: column;
+    }
+    .header-brand .logo {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.55rem;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      color: var(--teal);
+      line-height: 1.1;
+    }
+    .header-brand .sub {
+      font-size: 0.68rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-top: 2px;
+    }
+    .header-tagline {
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      font-size: 1.05rem;
+      color: var(--muted);
+      text-align: right;
+      line-height: 1.4;
+    }
+    .header-tagline span { color: var(--teal); }
+
+    /* ─── HERO ───────────────────────────────────────────────── */
+    .hero {
+      background: linear-gradient(180deg, var(--bg2) 0%, var(--bg) 100%);
+      padding: 3.5rem 1.5rem 3rem;
+      text-align: center;
+      border-bottom: 1px solid var(--border);
+    }
+    .hero-inner { max-width: 860px; margin: 0 auto; }
+    .hero-eyebrow {
+      display: inline-block;
+      font-size: 0.7rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--teal);
+      border: 1px solid var(--teal);
+      border-radius: 2rem;
+      padding: 0.3rem 1rem;
+      margin-bottom: 1.4rem;
+    }
+    .hero h1 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2.2rem, 6vw, 3.8rem);
+      font-weight: 700;
+      line-height: 1.1;
+      color: var(--cream);
+      margin-bottom: 0.5rem;
+    }
+    .hero h1 span { color: var(--teal); }
+    .hero p {
+      font-size: 1.05rem;
+      color: var(--muted);
+      max-width: 640px;
+      margin: 1rem auto 0;
+      line-height: 1.7;
+    }
+    .hero-stats {
+      display: flex;
+      justify-content: center;
+      gap: 2.5rem;
+      margin-top: 2rem;
+      flex-wrap: wrap;
+    }
+    .hero-stat { text-align: center; }
+    .hero-stat .num {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2rem;
+      color: var(--teal);
+      font-weight: 700;
+      display: block;
+    }
+    .hero-stat .lbl {
+      font-size: 0.68rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    /* ─── MAIN CONTENT ───────────────────────────────────────── */
+    main {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 3rem 1.5rem 4rem;
+    }
+    .section-label {
+      font-size: 0.68rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--teal);
+      margin-bottom: 2.5rem;
+      text-align: center;
+    }
+
+    /* ─── PORTFOLIO GRID ─────────────────────────────────────── */
+    .portfolio-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(310px, 1fr));
+      gap: 2rem;
+    }
+
+    /* ─── CARD ───────────────────────────────────────────────── */
+    .card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+    }
+    .card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 40px rgba(0, 201, 184, 0.12);
+    }
+
+    /* green outline image wrapper — inspired by renewalsforlife.com */
+    .card-img-wrap {
+      position: relative;
+      width: 100%;
+      /* fixed aspect ratio so all cards are same height */
+      padding-top: 62.5%; /* 16:10 ratio */
+      background: #000;
+      border-bottom: 3px solid var(--green-glow);
+      box-shadow: 0 0 0 3px var(--green-glow), inset 0 0 0 3px var(--green-glow);
+    }
+    .card-img-wrap img {
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: top center;
+      display: block;
+    }
+    .card-num {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      background: rgba(1,8,16,0.82);
+      border: 1px solid var(--green-glow);
+      color: var(--green-glow);
+      font-size: 0.65rem;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      padding: 3px 8px;
+      border-radius: 4px;
+      z-index: 2;
+    }
+
+    .card-body {
+      padding: 1.25rem 1.25rem 1.5rem;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 0.6rem;
+    }
+    .card-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: var(--teal);
+      line-height: 1.25;
+    }
+    .card-desc {
+      font-size: 0.88rem;
+      color: var(--cream);
+      line-height: 1.65;
+      opacity: 0.85;
+      flex: 1;
+    }
+    .card-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      margin-top: 0.5rem;
+      font-size: 0.78rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--teal);
+      text-decoration: none;
+      border: 1px solid var(--teal);
+      border-radius: 4px;
+      padding: 0.4rem 0.85rem;
+      align-self: flex-start;
+      transition: background 0.2s, color 0.2s;
+    }
+    .card-link:hover {
+      background: var(--teal);
+      color: var(--bg);
+    }
+    .card-link svg {
+      width: 12px; height: 12px;
+      fill: none;
+      stroke: currentColor;
+      stroke-width: 2;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    /* ─── SCROLL TO TOP ──────────────────────────────────────── */
+    #scrollTopBtn {
+      position: fixed;
+      bottom: 1.8rem;
+      right: 1.8rem;
+      width: 46px;
+      height: 46px;
+      background: var(--teal);
+      color: var(--bg);
+      border: none;
+      border-radius: 50%;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s, transform 0.3s;
+      z-index: 999;
+      box-shadow: 0 4px 20px rgba(0,201,184,0.4);
+    }
+    #scrollTopBtn.visible {
+      opacity: 1;
+      pointer-events: auto;
+    }
+    #scrollTopBtn:hover { transform: scale(1.1); }
+    #scrollTopBtn svg {
+      width: 20px; height: 20px;
+      fill: none;
+      stroke: currentColor;
+      stroke-width: 2.5;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    /* ─── FOOTER ─────────────────────────────────────────────── */
+    footer {
+      background: var(--bg2);
+      border-top: 1px solid var(--border);
+      padding: 2rem 1.5rem;
+      text-align: center;
+    }
+    .footer-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+    .footer-brand {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: var(--teal);
+      letter-spacing: 0.06em;
+    }
+    .footer-sub {
+      font-size: 0.68rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-top: 4px;
+    }
+    .footer-links {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 1.2rem;
+      margin-top: 1.2rem;
+    }
+    .footer-links a {
+      font-size: 0.8rem;
+      color: var(--muted);
+      text-decoration: none;
+      letter-spacing: 0.06em;
+      transition: color 0.2s;
+    }
+    .footer-links a:hover { color: var(--teal); }
+    .footer-copy {
+      margin-top: 1.2rem;
+      font-size: 0.72rem;
+      color: var(--muted);
+      opacity: 0.6;
+    }
+
+    /* ─── RESPONSIVE ─────────────────────────────────────────── */
+    @media (max-width: 680px) {
+      .portfolio-grid { grid-template-columns: 1fr; }
+      .header-tagline { display: none; }
+      .hero h1 { font-size: 2rem; }
+      #scrollTopBtn { bottom: 1rem; right: 1rem; }
+    }
+    @media (max-width: 480px) {
+      main { padding: 2rem 1rem 3rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ═══ HEADER ═══════════════════════════════════════════════ -->
+  <header>
+    <div class="header-inner">
+      <div class="header-brand">
+        <span class="logo">DBR Fast Start</span>
+        <span class="sub">Dreams Business Resources · Business Portfolio</span>
+      </div>
+      <div class="header-tagline">
+        "You are in business for yourself,<br>
+        <span>but not by yourself."</span>
+      </div>
+    </div>
+  </header>
+
+  <!-- ═══ HERO ══════════════════════════════════════════════════ -->
+  <section class="hero">
+    <div class="hero-inner">
+      <span class="hero-eyebrow">⚡ DBR Digital Ecosystem</span>
+      <h1>The DBR <span>Business Portfolio</span></h1>
+      <p>A curated collection of the tools, training platforms, and AI-powered resources built to help you build residual income, grow your team, and design the life you deserve.</p>
+      <div class="hero-stats">
+        <div class="hero-stat"><span class="num">15</span><span class="lbl">Live Platforms</span></div>
+        <div class="hero-stat"><span class="num">24/7</span><span class="lbl">Always On</span></div>
+        <div class="hero-stat"><span class="num">AI</span><span class="lbl">Powered</span></div>
+        <div class="hero-stat"><span class="num">B2B</span><span class="lbl">Enterprise Ready</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ PORTFOLIO GRID ════════════════════════════════════════ -->
+  <main>
+    <div class="section-label">// Our Digital Platform Collection</div>
+    <div class="portfolio-grid">
+
+      <!-- 1 -->
+      <div class="card">
+        <div class="card-img-wrap">
+          <span class="card-num">01</span>
+          <img src="portfolio-img-01-renewalsforlife.png" alt="Renewals for Life" loading="lazy" />
+        </div>
+        <div class="card-body">
+          <div class="card-title">Renewals for Life</div>
+          <div class="card-desc">The income model paradigm shift. Discover how to stop building someone else's asset and start building income that pays you for life — 100% lifetime renewals with no servicing required. This is the 1-in-a-million B2B opportunity.</div>
+          <a class="card-link" href="https://renewalsforlife.com/" target="_blank" rel="noopener">
+            Visit Site
+            <svg viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <!-- 2 -->
+      <div class="card">
+        <div class="card-img-wrap">
+          <span class="card-num">02</span>
+          <img src="portfolio-img-02-dreamsfaststart.png" alt="DBR Fast Start" loading="lazy" />
+        </div>
+        <div class="card-body">
+          <div class="card-title">DBR Fast Start</div>
+          <div class="card-desc">Your AI-powered 5-week onboarding system. Built to duplicate success, build residual income, and ignite your legacy. Covers Tax Credits, Bank Breezy, Quantum Health, AI Agents, and more — with a built-in income calculator.</div>
+          <a class="card-link" href="https://dreamsfaststart.com/" target="_blank" rel="noopener">
+            Visit Site
+            <svg viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <!-- 3 -->
+      <div class="card">
+        <div class="card-img-wrap">
+          <span class="card-num">03</span>
+          <img src="portfolio-img-03-dreamsscores.png" alt="Business Dreams Score Report" loading="lazy" />
+        </div>
+        <div class="card-body">
+          <div class="card-title">Business Dreams Score Report</div>
+          <div class="card-desc">A 15-minute business financial assessment that uncovers $50,000 to $500,000 in hidden savings, tax credits, and profit opportunities across six key areas — debt, retirement, expenses, assets, money, and security. No cost to review.</div>
+          <a class="card-link" href="https://dreamsscores.com/?refid=AA0233" target="_blank" rel="noopener">
+            Visit Site
+            <svg viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <!-- 4 -->
+      <div class="card">
+        <div class="card-img-wrap">
+          <span class="card-num">04</span>
+          <img src="portfolio-img-04-aigeniedatabase.png" alt="Build Your Database" loading="lazy" />
+        </div>
+        <div class="card-body">
+          <div class="card-title">Build Your Database</div>
+          <div class="card-desc">The DBR AI Genie Platform strategy that transforms a new agent's empty dashboard into a full, active pipeline — using contacts already on their phone, LinkedIn, and Gmail. 500–5,000+ contacts. Zero cold calling required to start.</div>
+          <a class="card-link" href="https://aigeniedatabase.com/" target="_blank" rel="noopener">
+            Visit Site
+            <svg viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <!-- 5 -->
+      <div class="card">
+        <div class="card-img-wrap">
+          <span class="card-num">05</span>
+          <img src="portfolio-img-05-dreamspartner.png" alt="The Dreams Partner Program" loading="lazy" />
+        </div>
+        <div class="card-body">
+          <div class="card-title">The Dreams Partner Program</div>
+          <div class="card-desc">A strategic alliance ecosystem for professionals who already advise, serve, or influence business owners. Built to create new revenue streams, deepen client loyalty, and uncover hidden money for every business you touch. Work smarter, not just harder.</div>
+          <a class="card-link" href="https://dreamspartn-etgf7r9k.manus.space/" target="_blank" rel="noopener">
+            Visit Site
+            <svg viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <!-- 6 -->
+      <div class="card">
+        <div class="card-img-wrap">
+          <span class="card-num">06</span>
+          <img src="portfolio-img-06-aigenies.png" alt="Your AI Agent Genie Team" loading="lazy" />
+        </div>
+        <div class="card-body">
+          <div class="card-title">Your AI Agent Genie Team</div>
+          <div class="card-desc">The DBR AI Genie PRO platform — your entire AI team, working while you sleep. 4 AI agents, 4 experts, the DBR council, and your personal Digital Mind, all in one platform. Built for builders who refuse to trade time for income.</div>
+          <a class="card-link" href="https://aigenies.pro/" target="_blank" rel="noopener">
+            Visit Site
+            <svg viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <!-- 7 -->
+      <div class="card">
+        <div class="card-img-wrap">
+          <span class="card-num">07</span>
+          <img src="portfolio-img-07-dreamsaiagents.png" alt="Meet Your AI Agent Team" loading="lazy" />
+        </div>
+        <div class="card-body">
+          <div class="card-title">Meet Your AI Agent Team</div>
+          <div class="card-desc">The DBR AI Agents onboarding experience. You're about to set up something no other agent in this industry has — a Recruiting Agent, Onboarding Agent, B2B Sales Agent, and Intelligence Agent working 24/7 on your behalf.</div>
+          <a class="card-link" href="https://dreamsaiagents.pro/" target="_blank" rel="noopener">
+            Visit Site
+            <svg viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <!-- 8 -->
+      <div class="card">
+        <div class="card-img-wrap">
+          <span class="card-num">08</span>
+          <img src="portfolio-img-08-commandcenter.png" alt="Your AI Agent Command Center" loading="lazy" />
+        </div>
+        <div class="card-body">
+          <div class="card-title">Your AI Agent Command Center</div>
+          <div class="card-desc">Your live AI team dashboard — track active recruits, B2B prospects, monthly residual, and AI tasks completed in real time. Talk directly to your Recruiting, Onboarding, B2B Sales, and Intelligence agents from one unified command center.</div>
+          <a class="card-link" href="https://claude.ai/public/artifacts/2be0608a-8435-41db-82fc-8442f84bce0a" target="_blank" rel="noopener">
+            Visit Site
+            <svg viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <!-- 9 -->
+      <div class="card">
+        <div class="card-img-wrap">
+          <span class="card-num">09</span>
+          <img src="portfolio-img-09-renewalsforlifestyle.png" alt="Renewals for Lifestyle" loading="lazy" />
+        </div>
+        <div class="card-body">
+          <div class="card-title">Renewals for Lifestyle</div>
+          <div class="card-desc">Lifestyle Design Intelligence — it is time to dream again. Explore city guides, the USA bucket list, national parks, road trips, and world bucket list destinations. Real wealth is agency, opportunity, and time. Design the life first.</div>
+          <a class="card-link" href="https://renewalsforlifestyle.com/" target="_blank" rel="noopener">
+            Visit Site
+            <svg viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <!-- 10 -->
+      <div class="card">
+        <div class="card-img-wrap">
+          <span class="card-num">10</span>
+          <img src="portfolio-img-10-familylegacy.png" alt="Your Family Legacy" loading="lazy" />
+        </div>
+        <div class="card-body">
+          <div class="card-title">Your Family Legacy</div>
+          <div class="card-desc">The DBR Legacy Program. Your legacy is not a bank account — it is a mission, written down, handed forward, and funded permanently by income that never stops. Create freedom, build generations, leave a legacy, and live purposefully.</div>
+          <a class="card-link" href="https://familylegacy.pro/" target="_blank" rel="noopener">
+            Visit Site
+            <svg viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <!-- 11 -->
+      <div class="card">
+        <div class="card-img-wrap">
+          <span class="card-num">11</span>
+          <img src="portfolio-img-11-referrals.png" alt="Referrals by Design" loading="lazy" />
+        </div>
+        <div class="card-body">
+          <div class="card-title">Referrals by Design</div>
+          <div class="card-desc">Build a business so rooted in trust and relationships that your best clients become your most powerful sales force. Based on the proven strategies of Brian Buffini and Joe Niego — work by referral, live the good life.</div>
+          <a class="card-link" href="https://dreamsfaststart.com/referrals-by-design.html" target="_blank" rel="noopener">
+            Visit Site
+            <svg viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <!-- 12 -->
+      <div class="card">
+        <div class="card-img-wrap">
+          <span class="card-num">12</span>
+          <img src="portfolio-img-12-brianmoran.png" alt="The 12 Week Year" loading="lazy" />
+        </div>
+        <div class="card-body">
+          <div class="card-title">The 12 Week Year</div>
+          <div class="card-desc">A Morning with Brian Moran — New York Times bestselling author of "The 12 Week Year." Fast-track your productivity and get more done in 12 weeks than most people accomplish in 12 months. A game-changing framework for peak performance.</div>
+          <a class="card-link" href="https://dreamsfaststart.com/brian-moran-12-week-year.html" target="_blank" rel="noopener">
+            Visit Site
+            <svg viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <!-- 13 -->
+      <div class="card">
+        <div class="card-img-wrap">
+          <span class="card-num">13</span>
+          <img src="portfolio-img-13-videobooksummaries.png" alt="Video Book Summaries" loading="lazy" />
+        </div>
+        <div class="card-body">
+          <div class="card-title">Video Book Summaries</div>
+          <div class="card-desc">The most powerful books in business and financial freedom — distilled into key insights you can apply today. From Think and Grow Rich to the latest leadership classics, each summary is presented in an engaging video format for busy professionals.</div>
+          <a class="card-link" href="https://dreamsfaststart.com/vf-video-book-summaries.html" target="_blank" rel="noopener">
+            Visit Site
+            <svg viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <!-- 14 -->
+      <div class="card">
+        <div class="card-img-wrap">
+          <span class="card-num">14</span>
+          <img src="portfolio-img-14-retirementreality.png" alt="Your Retirement Reality" loading="lazy" />
+        </div>
+        <div class="card-body">
+          <div class="card-title">Your Retirement Reality</div>
+          <div class="card-desc">An interactive state-by-state map showing what retirement actually costs where you live — with and without Social Security. Compare your required monthly savings against the DBR residual income target and customize your own retirement scenario.</div>
+          <a class="card-link" href="https://claude.ai/public/artifacts/ee253a3b-106f-483d-867e-1be865f081ed" target="_blank" rel="noopener">
+            Visit Site
+            <svg viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <!-- 15 -->
+      <div class="card">
+        <div class="card-img-wrap">
+          <span class="card-num">15</span>
+          <img src="portfolio-img-15-dbrcards.png" alt="DBR Connect Cards" loading="lazy" />
+        </div>
+        <div class="card-body">
+          <div class="card-title">DBR Connect Cards</div>
+          <div class="card-desc">Order your premium 5×7 matte finish DBR Connect Cards and Business Cards. Your name, email, phone, and QR code — all on both sides. Featuring FICA Tip Credit, Quantum Health, Dreams Score, and Bank Breezy card designs for every conversation.</div>
+          <a class="card-link" href="https://dbrcardord-wnbxmczl.manus.space/" target="_blank" rel="noopener">
+            Visit Site
+            <svg viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+          </a>
+        </div>
+      </div>
+
+    </div><!-- /portfolio-grid -->
+  </main>
+
+  <!-- ═══ FOOTER ═════════════════════════════════════════════════ -->
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-brand">DBR Fast Start</div>
+      <div class="footer-sub">Dreams Business Resources · Business Portfolio</div>
+      <nav class="footer-links">
+        <a href="https://dreamsfaststart.com/" target="_blank" rel="noopener">Fast Start Home</a>
+        <a href="https://renewalsforlife.com/" target="_blank" rel="noopener">Renewals for Life</a>
+        <a href="https://aigenies.pro/" target="_blank" rel="noopener">AI Genie PRO</a>
+        <a href="https://dreamsscores.com/?refid=AA0233" target="_blank" rel="noopener">Dreams Score</a>
+        <a href="https://familylegacy.pro/" target="_blank" rel="noopener">Family Legacy</a>
+      </nav>
+      <div class="footer-copy">© 2026 Dreams Business Resources. All rights reserved.</div>
+    </div>
+  </footer>
+
+  <!-- ═══ SCROLL TO TOP ══════════════════════════════════════════ -->
+  <button id="scrollTopBtn" title="Back to top" aria-label="Scroll to top">
+    <svg viewBox="0 0 24 24"><polyline points="18 15 12 9 6 15"/></svg>
+  </button>
+
+  <script>
+    // Scroll-to-top toggle
+    const btn = document.getElementById('scrollTopBtn');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 400) {
+        btn.classList.add('visible');
+      } else {
+        btn.classList.remove('visible');
+      }
+    }, { passive: true });
+    btn.addEventListener('click', () => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  </script>
+
+</body>
+</html>
