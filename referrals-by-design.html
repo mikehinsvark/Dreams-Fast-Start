@@ -550,6 +550,109 @@
       font-size: 0.8rem;
     }
 
+    /* ── New DBR Footer ── */
+    .footer-dbr-logo {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 3rem;
+      font-weight: 700;
+      letter-spacing: 0.35em;
+      color: var(--teal);
+      margin-bottom: 28px;
+    }
+    .footer-nav {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 40px;
+      margin-bottom: 28px;
+    }
+    .footer-nav a {
+      color: var(--cream);
+      text-decoration: none;
+      font-family: 'Jost', sans-serif;
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      transition: color 0.2s;
+    }
+    .footer-nav a:hover { color: var(--teal); }
+    .footer-divider {
+      width: 60px;
+      height: 1px;
+      background: var(--teal);
+      margin: 0 auto 24px;
+      opacity: 0.5;
+    }
+    .footer-copy {
+      color: var(--muted);
+      font-size: 0.78rem;
+      line-height: 1.7;
+    }
+    .footer-copy a {
+      color: var(--teal);
+      text-decoration: none;
+    }
+
+    /* ── Letter PS line ── */
+    .letter-ps {
+      margin-top: 14px;
+      font-style: italic;
+      color: var(--teal);
+      font-size: 0.95rem;
+    }
+
+    /* ── Scroll Toggle Buttons ── */
+    .scroll-toggle {
+      position: fixed;
+      right: 22px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0;
+      z-index: 999;
+      top: 50%;
+      transform: translateY(-50%);
+      pointer-events: none;
+    }
+    .scroll-btn {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      border: 2px solid var(--teal);
+      background: rgba(1,8,16,0.85);
+      color: var(--cream);
+      font-size: 1.1rem;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      pointer-events: all;
+      transition: background 0.2s, transform 0.15s;
+      backdrop-filter: blur(6px);
+    }
+    .scroll-btn:hover { background: var(--teal); color: #010810; transform: scale(1.1); }
+    .scroll-track {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 5px;
+      padding: 10px 0;
+      pointer-events: none;
+    }
+    .scroll-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.2);
+      transition: background 0.3s;
+    }
+    .scroll-dot.active { background: var(--teal); }
+    @media (max-width: 640px) {
+      .scroll-toggle { right: 10px; }
+      .scroll-btn { width: 38px; height: 38px; font-size: 0.9rem; }
+    }
+
     /* ── Mobile ── */
     @media (max-width: 640px) {
       .card-header, .card-body { padding: 18px 18px; }
@@ -850,6 +953,7 @@
             <strong style="color:var(--teal);">Mike Hinsvark</strong><br>
             619-663-6607
           </div>
+          <div class="letter-ps">P.S. I am never too busy for your referrals!</div>
         </div>
 
         <div class="letter-card">
@@ -862,6 +966,7 @@
             <strong style="color:var(--teal);">Mike Hinsvark</strong><br>
             619-663-6607
           </div>
+          <div class="letter-ps">P.S. I am never too busy for your referrals!</div>
                 </div>
       </div>
     </div>
@@ -922,14 +1027,49 @@
   </div><!-- /container -->
 
   <!-- ══════════════════ FOOTER ══════════════════ -->
+  <!-- ── Scroll Toggle ── -->
+  <div class="scroll-toggle" id="scrollToggle">
+    <button class="scroll-btn" id="scrollUp" onclick="window.scrollTo({top:0,behavior:'smooth'})" title="Back to Top">&#8593;</button>
+    <div class="scroll-track" id="scrollTrack"></div>
+    <button class="scroll-btn" id="scrollDown" onclick="window.scrollTo({top:document.body.scrollHeight,behavior:'smooth'})" title="Go to Bottom">&#8595;</button>
+  </div>
+
   <footer>
-    <div class="footer-links">
-      <a href="https://erctrainers.com" target="_blank" rel="noopener">erctrainers.com</a>
-      <a href="https://dreamsfaststart.com" target="_blank" rel="noopener">dreamsfaststart.com</a>
-      <a href="https://renewalsforlifestyle.com" target="_blank" rel="noopener">renewalsforlifestyle.com</a>
-    </div>
-    <p>© 2025 DBR Learning Library · Mike Hinsvark · 619-663-6607</p>
+    <div class="footer-dbr-logo">D B R</div>
+    <nav class="footer-nav">
+      <a href="https://dreamsfaststart.com" target="_blank" rel="noopener">Fast Start</a>
+      <a href="https://dreamsfaststart.com/vf-video-book-summaries.html" target="_blank" rel="noopener">Video Library</a>
+      <a href="https://erctrainers.com/aiagents/" target="_blank" rel="noopener">AI Genie Database</a>
+      <a href="https://renewalsforlifestyle.com" target="_blank" rel="noopener">Renewals For Life</a>
+    </nav>
+    <div class="footer-divider"></div>
+    <p class="footer-copy">© 2026 Dreams Business Resources &middot; Mike Hinsvark, Senior Agency Partner &middot; <a href="mailto:mikeceo@gmail.com">mikeceo@gmail.com</a> &middot; All rights reserved.<br>Income results vary. This training material is for educational purposes only.</p>
   </footer>
+
+  <script>
+    // Scroll progress dots
+    (function() {
+      var track = document.getElementById('scrollTrack');
+      var numDots = 12;
+      for (var i = 0; i < numDots; i++) {
+        var d = document.createElement('div');
+        d.className = 'scroll-dot';
+        track.appendChild(d);
+      }
+      function updateDots() {
+        var scrolled = window.scrollY;
+        var total = document.body.scrollHeight - window.innerHeight;
+        var pct = total > 0 ? scrolled / total : 0;
+        var activeDot = Math.round(pct * (numDots - 1));
+        var dots = track.querySelectorAll('.scroll-dot');
+        dots.forEach(function(d, i) {
+          d.classList.toggle('active', i === activeDot);
+        });
+      }
+      window.addEventListener('scroll', updateDots, {passive: true});
+      updateDots();
+    })();
+  </script>
 
 </body>
 </html>
