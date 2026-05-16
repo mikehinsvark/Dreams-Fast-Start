@@ -475,6 +475,100 @@
 
     .footer-copy a:hover { text-decoration: underline; }
 
+    /* ── BLUEPRINT INTRO ───────────────────────────────── */
+    .blueprint-intro {
+      background: linear-gradient(135deg, #071a35 0%, #0a2040 50%, #071428 100%);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 44px 32px 40px;
+      text-align: center;
+      margin-bottom: 40px;
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 0 60px rgba(0,201,184,0.08), 0 8px 32px rgba(0,0,0,0.5);
+    }
+
+    .blueprint-intro::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 2px;
+      background: linear-gradient(90deg, transparent, var(--teal), transparent);
+    }
+
+    .blueprint-intro::after {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(0,201,184,0.3), transparent);
+    }
+
+    .blueprint-icon {
+      font-size: 1.1rem;
+      color: var(--teal);
+      margin-bottom: 10px;
+      opacity: 0.8;
+      letter-spacing: 0.3em;
+    }
+
+    .blueprint-eyebrow {
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--teal);
+      margin-bottom: 14px;
+    }
+
+    .blueprint-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(1.9rem, 5vw, 2.8rem);
+      font-weight: 700;
+      color: var(--cream);
+      line-height: 1.15;
+      margin-bottom: 12px;
+    }
+
+    .blueprint-title span { color: var(--teal); }
+
+    .blueprint-sub {
+      color: var(--muted);
+      font-size: 1rem;
+      max-width: 520px;
+      margin: 0 auto 28px;
+      line-height: 1.6;
+    }
+
+    .blueprint-pillars {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 4px;
+    }
+
+    .bp-pill {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      background: rgba(0,201,184,0.08);
+      border: 1px solid rgba(0,201,184,0.22);
+      border-radius: 40px;
+      padding: 8px 20px;
+      font-size: 0.82rem;
+      font-weight: 500;
+      color: var(--cream);
+      letter-spacing: 0.04em;
+    }
+
+    .bp-num {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--teal);
+    }
+
     /* ── SCROLL NAVIGATOR ────────────────────────────────── */
     .scroll-nav {
       position: fixed;
@@ -559,11 +653,6 @@
 </head>
 <body>
 
-  <!-- ── HERO BANNER ──────────────────────────────────── -->
-  <div class="hero">
-    <img src="banner.png" alt="A Morning with Brian Moran — Author of The 12 Week Year" />
-  </div>
-
   <!-- ── PAGE CONTENT ─────────────────────────────────── -->
   <div class="page-wrap">
 
@@ -577,6 +666,24 @@
       <h2>A Morning with <span>Brian Moran</span></h2>
       <p>Author of the New York Times Bestseller <em>"The 12 Week Year"</em> — Fast-Track Your Productivity</p>
       <div class="divider"></div>
+    </div>
+
+    <!-- ── HERO BANNER (under heading) ──────────────────── -->
+    <div class="hero" style="margin-bottom:48px;">
+      <img src="banner.png" alt="A Morning with Brian Moran — Author of The 12 Week Year" />
+    </div>
+
+    <!-- ── BLUEPRINT INTRO ───────────────────────────────── -->
+    <div class="blueprint-intro">
+      <div class="blueprint-icon">&#9650;</div>
+      <div class="blueprint-eyebrow">Featured Video Series</div>
+      <h3 class="blueprint-title">The 12 Week Year <span>Blueprint</span></h3>
+      <p class="blueprint-sub">Your Roadmap to Accelerate Focus, Execution &amp; Financial Momentum</p>
+      <div class="blueprint-pillars">
+        <div class="bp-pill"><span class="bp-num">01</span><span>Compress Your Timeline</span></div>
+        <div class="bp-pill"><span class="bp-num">02</span><span>Execute with Precision</span></div>
+        <div class="bp-pill"><span class="bp-num">03</span><span>Build Unstoppable Momentum</span></div>
+      </div>
     </div>
 
     <!-- ── VIDEO 01 ──────────────────────────────────── -->
