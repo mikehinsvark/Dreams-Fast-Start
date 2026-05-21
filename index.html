@@ -3267,12 +3267,35 @@ footer{background:rgba(2,11,24,.97);border-top:1px solid var(--br2);padding:1.4r
 
 <script>
 // ── TAB NAVIGATION ──────────────────────────────────────
+// ── HASH → TAB ID MAP ────────────────────────────────────
+const HASH_MAP = {
+  'week-1': 'week1', 'week1': 'week1',
+  'week-2': 'week2', 'week2': 'week2',
+  'week-3': 'week3', 'week3': 'week3',
+  'week-4': 'week4', 'week4': 'week4',
+  'week-5': 'week5', 'week5': 'week5',
+  'resources': 'calc', 'calc': 'calc',
+  'prospecting': 'prospecting',
+  'marketing': 'marketing',
+  'comp-plan': 'comp', 'comp': 'comp',
+  'home': 'home'
+};
+const TAB_HASH = {
+  'home': 'home', 'week1': 'week-1', 'week2': 'week-2',
+  'week3': 'week-3', 'week4': 'week-4', 'week5': 'week-5',
+  'calc': 'resources', 'prospecting': 'prospecting',
+  'marketing': 'marketing', 'comp': 'comp-plan'
+};
+
 function showTab(tabId, btn) {
   document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
   document.querySelectorAll('.nb').forEach(b => b.classList.remove('active'));
   const panel = document.getElementById('tab-' + tabId);
   if (panel) panel.classList.add('active');
   if (btn) btn.classList.add('active');
+  // Update URL hash without triggering a scroll
+  const hash = TAB_HASH[tabId] || tabId;
+  history.replaceState(null, '', '#' + hash);
   window.scrollTo({ top: 0, behavior: 'smooth' });
 }
 
@@ -3486,8 +3509,24 @@ document.querySelector('.nav').addEventListener('wheel', function(e) {
   this.scrollLeft += e.deltaY;
 }, { passive: false });
 
-// ── INIT ─────────────────────────────────────────────────
+// ── INIT ─────────────────────────────────────────────────────
 calcAll();
+
+// ── HASH ROUTING INIT ──────────────────────────────────
+function activateFromHash() {
+  const raw = (location.hash || '').replace('#', '').toLowerCase().trim();
+  const tabId = HASH_MAP[raw] || (raw ? null : 'home');
+  if (!tabId) return;
+  const navBtns = document.querySelectorAll('.nb');
+  let matchBtn = null;
+  navBtns.forEach(b => {
+    const onclick = b.getAttribute('onclick') || '';
+    if (onclick.includes("'" + tabId + "'")) matchBtn = b;
+  });
+  showTab(tabId, matchBtn);
+}
+activateFromHash();
+window.addEventListener('hashchange', activateFromHash);
 </script>
 </body>
 </html>
