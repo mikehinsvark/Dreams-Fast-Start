@@ -490,6 +490,23 @@ footer{background:rgba(2,11,24,.97);border-top:1px solid var(--br2);padding:1.4r
   .footer-links a{font-size:.58rem}
   .footer-copy{font-size:.55rem}
 }
+/* Chamber expandable cards */
+.ch-card{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:8px;cursor:pointer;overflow:hidden;transition:border-color .2s}
+.ch-card:hover{border-color:rgba(0,201,184,.3)}
+.ch-card.ch-open{border-color:rgba(0,201,184,.4)}
+.ch-head{display:flex;align-items:center;gap:.6rem;padding:.7rem .9rem}
+.ch-num{background:var(--teal);color:#0a1628;font-weight:800;font-size:.8rem;width:1.6rem;height:1.6rem;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.ch-title{flex:1;color:#e8f4f0;font-size:.82rem;font-weight:600}
+.ch-arrow{color:var(--teal);font-size:.6rem;transition:transform .25s;flex-shrink:0}
+.ch-card.ch-open .ch-arrow{transform:rotate(180deg)}
+.ch-body{display:none;padding:.8rem .9rem 1rem;border-top:1px solid rgba(255,255,255,.06);color:#9ecfc4;font-size:.82rem;line-height:1.65}
+.ch-card.ch-open .ch-body{display:block}
+/* Chamber image cards */
+.ch-img-card{cursor:zoom-in;border-radius:8px;overflow:hidden;border:1px solid rgba(255,255,255,.08);transition:border-color .2s,transform .2s}
+.ch-img-card:hover{border-color:rgba(0,201,184,.4);transform:scale(1.01)}
+.ch-img-label{background:rgba(0,0,0,.6);color:var(--teal);font-size:.72rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;padding:.35rem .6rem;text-align:center}
+#ch-lightbox{display:none}
+#ch-lightbox.ch-lb-open{display:flex!important}
 </style>
 </head>
 <body>
@@ -2978,60 +2995,39 @@ footer{background:rgba(2,11,24,.97);border-top:1px solid var(--br2);padding:1.4r
         Chamber of Commerce member businesses qualify for Quantum Health plans with just <strong>10 employees</strong> instead of 25. Join your local Chamber. Attend every event. Every member is a potential Quantum client.
       </div>
 
-      <!-- 10 Reasons expandable grid -->
-      <div class="rl" style="margin-bottom:.8rem">10 Reasons to Join Your Chamber of Commerce</div>
-      <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:.7rem;margin-bottom:1.4rem">
+      <!-- 4-image infographic grid with lightbox -->
+      <div class="rl" style="margin-bottom:.8rem">Why Join Your Chamber of Commerce</div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:.8rem;margin-bottom:1.4rem">
 
-        <div class="ch-card" onclick="this.classList.toggle('ch-open')">
-          <div class="ch-head"><span class="ch-num">1</span><span class="ch-title">Membership Brings Credibility</span><span class="ch-arrow">&#9660;</span></div>
-          <div class="ch-body">Increase positive perception among consumers and business owners when you are identified as a Chamber member. Instant trust — before you say a word.</div>
+        <div class="ch-img-card" onclick="openChImg('/manus-storage/chamber-10reasons_ee603b9e.png','10 Reasons to Join Your Chamber of Commerce')">
+          <img src="/manus-storage/chamber-10reasons_ee603b9e.png" alt="10 Reasons to Join" style="width:100%;border-radius:6px;display:block" loading="lazy">
+          <div class="ch-img-label">10 Reasons to Join &#128269;</div>
         </div>
 
-        <div class="ch-card" onclick="this.classList.toggle('ch-open')">
-          <div class="ch-head"><span class="ch-num">2</span><span class="ch-title">Add Promotion &amp; Publicity</span><span class="ch-arrow">&#9660;</span></div>
-          <div class="ch-body">Reach potential clients through member-exclusive advertising and business-to-business publicity opportunities you simply don't get as a non-member.</div>
+        <div class="ch-img-card" onclick="openChImg('/manus-storage/chamber-30reasons_17a0b9eb.png','30 Reasons to Join Your Local Chamber')">
+          <img src="/manus-storage/chamber-30reasons_17a0b9eb.png" alt="30 Reasons to Join" style="width:100%;border-radius:6px;display:block" loading="lazy">
+          <div class="ch-img-label">30 Reasons to Join &#128269;</div>
         </div>
 
-        <div class="ch-card" onclick="this.classList.toggle('ch-open')">
-          <div class="ch-head"><span class="ch-num">3</span><span class="ch-title">Create Networking Opportunities</span><span class="ch-arrow">&#9660;</span></div>
-          <div class="ch-body">Chambers have numerous committees — serving on one gives you networking and professional leadership development while building your business in the community.</div>
+        <div class="ch-img-card" onclick="openChImg('/manus-storage/chamber-whyjoin_8c9787e5.png','Why Join a Chamber?')">
+          <img src="/manus-storage/chamber-whyjoin_8c9787e5.png" alt="Why Join a Chamber" style="width:100%;border-radius:6px;display:block" loading="lazy">
+          <div class="ch-img-label">Why Join a Chamber? &#128269;</div>
         </div>
 
-        <div class="ch-card" onclick="this.classList.toggle('ch-open')">
-          <div class="ch-head"><span class="ch-num">4</span><span class="ch-title">Gain a Voice in Government</span><span class="ch-arrow">&#9660;</span></div>
-          <div class="ch-body">The local Chamber takes on tough issues — taxes, fees, assessments — and advocates for small businesses. They protect free enterprise and ensure you're treated fairly.</div>
+        <div class="ch-img-card" onclick="openChImg('/manus-storage/chamber-benefits_a1e398b8.png','Member Benefits')">
+          <img src="/manus-storage/chamber-benefits_a1e398b8.png" alt="Member Benefits" style="width:100%;border-radius:6px;display:block" loading="lazy">
+          <div class="ch-img-label">Member Benefits &#128269;</div>
         </div>
 
-        <div class="ch-card" onclick="this.classList.toggle('ch-open')">
-          <div class="ch-head"><span class="ch-num">5</span><span class="ch-title">Make Business Contacts</span><span class="ch-arrow">&#9660;</span></div>
-          <div class="ch-body">The Chamber's fundamental mission is to generate more business activity. More B2B commerce and networking opportunities than almost any other local organization.</div>
-        </div>
+      </div>
 
-        <div class="ch-card" onclick="this.classList.toggle('ch-open')">
-          <div class="ch-head"><span class="ch-num">6</span><span class="ch-title">Receive Chamber Newsletters</span><span class="ch-arrow">&#9660;</span></div>
-          <div class="ch-body">Newsletters provide new member info, community articles, a community calendar, and details about upcoming events. Stay plugged in automatically.</div>
+      <!-- Lightbox overlay -->
+      <div id="ch-lightbox" onclick="closeChImg()" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,.88);z-index:9999;align-items:center;justify-content:center;cursor:zoom-out">
+        <div style="position:relative;max-width:90vw;max-height:90vh">
+          <img id="ch-lightbox-img" src="" alt="" style="max-width:90vw;max-height:85vh;object-fit:contain;border-radius:8px;box-shadow:0 8px 40px rgba(0,0,0,.8)">
+          <div id="ch-lightbox-cap" style="color:#e8f4f0;text-align:center;margin-top:.6rem;font-size:.85rem;opacity:.8"></div>
+          <button onclick="closeChImg()" style="position:absolute;top:-1rem;right:-1rem;background:var(--teal);border:none;color:#0a1628;width:2rem;height:2rem;border-radius:50%;font-size:1rem;font-weight:800;cursor:pointer;line-height:1">&#10005;</button>
         </div>
-
-        <div class="ch-card" onclick="this.classList.toggle('ch-open')">
-          <div class="ch-head"><span class="ch-num">7</span><span class="ch-title">Acquire Customer Referrals</span><span class="ch-arrow">&#9660;</span></div>
-          <div class="ch-body">Every day your local Chamber receives calls from individuals and businesses looking for vendors — and members recommend other members first.</div>
-        </div>
-
-        <div class="ch-card" onclick="this.classList.toggle('ch-open')">
-          <div class="ch-head"><span class="ch-num">8</span><span class="ch-title">Attend Events &amp; Programs</span><span class="ch-arrow">&#9660;</span></div>
-          <div class="ch-body">Chamber events are innovative, fun ways to meet potential customers, clients, and vendors — and generate new business leads in a relaxed, peer environment.</div>
-        </div>
-
-        <div class="ch-card" onclick="this.classList.toggle('ch-open')">
-          <div class="ch-head"><span class="ch-num">9</span><span class="ch-title">Increase Your Visibility</span><span class="ch-arrow">&#9660;</span></div>
-          <div class="ch-body">Get listed in the Chamber Business Guide, website, newsletters, and social media. Sponsor events and fundraisers. The Chamber even promotes your grand opening.</div>
-        </div>
-
-        <div class="ch-card" onclick="this.classList.toggle('ch-open')">
-          <div class="ch-head"><span class="ch-num">10</span><span class="ch-title">Get Information &amp; Resources</span><span class="ch-arrow">&#9660;</span></div>
-          <div class="ch-body">Your Chamber is a one-stop source for regional and national business information. The community calendar keeps you at every important event — don't underestimate it.</div>
-        </div>
-
       </div>
 
       <!-- Member Benefits wheel summary -->
@@ -3066,6 +3062,41 @@ footer{background:rgba(2,11,24,.97);border-top:1px solid var(--br2);padding:1.4r
           <div style="font-size:1.4rem;margin-bottom:.3rem">&#127968;</div>
           <div style="color:#3498DB;font-size:.7rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase">Community</div>
           <div style="color:#9ecfc4;font-size:.75rem;margin-top:.3rem">Local economy &amp; quality of life</div>
+        </div>
+      </div>
+
+      <!-- Chamber Event Prep Checklist -->
+      <div class="ch-card ch-script" onclick="this.classList.toggle('ch-open')" style="margin-bottom:1.4rem;border-color:rgba(245,197,24,.3)">
+        <div class="ch-head" style="background:rgba(245,197,24,.06)">
+          <span style="color:var(--gold);font-size:1rem">&#9989;</span>
+          <span class="ch-title" style="color:var(--gold)">Chamber Event Prep Checklist — 5-Item Pre-Event Routine</span>
+          <span class="ch-arrow" style="color:var(--gold)">&#9660;</span>
+        </div>
+        <div class="ch-body">
+          <p style="color:#9ecfc4;font-size:.8rem;margin-bottom:.8rem">Run through this before every Chamber mixer, breakfast, or networking event. Consistency wins.</p>
+          <div style="display:flex;flex-direction:column;gap:.55rem">
+            <div style="display:flex;align-items:flex-start;gap:.7rem;background:rgba(245,197,24,.05);border:1px solid rgba(245,197,24,.15);border-radius:6px;padding:.6rem .8rem">
+              <span style="color:var(--gold);font-size:1rem;flex-shrink:0">&#128197;</span>
+              <div><div style="color:var(--gold);font-weight:700;font-size:.82rem">1. Connect Cards</div><div style="color:#9ecfc4;font-size:.8rem;margin-top:.15rem">Pack at least 25 Connect Cards. You will hand them out faster than you think. <a href="https://dbrcardord-wnbxmczl.manus.space/" target="_blank" style="color:var(--teal)">Order more here</a> if running low.</div></div>
+            </div>
+            <div style="display:flex;align-items:flex-start;gap:.7rem;background:rgba(0,201,184,.05);border:1px solid rgba(0,201,184,.15);border-radius:6px;padding:.6rem .8rem">
+              <span style="color:var(--teal);font-size:1rem;flex-shrink:0">&#128241;</span>
+              <div><div style="color:var(--teal);font-weight:700;font-size:.82rem">2. Dreams Score Link Ready</div><div style="color:#9ecfc4;font-size:.8rem;margin-top:.15rem">Have your AI Dreams Score Report link pulled up on your phone. When someone says "tell me more," you hand them the phone and let the tool do the talking.</div></div>
+            </div>
+            <div style="display:flex;align-items:flex-start;gap:.7rem;background:rgba(46,204,113,.05);border:1px solid rgba(46,204,113,.15);border-radius:6px;padding:.6rem .8rem">
+              <span style="color:var(--green);font-size:1rem;flex-shrink:0">&#127908;</span>
+              <div><div style="color:var(--green);font-weight:700;font-size:.82rem">3. Elevator Pitch Rehearsed</div><div style="color:#9ecfc4;font-size:.8rem;margin-top:.15rem">Practice your 30-second curiosity hook out loud before you walk in. <em>"I help Chamber members find $600–$900 per employee in tax savings they didn't know they had."</em> Natural and confident — not memorized and robotic.</div></div>
+            </div>
+            <div style="display:flex;align-items:flex-start;gap:.7rem;background:rgba(155,89,182,.05);border:1px solid rgba(155,89,182,.15);border-radius:6px;padding:.6rem .8rem">
+              <span style="color:#9B59B6;font-size:1rem;flex-shrink:0">&#128203;</span>
+              <div><div style="color:#9B59B6;font-weight:700;font-size:.82rem">4. Follow-Up App Open</div><div style="color:#9ecfc4;font-size:.8rem;margin-top:.15rem">Open your CRM or notes app before you arrive. After each conversation, immediately log the name, company, and one personal detail. Same-day follow-up beats next-week follow-up every time.</div></div>
+            </div>
+            <div style="display:flex;align-items:flex-start;gap:.7rem;background:rgba(52,152,219,.05);border:1px solid rgba(52,152,219,.15);border-radius:6px;padding:.6rem .8rem">
+              <span style="color:#3498DB;font-size:1rem;flex-shrink:0">&#128084;</span>
+              <div><div style="color:#3498DB;font-weight:700;font-size:.82rem">5. Business Attire &amp; Mindset</div><div style="color:#9ecfc4;font-size:.8rem;margin-top:.15rem">Dress one level above the room. You are a peer and a professional. Walk in with the mindset: <em>"Everyone here already respects me — we're both Chamber members."</em> Confidence is your best tool.</div></div>
+            </div>
+          </div>
+          <div style="margin-top:.8rem;background:rgba(245,197,24,.08);border-left:3px solid var(--gold);padding:.6rem .8rem;border-radius:0 6px 6px 0;color:var(--gold);font-style:italic;font-size:.82rem">&#128161; Pro tip: Arrive 10 minutes early. The best conversations happen before the event officially starts — when people are relaxed and not yet in "networking mode."</div>
         </div>
       </div>
 
@@ -4412,6 +4443,25 @@ function activateFromHash() {
 }
 activateFromHash();
 window.addEventListener('hashchange', activateFromHash);
+</script>
+<script>
+function openChImg(src, caption) {
+  var lb = document.getElementById('ch-lightbox');
+  var img = document.getElementById('ch-lightbox-img');
+  var cap = document.getElementById('ch-lightbox-cap');
+  img.src = src;
+  cap.textContent = caption || '';
+  lb.classList.add('ch-lb-open');
+  lb.style.display = 'flex';
+  document.body.style.overflow = 'hidden';
+}
+function closeChImg() {
+  var lb = document.getElementById('ch-lightbox');
+  lb.classList.remove('ch-lb-open');
+  lb.style.display = 'none';
+  document.body.style.overflow = '';
+}
+document.addEventListener('keydown', function(e){ if(e.key==='Escape') closeChImg(); });
 </script>
 </body>
 </html>
