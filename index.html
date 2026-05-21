@@ -215,6 +215,7 @@ body::before{content:"";position:fixed;inset:0;pointer-events:none;z-index:0;
 .quiz-btn:hover{background:rgba(0,201,184,.2)}
 .retake-btn{background:rgba(106,143,168,.12);border:1px solid var(--muted);color:var(--mt);padding:.55rem 1.5rem;border-radius:5px;cursor:pointer;font-family:"Jost",sans-serif;font-size:.68rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;transition:all .2s;margin-top:.6rem;margin-left:.5rem}
 .retake-btn:hover{background:rgba(106,143,168,.22);color:var(--tx)}
+.badge-tag{display:inline-block;background:rgba(245,197,24,.12);border:1px solid rgba(245,197,24,.35);color:var(--gold);font-size:.72rem;padding:.2rem .55rem;border-radius:4px;font-family:"Jost",sans-serif;letter-spacing:.04em}
 .quiz-score{margin-top:.75rem;font-family:"Cormorant Garamond",serif;font-size:1.1rem;color:var(--teal)}
 
 /* ── PROGRESS BARS ── */
@@ -2586,6 +2587,9 @@ footer{background:rgba(2,11,24,.97);border-top:1px solid var(--br2);padding:1.4r
     <div class="sbtn" onclick="showSub('pr','referrals',this)">
       <div class="sbn">Referrals by Design</div><div class="sbs">Systematic Referral System</div>
     </div>
+    <div class="sbtn" onclick="showSub('pr','rdleads',this)">
+      <div class="sbn">R&amp;D Leads Program</div><div class="sbs">Appointment Setters</div>
+    </div>
   </div>
 
   <div class="split-body">
@@ -2789,6 +2793,7 @@ footer{background:rgba(2,11,24,.97);border-top:1px solid var(--br2);padding:1.4r
       <div class="sec-title">LinkedIn Strategy</div>
       <div class="sec-tag">Your digital storefront — optimize it before outreach</div>
 
+      <!-- TOP 2 BOXES — KEEP -->
       <div class="g2">
         <div class="card">
           <div class="ct blue">👤 Profile Optimization</div>
@@ -2814,14 +2819,142 @@ footer{background:rgba(2,11,24,.97);border-top:1px solid var(--br2);padding:1.4r
         </div>
       </div>
 
-      <div class="script">
-        <div class="script-lbl">📱 LinkedIn Connection Request Message</div>
-        <p>"Hi [Name] — I work with [industry] professionals to identify federal tax credits and payroll savings most businesses don't know they qualify for. Would love to connect and share what I'm seeing in your space."</p>
+      <!-- 1M+ OPPORTUNITY SEEKERS CALLOUT -->
+      <div class="callout" style="border-color:var(--gold);background:rgba(245,197,24,.07);margin-top:1.2rem">
+        <div style="display:flex;align-items:flex-start;gap:.9rem">
+          <div style="font-size:2rem;line-height:1">👥</div>
+          <div>
+            <div style="color:var(--gold);font-size:1.4rem;font-weight:700;letter-spacing:.02em">1,000,000+</div>
+            <p style="margin:.3rem 0 .5rem">People on LinkedIn <strong>right now</strong> actively seeking or open to a sales opportunity. They have already raised their hand — you just need to find them and start the conversation.</p>
+            <code style="display:block;background:rgba(0,0,0,.3);padding:.5rem .8rem;border-radius:4px;font-size:.78rem;color:#aaa;line-height:1.6">// LinkedIn search → "Looking for a Sales Opportunity" → Hit "People" &nbsp;|&nbsp; also search "Seeking a Sales Opportunity" → Hit "People"</code>
+          </div>
+        </div>
       </div>
 
-      <div class="script">
-        <div class="script-lbl">📱 First Message After Connection</div>
-        <p>"Thanks for connecting, [Name]. I specialize in helping businesses like yours identify R&amp;D Tax Credits (avg $250K) and Section 125 FICA savings ($600–$900/employee/year). Not a pitch — just wanted to share what I'm seeing. Would a quick 15-min call this week make sense?"</p>
+      <!-- FILTER CONNECTIONS -->
+      <div style="margin-top:1.4rem">
+        <div style="color:var(--teal);font-weight:600;margin-bottom:.5rem">🔍 Filter Your Existing Connections for Business Owners First</div>
+        <p style="font-size:.88rem;color:#aaa;margin-bottom:.7rem">Go to <code style="color:var(--teal)">linkedin.com/mynetwork/invite-connect/connections</code> → use the search bar to filter by job title:</p>
+        <div style="display:flex;flex-wrap:wrap;gap:.4rem;margin-bottom:.6rem">
+          <span class="badge-tag">Owner</span><span class="badge-tag">CEO</span><span class="badge-tag">President</span><span class="badge-tag">Founder</span><span class="badge-tag">Partner</span><span class="badge-tag">Managing Director</span><span class="badge-tag">Principal</span><span class="badge-tag">Managing Partner</span><span class="badge-tag">Controller</span><span class="badge-tag">CFO</span><span class="badge-tag">COO</span><span class="badge-tag">VP Finance</span>
+        </div>
+        <p style="font-size:.78rem;color:#777;font-style:italic">Pro tip: Search one title at a time and work each batch before moving to the next. Focused outreach converts better than bulk blasts.</p>
+      </div>
+
+      <!-- 3-MESSAGE SEQUENCE -->
+      <div style="margin-top:1.4rem">
+        <div style="color:var(--teal);font-weight:600;font-size:1rem;margin-bottom:.3rem">💬 The 3-Message Rapport Sequence</div>
+        <p style="font-size:.85rem;color:#aaa;margin-bottom:1rem">Never lead with a pitch. Build rapport across 3 messages before making any ask. This sequence works because it mirrors how real relationships form — connection first, value second, opportunity third.</p>
+
+        <!-- MSG 1 -->
+        <div class="script" style="margin-bottom:1rem">
+          <div class="script-lbl" style="display:flex;justify-content:space-between;align-items:center">
+            <span><span style="display:inline-flex;align-items:center;justify-content:center;width:1.4rem;height:1.4rem;background:var(--gold);color:#000;border-radius:50%;font-size:.75rem;font-weight:700;margin-right:.5rem">1</span> Connection Request <span style="color:#777;font-size:.78rem;margin-left:.5rem">Send when reaching out to new connections</span></span>
+            <button onclick="navigator.clipboard.writeText('[First Name], I am looking to expand my network with like-minded entrepreneurs and professionals. Please accept my connection request. Thanks, Mike')" style="background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.15);color:#ccc;padding:.2rem .6rem;border-radius:4px;font-size:.75rem;cursor:pointer">📋 Copy</button>
+          </div>
+          <p style="margin:.5rem 0">[First Name], I am looking to expand my network with like-minded entrepreneurs and professionals. Please accept my connection request. Thanks, Mike</p>
+          <code style="display:block;font-size:.75rem;color:#666;font-style:italic">// Keep it simple and friendly. No pitch. LinkedIn limits connection notes to 300 characters.</code>
+        </div>
+
+        <!-- MSG 2 -->
+        <div class="script" style="margin-bottom:1rem">
+          <div class="script-lbl" style="display:flex;justify-content:space-between;align-items:center">
+            <span><span style="display:inline-flex;align-items:center;justify-content:center;width:1.4rem;height:1.4rem;background:var(--gold);color:#000;border-radius:50%;font-size:.75rem;font-weight:700;margin-right:.5rem">2</span> After They Accept — Rapport Message <span style="color:#777;font-size:.78rem;margin-left:.5rem">Send within 24 hours of connection</span></span>
+            <button onclick="navigator.clipboard.writeText('Thanks for the connection, I was impressed with your profile.\n\nI enjoy connecting with and communicating with like-minded professionals to share thoughts, pertinent material, as well as help motivate each other towards our goals.\n\nFeel free to contact me for an introduction to anyone in my network and if I can help in any way from my side, please do not hesitate to ask.\n\n— Mike Hinsvark')" style="background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.15);color:#ccc;padding:.2rem .6rem;border-radius:4px;font-size:.75rem;cursor:pointer">📋 Copy</button>
+          </div>
+          <p style="margin:.5rem 0">Thanks for the connection, I was impressed with your profile.</p>
+          <p style="margin:.5rem 0">I enjoy connecting with and communicating with like-minded professionals to share thoughts, pertinent material, as well as help motivate each other towards our goals.</p>
+          <p style="margin:.5rem 0">Feel free to contact me for an introduction to anyone in my network and if I can help in any way from my side, please do not hesitate to ask.</p>
+          <p style="margin:.5rem 0">— Mike Hinsvark</p>
+          <code style="display:block;font-size:.75rem;color:#666;font-style:italic">// Build rapport first. No ask yet. This is the relationship message.</code>
+        </div>
+
+        <!-- MSG 3 -->
+        <div class="script" style="margin-bottom:1rem">
+          <div class="script-lbl" style="display:flex;justify-content:space-between;align-items:center">
+            <span><span style="display:inline-flex;align-items:center;justify-content:center;width:1.4rem;height:1.4rem;background:var(--gold);color:#000;border-radius:50%;font-size:.75rem;font-weight:700;margin-right:.5rem">3</span> The Opportunity Message <span style="color:#777;font-size:.78rem;margin-left:.5rem">Send only to connections marked 'Open to Sales Opportunities'</span></span>
+            <button onclick="navigator.clipboard.writeText('[Personalize opening line]\n\nI noticed you are currently open to looking at Sales Opportunities and I wanted to send you a short video to review — to look at the Specialty Firm I am working with doing B2B Tax R&D Tax Credits, Payroll Tax savings and more, helping local businesses with our Free Proprietary AI Dreams Score Report for Business Owners.\n\nIt is the most lucrative business I have ever seen and pays 100% renewals for the life of the contract on group sales — and it costs nothing to get started, no license required, plus great support, training, and much more.\n\nTake a look here and get back to me if you have questions or would like to learn more: Renewalsforlife.com')" style="background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.15);color:#ccc;padding:.2rem .6rem;border-radius:4px;font-size:.75rem;cursor:pointer">📋 Copy</button>
+          </div>
+          <p style="margin:.5rem 0;font-size:.8rem;color:#888;font-style:italic">[Personalize: e.g. "I see you live in Huntington Beach — I grew up in Coronado CA and visited there often."]</p>
+          <p style="margin:.5rem 0">I noticed you are currently open to looking at Sales Opportunities and I wanted to send you a short video to review — to look at the Specialty Firm I am working with doing B2B Tax R&amp;D Tax Credits, Payroll Tax savings and more, helping local businesses with our Free Proprietary AI Dreams Score Report for Business Owners.</p>
+          <p style="margin:.5rem 0">It is the most lucrative business I have ever seen and pays 100% renewals for the life of the contract on group sales — and it costs nothing to get started, no license required, plus great support, training, and much more.</p>
+          <p style="margin:.5rem 0">Take a look here and get back to me if you have questions or would like to learn more: <a href="https://Renewalsforlife.com" target="_blank" style="color:var(--teal)">Renewalsforlife.com</a></p>
+          <code style="display:block;font-size:.75rem;color:#666;font-style:italic">// Personalize the opening line with something real — city, school, industry. It matters.</code>
+          <div style="margin-top:.7rem;padding:.6rem .8rem;background:rgba(0,188,212,.08);border-radius:6px;border:1px solid rgba(0,188,212,.2)">
+            <div style="font-size:.75rem;color:#aaa;margin-bottom:.2rem">Prospect landing page referenced in this message:</div>
+            <a href="https://Renewalsforlife.com" target="_blank" style="color:var(--teal);font-size:.9rem">🔗 Renewalsforlife.com</a>
+            <div style="font-size:.72rem;color:#666;font-style:italic;margin-top:.2rem">// Direct link for prospects to review the opportunity before responding</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- LINKEDIN GROUPS -->
+      <div style="margin-top:1.4rem;padding:1rem 1.2rem;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.1);border-radius:8px">
+        <div style="display:flex;align-items:center;gap:.7rem;margin-bottom:.8rem">
+          <div style="font-size:1.3rem">👥</div>
+          <div>
+            <div style="font-weight:600;font-size:.95rem">LinkedIn Groups — 8 Million+ Instant Connections</div>
+            <div style="font-size:.75rem;color:var(--teal)">// Join up to 50 groups in 2 minutes</div>
+          </div>
+        </div>
+        <p style="font-size:.86rem;margin-bottom:.8rem">Search <strong>"social media"</strong> in LinkedIn Groups and join up to 50 groups. The first page alone connects you with over <strong style="color:var(--gold)">8 million people</strong>. You now share a common interest with all of them — which means you can message them directly and appear in their search results.</p>
+        <ol style="font-size:.85rem;color:#ccc;padding-left:1.2rem;line-height:1.9">
+          <li>Go to LinkedIn search → click the "Groups" filter tab</li>
+          <li>Search "social media", "entrepreneurship", "B2B sales", "small business"</li>
+          <li>Join up to 50 groups — takes about 2 minutes</li>
+          <li>You can now message group members even without a direct connection</li>
+          <li>Group membership boosts your profile in search results for those members</li>
+        </ol>
+        <div style="margin-top:.7rem;padding:.5rem .8rem;background:rgba(0,188,212,.07);border-left:3px solid var(--teal);font-size:.8rem;color:#aaa;font-style:italic">
+          // Pro tip: Also search groups in your target industry (insurance, real estate, accounting) for pre-qualified business owner audiences.
+        </div>
+      </div>
+
+      <!-- B2B PROSPECTING TIPS -->
+      <div style="margin-top:1.4rem;padding:1rem 1.2rem;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.1);border-radius:8px">
+        <div style="display:flex;align-items:center;gap:.7rem;margin-bottom:.8rem">
+          <div style="font-size:1.3rem">🏢</div>
+          <div>
+            <div style="font-weight:600;font-size:.95rem">B2B LinkedIn Prospecting Tips</div>
+            <div style="font-size:.75rem;color:var(--teal)">// Target CEOs, CFOs &amp; Owners — 1st connections first</div>
+          </div>
+        </div>
+        <div style="background:rgba(0,0,0,.3);padding:.7rem 1rem;border-radius:6px;margin-bottom:.8rem">
+          <div style="font-size:.75rem;color:var(--gold);font-weight:600;letter-spacing:.05em;margin-bottom:.5rem">PASTE IN THE LINKEDIN SEARCH BAR — SEARCH EACH TITLE SEPARATELY:</div>
+          <ul style="list-style:disc;padding-left:1.2rem;font-size:.83rem;color:#ccc;line-height:1.9">
+            <li>CEO → People → 1st connections</li>
+            <li>CFO → People → 1st connections</li>
+            <li>Owner → People → 1st connections</li>
+          </ul>
+          <div style="margin-top:.6rem;font-size:.78rem;color:#777;font-style:italic">// Pro tip: Add your target industry under the "Industries" filter at the same time — turns a cold list into a warm hit list instantly.</div>
+        </div>
+
+        <div style="font-size:.8rem;color:var(--gold);font-weight:600;letter-spacing:.05em;margin-bottom:.6rem">B2B OUTREACH MESSAGES — FOR CEOS, CFOS &amp; BUSINESS OWNERS:</div>
+
+        <!-- B2B MSG 1 -->
+        <div style="background:#0d1117;border:1px solid rgba(255,255,255,.12);border-radius:6px;padding:.8rem 1rem;margin-bottom:.8rem">
+          <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:.5rem">
+            <div style="display:flex;gap:.35rem"><span style="width:.65rem;height:.65rem;border-radius:50%;background:#ff5f57;display:inline-block"></span><span style="width:.65rem;height:.65rem;border-radius:50%;background:#febc2e;display:inline-block"></span><span style="width:.65rem;height:.65rem;border-radius:50%;background:#28c840;display:inline-block"></span><span style="font-size:.75rem;color:#888;margin-left:.4rem">b2b-msg-1.txt</span></div>
+            <button onclick="navigator.clipboard.writeText('Hey [Name] — love what you\'re building at [Company].\n\nI work with CEOs and CFOs on two things most businesses are leaving on the table:\n\n📌 $900+ per employee in payroll tax savings through fully insured supplemental plans — zero out-of-pocket cost to the business, real savings for employees.\n\n📌 R&D and other tax credits that most companies qualify for but never capture.\n\nWould you be opposed to me sending over a quick overview?')" style="background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.15);color:#ccc;padding:.2rem .6rem;border-radius:4px;font-size:.75rem;cursor:pointer">📋 Copy</button>
+          </div>
+          <p style="font-size:.84rem;margin:.3rem 0">Hey [Name] — love what you're building at [Company].</p>
+          <p style="font-size:.84rem;margin:.3rem 0">I work with CEOs and CFOs on two things most businesses are leaving on the table:</p>
+          <p style="font-size:.84rem;margin:.3rem 0">📌 $900+ per employee in payroll tax savings through fully insured supplemental plans — zero out-of-pocket cost to the business, real savings for employees.</p>
+          <p style="font-size:.84rem;margin:.3rem 0">📌 R&amp;D and other tax credits that most companies qualify for but never capture.</p>
+          <p style="font-size:.84rem;margin:.3rem 0">Would you be opposed to me sending over a quick overview?</p>
+        </div>
+
+        <!-- B2B MSG 2 -->
+        <div style="background:#0d1117;border:1px solid rgba(255,255,255,.12);border-radius:6px;padding:.8rem 1rem">
+          <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:.5rem">
+            <div style="display:flex;gap:.35rem"><span style="width:.65rem;height:.65rem;border-radius:50%;background:#ff5f57;display:inline-block"></span><span style="width:.65rem;height:.65rem;border-radius:50%;background:#febc2e;display:inline-block"></span><span style="width:.65rem;height:.65rem;border-radius:50%;background:#28c840;display:inline-block"></span><span style="font-size:.75rem;color:#888;margin-left:.4rem">b2b-msg-2.txt</span></div>
+            <button onclick="navigator.clipboard.writeText('Hey [Name] — love what you\'re building at [Company].\n\nQuick question: is your company claiming its R&D tax credits?\n\nMost businesses qualify and never know it — we\'ve helped CEOs and CFOs recover significant dollars they were already entitled to, plus an additional $900+ per employee in payroll tax savings through fully insured supplemental plans at zero cost to the business.\n\nWould you be opposed to me sending over a quick overview?')" style="background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.15);color:#ccc;padding:.2rem .6rem;border-radius:4px;font-size:.75rem;cursor:pointer">📋 Copy</button>
+          </div>
+          <p style="font-size:.84rem;margin:.3rem 0">Hey [Name] — love what you're building at [Company].</p>
+          <p style="font-size:.84rem;margin:.3rem 0">Quick question: is your company claiming its R&amp;D tax credits?</p>
+          <p style="font-size:.84rem;margin:.3rem 0">Most businesses qualify and never know it — we've helped CEOs and CFOs recover significant dollars they were already entitled to, plus an additional $900+ per employee in payroll tax savings through fully insured supplemental plans at zero cost to the business.</p>
+          <p style="font-size:.84rem;margin:.3rem 0">Would you be opposed to me sending over a quick overview?</p>
+        </div>
       </div>
     </div>
 
@@ -3069,16 +3202,50 @@ footer{background:rgba(2,11,24,.97);border-top:1px solid var(--br2);padding:1.4r
         </div>
       </div>
 
+      <!-- WHY WORK BY REFERRAL STATS -->
+      <div style="text-align:center;margin-bottom:1.2rem">
+        <h3 style="font-family:'Cormorant Garamond',serif;font-size:1.8rem;font-weight:400;color:var(--tx);margin-bottom:.3rem">Why Work by <span style="color:var(--teal)">Referral</span></h3>
+        <p style="font-size:.85rem;color:#aaa;margin-bottom:.8rem">The numbers don't lie — referral-based businesses outperform cold-prospecting models in every measurable way.</p>
+        <div style="width:3rem;height:2px;background:var(--gold);margin:0 auto .8rem"></div>
+      </div>
+
+      <div style="background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.1);border-radius:10px;padding:1.2rem;margin-bottom:1.2rem">
+        <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:.8rem;margin-bottom:.8rem">
+          <div style="background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:8px;padding:1rem;text-align:center">
+            <div style="font-family:'Cormorant Garamond',serif;font-size:2.2rem;color:var(--teal);font-weight:600">92%</div>
+            <div style="font-size:.78rem;color:#aaa;margin-top:.3rem">of consumers trust referrals from people they know</div>
+          </div>
+          <div style="background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:8px;padding:1rem;text-align:center">
+            <div style="font-family:'Cormorant Garamond',serif;font-size:2.2rem;color:var(--teal);font-weight:600">83%</div>
+            <div style="font-size:.78rem;color:#aaa;margin-top:.3rem">of customers are willing to refer after a positive experience</div>
+          </div>
+          <div style="background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:8px;padding:1rem;text-align:center">
+            <div style="font-family:'Cormorant Garamond',serif;font-size:2.2rem;color:var(--teal);font-weight:600">4×</div>
+            <div style="font-size:.78rem;color:#aaa;margin-top:.3rem">more likely to purchase when referred by a friend</div>
+          </div>
+        </div>
+        <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:.8rem">
+          <div style="background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:8px;padding:1rem;text-align:center">
+            <div style="font-family:'Cormorant Garamond',serif;font-size:2.2rem;color:var(--teal);font-weight:600">37%</div>
+            <div style="font-size:.78rem;color:#aaa;margin-top:.3rem">higher retention rate for customers acquired through referrals</div>
+          </div>
+          <div style="background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:8px;padding:1rem;text-align:center">
+            <div style="font-family:'Cormorant Garamond',serif;font-size:2.2rem;color:var(--teal);font-weight:600">81%</div>
+            <div style="font-size:.78rem;color:#aaa;margin-top:.3rem">of consumers more likely to engage with brands that reward loyalty</div>
+          </div>
+          <div style="background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:8px;padding:1rem;text-align:center">
+            <div style="font-family:'Cormorant Garamond',serif;font-size:2.2rem;color:var(--teal);font-weight:600">16%</div>
+            <div style="font-size:.78rem;color:#aaa;margin-top:.3rem">more in profits from referred customers vs. cold leads</div>
+          </div>
+        </div>
+        <div style="margin-top:.9rem;padding:.9rem 1.1rem;background:rgba(0,188,212,.07);border-radius:8px;border:1px solid rgba(0,188,212,.15);text-align:center">
+          <p style="font-family:'Cormorant Garamond',serif;font-size:1.15rem;font-style:italic;color:var(--tx);margin:0"><em>"<span style="color:var(--teal)">80% of Real Estate Sales</span> come from referral — and the same principle applies across every relationship-driven industry."</em></p>
+        </div>
+      </div>
+
       <div class="callout" style="border-color:var(--teal);background:rgba(0,188,212,.06)">
         <strong>💡 The Core Principle</strong><br>
         Referrals are not a reward for good service — they are the result of a deliberate system. When you design the process, you control the outcome. The best salespeople don't wait to be referred. They create the conditions that make referrals inevitable.
-      </div>
-
-      <div class="srow">
-        <div class="sbox"><div class="sval" style="color:var(--teal)">4x</div><div class="slbl">Higher Close Rate vs Cold</div></div>
-        <div class="sbox"><div class="sval" style="color:var(--green)">65%</div><div class="slbl">of New Business from Referrals</div></div>
-        <div class="sbox"><div class="sval" style="color:var(--gold)">16x</div><div class="slbl">Higher Lifetime Value</div></div>
-        <div class="sbox"><div class="sval" style="color:#9B59B6">0</div><div class="slbl">Cold Calls Required</div></div>
       </div>
 
       <div class="g2">
@@ -3128,6 +3295,95 @@ footer{background:rgba(2,11,24,.97);border-top:1px solid var(--br2);padding:1.4r
       <div class="rl" style="margin-top:1rem">Full Referrals by Design Training</div>
       <div class="res-hub">
         <a href="https://dreamsfaststart.com/referrals-by-design.html" target="_blank" class="link-badge" style="background:rgba(0,188,212,.12);border-color:rgba(0,188,212,.4);color:#4DD0E1">🔄 Open Referrals by Design Guide →</a>
+      </div>
+    </div>
+
+    <!-- R&D LEADS PROGRAM -->
+    <div class="sub-panel" id="pr-rdleads">
+      <div class="wh">
+        <div class="wbadge" style="background:linear-gradient(135deg,#2ECC71,#1A6B3A)"><span>🎯</span></div>
+        <div class="wt">
+          <h2 style="color:var(--green)">R&amp;D APPOINTMENT SETTERS — LEADS PROGRAM</h2>
+          <div class="wsub">Set the call. Earn the close. — A flat-rate commission program for appointment setters who want to build serious income without the complexity.</div>
+        </div>
+      </div>
+
+      <!-- HERO STATS -->
+      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;margin:1.2rem 0">
+        <div style="background:rgba(46,204,113,.08);border:1px solid rgba(46,204,113,.3);border-radius:10px;padding:1.2rem;text-align:center">
+          <div style="font-family:'Cormorant Garamond',serif;font-size:2.4rem;color:var(--green);font-weight:600">50%</div>
+          <div style="font-size:.75rem;color:var(--green);font-weight:600;letter-spacing:.05em;text-transform:uppercase;margin:.2rem 0">Base Rate</div>
+          <div style="font-size:.78rem;color:#aaa">under $2,500 lead spend</div>
+        </div>
+        <div style="background:rgba(46,204,113,.12);border:2px solid rgba(46,204,113,.5);border-radius:10px;padding:1.2rem;text-align:center;position:relative">
+          <div style="position:absolute;top:-.6rem;left:50%;transform:translateX(-50%);background:var(--green);color:#000;font-size:.62rem;font-weight:700;padding:.15rem .55rem;border-radius:10px;letter-spacing:.06em">BEST VALUE</div>
+          <div style="font-family:'Cormorant Garamond',serif;font-size:2.4rem;color:var(--green);font-weight:600">70%</div>
+          <div style="font-size:.75rem;color:var(--green);font-weight:600;letter-spacing:.05em;text-transform:uppercase;margin:.2rem 0">Boosted Rate</div>
+          <div style="font-size:.78rem;color:#aaa">$2,500+ lead spend/mo</div>
+        </div>
+        <div style="background:rgba(46,204,113,.08);border:1px solid rgba(46,204,113,.3);border-radius:10px;padding:1.2rem;text-align:center">
+          <div style="font-family:'Cormorant Garamond',serif;font-size:2.4rem;color:var(--green);font-weight:600">Flat</div>
+          <div style="font-size:.75rem;color:var(--green);font-weight:600;letter-spacing:.05em;text-transform:uppercase;margin:.2rem 0">No Tiers</div>
+          <div style="font-size:.78rem;color:#aaa">simple &amp; predictable</div>
+        </div>
+      </div>
+
+      <!-- EARNINGS PREVIEW -->
+      <div style="background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.1);border-radius:10px;padding:1.2rem;margin-bottom:1.2rem">
+        <div style="display:flex;align-items:center;gap:.5rem;margin-bottom:1rem">
+          <span style="font-size:1.1rem">📊</span>
+          <span style="font-size:.82rem;color:#aaa">Monthly earnings preview &nbsp;&middot;&nbsp; appts &middot; 25% close &middot; $10k &middot; 50/70% rate</span>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:.6rem">
+          <div style="display:flex;align-items:center;gap:.8rem">
+            <div style="width:7rem;font-size:.82rem;color:#ccc">40 appts/mo</div>
+            <div style="flex:1;background:rgba(255,255,255,.08);border-radius:4px;height:.55rem;overflow:hidden"><div style="width:25%;height:100%;background:var(--green);border-radius:4px"></div></div>
+            <div style="width:5.5rem;text-align:right;font-size:.85rem;color:var(--green);font-weight:600">$25,600/mo</div>
+          </div>
+          <div style="display:flex;align-items:center;gap:.8rem">
+            <div style="width:7rem;font-size:.82rem;color:#ccc">80 appts/mo</div>
+            <div style="flex:1;background:rgba(255,255,255,.08);border-radius:4px;height:.55rem;overflow:hidden"><div style="width:50%;height:100%;background:var(--green);border-radius:4px"></div></div>
+            <div style="width:5.5rem;text-align:right;font-size:.85rem;color:var(--green);font-weight:600">$51,200/mo</div>
+          </div>
+          <div style="display:flex;align-items:center;gap:.8rem">
+            <div style="width:7rem;font-size:.82rem;color:#ccc">120 appts/mo</div>
+            <div style="flex:1;background:rgba(255,255,255,.08);border-radius:4px;height:.55rem;overflow:hidden"><div style="width:75%;height:100%;background:var(--green);border-radius:4px"></div></div>
+            <div style="width:5.5rem;text-align:right;font-size:.85rem;color:var(--green);font-weight:600">$76,800/mo</div>
+          </div>
+          <div style="display:flex;align-items:center;gap:.8rem">
+            <div style="width:7rem;font-size:.82rem;color:#ccc">160 appts/mo</div>
+            <div style="flex:1;background:rgba(255,255,255,.08);border-radius:4px;height:.55rem;overflow:hidden"><div style="width:100%;height:100%;background:var(--green);border-radius:4px"></div></div>
+            <div style="width:5.5rem;text-align:right;font-size:.85rem;color:var(--green);font-weight:600">$102,400/mo</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- HOW IT WORKS -->
+      <div class="g2">
+        <div class="card">
+          <div class="ct green">💰 Two Flat Rates. No Ladder, No Math.</div>
+          <p style="font-size:.84rem;color:#ccc;margin:.4rem 0">Earn a flat commission on every closed sale based on how much you invest in leads each month. The more you commit, the more you keep — simple, transparent, and predictable.</p>
+          <ul>
+            <li><strong>50% Base Rate</strong> — lead spend under $2,500/mo. Lead spend = calls &times; $10 per lead.</li>
+            <li><strong>70% Boosted Rate</strong> — commit $2,500+/mo (250 leads at $10 each) and earn 70% on every closed sale — a 20-point boost.</li>
+          </ul>
+        </div>
+        <div class="card">
+          <div class="ct teal">🚀 Why This Program Wins</div>
+          <ul>
+            <li>No license required to get started</li>
+            <li>100% renewals for the life of the contract on group sales</li>
+            <li>Free AI Dreams Score Report to open every door</li>
+            <li>Full support, training, and calling scripts provided</li>
+            <li>Set appointments — closers handle the rest</li>
+            <li>Scale by investing more in leads each month</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="rl" style="margin-top:1.2rem">Launch Your R&amp;D Leads Program</div>
+      <div class="res-hub">
+        <a href="https://leads.dreamsscore.biz/" target="_blank" class="link-badge" style="background:rgba(46,204,113,.12);border-color:rgba(46,204,113,.4);color:#2ECC71;font-size:.75rem;padding:.5rem 1.2rem">🎯 Open R&amp;D Appointment Setters → leads.dreamsscore.biz</a>
       </div>
     </div>
 
