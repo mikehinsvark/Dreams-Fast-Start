@@ -514,7 +514,7 @@ footer{background:rgba(2,11,24,.97);border-top:1px solid var(--br2);padding:1.4r
   <button class="nb" onclick="showTab('week3',this)">Week 3</button>
   <button class="nb" onclick="showTab('week4',this)">Week 4</button>
   <button class="nb" onclick="showTab('week5',this)">Week 5</button>
-  <button class="nb" onclick="showTab('calc',this)">Calculator</button>
+  <button class="nb" onclick="showTab('calc',this)">Resources</button>
   <button class="nb" onclick="showTab('prospecting',this)">Prospecting</button>
   <button class="nb cta" onclick="showTab('marketing',this)">Marketing</button>
   <button class="nb comp-btn" onclick="showTab('comp',this)">Comp Plan</button>
@@ -546,7 +546,7 @@ footer{background:rgba(2,11,24,.97);border-top:1px solid var(--br2);padding:1.4r
     <button class="wp" onclick="showTab('week3',document.querySelectorAll('.nb')[3])">Week 3 · Bank Breezy</button>
     <button class="wp" onclick="showTab('week4',document.querySelectorAll('.nb')[4])">Week 4 · Quantum Health</button>
     <button class="wp" onclick="showTab('week5',document.querySelectorAll('.nb')[5])">Week 5 · AI Agents</button>
-    <button class="wp gold" onclick="showTab('calc',document.querySelectorAll('.nb')[6])">📊 Calculator</button>
+    <button class="wp gold" onclick="showTab('calc',document.querySelectorAll('.nb')[6])">📚 Resources</button>
     <button class="wp gold" onclick="showTab('prospecting',document.querySelectorAll('.nb')[7])">📋 Prospecting</button>
     <button class="wp gold" onclick="showTab('marketing',document.querySelectorAll('.nb')[8])">🚀 Marketing</button>
     <button class="wp comp" onclick="showTab('comp',document.querySelectorAll('.nb')[9])">💰 Comp Plan</button>
@@ -2428,19 +2428,73 @@ footer{background:rgba(2,11,24,.97);border-top:1px solid var(--br2);padding:1.4r
 
 
 <!-- ══════════════════════════════════════════════════════ -->
-<!-- INCOME CALCULATOR TAB -->
+<!-- RESOURCES TAB -->
 <!-- ══════════════════════════════════════════════════════ -->
 <div class="tab-panel" id="tab-calc">
 <div style="padding:1.6rem">
+
+  <!-- PAGE HEADER -->
   <div class="wh">
-    <div class="wbadge" style="background:linear-gradient(135deg,#F9A825,#FF6F00)"><span>💰</span></div>
+    <div class="wbadge" style="background:linear-gradient(135deg,#00C9B8,#0097A7)"><span>📚</span></div>
     <div class="wt">
-      <h2 style="color:var(--gold)">DBR INCOME CALCULATOR</h2>
-      <div class="wsub">Model your residual income potential across all DBR products</div>
+      <h2 style="color:var(--teal)">DBR PRODUCTS, PORTFOLIO &amp; TRAINING RESOURCES</h2>
+      <div class="wsub">Your complete ecosystem — products, platforms, tools, and training in one place</div>
     </div>
   </div>
 
-  <div class="sdiv"><div class="sdiv-line"></div><div class="sdiv-label">Section 125 / Quantum Health Residual</div><div class="sdiv-line"></div></div>
+  <!-- ── RESOURCE CARDS ── -->
+  <div class="sdiv"><div class="sdiv-line"></div><div class="sdiv-label">DBR Products &amp; Portfolio</div><div class="sdiv-line"></div></div>
+
+  <!-- Card 1: DBR Products Portfolio -->
+  <div style="margin-bottom:2.5rem">
+    <div style="font-family:'Jost',sans-serif;font-size:.6rem;letter-spacing:.18em;text-transform:uppercase;color:var(--teal);margin-bottom:.6rem">DBR Products Portfolio</div>
+    <img src="/manus-storage/dbr-products-portfolio_b2c6600e.png" alt="DBR Products Portfolio" style="width:100%;border-radius:10px;border:1px solid rgba(0,201,184,.2);display:block;box-shadow:0 8px 32px rgba(0,0,0,.4)">
+    <div style="margin-top:1rem;text-align:center">
+      <a href="https://dreamsfaststart.com/dbrproducts.html" target="_blank" style="display:inline-block;padding:.7rem 2rem;background:rgba(0,201,184,.1);border:1px solid rgba(0,201,184,.5);border-radius:6px;color:rgba(0,201,184,.95);font-family:'Jost',sans-serif;font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;text-decoration:none;transition:all .2s" onmouseover="this.style.background='rgba(0,201,184,.2)';this.style.borderColor='rgba(0,201,184,.8)'" onmouseout="this.style.background='rgba(0,201,184,.1)';this.style.borderColor='rgba(0,201,184,.5)'">View DBR Products Portfolio →</a>
+    </div>
+  </div>
+
+  <!-- Card 2: DBR Business Portfolio -->
+  <div style="margin-bottom:2.5rem">
+    <div style="font-family:'Jost',sans-serif;font-size:.6rem;letter-spacing:.18em;text-transform:uppercase;color:var(--teal);margin-bottom:.6rem">DBR Business Portfolio</div>
+    <img src="/manus-storage/dbr-business-portfolio_87fc2777.png" alt="DBR Business Portfolio" style="width:100%;border-radius:10px;border:1px solid rgba(0,201,184,.2);display:block;box-shadow:0 8px 32px rgba(0,0,0,.4)">
+    <div style="margin-top:1rem;text-align:center">
+      <a href="https://dreamsfaststart.com/portfolio.html" target="_blank" style="display:inline-block;padding:.7rem 2rem;background:rgba(0,201,184,.1);border:1px solid rgba(0,201,184,.5);border-radius:6px;color:rgba(0,201,184,.95);font-family:'Jost',sans-serif;font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;text-decoration:none;transition:all .2s" onmouseover="this.style.background='rgba(0,201,184,.2)';this.style.borderColor='rgba(0,201,184,.8)'" onmouseout="this.style.background='rgba(0,201,184,.1)';this.style.borderColor='rgba(0,201,184,.5)'">View DBR Business Portfolio →</a>
+    </div>
+  </div>
+
+  <div class="sdiv"><div class="sdiv-line"></div><div class="sdiv-label">Training Resources</div><div class="sdiv-line"></div></div>
+
+  <!-- Card 3: Claude AI Guide (full width) -->
+  <div style="margin-bottom:2.5rem">
+    <div style="font-family:'Jost',sans-serif;font-size:.6rem;letter-spacing:.18em;text-transform:uppercase;color:var(--teal);margin-bottom:.6rem">Your Complete Guide to Claude AI</div>
+    <img src="/manus-storage/claude-ai-guide_a6eec5cc.png" alt="Your Complete Guide to Claude AI" style="width:100%;border-radius:10px;border:1px solid rgba(0,201,184,.2);display:block;box-shadow:0 8px 32px rgba(0,0,0,.4)">
+    <div style="margin-top:1rem;text-align:center">
+      <a href="https://claude.ai/public/artifacts/0113f1c9-aa34-4bf9-9b67-a4496c4ebee3" target="_blank" style="display:inline-block;padding:.7rem 2rem;background:rgba(0,201,184,.1);border:1px solid rgba(0,201,184,.5);border-radius:6px;color:rgba(0,201,184,.95);font-family:'Jost',sans-serif;font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;text-decoration:none;transition:all .2s" onmouseover="this.style.background='rgba(0,201,184,.2)';this.style.borderColor='rgba(0,201,184,.8)'" onmouseout="this.style.background='rgba(0,201,184,.1)';this.style.borderColor='rgba(0,201,184,.5)'">Open Claude AI Guide →</a>
+    </div>
+  </div>
+
+  <!-- Cards 4+5: AI Agent Command Center + DBR Master Folder (side by side) -->
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:1.4rem;margin-bottom:2.5rem">
+    <div>
+      <div style="font-family:'Jost',sans-serif;font-size:.6rem;letter-spacing:.18em;text-transform:uppercase;color:var(--teal);margin-bottom:.6rem">AI Agent Command Center</div>
+      <img src="/manus-storage/dbr-command-center_8cff8a4f.png" alt="AI Agent Command Center" style="width:100%;border-radius:10px;border:1px solid rgba(0,201,184,.2);display:block;box-shadow:0 8px 32px rgba(0,0,0,.4)">
+      <div style="margin-top:.8rem;text-align:center">
+        <a href="https://claude.ai/public/artifacts/6169d262-320e-42cf-83ba-1a3e15d5585b" target="_blank" style="display:inline-block;padding:.6rem 1.4rem;background:rgba(0,201,184,.1);border:1px solid rgba(0,201,184,.5);border-radius:6px;color:rgba(0,201,184,.95);font-family:'Jost',sans-serif;font-size:.65rem;letter-spacing:.1em;text-transform:uppercase;text-decoration:none;transition:all .2s" onmouseover="this.style.background='rgba(0,201,184,.2)';this.style.borderColor='rgba(0,201,184,.8)'" onmouseout="this.style.background='rgba(0,201,184,.1)';this.style.borderColor='rgba(0,201,184,.5)'">Open Command Center →</a>
+      </div>
+    </div>
+    <div>
+      <div style="font-family:'Jost',sans-serif;font-size:.6rem;letter-spacing:.18em;text-transform:uppercase;color:var(--teal);margin-bottom:.6rem">DBR Master Folder</div>
+      <img src="/manus-storage/dbr-master-folder_015cc668.png" alt="DBR Master Folder" style="width:100%;border-radius:10px;border:1px solid rgba(0,201,184,.2);display:block;box-shadow:0 8px 32px rgba(0,0,0,.4)">
+      <div style="margin-top:.8rem;text-align:center">
+        <a href="https://drive.google.com/drive/u/0/folders/1fKqCTD-TFj8qY9ro6sIAoiyxxoddZyWa" target="_blank" style="display:inline-block;padding:.6rem 1.4rem;background:rgba(0,201,184,.1);border:1px solid rgba(0,201,184,.5);border-radius:6px;color:rgba(0,201,184,.95);font-family:'Jost',sans-serif;font-size:.65rem;letter-spacing:.1em;text-transform:uppercase;text-decoration:none;transition:all .2s" onmouseover="this.style.background='rgba(0,201,184,.2)';this.style.borderColor='rgba(0,201,184,.8)'" onmouseout="this.style.background='rgba(0,201,184,.1)';this.style.borderColor='rgba(0,201,184,.5)'">Open Master Folder →</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── INCOME CALCULATORS (moved below) ── -->
+  <div class="sdiv"><div class="sdiv-line"></div><div class="sdiv-label">DBR Income Calculators</div><div class="sdiv-line"></div></div>
+
   <div class="calc-grid">
     <div class="calc-card">
       <h4>Quantum Health Residual Calculator</h4>
