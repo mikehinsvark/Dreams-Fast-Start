@@ -1,0 +1,1169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>A Morning with Brian Moran — The 12 Week Year</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Jost:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    /* ── RESET & BASE ───────────────────────────────────── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg-deep:    #010810;
+      --bg-card:    #071428;
+      --bg-card2:   #0a1a30;
+      --teal:       #00C9B8;
+      --teal-dim:   #00a898;
+      --teal-glow:  rgba(0,201,184,0.15);
+      --cream:      #F0E8D5;
+      --muted:      #6A8FA8;
+      --border:     rgba(0,201,184,0.25);
+      --gold:       #E8B84B;
+      --max-w:      960px;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg-deep);
+      color: var(--cream);
+      font-family: 'Jost', sans-serif;
+      font-weight: 400;
+      line-height: 1.7;
+      min-height: 100vh;
+    }
+
+    /* ── OUTER WRAPPER ──────────────────────────────────── */
+    .page-wrap {
+      max-width: var(--max-w);
+      margin: 0 auto;
+      padding: 0 16px 60px;
+    }
+
+    /* ── HERO BANNER ────────────────────────────────────── */
+    .hero {
+      width: 100%;
+      max-width: var(--max-w);
+      margin: 0 auto;
+      border-radius: 0 0 12px 12px;
+      overflow: hidden;
+      box-shadow: 0 8px 40px rgba(0,0,0,0.7);
+    }
+
+    .hero img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    /* ── BADGE / LABEL ──────────────────────────────────── */
+    .page-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(0,201,184,0.12);
+      border: 1px solid var(--border);
+      border-radius: 40px;
+      padding: 6px 18px;
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--teal);
+      margin: 36px auto 0;
+    }
+
+    .section-header {
+      text-align: center;
+      padding: 44px 0 32px;
+    }
+
+    .section-header h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2rem, 5vw, 2.8rem);
+      font-weight: 700;
+      color: var(--cream);
+      line-height: 1.2;
+    }
+
+    .section-header h2 span { color: var(--teal); }
+
+    .section-header p {
+      color: var(--muted);
+      font-size: 1rem;
+      margin-top: 10px;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .divider {
+      width: 48px;
+      height: 3px;
+      background: linear-gradient(90deg, var(--teal), transparent);
+      border-radius: 2px;
+      margin: 14px auto 0;
+    }
+
+    /* ── BLUEPRINT INTRO ────────────────────────────────── */
+    .blueprint-intro {
+      background: linear-gradient(135deg, #071a35 0%, #0a2040 50%, #071428 100%);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 44px 32px 40px;
+      text-align: center;
+      margin-bottom: 40px;
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 0 60px rgba(0,201,184,0.08), 0 8px 32px rgba(0,0,0,0.5);
+    }
+
+    .blueprint-intro::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 2px;
+      background: linear-gradient(90deg, transparent, var(--teal), transparent);
+    }
+
+    .blueprint-intro::after {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(0,201,184,0.3), transparent);
+    }
+
+    .blueprint-icon { font-size: 1.1rem; color: var(--teal); margin-bottom: 10px; opacity: 0.8; letter-spacing: 0.3em; }
+    .blueprint-eyebrow { font-size: 0.72rem; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; color: var(--teal); margin-bottom: 14px; }
+
+    .blueprint-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(1.9rem, 5vw, 2.8rem);
+      font-weight: 700;
+      color: var(--cream);
+      line-height: 1.15;
+      margin-bottom: 12px;
+    }
+
+    .blueprint-title span { color: var(--teal); }
+
+    .blueprint-sub {
+      color: var(--muted);
+      font-size: 1rem;
+      max-width: 520px;
+      margin: 0 auto 28px;
+      line-height: 1.6;
+    }
+
+    .blueprint-pillars {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 4px;
+    }
+
+    .bp-pill {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      background: rgba(0,201,184,0.08);
+      border: 1px solid rgba(0,201,184,0.22);
+      border-radius: 40px;
+      padding: 8px 20px;
+      font-size: 0.82rem;
+      font-weight: 500;
+      color: var(--cream);
+      letter-spacing: 0.04em;
+    }
+
+    .bp-num {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--teal);
+    }
+
+    /* ── VIDEO GRID (3-across) ──────────────────────────── */
+    .video-grid-label {
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--teal);
+      text-align: center;
+      margin-bottom: 24px;
+    }
+
+    .video-grid-label::before { content: '// '; }
+
+    .video-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
+      margin-bottom: 48px;
+    }
+
+    /* ── VIDEO CARD (thumbnail style) ──────────────────── */
+    .vcard {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      cursor: pointer;
+      transition: box-shadow 0.25s, border-color 0.25s, transform 0.2s;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.5);
+    }
+
+    .vcard:hover {
+      box-shadow: 0 8px 36px rgba(0,201,184,0.22);
+      border-color: rgba(0,201,184,0.55);
+      transform: translateY(-3px);
+    }
+
+    /* Thumbnail wrapper with 16:9 ratio */
+    .vcard-thumb {
+      position: relative;
+      width: 100%;
+      padding-top: 56.25%;
+      background: #000;
+      overflow: hidden;
+    }
+
+    .vcard-thumb img {
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.3s;
+    }
+
+    .vcard:hover .vcard-thumb img { transform: scale(1.04); }
+
+    /* Play button overlay */
+    .vcard-play {
+      position: absolute;
+      top: 50%; left: 50%;
+      transform: translate(-50%, -50%);
+      width: 48px; height: 48px;
+      border-radius: 50%;
+      background: rgba(0,201,184,0.88);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background 0.2s, transform 0.2s;
+      box-shadow: 0 0 20px rgba(0,201,184,0.5);
+    }
+
+    .vcard:hover .vcard-play {
+      background: var(--teal);
+      transform: translate(-50%, -50%) scale(1.12);
+    }
+
+    .vcard-play svg { width: 18px; height: 18px; fill: #010810; margin-left: 3px; }
+
+    /* Number badge */
+    .vcard-num {
+      position: absolute;
+      top: 10px; left: 10px;
+      background: rgba(1,8,16,0.82);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 3px 9px;
+      font-size: 0.68rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      color: var(--teal);
+      backdrop-filter: blur(4px);
+    }
+
+    /* Card body */
+    .vcard-body {
+      padding: 16px 16px 18px;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .vcard-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--cream);
+      line-height: 1.3;
+      margin-bottom: 14px;
+      flex: 1;
+    }
+
+    .vcard-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      background: transparent;
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      color: var(--teal);
+      font-family: 'Jost', sans-serif;
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 8px 16px;
+      cursor: pointer;
+      transition: background 0.2s, border-color 0.2s;
+      width: 100%;
+      justify-content: center;
+    }
+
+    .vcard-btn:hover {
+      background: var(--teal-glow);
+      border-color: var(--teal);
+    }
+
+    .vcard-btn svg { width: 13px; height: 13px; fill: var(--teal); }
+
+    /* ── MODAL LIGHTBOX ─────────────────────────────────── */
+    .modal-overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(1,8,16,0.94);
+      z-index: 2000;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      backdrop-filter: blur(8px);
+    }
+
+    .modal-overlay.open { display: flex; }
+
+    .modal-box {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      width: 100%;
+      max-width: 820px;
+      box-shadow: 0 0 80px rgba(0,201,184,0.18), 0 24px 60px rgba(0,0,0,0.8);
+      overflow: hidden;
+      animation: modalIn 0.25s ease;
+    }
+
+    @keyframes modalIn {
+      from { opacity: 0; transform: scale(0.95) translateY(16px); }
+      to   { opacity: 1; transform: scale(1) translateY(0); }
+    }
+
+    .modal-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 16px 20px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .modal-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: var(--cream);
+    }
+
+    .modal-num {
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      color: var(--teal);
+      text-transform: uppercase;
+      margin-right: 10px;
+    }
+
+    .modal-close {
+      background: none;
+      border: none;
+      color: var(--muted);
+      font-size: 1.5rem;
+      cursor: pointer;
+      line-height: 1;
+      padding: 4px 8px;
+      border-radius: 6px;
+      transition: color 0.2s, background 0.2s;
+    }
+
+    .modal-close:hover { color: var(--cream); background: rgba(255,255,255,0.06); }
+
+    .modal-video {
+      position: relative;
+      padding-bottom: 56.25%;
+      height: 0;
+      background: #000;
+    }
+
+    .modal-video iframe {
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      border: none;
+    }
+
+    /* ── BOOK COVER SECTION ─────────────────────────────── */
+    .book-section {
+      background: var(--bg-card2);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 36px 28px;
+      margin: 40px 0;
+      display: flex;
+      gap: 32px;
+      align-items: flex-start;
+      box-shadow: 0 4px 24px rgba(0,0,0,0.5);
+    }
+
+    .book-cover-wrap { flex: 0 0 160px; text-align: center; }
+
+    .book-cover-wrap img {
+      width: 160px;
+      height: auto;
+      border-radius: 6px;
+      box-shadow: 0 8px 28px rgba(0,0,0,0.7);
+      display: block;
+    }
+
+    .book-info { flex: 1; }
+
+    .book-info h3 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.6rem;
+      font-weight: 700;
+      color: var(--cream);
+      margin-bottom: 8px;
+      line-height: 1.2;
+    }
+
+    .book-info .book-meta {
+      font-size: 0.8rem;
+      color: var(--teal);
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: 14px;
+    }
+
+    .book-info p { color: var(--muted); font-size: 0.95rem; margin-bottom: 18px; }
+
+    .btn-row { display: flex; gap: 12px; flex-wrap: wrap; }
+
+    .btn-primary {
+      display: inline-block;
+      background: var(--teal);
+      color: #010810;
+      font-family: 'Jost', sans-serif;
+      font-weight: 700;
+      font-size: 0.82rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 10px 22px;
+      border-radius: 6px;
+      text-decoration: none;
+      transition: background 0.2s, transform 0.15s;
+    }
+
+    .btn-primary:hover { background: var(--teal-dim); transform: translateY(-1px); }
+
+    .btn-secondary {
+      display: inline-block;
+      background: transparent;
+      color: var(--teal);
+      font-family: 'Jost', sans-serif;
+      font-weight: 600;
+      font-size: 0.82rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 10px 22px;
+      border-radius: 6px;
+      border: 1px solid var(--border);
+      text-decoration: none;
+      transition: border-color 0.2s, background 0.2s;
+    }
+
+    .btn-secondary:hover { border-color: var(--teal); background: var(--teal-glow); }
+
+    /* ── RESOURCE CARDS ─────────────────────────────────── */
+    .resource-card {
+      background: var(--bg-card2);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 28px 28px;
+      margin-bottom: 32px;
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .resource-icon { font-size: 2.4rem; flex: 0 0 auto; }
+    .resource-text { flex: 1; min-width: 200px; }
+
+    .resource-text h4 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: var(--cream);
+      margin-bottom: 4px;
+    }
+
+    .resource-text p { color: var(--muted); font-size: 0.9rem; }
+
+    /* ── CLIFF NOTES SECTION ────────────────────────────── */
+    .cliff-section {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 36px 32px;
+      margin-bottom: 32px;
+    }
+
+    .cliff-section h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: var(--cream);
+      margin-bottom: 6px;
+    }
+
+    .cliff-section h2 span { color: var(--teal); }
+    .cliff-section .cliff-sub { color: var(--muted); font-size: 0.9rem; margin-bottom: 28px; }
+
+    .cliff-section h3 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: var(--teal);
+      margin: 28px 0 10px;
+      padding-bottom: 6px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .cliff-section h4 {
+      font-family: 'Jost', sans-serif;
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: var(--cream);
+      margin: 18px 0 6px;
+    }
+
+    .cliff-section p { color: var(--muted); font-size: 0.95rem; margin-bottom: 12px; }
+
+    .cliff-section ul { list-style: none; padding: 0; margin: 0 0 14px; }
+
+    .cliff-section ul li {
+      color: var(--muted);
+      font-size: 0.93rem;
+      padding: 4px 0 4px 20px;
+      position: relative;
+    }
+
+    .cliff-section ul li::before {
+      content: '▸';
+      color: var(--teal);
+      position: absolute;
+      left: 0;
+      font-size: 0.8rem;
+      top: 6px;
+    }
+
+    .cliff-section ul li strong { color: var(--cream); }
+
+    .highlight-box {
+      background: rgba(0,201,184,0.07);
+      border-left: 3px solid var(--teal);
+      border-radius: 0 8px 8px 0;
+      padding: 14px 18px;
+      margin: 18px 0;
+      font-style: italic;
+      color: var(--cream);
+      font-size: 1rem;
+    }
+
+    .formula-box {
+      background: rgba(0,201,184,0.05);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 18px 22px;
+      margin: 18px 0;
+      text-align: center;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.1rem;
+      color: var(--teal);
+      letter-spacing: 0.05em;
+    }
+
+    .takeaway-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      gap: 14px;
+      margin: 18px 0;
+    }
+
+    .takeaway-item {
+      background: rgba(0,201,184,0.06);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 14px 16px;
+    }
+
+    .takeaway-item strong {
+      display: block;
+      color: var(--teal);
+      font-size: 0.85rem;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      margin-bottom: 4px;
+    }
+
+    .takeaway-item span { color: var(--muted); font-size: 0.88rem; }
+
+    /* ── FOOTER ─────────────────────────────────────────── */
+    .site-footer {
+      background: #020d1c;
+      border-top: 1px solid var(--border);
+      padding: 44px 16px 28px;
+      text-align: center;
+      margin-top: 20px;
+    }
+
+    .footer-logo {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2.6rem;
+      font-weight: 700;
+      letter-spacing: 0.25em;
+      color: var(--teal);
+      margin-bottom: 22px;
+      display: block;
+    }
+
+    .footer-nav {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 10px 32px;
+      margin-bottom: 22px;
+    }
+
+    .footer-nav a {
+      color: var(--cream);
+      text-decoration: none;
+      font-size: 0.78rem;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      transition: color 0.2s;
+    }
+
+    .footer-nav a:hover { color: var(--teal); }
+
+    .footer-divider { width: 60px; height: 1px; background: var(--border); margin: 0 auto 20px; }
+
+    .footer-copy { color: var(--muted); font-size: 0.76rem; line-height: 1.7; max-width: 680px; margin: 0 auto; }
+    .footer-copy a { color: var(--teal); text-decoration: none; }
+    .footer-copy a:hover { text-decoration: underline; }
+
+    /* ── SCROLL NAVIGATOR ────────────────────────────────── */
+    .scroll-nav {
+      position: fixed;
+      right: 18px;
+      top: 50%;
+      transform: translateY(-50%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+      z-index: 999;
+    }
+
+    .scroll-btn {
+      width: 42px; height: 42px;
+      border-radius: 50%;
+      border: 2px solid var(--teal);
+      background: rgba(1,8,16,0.85);
+      color: var(--teal);
+      font-size: 1rem;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background 0.2s, box-shadow 0.2s;
+      box-shadow: 0 0 12px rgba(0,201,184,0.35);
+      backdrop-filter: blur(6px);
+    }
+
+    .scroll-btn:hover { background: rgba(0,201,184,0.18); box-shadow: 0 0 20px rgba(0,201,184,0.55); }
+
+    .scroll-dots { display: flex; flex-direction: column; align-items: center; gap: 7px; padding: 4px 0; }
+
+    .scroll-dot {
+      width: 7px; height: 7px;
+      border-radius: 50%;
+      background: rgba(106,143,168,0.45);
+      transition: background 0.3s, transform 0.3s;
+      cursor: pointer;
+    }
+
+    .scroll-dot.active {
+      background: var(--teal);
+      transform: scale(1.35);
+      box-shadow: 0 0 6px rgba(0,201,184,0.7);
+    }
+
+    /* ── RESPONSIVE ─────────────────────────────────────── */
+    @media (max-width: 768px) {
+      .scroll-nav { right: 8px; }
+      .scroll-btn { width: 34px; height: 34px; font-size: 0.85rem; }
+      .video-grid { grid-template-columns: repeat(2, 1fr); gap: 16px; }
+    }
+
+    @media (max-width: 520px) {
+      .video-grid { grid-template-columns: 1fr; }
+      .book-section { flex-direction: column; align-items: center; text-align: center; }
+      .book-cover-wrap { flex: 0 0 auto; }
+      .btn-row { justify-content: center; }
+      .takeaway-grid { grid-template-columns: 1fr 1fr; }
+      .cliff-section { padding: 24px 18px; }
+      .resource-card { flex-direction: column; text-align: center; }
+    }
+
+    @media (max-width: 400px) {
+      .takeaway-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ── PAGE CONTENT ─────────────────────────────────── -->
+  <div class="page-wrap">
+
+    <!-- Badge -->
+    <div style="text-align:center;">
+      <div class="page-badge">📚 DBR Learning Library · Video Series</div>
+    </div>
+
+    <!-- Section Header -->
+    <div class="section-header">
+      <h2>A Morning with <span>Brian Moran</span></h2>
+      <p>Author of the New York Times Bestseller <em>"The 12 Week Year"</em> — Fast-Track Your Productivity</p>
+      <div class="divider"></div>
+    </div>
+
+    <!-- ── HERO BANNER (under heading) ──────────────────── -->
+    <div class="hero" style="margin-bottom:48px;">
+      <img src="banner.png" alt="A Morning with Brian Moran — Author of The 12 Week Year" />
+    </div>
+
+    <!-- ── BLUEPRINT INTRO ───────────────────────────────── -->
+    <div class="blueprint-intro">
+      <div class="blueprint-icon">&#9650;</div>
+      <div class="blueprint-eyebrow">Featured Video Series</div>
+      <h3 class="blueprint-title">The 12 Week Year <span>Blueprint</span></h3>
+      <p class="blueprint-sub">Your Roadmap to Accelerate Focus, Execution &amp; Financial Momentum</p>
+      <div class="blueprint-pillars">
+        <div class="bp-pill"><span class="bp-num">01</span><span>Compress Your Timeline</span></div>
+        <div class="bp-pill"><span class="bp-num">02</span><span>Execute with Precision</span></div>
+        <div class="bp-pill"><span class="bp-num">03</span><span>Build Unstoppable Momentum</span></div>
+      </div>
+    </div>
+
+    <!-- ── VIDEO GRID LABEL ──────────────────────────────── -->
+    <div class="video-grid-label">11 Video Sessions — Click to Watch</div>
+
+    <!-- ── VIDEO GRID (3-across) ─────────────────────────── -->
+    <div class="video-grid" id="videoGrid">
+
+      <!-- Card 01 -->
+      <div class="vcard" onclick="openModal('40mevnqllzk','01','12 Week Year Overview')">
+        <div class="vcard-thumb">
+          <img src="https://img.youtube.com/vi/40mevnqllzk/hqdefault.jpg" alt="12 Week Year Overview" loading="lazy" />
+          <div class="vcard-num">01</div>
+          <div class="vcard-play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
+        </div>
+        <div class="vcard-body">
+          <div class="vcard-title">12 Week Year Overview</div>
+          <button class="vcard-btn"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg> Watch Video</button>
+        </div>
+      </div>
+
+      <!-- Card 02 -->
+      <div class="vcard" onclick="openModal('X06BgI6eK7E','02','Why the 12 Week Year Planning is Better')">
+        <div class="vcard-thumb">
+          <img src="https://img.youtube.com/vi/X06BgI6eK7E/hqdefault.jpg" alt="Why the 12 Week Year Planning is Better" loading="lazy" />
+          <div class="vcard-num">02</div>
+          <div class="vcard-play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
+        </div>
+        <div class="vcard-body">
+          <div class="vcard-title">Why the 12 Week Year Planning is Better</div>
+          <button class="vcard-btn"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg> Watch Video</button>
+        </div>
+      </div>
+
+      <!-- Card 03 -->
+      <div class="vcard" onclick="openModal('gaE9Pj9Q1xc','03','It\'s All About Execution')">
+        <div class="vcard-thumb">
+          <img src="https://img.youtube.com/vi/gaE9Pj9Q1xc/hqdefault.jpg" alt="It's All About Execution" loading="lazy" />
+          <div class="vcard-num">03</div>
+          <div class="vcard-play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
+        </div>
+        <div class="vcard-body">
+          <div class="vcard-title">It's All About Execution</div>
+          <button class="vcard-btn"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg> Watch Video</button>
+        </div>
+      </div>
+
+      <!-- Card 04 -->
+      <div class="vcard" onclick="openModal('Xy7amUQVwVk','04','How to Design an Action Plan to Achieve Goals')">
+        <div class="vcard-thumb">
+          <img src="https://img.youtube.com/vi/Xy7amUQVwVk/hqdefault.jpg" alt="How to Design an Action Plan to Achieve Goals" loading="lazy" />
+          <div class="vcard-num">04</div>
+          <div class="vcard-play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
+        </div>
+        <div class="vcard-body">
+          <div class="vcard-title">How to Design an Action Plan to Achieve Goals</div>
+          <button class="vcard-btn"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg> Watch Video</button>
+        </div>
+      </div>
+
+      <!-- Card 05 -->
+      <div class="vcard" onclick="openModal('H15GFDjxEuI','05','12 Week Year Thinking')">
+        <div class="vcard-thumb">
+          <img src="https://img.youtube.com/vi/H15GFDjxEuI/hqdefault.jpg" alt="12 Week Year Thinking" loading="lazy" />
+          <div class="vcard-num">05</div>
+          <div class="vcard-play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
+        </div>
+        <div class="vcard-body">
+          <div class="vcard-title">12 Week Year Thinking</div>
+          <button class="vcard-btn"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg> Watch Video</button>
+        </div>
+      </div>
+
+      <!-- Card 06 -->
+      <div class="vcard" onclick="openModal('Ly_UG5YZBq0','06','12 Week Year Accountability')">
+        <div class="vcard-thumb">
+          <img src="https://img.youtube.com/vi/Ly_UG5YZBq0/hqdefault.jpg" alt="12 Week Year Accountability" loading="lazy" />
+          <div class="vcard-num">06</div>
+          <div class="vcard-play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
+        </div>
+        <div class="vcard-body">
+          <div class="vcard-title">12 Week Year Accountability</div>
+          <button class="vcard-btn"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg> Watch Video</button>
+        </div>
+      </div>
+
+      <!-- Card 07 -->
+      <div class="vcard" onclick="openModal('SALpPlveuHg','07','Secrets of Taking Consistent Action to Achieve Your Goals')">
+        <div class="vcard-thumb">
+          <img src="https://img.youtube.com/vi/SALpPlveuHg/hqdefault.jpg" alt="Secrets of Taking Consistent Action" loading="lazy" />
+          <div class="vcard-num">07</div>
+          <div class="vcard-play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
+        </div>
+        <div class="vcard-body">
+          <div class="vcard-title">Secrets of Taking Consistent Action to Achieve Your Goals</div>
+          <button class="vcard-btn"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg> Watch Video</button>
+        </div>
+      </div>
+
+      <!-- Card 08 -->
+      <div class="vcard" onclick="openModal('PCATCyli8o0','08','Using Failure to Accelerate How You Achieve Your Goals')">
+        <div class="vcard-thumb">
+          <img src="https://img.youtube.com/vi/PCATCyli8o0/hqdefault.jpg" alt="Using Failure to Accelerate Goals" loading="lazy" />
+          <div class="vcard-num">08</div>
+          <div class="vcard-play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
+        </div>
+        <div class="vcard-body">
+          <div class="vcard-title">Using Failure to Accelerate How You Achieve Your Goals</div>
+          <button class="vcard-btn"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg> Watch Video</button>
+        </div>
+      </div>
+
+      <!-- Card 09 -->
+      <div class="vcard" onclick="openModal('CiQT-fFzxVo','09','Setting Goals with Intentional Imbalance')">
+        <div class="vcard-thumb">
+          <img src="https://img.youtube.com/vi/CiQT-fFzxVo/hqdefault.jpg" alt="Setting Goals with Intentional Imbalance" loading="lazy" />
+          <div class="vcard-num">09</div>
+          <div class="vcard-play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
+        </div>
+        <div class="vcard-body">
+          <div class="vcard-title">Setting Goals with Intentional Imbalance</div>
+          <button class="vcard-btn"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg> Watch Video</button>
+        </div>
+      </div>
+
+      <!-- Card 10 -->
+      <div class="vcard" onclick="openModal('cl-YTWhMcBc','10','Systems for Executing Your Goals Effectively and Efficiently')">
+        <div class="vcard-thumb">
+          <img src="https://img.youtube.com/vi/cl-YTWhMcBc/hqdefault.jpg" alt="Systems for Executing Goals" loading="lazy" />
+          <div class="vcard-num">10</div>
+          <div class="vcard-play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
+        </div>
+        <div class="vcard-body">
+          <div class="vcard-title">Systems for Executing Your Goals Effectively and Efficiently</div>
+          <button class="vcard-btn"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg> Watch Video</button>
+        </div>
+      </div>
+
+      <!-- Card 11 -->
+      <div class="vcard" onclick="openModal('wdt_CPmWb0w','11','How to Define Clear Goals with the 12 Week Year Goal Achievement System')">
+        <div class="vcard-thumb">
+          <img src="https://img.youtube.com/vi/wdt_CPmWb0w/hqdefault.jpg" alt="How to Define Clear Goals" loading="lazy" />
+          <div class="vcard-num">11</div>
+          <div class="vcard-play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
+        </div>
+        <div class="vcard-body">
+          <div class="vcard-title">How to Define Clear Goals with the 12 Week Year Goal Achievement System</div>
+          <button class="vcard-btn"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg> Watch Video</button>
+        </div>
+      </div>
+
+    </div><!-- /video-grid -->
+
+    <!-- ── BOOK COVER SECTION ────────────────────────── -->
+    <div class="book-section">
+      <div class="book-cover-wrap">
+        <img src="book-cover.png" alt="The 12 Week Year — Brian P. Moran &amp; Michael Lennington" />
+      </div>
+      <div class="book-info">
+        <div class="book-meta">New York Times Bestseller</div>
+        <h3>The 12 Week Year</h3>
+        <p>Get more done in 12 weeks than others do in 12 months. Read and study pages 1–87 to get started on the system that will transform how you plan, execute, and achieve.</p>
+        <div class="btn-row">
+          <a href="https://www.amazon.com/s?k=the+12+week+year+brian+moran" target="_blank" rel="noopener" class="btn-primary">📖 Order Your Book</a>
+          <a href="https://docs.google.com/spreadsheets/d/1qjCe6S_HR6aWeU4sdVhtNJjexEuA7WwYO5pl0QtJF5w/edit?usp=sharing" target="_blank" rel="noopener" class="btn-secondary">📊 Get the Spreadsheet</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── RESOURCE: SPREADSHEET ─────────────────────── -->
+    <div class="resource-card">
+      <div class="resource-icon">📊</div>
+      <div class="resource-text">
+        <h4>Google Drive Spreadsheet — Make Your Own Copy</h4>
+        <p>Click the link below, then hit <strong style="color:var(--teal)">File → Make a Copy</strong> to get your personal 12 Week Year planning template.</p>
+      </div>
+      <a href="https://docs.google.com/spreadsheets/d/1qjCe6S_HR6aWeU4sdVhtNJjexEuA7WwYO5pl0QtJF5w/edit?usp=sharing" target="_blank" rel="noopener" class="btn-primary" style="white-space:nowrap;">Open Spreadsheet ↗</a>
+    </div>
+
+    <!-- ── RESOURCE: GOOGLE DRIVE FOLDER ──────────────── -->
+    <div class="resource-card">
+      <div class="resource-icon">📂</div>
+      <div class="resource-text">
+        <h4>12 Week Year — Full Resources Folder</h4>
+        <p>Access all supporting materials, worksheets, and tools in the dedicated Google Drive folder for this series.</p>
+      </div>
+      <a href="https://drive.google.com/drive/folders/1ypsV5giArOnoId0_1wX5MCRJ40UhQsnm?usp=drive_link" target="_blank" rel="noopener" class="btn-primary" style="white-space:nowrap;">Open Resources ↗</a>
+    </div>
+
+    <!-- ── CLIFF NOTES ───────────────────────────────── -->
+    <div class="cliff-section">
+      <h2>Cliff Notes: <span>The 12 Week Year</span></h2>
+      <p class="cliff-sub">Key insights distilled — the ideas that will change how you plan and execute</p>
+
+      <h3>The Core Idea</h3>
+      <p>Most people and companies waste time because they think in annual goals. A year feels long, so urgency disappears. The book argues that you can accomplish more in 12 weeks than most people do in 12 months — when you compress focus, execution, and accountability.</p>
+      <p>Instead of operating on a yearly calendar, you create a 12-week execution cycle, treat each 12 weeks like a full "year," then take a short reset/review period before the next cycle.</p>
+      <div class="highlight-box">"Get more done in 12 weeks than others do in 12 months." — Brian Moran, Author</div>
+      <p>Why it works: deadlines create intensity, focus improves, procrastination drops, priorities become clearer, and you stop trying to do 27 things at once. It is essentially artificial urgency with intentional structure.</p>
+
+      <h3>The 3 Biggest Problems</h3>
+
+      <h4>1. Too Many Goals</h4>
+      <p>People overload themselves. The book says: pick fewer goals and focus on what actually moves the needle — revenue, health, recruiting, systems, key relationships. Not busywork.</p>
+
+      <h4>2. No Execution System</h4>
+      <p>Most people set goals, get excited, drift, then start over next January. Execution is the missing ingredient. The book is far more about discipline, tracking, and consistency than motivation.</p>
+
+      <h4>3. Annual Thinking Kills Urgency</h4>
+      <p>If it's January and your goal is due in December, your brain says "I've got time." Then suddenly it's October. 12-week cycles eliminate that psychological trap.</p>
+
+      <h3>The 12 Week Year Formula</h3>
+      <div class="formula-box">Vision → Plan → Process → Execution → Accountability</div>
+
+      <h4>1. Create a Vision</h4>
+      <p>Know what you want, why you want it, and what your future should look like. The clearer the vision, the easier discipline becomes.</p>
+
+      <h4>2. Set 1–3 Major Goals for the Next 12 Weeks</h4>
+      <p>Not 20. Examples: recruit 15 producing agents, enroll 500 employees, launch AI platform MVP, lose 20 pounds, increase recurring revenue by 25%. The key: specific and measurable.</p>
+
+      <h4>3. Build Weekly Tactics</h4>
+      <p>Break goals into weekly actions, scheduled activities, and measurable behaviors. The book heavily emphasizes: execution beats intention.</p>
+      <ul>
+        <li><strong>Goal:</strong> Recruit 15 agents</li>
+        <li><strong>Weekly actions:</strong> 20 outreach calls/day, 5 Zooms/week, 2 presentations/week, 1 recruiting webinar/week</li>
+      </ul>
+
+      <h4>4. Score Yourself Weekly</h4>
+      <p>Every week, track your execution percentage. Planned 10 activities, completed 8 = 80% score. The authors say 85%+ execution consistently = massive results. This creates objectivity, honesty, and accountability. Most people feel productive — few actually measure execution.</p>
+
+      <h4>5. Use Time Blocking</h4>
+      <p>The book strongly pushes calendar discipline. Three key blocks:</p>
+      <ul>
+        <li><strong>Strategic Block</strong> — 3 hours uninterrupted on important work</li>
+        <li><strong>Buffer Block</strong> — Admin and reactive tasks</li>
+        <li><strong>Breakout Block</strong> — Recovery and personal time</li>
+      </ul>
+      <p>If you don't control your calendar, other people will.</p>
+
+      <h4>6. Accountability &gt; Motivation</h4>
+      <p>Motivation fluctuates. Accountability sustains performance. High performers track metrics, review weekly, adjust quickly, and execute regardless of mood.</p>
+
+      <h3>The Emotional Cycle of Change</h3>
+      <p>The book says growth always feels uncomfortable:</p>
+      <ul>
+        <li>Uninformed optimism</li>
+        <li>Informed pessimism</li>
+        <li>Valley of despair</li>
+        <li>Informed optimism</li>
+        <li>Success &amp; fulfillment</li>
+      </ul>
+      <p>Most people quit in phase 3. The winners push through the ugly middle.</p>
+
+      <h3>Biggest Takeaways</h3>
+      <div class="takeaway-grid">
+        <div class="takeaway-item"><strong>Focus Beats Volume</strong><span>Doing fewer things better wins.</span></div>
+        <div class="takeaway-item"><strong>Execution Beats Knowledge</strong><span>Knowing isn't enough.</span></div>
+        <div class="takeaway-item"><strong>Urgency Changes Behavior</strong><span>Compressed timelines create intensity.</span></div>
+        <div class="takeaway-item"><strong>Weekly Accountability</strong><span>People drift when they don't measure.</span></div>
+        <div class="takeaway-item"><strong>Consistency Compounds</strong><span>Small repeated actions create massive outcomes.</span></div>
+        <div class="takeaway-item"><strong>Best Fit</strong><span>Entrepreneurs, sales leaders, recruiters, agency builders.</span></div>
+      </div>
+
+      <h3>The Best Practical Question</h3>
+      <div class="highlight-box">Instead of asking "What do I want this year?" ask: <strong>"What MUST happen in the next 12 weeks?"</strong> — That question changes behavior fast.</div>
+
+      <h3>One-Sentence Summary</h3>
+      <p>The 12 Week Year is a system for compressing goals, increasing urgency, and forcing consistent execution through 12-week planning cycles and weekly accountability.</p>
+    </div>
+
+  </div><!-- /page-wrap -->
+
+  <!-- ── VIDEO MODAL ────────────────────────────────────── -->
+  <div class="modal-overlay" id="videoModal" onclick="closeModalOnOverlay(event)">
+    <div class="modal-box">
+      <div class="modal-header">
+        <div>
+          <span class="modal-num" id="modalNum"></span>
+          <span class="modal-title" id="modalTitle"></span>
+        </div>
+        <button class="modal-close" onclick="closeModal()" aria-label="Close">&times;</button>
+      </div>
+      <div class="modal-video">
+        <iframe id="modalIframe" src="" allowfullscreen allow="autoplay; encrypted-media"></iframe>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── SCROLL NAVIGATOR ──────────────────────────────── -->
+  <div class="scroll-nav" id="scrollNav">
+    <button class="scroll-btn" id="scrollUp" title="Scroll Up" aria-label="Scroll Up">&#8679;</button>
+    <div class="scroll-dots" id="scrollDots"></div>
+    <button class="scroll-btn" id="scrollDown" title="Scroll Down" aria-label="Scroll Down">&#8681;</button>
+  </div>
+
+  <!-- ── FOOTER ────────────────────────────────────────── -->
+  <footer class="site-footer">
+    <span class="footer-logo">DBR</span>
+    <nav class="footer-nav">
+      <a href="https://dreamsfaststart.com/" target="_blank">Fast Start</a>
+      <a href="https://dreamsfaststart.com/vf-video-book-summaries.html" target="_blank">Video Library</a>
+      <a href="https://aigeniedatabase.com/" target="_blank">AI Genie Database</a>
+      <a href="https://renewalsforlifestyle.com/" target="_blank">Renewals For Life</a>
+    </nav>
+    <div class="footer-divider"></div>
+    <p class="footer-copy">
+      &copy; 2026 Dreams Business Resources &middot; Mike Hinsvark, Senior Agency Partner &middot;
+      <a href="mailto:mikeceo@gmail.com">mikeceo@gmail.com</a> &middot;
+      All rights reserved. Income results vary. This training material is for educational purposes only.
+    </p>
+  </footer>
+
+<script>
+  // ── MODAL LOGIC ───────────────────────────────────────────
+  function openModal(videoId, num, title) {
+    document.getElementById('modalNum').textContent = 'Video ' + num + ' · ';
+    document.getElementById('modalTitle').textContent = title;
+    document.getElementById('modalIframe').src =
+      'https://www.youtube.com/embed/' + videoId + '?autoplay=1&rel=0';
+    document.getElementById('videoModal').classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeModal() {
+    document.getElementById('videoModal').classList.remove('open');
+    document.getElementById('modalIframe').src = '';
+    document.body.style.overflow = '';
+  }
+
+  function closeModalOnOverlay(e) {
+    if (e.target === document.getElementById('videoModal')) closeModal();
+  }
+
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') closeModal();
+  });
+
+  // ── SCROLL NAVIGATOR JS ───────────────────────────────────
+  (function() {
+    const sections = [
+      document.querySelector('.hero'),
+      document.querySelector('.blueprint-intro'),
+      document.querySelector('.video-grid'),
+      document.querySelector('.book-section'),
+      document.querySelector('.cliff-section'),
+      document.querySelector('.site-footer')
+    ].filter(Boolean);
+
+    const dotsContainer = document.getElementById('scrollDots');
+    let currentIndex = 0;
+
+    sections.forEach((_, i) => {
+      const dot = document.createElement('div');
+      dot.className = 'scroll-dot' + (i === 0 ? ' active' : '');
+      dot.addEventListener('click', () => scrollToSection(i));
+      dotsContainer.appendChild(dot);
+    });
+
+    function updateDots(idx) {
+      document.querySelectorAll('.scroll-dot').forEach((d, i) => {
+        d.classList.toggle('active', i === idx);
+      });
+    }
+
+    function scrollToSection(idx) {
+      if (idx < 0) idx = 0;
+      if (idx >= sections.length) idx = sections.length - 1;
+      currentIndex = idx;
+      sections[idx].scrollIntoView({ behavior: 'smooth', block: 'start' });
+      updateDots(idx);
+    }
+
+    document.getElementById('scrollUp').addEventListener('click', () => scrollToSection(currentIndex - 1));
+    document.getElementById('scrollDown').addEventListener('click', () => scrollToSection(currentIndex + 1));
+
+    window.addEventListener('scroll', () => {
+      const scrollMid = window.scrollY + window.innerHeight / 2;
+      let closest = 0, minDist = Infinity;
+      sections.forEach((sec, i) => {
+        const rect = sec.getBoundingClientRect();
+        const secMid = window.scrollY + rect.top + rect.height / 2;
+        const dist = Math.abs(scrollMid - secMid);
+        if (dist < minDist) { minDist = dist; closest = i; }
+      });
+      if (closest !== currentIndex) { currentIndex = closest; updateDots(currentIndex); }
+    }, { passive: true });
+  })();
+</script>
+</body>
+</html>

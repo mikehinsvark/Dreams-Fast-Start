@@ -1,0 +1,722 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The DBR Products Portfolio — Dreams Business Resources</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg:        #010810;
+      --bg2:       #071428;
+      --teal:      #00C9B8;
+      --teal-dim:  #00a89a;
+      --cream:     #F0E8D5;
+      --muted:     #6A8FA8;
+      --green-glow:#39d353;
+      --card-bg:   #0a1a2e;
+      --border:    #1a3050;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--cream);
+      font-family: 'Jost', sans-serif;
+      font-weight: 400;
+      min-height: 100vh;
+    }
+
+    /* ─── HEADER ─────────────────────────────────────────────── */
+    header {
+      background: var(--bg2);
+      border-bottom: 1px solid var(--border);
+      padding: 0 1.5rem;
+    }
+    .header-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1.1rem 0;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+    .header-brand {
+      display: flex;
+      flex-direction: column;
+    }
+    .header-brand .logo {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.55rem;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      color: var(--teal);
+      line-height: 1.1;
+    }
+    .header-brand .sub {
+      font-size: 0.68rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-top: 2px;
+    }
+    .header-tagline {
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      font-size: 1.05rem;
+      color: var(--muted);
+      text-align: right;
+      line-height: 1.4;
+    }
+    .header-tagline span { color: var(--teal); }
+
+    /* ─── HERO ───────────────────────────────────────────────── */
+    .hero {
+      background: linear-gradient(180deg, var(--bg2) 0%, var(--bg) 100%);
+      padding: 3.5rem 1.5rem 3rem;
+      text-align: center;
+      border-bottom: 1px solid var(--border);
+    }
+    .hero-inner { max-width: 860px; margin: 0 auto; }
+    .hero-eyebrow {
+      display: inline-block;
+      font-size: 0.7rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--teal);
+      border: 1px solid var(--teal);
+      border-radius: 2rem;
+      padding: 0.3rem 1rem;
+      margin-bottom: 1.4rem;
+    }
+    .hero h1 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2.2rem, 6vw, 3.8rem);
+      font-weight: 700;
+      line-height: 1.1;
+      color: var(--cream);
+      margin-bottom: 0.5rem;
+    }
+    .hero h1 span { color: var(--teal); }
+    .hero p {
+      font-size: 1.05rem;
+      color: var(--muted);
+      max-width: 660px;
+      margin: 1rem auto 0;
+      line-height: 1.7;
+    }
+    .hero-stats {
+      display: flex;
+      justify-content: center;
+      gap: 2.5rem;
+      margin-top: 2rem;
+      flex-wrap: wrap;
+    }
+    .hero-stat { text-align: center; }
+    .hero-stat .num {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2rem;
+      color: var(--teal);
+      font-weight: 700;
+      display: block;
+    }
+    .hero-stat .lbl {
+      font-size: 0.68rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    /* ─── MAIN CONTENT ───────────────────────────────────────── */
+    main {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 3rem 1.5rem 4rem;
+    }
+    .section-label {
+      font-size: 0.68rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--teal);
+      margin-bottom: 2.5rem;
+      text-align: center;
+    }
+
+    /* ─── CATEGORY DIVIDER ───────────────────────────────────── */
+    .category-divider {
+      grid-column: 1 / -1;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin: 1.5rem 0 0.5rem;
+    }
+    .category-divider .cat-label {
+      font-size: 0.65rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--teal);
+      white-space: nowrap;
+      font-weight: 600;
+    }
+    .category-divider .cat-line {
+      flex: 1;
+      height: 1px;
+      background: var(--border);
+    }
+
+    /* ─── PORTFOLIO GRID ─────────────────────────────────────── */
+    .portfolio-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(310px, 1fr));
+      gap: 2rem;
+    }
+
+    /* ─── CARD ───────────────────────────────────────────────── */
+    .card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+    }
+    .card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 40px rgba(0, 201, 184, 0.12);
+    }
+
+    /* green glow outline image wrapper — matches Business Portfolio */
+    .card-img-wrap {
+      position: relative;
+      width: 100%;
+      padding-top: 62.5%; /* 16:10 ratio */
+      background: #000;
+      border-bottom: 3px solid var(--green-glow);
+      box-shadow: 0 0 0 3px var(--green-glow), inset 0 0 0 3px var(--green-glow);
+    }
+    .card-img-wrap img {
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: top center;
+      display: block;
+    }
+    .card-num {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      background: rgba(1,8,16,0.82);
+      border: 1px solid var(--green-glow);
+      color: var(--green-glow);
+      font-size: 0.65rem;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      padding: 3px 8px;
+      border-radius: 4px;
+      z-index: 2;
+    }
+
+    /* category badge on card image */
+    .card-badge {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      background: rgba(0, 201, 184, 0.18);
+      border: 1px solid var(--teal);
+      color: var(--teal);
+      font-size: 0.6rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      padding: 3px 8px;
+      border-radius: 4px;
+      z-index: 2;
+    }
+
+    .card-body {
+      padding: 1.25rem 1.25rem 1.5rem;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 0.6rem;
+    }
+    .card-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: var(--teal);
+      line-height: 1.25;
+    }
+    .card-desc {
+      font-size: 0.88rem;
+      color: var(--cream);
+      line-height: 1.65;
+      opacity: 0.85;
+      flex: 1;
+    }
+    .card-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      margin-top: 0.5rem;
+      font-size: 0.78rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--teal);
+      text-decoration: none;
+      border: 1px solid var(--teal);
+      border-radius: 4px;
+      padding: 0.4rem 0.85rem;
+      align-self: flex-start;
+      transition: background 0.2s, color 0.2s;
+    }
+    .card-link:hover {
+      background: var(--teal);
+      color: var(--bg);
+    }
+    .card-link svg {
+      width: 12px; height: 12px;
+      fill: none;
+      stroke: currentColor;
+      stroke-width: 2;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    /* ─── SCROLL TO TOP ──────────────────────────────────────── */
+    #scrollTopBtn {
+      position: fixed;
+      bottom: 1.8rem;
+      right: 1.8rem;
+      width: 46px;
+      height: 46px;
+      background: var(--teal);
+      color: var(--bg);
+      border: none;
+      border-radius: 50%;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s, transform 0.3s;
+      z-index: 999;
+      box-shadow: 0 4px 20px rgba(0,201,184,0.4);
+    }
+    #scrollTopBtn.visible {
+      opacity: 1;
+      pointer-events: auto;
+    }
+    #scrollTopBtn:hover { transform: scale(1.1); }
+    #scrollTopBtn svg {
+      width: 20px; height: 20px;
+      fill: none;
+      stroke: currentColor;
+      stroke-width: 2.5;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    /* ─── FOOTER ─────────────────────────────────────────────── */
+    footer {
+      background: var(--bg2);
+      border-top: 1px solid var(--border);
+      padding: 2rem 1.5rem;
+      text-align: center;
+    }
+    .footer-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+    .footer-brand {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: var(--teal);
+      letter-spacing: 0.06em;
+    }
+    .footer-sub {
+      font-size: 0.68rem;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-top: 4px;
+    }
+    .footer-links {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 1.2rem;
+      margin-top: 1.2rem;
+    }
+    .footer-links a {
+      font-size: 0.8rem;
+      color: var(--muted);
+      text-decoration: none;
+      letter-spacing: 0.06em;
+      transition: color 0.2s;
+    }
+    .footer-links a:hover { color: var(--teal); }
+    .footer-copy {
+      margin-top: 1.2rem;
+      font-size: 0.72rem;
+      color: var(--muted);
+      opacity: 0.6;
+    }
+
+    /* ─── RESPONSIVE ─────────────────────────────────────────── */
+    @media (max-width: 680px) {
+      .portfolio-grid { grid-template-columns: 1fr; }
+      .header-tagline { display: none; }
+      .hero h1 { font-size: 2rem; }
+      #scrollTopBtn { bottom: 1rem; right: 1rem; }
+    }
+    @media (max-width: 480px) {
+      main { padding: 2rem 1rem 3rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ═══ HEADER ═══════════════════════════════════════════════ -->
+  <header>
+    <div class="header-inner">
+      <div class="header-brand">
+        <span class="logo">DBR Fast Start</span>
+        <span class="sub">Dreams Business Resources · Products Portfolio</span>
+      </div>
+      <div class="header-tagline">
+        "You are in business for yourself,<br>
+        <span>but not by yourself."</span>
+      </div>
+    </div>
+  </header>
+
+  <!-- ═══ HERO ══════════════════════════════════════════════════ -->
+  <section class="hero">
+    <div class="hero-inner">
+      <span class="hero-eyebrow">⚡ DBR Product Ecosystem</span>
+      <h1>The DBR <span>Products Portfolio</span></h1>
+      <p>A curated collection of the revenue-generating products, financial tools, insurance solutions, and AI-powered platforms that power the Dreams Business Resources ecosystem — built to help you serve more clients, earn more income, and scale your team.</p>
+      <div class="hero-stats">
+        <div class="hero-stat"><span class="num">15</span><span class="lbl">Live Products</span></div>
+        <div class="hero-stat"><span class="num">24/7</span><span class="lbl">Always On</span></div>
+        <div class="hero-stat"><span class="num">AI</span><span class="lbl">Powered</span></div>
+        <div class="hero-stat"><span class="num">B2B</span><span class="lbl">Enterprise Ready</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ PORTFOLIO GRID ════════════════════════════════════════ -->
+  <main>
+    <div class="section-label">// Our Product Collection</div>
+    <div class="portfolio-grid">
+
+      <!-- 1 — Dreams Back Office -->
+      <div class="card">
+        <div class="card-img-wrap">
+          <span class="card-num">01</span>
+          <span class="card-badge">Back Office</span>
+          <img src="products-img-01-dreamsbackoffice.png" alt="The Dreams Back Office" loading="lazy" />
+        </div>
+        <div class="card-body">
+          <div class="card-title">The Dreams Back Office</div>
+          <div class="card-desc">Your command center for everything Dreams Business Resources. The Back Office gives you real-time access to your team's activity, leaderboards, quick links, training resources, and the full suite of DBR tools — all in one powerful, agent-ready dashboard. This is where leaders manage, track, and grow their business every single day.</div>
+          <a class="card-link" href="https://dreams.poweredagency.com/" target="_blank" rel="noopener">
+            Visit Site
+            <svg viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <!-- 2 — Dreams Score Report -->
+      <div class="card">
+        <div class="card-img-wrap">
+          <span class="card-num">02</span>
+          <span class="card-badge">Assessment</span>
+          <img src="products-img-02-dreamsscorereport.png" alt="The Dreams Score Report" loading="lazy" />
+        </div>
+        <div class="card-body">
+          <div class="card-title">The Dreams Score Report</div>
+          <div class="card-desc">A 15-minute business financial assessment that uncovers $50,000 to $500,000 in hidden savings, tax credits, and profit opportunities across six key areas — debt, retirement, expenses, assets, money, and security. The Dreams Score is your most powerful door-opener: no cost to the client, immediate value, and a direct path to your full product portfolio.</div>
+          <a class="card-link" href="https://dreamsscores.com/?refid=AA0233" target="_blank" rel="noopener">
+            Visit Site
+            <svg viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <!-- 3 — Dreams Partnerships -->
+      <div class="card">
+        <div class="card-img-wrap">
+          <span class="card-num">03</span>
+          <span class="card-badge">Partnership</span>
+          <img src="products-img-03-dreamspartnerships.png" alt="Dreams Partnerships" loading="lazy" />
+        </div>
+        <div class="card-body">
+          <div class="card-title">Dreams Partnerships</div>
+          <div class="card-desc">Join a nationwide network of independent agents and build a business that pays you for life. Dreams Partnerships gives you access to 100% lifetime renewals, no licensing required to get started, interactive client presentations, and a full suite of text and email campaigns. This is the 1-in-a-million B2B opportunity — built for people who want to own their future, not just their job.</div>
+          <a class="card-link" href="https://dreamsresources.com/join/?refid=AA0233" target="_blank" rel="noopener">
+            Visit Site
+            <svg viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <!-- 4 — R&D Tax Credits -->
+      <div class="card">
+        <div class="card-img-wrap">
+          <span class="card-num">04</span>
+          <span class="card-badge">Tax Credits</span>
+          <img src="products-img-04-rdtaxcredits.png" alt="Research & Development Tax Credits" loading="lazy" />
+        </div>
+        <div class="card-body">
+          <div class="card-title">R&amp;D Tax Credits</div>
+          <div class="card-desc">Only $15 billion of the $100 billion in available R&amp;D tax credits was claimed last year — did your clients get theirs? Tax Prep Advocates handles the entire process so businesses can claim government incentives they are already entitled to, even if they are not yet profitable. No industry is excluded. We make it easy, handle the paperwork, and get businesses back to what they do best.</div>
+          <a class="card-link" href="https://research.taxprepadvocates.com/dbr/?refid=AA0233" target="_blank" rel="noopener">
+            Visit Site
+            <svg viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <!-- 5 — FICA Tip Tax Credits -->
+      <div class="card">
+        <div class="card-img-wrap">
+          <span class="card-num">05</span>
+          <span class="card-badge">Tax Credits</span>
+          <img src="products-img-05-ficatip.png" alt="FICA Tip Tax Credits" loading="lazy" />
+        </div>
+        <div class="card-body">
+          <div class="card-title">FICA Tip Tax Credits</div>
+          <div class="card-desc">If your clients operate restaurants, bars, salons, or spas with tipped employees, they may qualify for a federal tax credit that returns employer-paid FICA taxes already paid to the IRS. Under IRS Code §45B, businesses can claim the current year plus up to three prior years. Tax Prep Advocates checks eligibility, files the claim, and handles everything — turning an overlooked overpayment into real cash back.</div>
+          <a class="card-link" href="https://fica.taxprepadvocates.com/?refid=AA0233" target="_blank" rel="noopener">
+            Visit Site
+            <svg viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <!-- 6 — Trumark Health -->
+      <div class="card">
+        <div class="card-img-wrap">
+          <span class="card-num">06</span>
+          <span class="card-badge">Health Benefits</span>
+          <img src="products-img-06-trumarkhealth.png" alt="Trumark Health Quantum 125 & Group Health" loading="lazy" />
+        </div>
+        <div class="card-body">
+          <div class="card-title">Trumark Health — Quantum 125 &amp; Group Health</div>
+          <div class="card-desc">Give employees the care they deserve while saving employers $600–$900 per enrolled employee annually. Trumark Health's Section 125 Pre-Tax Quantum plan prioritizes preventative health and wellness at no net cost to the employer or employee. It does not replace existing medical coverage — it enhances it. A true win-win that strengthens benefits packages, improves retention, and reduces overall healthcare costs.</div>
+          <a class="card-link" href="https://trumarkhealth.com/?refid=AA0233" target="_blank" rel="noopener">
+            Visit Site
+            <svg viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <!-- 7 — Dreams Technology Sandler Partners -->
+      <div class="card">
+        <div class="card-img-wrap">
+          <span class="card-num">07</span>
+          <span class="card-badge">Technology</span>
+          <img src="products-img-07-dreamstechnology.png" alt="Dreams Technology Sandler Partners" loading="lazy" />
+        </div>
+        <div class="card-body">
+          <div class="card-title">Dreams Technology — Sandler Partners</div>
+          <div class="card-desc">A full portfolio of technology solutions and providers through a single point of contact. Dreams Technology powered by Sandler Partners delivers unmatched telecom, cloud, cybersecurity, and connectivity services to businesses of every size. One relationship, hundreds of providers, and a dedicated advisor who does the heavy lifting — so your clients get the best technology at the best price without the complexity.</div>
+          <a class="card-link" href="https://technology.dreamsresources.com/?refid=AA0233" target="_blank" rel="noopener">
+            Visit Site
+            <svg viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <!-- 8 — Bank Breezy Funding -->
+      <div class="card">
+        <div class="card-img-wrap">
+          <span class="card-num">08</span>
+          <span class="card-badge">Business Funding</span>
+          <img src="products-img-08-bankbreezy.png" alt="Bank Breezy Funding" loading="lazy" />
+        </div>
+        <div class="card-body">
+          <div class="card-title">Bank Breezy Funding</div>
+          <div class="card-desc">Your business ideas deserve funding — and Bank Breezy finds the best offers to fuel them. Through a single application, businesses access multiple top funders competing for their deal, resulting in better approval odds, best offers, and the best repayment terms. Bank Breezy is so confident in their platform they offer a Meet or Beat guarantee: get $500 if they cannot beat your best offer elsewhere.</div>
+          <a class="card-link" href="https://bankbreezy.com/?refid=AA0233" target="_blank" rel="noopener">
+            Visit Site
+            <svg viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <!-- 9 — GOALL Group IUL -->
+      <div class="card">
+        <div class="card-img-wrap">
+          <span class="card-num">09</span>
+          <span class="card-badge">IUL / Benefits</span>
+          <img src="products-img-09-goall.png" alt="GOALL Group IUL" loading="lazy" />
+        </div>
+        <div class="card-body">
+          <div class="card-title">GOALL Group IUL</div>
+          <div class="card-desc">GOALL — Growth Only Automated Life &amp; Legacy — creates a true win-win for employers and employees. By offering benefits that protect against market, income, health, legislative, and tax risks, GOALL helps employers attract and retain top talent while strengthening company culture. The Group IUL program aligns employee desires with employer goals, boosting loyalty, improving recruitment, and lowering benefit costs — all while building lasting financial legacies.</div>
+          <a class="card-link" href="https://goall.dreamsresources.com/?refid=AA0233" target="_blank" rel="noopener">
+            Visit Site
+            <svg viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <!-- 10 — Dreams Insurance Solutions -->
+      <div class="card">
+        <div class="card-img-wrap">
+          <span class="card-num">10</span>
+          <span class="card-badge">Insurance</span>
+          <img src="products-img-10-dreamsinsurance.png" alt="Dreams Insurance Solutions" loading="lazy" />
+        </div>
+        <div class="card-body">
+          <div class="card-title">Dreams Insurance Solutions</div>
+          <div class="card-desc">A comprehensive insurance platform offering Flexplan supplemental benefits, Indexed Universal Life (IUL), and Annuities — all designed to protect income, build tax-advantaged wealth, and create financial security for individuals, families, and business owners. Dreams Insurance Solutions gives your clients access to the right coverage at the right time, with licensed agents who understand the full DBR ecosystem and how each product fits together.</div>
+          <a class="card-link" href="https://dreamsfaststart.com/" target="_blank" rel="noopener">
+            Learn More
+            <svg viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <!-- 11 — ETHOS Life -->
+      <div class="card">
+        <div class="card-img-wrap">
+          <span class="card-num">11</span>
+          <span class="card-badge">Life Insurance</span>
+          <img src="products-img-11-ethoslife.png" alt="ETHOS Life" loading="lazy" />
+        </div>
+        <div class="card-body">
+          <div class="card-title">ETHOS Life</div>
+          <div class="card-desc">Get instant life insurance — no medical exams, no blood tests, and no waiting. ETHOS Life, presented by Mike Hinsvark and Dreams Insurance Solutions, makes it simple for clients to get the coverage they need in minutes. Featured in Business Insider, Forbes, Fortune, and Yahoo Finance, ETHOS is the modern standard for term life insurance — fast, affordable, and fully digital. Protect your family today.</div>
+          <a class="card-link" href="https://agents.ethoslife.com/invite/b1ab2" target="_blank" rel="noopener">
+            Visit Site
+            <svg viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <!-- 12 — Dreams Energy Solutions -->
+      <div class="card">
+        <div class="card-img-wrap">
+          <span class="card-num">12</span>
+          <span class="card-badge">Energy Savings</span>
+          <img src="products-img-12-dreamsenergy.png" alt="Dreams Energy Solutions" loading="lazy" />
+        </div>
+        <div class="card-body">
+          <div class="card-title">Dreams Energy Solutions</div>
+          <div class="card-desc">Lower your business or home energy costs by up to 40% — without changing your utility provider. Dreams Energy Solutions delivers predictable savings, zero upfront cost, and increased profits for qualifying commercial and residential customers across the US. Keep your existing utility, just pay less. This is one of the most compelling conversations you can have with any business owner: immediate savings, no disruption, and a recurring income opportunity for you.</div>
+          <a class="card-link" href="https://dreamsenergysolutions.com/dbr/?refid=AA0233" target="_blank" rel="noopener">
+            Visit Site
+            <svg viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <!-- 13 — Dreams AI Optimization -->
+      <div class="card">
+        <div class="card-img-wrap">
+          <span class="card-num">13</span>
+          <span class="card-badge">AI Marketing</span>
+          <img src="products-img-13-dreamsaio.png" alt="Dreams AI Optimization" loading="lazy" />
+        </div>
+        <div class="card-body">
+          <div class="card-title">Dreams AI Optimization</div>
+          <div class="card-desc">Your marketing is not broken — the internet changed. Customers have switched to AI tools like ChatGPT and Gemini, and if your business is not showing up in AI search, you are invisible. Dreams AIO optimizes your business to be the answer when AI engines are asked about your industry. Get your AI Visibility Snapshot and start showing up where your next clients are already looking.</div>
+          <a class="card-link" href="https://dreamsaio.com/?refid=AA0233" target="_blank" rel="noopener">
+            Visit Site
+            <svg viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <!-- 14 — Dreams Engager Pro -->
+      <div class="card">
+        <div class="card-img-wrap">
+          <span class="card-num">14</span>
+          <span class="card-badge">Social Automation</span>
+          <img src="products-img-14-engagerpro.png" alt="Dreams Engager Pro — Facebook Automation" loading="lazy" />
+        </div>
+        <div class="card-body">
+          <div class="card-title">Dreams Engager Pro</div>
+          <div class="card-desc">Learn how to show up on Facebook the right way — consistently, authentically, and without guesswork. Dreams Engager Pro is an AI-powered tool that boosts smarter social engagement, better messaging, and relationship-based outreach. Track reactions, comments, and engagement in real time, and leverage the best technology to build your audience and grow your business through the most powerful social platform in the world.</div>
+          <a class="card-link" href="https://products.dreamsresources.com/engager-pro?refid=AA0233" target="_blank" rel="noopener">
+            Visit Site
+            <svg viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <!-- 15 — Dreams AI Assistant -->
+      <div class="card">
+        <div class="card-img-wrap">
+          <span class="card-num">15</span>
+          <span class="card-badge">AI Assistant</span>
+          <img src="products-img-15-dreamsaiassistant.png" alt="Dreams AI Assistant" loading="lazy" />
+        </div>
+        <div class="card-body">
+          <div class="card-title">Dreams AI Assistant</div>
+          <div class="card-desc">Never miss a call or lead again. Dreams Business Cloud deploys AI employees that answer 100% of your inbound calls, filter out spam, qualify prospects, schedule appointments, and manage customer service — 24 hours a day, 7 days a week. Turn your business into a profit-generating machine that works while you sleep. Your AI team is always on, always professional, and always converting every conversation into an opportunity.</div>
+          <a class="card-link" href="https://dreamsbusinesscloud.com/?refid=AA0233" target="_blank" rel="noopener">
+            Visit Site
+            <svg viewBox="0 0 24 24"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+          </a>
+        </div>
+      </div>
+
+    </div><!-- /portfolio-grid -->
+  </main>
+
+  <!-- ═══ FOOTER ═════════════════════════════════════════════════ -->
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-brand">DBR Fast Start</div>
+      <div class="footer-sub">Dreams Business Resources · Products Portfolio</div>
+      <nav class="footer-links">
+        <a href="https://dreamsfaststart.com/" target="_blank" rel="noopener">Fast Start Home</a>
+        <a href="https://dreamsfaststart.com/portfolio.html" target="_blank" rel="noopener">Business Portfolio</a>
+        <a href="https://dreamsscores.com/?refid=AA0233" target="_blank" rel="noopener">Dreams Score</a>
+        <a href="https://dreams.poweredagency.com/" target="_blank" rel="noopener">Back Office</a>
+        <a href="https://dreamsresources.com/join/?refid=AA0233" target="_blank" rel="noopener">Join Dreams</a>
+      </nav>
+      <div class="footer-copy">© 2026 Dreams Business Resources. All rights reserved.</div>
+    </div>
+  </footer>
+
+  <!-- ═══ SCROLL TO TOP ══════════════════════════════════════════ -->
+  <button id="scrollTopBtn" title="Back to top" aria-label="Scroll to top">
+    <svg viewBox="0 0 24 24"><polyline points="18 15 12 9 6 15"/></svg>
+  </button>
+
+  <script>
+    // Scroll-to-top toggle
+    const btn = document.getElementById('scrollTopBtn');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 400) {
+        btn.classList.add('visible');
+      } else {
+        btn.classList.remove('visible');
+      }
+    }, { passive: true });
+    btn.addEventListener('click', () => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  </script>
+
+</body>
+</html>

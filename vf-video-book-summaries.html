@@ -1,0 +1,1068 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>VF Video Book Summaries — Mike Hinsvark</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Jost:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+
+  <!-- Wistia Player -->
+  <script src="https://fast.wistia.com/player.js" async></script>
+  <script src="https://fast.wistia.com/embed/i8wrevclx2.js" async type="module"></script>
+  <script src="https://fast.wistia.com/embed/j9qmzkcu85.js" async type="module"></script>
+  <style>
+    wistia-player[media-id='i8wrevclx2']:not(:defined) {
+      background: center / contain no-repeat url('https://fast.wistia.com/embed/medias/i8wrevclx2/swatch');
+      display: block; filter: blur(5px); padding-top: 55.63%;
+    }
+    wistia-player[media-id='j9qmzkcu85']:not(:defined) {
+      background: center / contain no-repeat url('https://fast.wistia.com/embed/medias/j9qmzkcu85/swatch');
+      display: block; filter: blur(5px); padding-top: 56.25%;
+    }
+  </style>
+
+  <style>
+    /* ── RESET & BASE ── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: #010810;
+      color: #F0E8D5;
+      font-family: 'Jost', sans-serif;
+      font-size: 16px;
+      line-height: 1.7;
+      min-height: 100vh;
+    }
+
+    /* ── HEADER ── */
+    header {
+      background: linear-gradient(180deg, #000d1a 0%, #010810 100%);
+      border-bottom: 1px solid rgba(0,201,184,0.25);
+      padding: 18px 20px 14px;
+      text-align: center;
+    }
+    .site-brand {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.1rem;
+      font-weight: 400;
+      color: #00C9B8;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      margin-bottom: 4px;
+    }
+    .site-tagline {
+      font-size: 0.75rem;
+      color: #6A8FA8;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    /* ── HERO ── */
+    .hero {
+      background: linear-gradient(135deg, #000d1a 0%, #011428 50%, #010810 100%);
+      border-bottom: 1px solid rgba(0,201,184,0.15);
+      padding: 60px 20px 50px;
+      text-align: center;
+    }
+    .hero-badge {
+      display: inline-block;
+      background: rgba(0,201,184,0.12);
+      border: 1px solid rgba(0,201,184,0.35);
+      color: #00C9B8;
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      padding: 6px 18px;
+      border-radius: 20px;
+      margin-bottom: 28px;
+    }
+    .hero h1 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2.4rem, 7vw, 4.2rem);
+      font-weight: 700;
+      line-height: 1.1;
+      color: #F0E8D5;
+      margin-bottom: 10px;
+    }
+    .hero h1 span { color: #00C9B8; }
+    .hero-sub {
+      font-size: 1rem;
+      color: #6A8FA8;
+      max-width: 560px;
+      margin: 16px auto 0;
+      letter-spacing: 0.03em;
+    }
+
+    /* ── MAIN CONTAINER ── */
+    .page-wrap {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 0 20px 60px;
+    }
+
+    /* ── SECTION TITLES ── */
+    .section-header {
+      text-align: center;
+      margin: 56px 0 32px;
+    }
+    .section-header h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(1.7rem, 4vw, 2.4rem);
+      font-weight: 700;
+      color: #F0E8D5;
+      margin-bottom: 8px;
+    }
+    .section-header h2 span { color: #00C9B8; }
+    .section-header p {
+      font-size: 0.9rem;
+      color: #6A8FA8;
+      max-width: 520px;
+      margin: 0 auto;
+    }
+    .teal-rule {
+      width: 60px;
+      height: 2px;
+      background: linear-gradient(90deg, transparent, #00C9B8, transparent);
+      margin: 14px auto 0;
+    }
+
+    /* ── VIDEO GRID ── */
+    .video-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 28px;
+      margin-top: 8px;
+    }
+    .video-grid.single { grid-template-columns: 1fr; max-width: 640px; margin-left: auto; margin-right: auto; }
+    .video-grid.two-col { grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); }
+
+    /* ── VIDEO CARD ── */
+    .video-card {
+      background: linear-gradient(145deg, #011428 0%, #010d1f 100%);
+      border: 1px solid rgba(0,201,184,0.22);
+      border-radius: 14px;
+      overflow: hidden;
+      transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+      box-shadow: 0 4px 24px rgba(0,0,0,0.5);
+    }
+    .video-card:hover {
+      transform: translateY(-4px);
+      border-color: rgba(0,201,184,0.55);
+      box-shadow: 0 8px 40px rgba(0,201,184,0.12), 0 4px 20px rgba(0,0,0,0.6);
+    }
+    .video-frame-wrap {
+      position: relative;
+      padding-bottom: 56.25%;
+      background: #000;
+      border-bottom: 2px solid rgba(0,201,184,0.35);
+    }
+    .video-frame-wrap iframe {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+    /* Wistia responsive wrapper */
+    .wistia-wrap {
+      border-bottom: 2px solid rgba(0,201,184,0.35);
+      background: #000;
+    }
+    .wistia-wrap wistia-player {
+      display: block;
+      width: 100%;
+    }
+    .video-card-body {
+      padding: 16px 18px 18px;
+    }
+    .video-card-label {
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: #00C9B8;
+      margin-bottom: 6px;
+    }
+    .video-card-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.15rem;
+      font-weight: 600;
+      color: #F0E8D5;
+      line-height: 1.3;
+    }
+    .video-card-desc {
+      font-size: 0.82rem;
+      color: #6A8FA8;
+      margin-top: 6px;
+      line-height: 1.5;
+    }
+
+    /* ── PLAYLIST CARD ── */
+    .playlist-card {
+      background: linear-gradient(145deg, #011428 0%, #010d1f 100%);
+      border: 2px solid rgba(0,201,184,0.4);
+      border-radius: 14px;
+      padding: 32px 28px;
+      text-align: center;
+      box-shadow: 0 4px 30px rgba(0,201,184,0.08), 0 4px 20px rgba(0,0,0,0.5);
+      max-width: 640px;
+      margin: 0 auto;
+    }
+    .playlist-icon {
+      font-size: 2.8rem;
+      margin-bottom: 14px;
+    }
+    .playlist-card h3 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.6rem;
+      font-weight: 700;
+      color: #F0E8D5;
+      margin-bottom: 8px;
+    }
+    .playlist-card p {
+      font-size: 0.88rem;
+      color: #6A8FA8;
+      margin-bottom: 22px;
+      max-width: 440px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .btn-teal {
+      display: inline-block;
+      background: linear-gradient(135deg, #00C9B8 0%, #00a89a 100%);
+      color: #010810;
+      font-family: 'Jost', sans-serif;
+      font-size: 0.82rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      text-decoration: none;
+      padding: 13px 32px;
+      border-radius: 6px;
+      transition: opacity 0.2s ease, transform 0.2s ease;
+      border: none;
+      cursor: pointer;
+    }
+    .btn-teal:hover { opacity: 0.88; transform: translateY(-2px); }
+
+    /* ── BOOK SUMMARY CARDS ── */
+    .book-card {
+      background: linear-gradient(145deg, #011428 0%, #010d1f 100%);
+      border: 1px solid rgba(0,201,184,0.18);
+      border-radius: 14px;
+      margin-bottom: 32px;
+      overflow: hidden;
+      box-shadow: 0 4px 24px rgba(0,0,0,0.45);
+    }
+    .book-card-header {
+      background: linear-gradient(90deg, rgba(0,201,184,0.12) 0%, rgba(0,201,184,0.04) 100%);
+      border-bottom: 1px solid rgba(0,201,184,0.2);
+      padding: 22px 28px 18px;
+    }
+    .book-card-header .book-num {
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: #00C9B8;
+      margin-bottom: 4px;
+    }
+    .book-card-header h3 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: #F0E8D5;
+    }
+    .book-card-header .book-author {
+      font-size: 0.82rem;
+      color: #6A8FA8;
+      margin-top: 4px;
+    }
+    .book-card-body {
+      padding: 24px 28px;
+    }
+    .book-card-body p {
+      font-size: 0.9rem;
+      color: #c8bfad;
+      margin-bottom: 14px;
+      line-height: 1.75;
+    }
+    .book-card-body h4 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: #00C9B8;
+      margin: 20px 0 8px;
+    }
+    .book-card-body ul {
+      list-style: none;
+      padding: 0;
+    }
+    .book-card-body ul li {
+      font-size: 0.88rem;
+      color: #c8bfad;
+      padding: 6px 0 6px 20px;
+      position: relative;
+      border-bottom: 1px solid rgba(0,201,184,0.07);
+    }
+    .book-card-body ul li::before {
+      content: '▸';
+      color: #00C9B8;
+      position: absolute;
+      left: 0;
+      font-size: 0.75rem;
+      top: 8px;
+    }
+    .book-card-body ul li:last-child { border-bottom: none; }
+
+    /* ── NUMBERED LIST ── */
+    .numbered-list {
+      counter-reset: item;
+      list-style: none;
+      padding: 0;
+    }
+    .numbered-list li {
+      counter-increment: item;
+      font-size: 0.88rem;
+      color: #c8bfad;
+      padding: 8px 0 8px 36px;
+      position: relative;
+      border-bottom: 1px solid rgba(0,201,184,0.07);
+      line-height: 1.6;
+    }
+    .numbered-list li::before {
+      content: counter(item);
+      position: absolute;
+      left: 0;
+      top: 7px;
+      background: rgba(0,201,184,0.15);
+      color: #00C9B8;
+      font-size: 0.7rem;
+      font-weight: 700;
+      width: 22px;
+      height: 22px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      line-height: 22px;
+    }
+    .numbered-list li:last-child { border-bottom: none; }
+    .numbered-list li strong { color: #F0E8D5; }
+
+    /* ── DIVIDER ── */
+    .divider {
+      border: none;
+      border-top: 1px solid rgba(0,201,184,0.12);
+      margin: 48px 0;
+    }
+
+    /* ── FOOTER ── */
+    .dbr-footer {
+      background: #000d1a;
+      border-top: 1px solid rgba(0,201,184,0.12);
+      padding: 52px 24px 32px;
+      text-align: center;
+    }
+    .dbr-footer-monogram {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(1.6rem, 4vw, 2.4rem);
+      font-weight: 400;
+      color: #00C9B8;
+      letter-spacing: 0.55em;
+      line-height: 1;
+      margin-bottom: 32px;
+      padding-left: 0.55em;
+    }
+    .dbr-footer-nav {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 10px 36px;
+      margin-bottom: 28px;
+    }
+    .dbr-footer-nav a {
+      font-family: 'Jost', sans-serif;
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: #F0E8D5;
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .dbr-footer-nav a:hover { color: #00C9B8; }
+    .dbr-footer-rule {
+      width: 60px;
+      height: 1px;
+      background: rgba(0,201,184,0.35);
+      margin: 0 auto 24px;
+    }
+    .dbr-footer-copy {
+      font-size: 0.78rem;
+      color: #6A8FA8;
+      line-height: 1.7;
+    }
+    .dbr-footer-copy a { color: #00C9B8; text-decoration: none; }
+    .dbr-footer-copy a:hover { text-decoration: underline; }
+
+    /* ── SCROLL NAV BUTTONS ── */
+    .scroll-nav {
+      position: fixed;
+      right: 18px;
+      top: 50%;
+      transform: translateY(-50%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0;
+      z-index: 999;
+      pointer-events: none;
+    }
+    .scroll-btn {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      border: 2px solid #00C9B8;
+      background: rgba(1,8,16,0.85);
+      color: #fff;
+      font-size: 1.1rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      pointer-events: all;
+      transition: background 0.2s, transform 0.2s;
+      backdrop-filter: blur(6px);
+      -webkit-backdrop-filter: blur(6px);
+      text-decoration: none;
+      flex-shrink: 0;
+    }
+    .scroll-btn:hover {
+      background: rgba(0,201,184,0.18);
+      transform: scale(1.08);
+    }
+    .scroll-dots {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 5px;
+      padding: 8px 0;
+      pointer-events: none;
+    }
+    .scroll-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: #2a4a5e;
+      transition: background 0.3s;
+    }
+    .scroll-dot.active { background: #00C9B8; }
+    @media (max-width: 600px) {
+      .scroll-nav { right: 8px; }
+      .scroll-btn { width: 36px; height: 36px; font-size: 0.9rem; }
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 600px) {
+      .video-grid { grid-template-columns: 1fr; }
+      .book-card-body { padding: 18px 16px; }
+      .book-card-header { padding: 18px 16px 14px; }
+      .playlist-card { padding: 24px 18px; }
+      .hero { padding: 44px 16px 36px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ══════════════════════════════════════
+     HERO
+══════════════════════════════════════ -->
+<div class="hero">
+  <div class="hero-badge">📚 DBR Learning Library</div>
+  <h1>Video Book <span>Summaries</span></h1>
+  <p class="hero-sub">The most powerful business &amp; financial books — distilled into engaging video summaries. Learn faster. Build smarter. Live bigger.</p>
+</div>
+
+<!-- ══════════════════════════════════════
+     MAIN CONTENT
+══════════════════════════════════════ -->
+<div class="page-wrap">
+
+  <!-- ─── VIDEO BOOK SUMMARIES (TOP) ─── -->
+  <div class="section-header">
+    <h2>📖 Video Book <span>Summaries</span></h2>
+    <p>The most powerful books in business and financial freedom — key insights you can apply today</p>
+    <div class="teal-rule"></div>
+  </div>
+
+  <!-- Book 1: Think and Grow Rich -->
+  <div class="book-card">
+    <div class="book-card-header">
+      <div class="book-num">Book Summary · 01</div>
+      <h3>Think and Grow Rich</h3>
+      <div class="book-author">Napoleon Hill</div>
+    </div>
+    <div class="book-card-body">
+      <div class="video-grid single" style="margin-bottom:20px;">
+        <div class="video-card">
+          <div class="video-frame-wrap">
+            <iframe src="https://www.youtube.com/embed/8p-A7HjaBlY" title="Think and Grow Rich Summary" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+          </div>
+        </div>
+      </div>
+      <p>Napoleon Hill's timeless masterpiece distills the success secrets of over 500 of America's most successful individuals, including Andrew Carnegie, Henry Ford, and Thomas Edison. The core principle: whatever the mind can conceive and believe, it can achieve.</p>
+      <h4>Key Principles</h4>
+      <ul>
+        <li><strong>Desire</strong> — The starting point of all achievement; burning desire is the first step to riches</li>
+        <li><strong>Faith</strong> — Visualization and belief in the attainment of your desire</li>
+        <li><strong>Autosuggestion</strong> — The medium for influencing the subconscious mind</li>
+        <li><strong>Specialized Knowledge</strong> — General knowledge is not power; applied knowledge is</li>
+        <li><strong>Imagination</strong> — The workshop of the mind where all plans are created</li>
+        <li><strong>Organized Planning</strong> — Crystallizing desire into action</li>
+        <li><strong>Decision</strong> — The mastery of procrastination</li>
+        <li><strong>Persistence</strong> — The sustained effort necessary to induce faith</li>
+        <li><strong>The Master Mind</strong> — The driving force — coordination of effort between two or more people</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Book 2: How to Win Friends and Influence People -->
+  <div class="book-card">
+    <div class="book-card-header">
+      <div class="book-num">Book Summary · 02</div>
+      <h3>How to Win Friends and Influence People</h3>
+      <div class="book-author">Dale Carnegie</div>
+    </div>
+    <div class="book-card-body">
+      <div class="video-grid single" style="margin-bottom:20px;">
+        <div class="video-card">
+          <div class="video-frame-wrap">
+            <iframe src="https://www.youtube.com/embed/hsT1x9WEi-g" title="How to Win Friends and Influence People Summary" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+          </div>
+        </div>
+      </div>
+      <p>Dale Carnegie's landmark book has sold over 30 million copies and remains the gold standard for human relations. The principles are timeless — master them and you master the art of leadership, persuasion, and building lasting relationships in business and life.</p>
+      <h4>Fundamental Techniques in Handling People</h4>
+      <ul>
+        <li><strong>Don't criticize, condemn, or complain</strong> — Criticism puts people on the defensive and wounds their pride</li>
+        <li><strong>Give honest, sincere appreciation</strong> — The deepest craving in human nature is the desire to be appreciated</li>
+        <li><strong>Arouse in the other person an eager want</strong> — The only way to influence anyone is to talk about what they want</li>
+      </ul>
+      <h4>Six Ways to Make People Like You</h4>
+      <ul>
+        <li><strong>Become genuinely interested</strong> in other people</li>
+        <li><strong>Smile</strong> — It costs nothing but creates much</li>
+        <li><strong>Remember names</strong> — A person's name is the sweetest sound in any language</li>
+        <li><strong>Be a good listener</strong> — Encourage others to talk about themselves</li>
+        <li><strong>Talk in terms of the other person's interests</strong></li>
+        <li><strong>Make the other person feel important</strong> — and do it sincerely</li>
+      </ul>
+      <h4>How to Win People to Your Way of Thinking</h4>
+      <ul>
+        <li><strong>Avoid arguments</strong> — You can't win an argument; even if you win, you lose</li>
+        <li><strong>Show respect for others' opinions</strong> — Never say "You're wrong"</li>
+        <li><strong>If you're wrong, admit it</strong> — quickly and emphatically</li>
+        <li><strong>Begin in a friendly way</strong> — A drop of honey catches more flies than a gallon of gall</li>
+        <li><strong>Get the other person saying "yes" immediately</strong></li>
+        <li><strong>Let the other person do a great deal of the talking</strong></li>
+        <li><strong>Let the other person feel the idea is theirs</strong></li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Book 3: The E-Myth Revisited -->
+  <div class="book-card">
+    <div class="book-card-header">
+      <div class="book-num">Book Summary · 03</div>
+      <h3>The E-Myth Revisited</h3>
+      <div class="book-author">Michael E. Gerber</div>
+    </div>
+    <div class="book-card-body">
+      <div class="video-grid single" style="margin-bottom:20px;">
+        <div class="video-card">
+          <div class="video-frame-wrap">
+            <iframe src="https://www.youtube.com/embed/rixrWUI3Nzc" title="The E-Myth Revisited Summary" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+          </div>
+        </div>
+      </div>
+      <p>A <strong>Real Business</strong> is one where the founder has created a system so that the business can run itself without their constant presence — the "Franchise Prototype." Instead of working <em>in</em> the business, you must work <em>on</em> the business.</p>
+      <h4>The Three Personalities</h4>
+      <ul>
+        <li><strong>The Technician</strong> — The expert in their craft; happiest doing the work, but ignores the rest — a recipe for failure</li>
+        <li><strong>The Entrepreneur</strong> — The dreamer who lives in the future, thinking about what could be; often frustrated by how slow the world moves</li>
+        <li><strong>The Manager</strong> — Detail-oriented, dots the i's and crosses the t's; wants an orderly, predictable world</li>
+      </ul>
+      <h4>The Franchise Prototype Model</h4>
+      <ul>
+        <li>Provides <em>consistent</em> value to customers — great every single day</li>
+        <li>Does not require brilliant people to operate — systems enable ordinary people to do extraordinary work</li>
+        <li>Everything is documented in operations manuals</li>
+        <li>Uniform standards from dress code to facilities</li>
+      </ul>
+      <h4>Innovation · Quantification · Orchestration</h4>
+      <ul>
+        <li><strong>Innovation</strong> — Creativity applied to providing a product or service more efficiently</li>
+        <li><strong>Quantification</strong> — If you're not measuring it, you can't improve it</li>
+        <li><strong>Orchestration</strong> — Standardizing what works so it becomes part of standard operating procedure</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Book 4: Rich Dad Poor Dad / Cashflow Quadrant -->
+  <div class="book-card">
+    <div class="book-card-header">
+      <div class="book-num">Book Summary · 04</div>
+      <h3>Rich Dad Poor Dad &amp; Cashflow Quadrant</h3>
+      <div class="book-author">Robert Kiyosaki</div>
+    </div>
+    <div class="book-card-body">
+      <div class="video-grid single" style="margin-bottom:20px;">
+        <div class="video-card">
+          <div class="video-frame-wrap">
+            <iframe src="https://www.youtube.com/embed/XU2sFE6mTZ4" title="Rich Dad Poor Dad Summary" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+          </div>
+        </div>
+      </div>
+      <p>Two books that go hand-in-hand — essential reading before you start investing. <em>Rich Dad, Poor Dad</em> changes your perspective on how to earn money; <em>Cashflow Quadrant</em> solidifies it and shows you exactly where to focus your energy.</p>
+      <h4>The Four Quadrants</h4>
+      <ul>
+        <li><strong>E — Employee</strong> · Desires job security and a steady paycheck. Trades hours for dollars. Pays the highest tax rate.</li>
+        <li><strong>S — Sole Proprietor</strong> · Their own boss, but income stops when they stop. Still trading time for money.</li>
+        <li><strong>B — Business Owner</strong> · Creates systems and hires people to run the business. Works <em>on</em> the business, not <em>in</em> it.</li>
+        <li><strong>I — Investor</strong> · Makes money work for them. Pays the lowest tax rate. Income comes in whether they work or not.</li>
+      </ul>
+      <h4>The Core Message</h4>
+      <p>Move from the left side (E &amp; S) to the right side (B &amp; I) as fast as possible. Every dollar you invest is another employee working for you — creating complete financial freedom.</p>
+      <div style="margin-top:16px; text-align:center;">
+        <a href="https://www.amazon.com/s?k=Rich+Dad+Cashflow+Quadrant" target="_blank" class="btn-teal">Get the Book on Amazon</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Book 5: The 10X Rule -->
+  <div class="book-card">
+    <div class="book-card-header">
+      <div class="book-num">Book Summary · 05</div>
+      <h3>The 10X Rule</h3>
+      <div class="book-author">Grant Cardone</div>
+    </div>
+    <div class="book-card-body">
+      <div class="video-grid single" style="margin-bottom:20px;">
+        <div class="video-card">
+          <div class="video-frame-wrap">
+            <iframe src="https://www.youtube.com/embed/_UwbpGU75r4" title="The 10X Rule Summary" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+          </div>
+        </div>
+      </div>
+      <p>This book can be life-changing. The core principle: set targets 10 times greater than you think you need, and take 10 times the actions you think are required. Massive action creates new problems — and that's exactly where you want to be.</p>
+      <h4>Top 10 Takeaways</h4>
+      <ol class="numbered-list">
+        <li><strong>Blame your activity level, not the economy</strong> — The problem is never the market; it's always the level of action you're taking.</li>
+        <li><strong>Become omnipresent</strong> — Dominate your market by being everywhere at once.</li>
+        <li><strong>Dominate, don't compete</strong> — Being competitive is the wrong target. Do what your competitors refuse to do.</li>
+        <li><strong>We underestimate required activity</strong> — We consistently underestimate what it takes to launch, sell, and succeed.</li>
+        <li><strong>10x thinking + 10x action</strong> — Action without the right thought spins your wheels; thought without action goes nowhere.</li>
+        <li><strong>Set goals 10x greater</strong> — Expand your thinking; it changes the activities you plan to reach your goal.</li>
+        <li><strong>Average is a failing formula</strong> — Operating at average levels doesn't work in any area of life.</li>
+        <li><strong>Obsession is a gift</strong> — The most successful people follow up every action with an obsession to see it through.</li>
+        <li><strong>Fear is the great indicator</strong> — Fear means you're doing what's needed to move in the right direction.</li>
+        <li><strong>Expand, never contract</strong> — Contracting is retreating. You must take massive action and keep the momentum going.</li>
+      </ol>
+    </div>
+  </div>
+
+  <!-- Book 6: The 4-Hour Workweek -->
+  <div class="book-card">
+    <div class="book-card-header">
+      <div class="book-num">Book Summary · 06</div>
+      <h3>The 4-Hour Workweek</h3>
+      <div class="book-author">Tim Ferriss</div>
+    </div>
+    <div class="book-card-body">
+      <div class="video-grid single" style="margin-bottom:20px;">
+        <div class="video-card">
+          <div class="video-frame-wrap">
+            <iframe src="https://www.youtube.com/embed/fB32HHtQ38Y" title="The 4-Hour Workweek Summary" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+          </div>
+        </div>
+      </div>
+      <p>One of the most inspiring books ever written — the manifesto of a new worldview. Tim Ferriss presents a new possibility for the reality of life and backs it up with pragmatic, step-by-step instructions. Real wealth comes from <strong>time and mobility</strong>, as well as money.</p>
+      <h4>The DEAL Framework</h4>
+      <ul>
+        <li><strong>D — Definition</strong> · Replace self-defeating assumptions. Define what you actually want, not just a number.</li>
+        <li><strong>E — Elimination</strong> · Forget time management; learn to ignore the unimportant. (Provides time.)</li>
+        <li><strong>A — Automation</strong> · Put cash flow on autopilot using virtual assistants and systems. (Provides income.)</li>
+        <li><strong>L — Liberation</strong> · Create freedom of location. Work from anywhere in the world. (Provides mobility.)</li>
+      </ul>
+      <h4>Key Principles</h4>
+      <ul>
+        <li><strong>The New Rich</strong> — People who have time, mobility, and money — not just a big bank account</li>
+        <li><strong>Relative income &gt; Absolute income</strong> — $10K/month working 10 hours beats $100K/month working 80 hours</li>
+        <li><strong>The Pareto Principle</strong> — 80% of results come from 20% of actions. Identify and focus on that 20%.</li>
+        <li><strong>Dreamlining</strong> — Apply a timeline to your dreams; convert ambiguous wants into defined, actionable steps</li>
+        <li><strong>Virtual Assistants</strong> — Delegate time-consuming tasks to free yourself for high-value work</li>
+        <li><strong>Mini-Retirements</strong> — Distribute recovery and adventure throughout life, not just at the end</li>
+      </ul>
+      <div style="margin-top:16px; text-align:center;">
+        <a href="https://www.amazon.com/s?k=The+4-Hour+Workweek+Tim+Ferriss" target="_blank" class="btn-teal">Get the Book on Amazon</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Book 7: The Seven Habits of Highly Effective People -->
+  <div class="book-card">
+    <div class="book-card-header">
+      <div class="book-num">Book Summary · 07</div>
+      <h3>The 7 Habits of Highly Effective People</h3>
+      <div class="book-author">Stephen R. Covey</div>
+    </div>
+    <div class="book-card-body">
+      <div class="video-grid single" style="margin-bottom:20px;">
+        <div class="video-card">
+          <div class="video-frame-wrap">
+            <iframe src="https://www.youtube.com/embed/UCq-PRQs_L0" title="The 7 Habits of Highly Effective People Summary" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+          </div>
+        </div>
+      </div>
+      <p>Stephen Covey's landmark work has sold over 40 million copies worldwide. Built on the principle of character ethics, the 7 Habits offer a framework for personal and professional effectiveness — moving from dependence to independence to interdependence.</p>
+      <h4>The 7 Habits</h4>
+      <ul>
+        <li><strong>Habit 1 — Be Proactive</strong> · Take responsibility for your life. You choose your response to any stimulus.</li>
+        <li><strong>Habit 2 — Begin with the End in Mind</strong> · Start every project, day, and role with a clear vision of your destination.</li>
+        <li><strong>Habit 3 — Put First Things First</strong> · Manage yourself by priorities, not urgency. Focus on what matters most.</li>
+        <li><strong>Habit 4 — Think Win/Win</strong> · Seek agreements and relationships that are mutually beneficial. Abundance mentality.</li>
+        <li><strong>Habit 5 — Seek First to Understand, Then to Be Understood</strong> · Diagnose before you prescribe. Listen with the intent to understand.</li>
+        <li><strong>Habit 6 — Synergize</strong> · The whole is greater than the sum of its parts. Value differences and build on strengths.</li>
+        <li><strong>Habit 7 — Sharpen the Saw</strong> · Preserve and enhance your greatest asset — yourself. Renew the four dimensions: physical, mental, social/emotional, spiritual.</li>
+      </ul>
+      <h4>The Maturity Continuum</h4>
+      <ul>
+        <li><strong>Dependence</strong> — "You take care of me" — the paradigm of the infant</li>
+        <li><strong>Independence</strong> — "I can do it myself" — the goal of most personal development</li>
+        <li><strong>Interdependence</strong> — "We can do it together" — the highest achievement; the paradigm of great leaders</li>
+      </ul>
+    </div>
+  </div>
+
+  <hr class="divider" />
+
+  <!-- ─── TOP VIDEOS ─── -->
+  <div class="section-header">
+    <h2>🎬 Top <span>Videos</span></h2>
+    <p>Essential business and financial education videos handpicked by Mike</p>
+    <div class="teal-rule"></div>
+  </div>
+
+  <!-- Powerful Videos on IUL & Lifetime Indexed Annuities -->
+  <div class="section-header" style="margin-top:0; margin-bottom:20px;">
+    <h2 style="font-size:1.3rem; color:#00C9B8;">Powerful Videos on IUL &amp; Lifetime Indexed Annuities</h2>
+  </div>
+  <div class="video-grid two-col">
+    <div class="video-card">
+      <div class="wistia-wrap">
+        <wistia-player media-id="i8wrevclx2" aspect="1.797752808988764"></wistia-player>
+      </div>
+      <div class="video-card-body">
+        <div class="video-card-label">IUL Strategy</div>
+        <div class="video-card-title">Indexed Universal Life — The Tax-Free Advantage</div>
+        <div class="video-card-desc">Discover how IUL strategies provide tax-free growth, lifetime income, and protection — the cornerstone of smart financial planning.</div>
+      </div>
+    </div>
+    <div class="video-card">
+      <div class="wistia-wrap">
+        <wistia-player media-id="j9qmzkcu85" aspect="1.7777777777777777"></wistia-player>
+      </div>
+      <div class="video-card-body">
+        <div class="video-card-label">Lifetime Indexed Annuities</div>
+        <div class="video-card-title">Lifetime Indexed Annuities — Guaranteed Income for Life</div>
+        <div class="video-card-desc">How Lifetime Indexed Annuities provide guaranteed income you can never outlive — the foundation of a worry-free retirement.</div>
+      </div>
+    </div>
+  </div>
+
+  <hr class="divider" />
+
+  <!-- ─── MIKE'S FEATURED YOUTUBE VIDEOS ─── -->
+  <div class="section-header">
+    <h2>⭐ Mike's <span>Featured</span> YouTube Videos</h2>
+    <p>Hand-selected from Mike's personal favorites playlist</p>
+    <div class="teal-rule"></div>
+  </div>
+
+  <div class="video-grid two-col">
+    <div class="video-card">
+      <div class="video-frame-wrap">
+        <iframe
+          src="https://www.youtube.com/embed/9o4JK5N0zpA"
+          title="Featured Video 1"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen>
+        </iframe>
+      </div>
+      <div class="video-card-body">
+        <div class="video-card-label">Mike's Favorites</div>
+        <div class="video-card-title">Featured Pick #1</div>
+        <div class="video-card-desc">A must-watch from Mike's personal curated collection — business, mindset &amp; financial freedom.</div>
+      </div>
+    </div>
+    <div class="video-card">
+      <div class="video-frame-wrap">
+        <iframe
+          src="https://www.youtube.com/embed/Nrl0YLC-KtM"
+          title="Featured Video 2"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen>
+        </iframe>
+      </div>
+      <div class="video-card-body">
+        <div class="video-card-label">Mike's Favorites</div>
+        <div class="video-card-title">Featured Pick #2</div>
+        <div class="video-card-desc">Another top selection from Mike's personal favorites — inspiration and strategy combined.</div>
+      </div>
+    </div>
+    <div class="video-card">
+      <div class="video-frame-wrap">
+        <iframe
+          src="https://www.youtube.com/embed/X06BgI6eK7E"
+          title="Featured Video 3"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen>
+        </iframe>
+      </div>
+      <div class="video-card-body">
+        <div class="video-card-label">Mike's Favorites</div>
+        <div class="video-card-title">Featured Pick #3</div>
+        <div class="video-card-desc">Powerful content handpicked by Mike for anyone serious about building wealth and freedom.</div>
+      </div>
+    </div>
+    <div class="video-card">
+      <div class="video-frame-wrap">
+        <iframe
+          src="https://www.youtube.com/embed/H14bBuluwB8"
+          title="Featured Video 4"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen>
+        </iframe>
+      </div>
+      <div class="video-card-body">
+        <div class="video-card-label">Mike's Favorites</div>
+        <div class="video-card-title">Featured Pick #4</div>
+        <div class="video-card-desc">Essential viewing from Mike's personal collection — the ideas that shape champions.</div>
+      </div>
+    </div>
+  </div>
+
+  <hr class="divider" />
+
+  <!-- ─── TOP DREAM VIDEOS ─── -->
+  <div class="section-header">
+    <h2>🌟 Top <span>Dream</span> Videos</h2>
+    <p>Fuel your vision — see what's possible when you build the life you deserve</p>
+    <div class="teal-rule"></div>
+  </div>
+
+  <div class="video-grid two-col">
+    <div class="video-card">
+      <div class="video-frame-wrap">
+        <iframe src="https://www.youtube.com/embed/Sp-_48JKsVU" title="Leisure Travel Vans" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      </div>
+      <div class="video-card-body">
+        <div class="video-card-label">Dream Life</div>
+        <div class="video-card-title">Leisure Travel Vans</div>
+        <div class="video-card-desc">Experience the freedom of the open road in a luxury travel van — the ultimate mobile lifestyle.</div>
+      </div>
+    </div>
+    <div class="video-card">
+      <div class="video-frame-wrap">
+        <iframe src="https://www.youtube.com/embed/4uw37US3OIw" title="Inspirato" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      </div>
+      <div class="video-card-body">
+        <div class="video-card-label">Luxury Travel</div>
+        <div class="video-card-title">Inspirato</div>
+        <div class="video-card-desc">The world's premier luxury travel club — exclusive destinations, private homes, and curated experiences.</div>
+      </div>
+    </div>
+    <div class="video-card">
+      <div class="video-frame-wrap">
+        <iframe src="https://www.youtube.com/embed/gH5zW2UK38Q" title="Silent Yachts" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      </div>
+      <div class="video-card-body">
+        <div class="video-card-label">Ocean Freedom</div>
+        <div class="video-card-title">Silent Yachts</div>
+        <div class="video-card-desc">Solar-powered luxury yachts that let you explore the world's oceans with unlimited range and zero fuel costs.</div>
+      </div>
+    </div>
+    <div class="video-card">
+      <div class="video-frame-wrap">
+        <iframe src="https://www.youtube.com/embed/StElrLhrddg" title="Leisure Travel Van 2025" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      </div>
+      <div class="video-card-body">
+        <div class="video-card-label">Dream Life</div>
+        <div class="video-card-title">Leisure Travel Van 2025</div>
+        <div class="video-card-desc">The latest 2025 model — cutting-edge design and ultimate comfort for the freedom-seeking lifestyle.</div>
+      </div>
+    </div>
+    <div class="video-card">
+      <div class="video-frame-wrap">
+        <iframe src="https://www.youtube.com/embed/ZuDwyq-R20I" title="Dream Home Poway CA" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      </div>
+      <div class="video-card-body">
+        <div class="video-card-label">Dream Home</div>
+        <div class="video-card-title">Dream Home — Poway, CA</div>
+        <div class="video-card-desc">A stunning dream home in Poway, California — the kind of lifestyle that residual income makes possible.</div>
+      </div>
+    </div>
+    <div class="video-card">
+      <div class="video-frame-wrap">
+        <iframe src="https://www.youtube.com/embed/yvy-VGvIPzY" title="Grand Canyon Rafting Trip" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      </div>
+      <div class="video-card-body">
+        <div class="video-card-label">Adventure · Most Popular ⭐</div>
+        <div class="video-card-title">Grand Canyon Rafting Trip</div>
+        <div class="video-card-desc">Motorized Raft Trip with Advantage Grand Canyon — a bucket-list adventure that defines true freedom.</div>
+      </div>
+    </div>
+  </div>
+
+  <hr class="divider" />
+
+  <!-- ─── TOP SUCCESS VIDEOS ─── -->
+  <div class="section-header">
+    <h2>🏆 Top <span>Success</span> Videos</h2>
+    <p>The mindset of champions — stories that ignite the fire within</p>
+    <div class="teal-rule"></div>
+  </div>
+
+  <div class="video-grid two-col">
+    <div class="video-card">
+      <div class="video-frame-wrap">
+        <iframe src="https://www.youtube.com/embed/40at8drADwY" title="Tom Brady" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      </div>
+      <div class="video-card-body">
+        <div class="video-card-label">Champion Mindset</div>
+        <div class="video-card-title">Tom Brady</div>
+        <div class="video-card-desc">The GOAT on what it takes to win — discipline, preparation, and relentless pursuit of excellence.</div>
+      </div>
+    </div>
+    <div class="video-card">
+      <div class="video-frame-wrap">
+        <iframe src="https://www.youtube.com/embed/ebrvE9KpCik" title="Steve Jobs" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      </div>
+      <div class="video-card-body">
+        <div class="video-card-label">Visionary Leadership</div>
+        <div class="video-card-title">Steve Jobs</div>
+        <div class="video-card-desc">Steve Jobs on thinking differently, building a legacy, and the intersection of technology and the humanities.</div>
+      </div>
+    </div>
+    <div class="video-card">
+      <div class="video-frame-wrap">
+        <iframe src="https://www.youtube.com/embed/IzUU-hdtxv8" title="Ronald Reagan" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      </div>
+      <div class="video-card-body">
+        <div class="video-card-label">Leadership</div>
+        <div class="video-card-title">Ronald Reagan</div>
+        <div class="video-card-desc">Timeless leadership wisdom from one of history's most inspiring communicators and visionary leaders.</div>
+      </div>
+    </div>
+    <div class="video-card">
+      <div class="video-frame-wrap">
+        <iframe src="https://www.youtube.com/embed/tdmyoMe4iHM" title="Miracle on Ice" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      </div>
+      <div class="video-card-body">
+        <div class="video-card-label">Team Victory</div>
+        <div class="video-card-title">Miracle on Ice</div>
+        <div class="video-card-desc">The greatest upset in sports history — a masterclass in belief, team unity, and the power of the underdog.</div>
+      </div>
+    </div>
+    <div class="video-card" style="grid-column: 1 / -1; max-width: 460px; margin: 0 auto;">
+      <div class="video-frame-wrap">
+        <iframe src="https://www.youtube.com/embed/LxgU_aepGd0" title="Rocky Balboa Talk to Son" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      </div>
+      <div class="video-card-body">
+        <div class="video-card-label">Inspiration</div>
+        <div class="video-card-title">Rocky Balboa — Talk to His Son</div>
+        <div class="video-card-desc">"It ain't about how hard you hit. It's about how hard you can get hit and keep moving forward." The most powerful 3 minutes in cinema.</div>
+      </div>
+    </div>
+  </div>
+
+  <hr class="divider" />
+
+  <!-- ─── PLAYLIST CTA ─── -->
+  <div class="playlist-card">
+    <div class="playlist-icon">🎬</div>
+    <h3>Mike's Favorite YouTube Channel</h3>
+    <p>Access the full curated playlist — hundreds of videos on business, mindset, financial freedom, and the dream lifestyle. Updated regularly.</p>
+    <a href="https://youtube.com/playlist?list=FLMsC82yXVMSbGarWaLwL4bA&si=-eIMRjJR-wToagIY" target="_blank" class="btn-teal">▶ Watch the Full Playlist</a>
+  </div>
+
+</div><!-- /page-wrap -->
+
+<!-- ══════════════════════════════════════
+     FOOTER
+══════════════════════════════════════ -->
+<footer class="dbr-footer">
+  <div class="dbr-footer-monogram">D &nbsp;B &nbsp;R</div>
+  <nav class="dbr-footer-nav">
+    <a href="https://dreamsfaststart.com">Fast Start</a>
+    <a href="https://dreamsfaststart.com/referrals-by-design.html">Referrals by Design</a>
+    <a href="https://dreamsfaststart.com/brian-moran-12-week-year.html">12 Week Year</a>
+    <a href="https://renewalsforlifestyle.com">Renewals for Life</a>
+  </nav>
+  <div class="dbr-footer-rule"></div>
+  <div class="dbr-footer-copy">
+    <p>© 2026 Dreams Business Resources · Mike Hinsvark, Senior Agency Partner · <a href="mailto:mikeceo@gmail.com">mikeceo@gmail.com</a> · All rights reserved.</p>
+    <p style="margin-top:4px;">Income results vary. This training material is for educational purposes only.</p>
+  </div>
+</footer>
+
+<!-- ══════════════════════════════════════
+     FLOATING SCROLL NAV
+══════════════════════════════════════ -->
+<div class="scroll-nav" id="scrollNav">
+  <button class="scroll-btn" id="scrollUp" title="Scroll to top" aria-label="Scroll up">&#8593;</button>
+  <div class="scroll-dots" id="scrollDots">
+    <div class="scroll-dot active"></div>
+    <div class="scroll-dot"></div>
+    <div class="scroll-dot"></div>
+    <div class="scroll-dot"></div>
+    <div class="scroll-dot"></div>
+    <div class="scroll-dot"></div>
+    <div class="scroll-dot"></div>
+    <div class="scroll-dot"></div>
+  </div>
+  <button class="scroll-btn" id="scrollDown" title="Scroll to bottom" aria-label="Scroll down">&#8595;</button>
+</div>
+
+<script>
+  // Scroll up/down buttons
+  document.getElementById('scrollUp').addEventListener('click', function() {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+  document.getElementById('scrollDown').addEventListener('click', function() {
+    window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
+  });
+
+  // Active dot indicator
+  var dots = document.querySelectorAll('.scroll-dot');
+  function updateDots() {
+    var scrolled = window.scrollY;
+    var total = document.body.scrollHeight - window.innerHeight;
+    var progress = total > 0 ? scrolled / total : 0;
+    var activeDot = Math.round(progress * (dots.length - 1));
+    dots.forEach(function(d, i) {
+      d.classList.toggle('active', i === activeDot);
+    });
+  }
+  window.addEventListener('scroll', updateDots, { passive: true });
+  updateDots();
+</script>
+
+</body>
+</html>
