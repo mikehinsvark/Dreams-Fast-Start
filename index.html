@@ -49,6 +49,9 @@ body::before{content:"";position:fixed;inset:0;pointer-events:none;z-index:0;
 .nb.cta.active{color:var(--gold);border-bottom-color:var(--gold)}
 .nb.comp-btn{color:#FFCDD2}
 .nb.comp-btn.active{color:#FFCDD2;border-bottom-color:#EF9A9A}
+.nb.gp-btn{color:var(--gold-l);border-bottom-color:transparent;background:rgba(245,197,24,.06)}
+.nb.gp-btn:hover{color:var(--gold)}
+.nb.gp-btn.active{color:var(--gold);border-bottom-color:var(--gold);background:rgba(245,197,24,.1)}
 
 /* ── TAB PANELS ── */
 .tab-panel{display:none}
@@ -566,6 +569,7 @@ footer{background:rgba(2,11,24,.97);border-top:1px solid var(--br2);padding:1.4r
   <button class="nb" onclick="showTab('prospecting',this)">Prospecting</button>
   <button class="nb cta" onclick="showTab('marketing',this)">Marketing</button>
   <button class="nb comp-btn" onclick="showTab('comp',this)">Comp Plan</button>
+  <button class="nb gp-btn" onclick="showTab('100000',this)">DBR Growth Plan</button>
 </nav>
 
 
@@ -4545,6 +4549,1334 @@ Mike</p>
 </div>
 
 <!-- ══════════════════════════════════════════════════════ -->
+
+
+<div class="tab-panel" id="tab-100000">
+
+
+<!-- GROWTH PLAN HERO BANNER -->
+<div class="gp-hero">
+  <div class="gp-hero-inner">
+    <div class="gp-hero-left">
+      <div class="gp-hero-tag">👑 DBR Growth Plan · Dreams Business Resources</div>
+      <h1>Dreams <span>Growth</span> Plan</h1>
+      <div class="gp-hero-tagline">"100 Leaders with Teams with Teams of 1000"</div>
+      <div class="gp-hero-stats">
+        <div class="gp-stat"><div class="gp-stat-n">100</div><div class="gp-stat-l">Leaders</div></div>
+        <div class="gp-stat"><div class="gp-stat-n">100K+</div><div class="gp-stat-l">Team Members</div></div>
+        <div class="gp-stat"><div class="gp-stat-n">∞</div><div class="gp-stat-l">Growth</div></div>
+        <div class="gp-stat"><div class="gp-stat-n">100%</div><div class="gp-stat-l">Residual Freedom</div></div>
+      </div>
+      <a href="https://dreamsfaststart.com/#week-1" class="gp-hero-cta">Start Your Fast Start →</a>
+    </div>
+    <div class="gp-hero-right">
+      <div class="gp-hero-quote">
+        <strong>"You are in business for yourself,<br>but not by yourself."</strong><br><br>
+        A complete system to build, scale, and multiply your income and impact.
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<button class="mob-subnav-btn" onclick="toggleSubNav(this)">☰ Sections ▾</button>
+<div class="split">
+  <div class="split-nav">
+
+    <!-- 01 AI Genies -->
+    <div class="sbtn active" onclick="showSub('gp','aigenies',this)">
+      <div class="sbn">AI Genies</div><div class="sbs">Your AI Agent Team</div>
+    </div>
+    <!-- 02 Claude Code -->
+    <div class="sbtn" onclick="showSub('gp','claudecode',this)">
+      <div class="sbn">Claude Code</div><div class="sbs">AI Thinking Partner</div>
+    </div>
+    <!-- 03 Dreams Cloud -->
+    <div class="sbtn" onclick="showSub('gp','dreamscloud',this)">
+      <div class="sbn">Dreams Cloud</div><div class="sbs">CRM &amp; Packages</div>
+    </div>
+    <!-- 04 Your Database -->
+    <div class="sbtn" onclick="showSub('gp','database',this)">
+      <div class="sbn">Your Database</div><div class="sbs">Build Your Pipeline</div>
+    </div>
+    <!-- 05 Partner Program -->
+    <div class="sbtn" onclick="showSub('gp','partner',this)">
+      <div class="sbn">Partner Program</div><div class="sbs">Strategic Alliances</div>
+    </div>
+    <!-- 06 Engager Pro -->
+    <div class="sbtn" onclick="showSub('gp','engager',this)">
+      <div class="sbn">Engager Pro</div><div class="sbs">Facebook DM Automation</div>
+    </div>
+    <!-- 07 Sales Connector -->
+    <div class="sbtn" onclick="showSub('gp','salesconnector',this)">
+      <div class="sbn">Sales Connector</div><div class="sbs">LinkedIn Outreach</div>
+    </div>
+    <!-- 08 AI Assistant -->
+    <div class="sbtn" onclick="showSub('gp','aiassistant',this)">
+      <div class="sbn">AI Assistant</div><div class="sbs">24/7 Power Team</div>
+    </div>
+    <!-- 09 Social Media -->
+    <div class="sbtn" onclick="showSub('gp','socialmedia',this)">
+      <div class="sbn">Social Media</div><div class="sbs">Auto Post &amp; Grow</div>
+    </div>
+    <!-- 10 Craigslist -->
+    <div class="sbtn" onclick="showSub('gp','craigslist',this)">
+      <div class="sbn">Craigslist</div><div class="sbs">Recruiting Explosion</div>
+    </div>
+
+    <!-- Bottom badge -->
+    <div style="padding:1.2rem 1rem;border-top:1px solid var(--br2);margin-top:auto">
+      <div style="font-size:.52rem;letter-spacing:.12em;text-transform:uppercase;color:var(--gold);font-family:'Jost',sans-serif;margin-bottom:.3rem">👑 One Ecosystem</div>
+      <div style="font-size:.72rem;color:var(--mt);font-family:'Cormorant Garamond',serif;font-style:italic;line-height:1.5">Limitless Growth.<br>Powered by DBR</div>
+    </div>
+
+  </div><!-- /split-nav -->
+
+  <div class="split-body">
+
+    <!-- ═══════════════════════════════════════════════ -->
+    <!-- PANEL 01 — AI GENIES -->
+    <!-- ═══════════════════════════════════════════════ -->
+    <div class="sub-panel active" id="gp-aigenies">
+      <div class="wh">
+        <div class="wbadge" style="background:linear-gradient(135deg,#4A148C,#7B1FA2);border:2px solid #AB47BC;color:#CE93D8;font-size:1.4rem">🧞</div>
+        <div class="wt">
+          <h2 style="color:#AB47BC">AI GENIES</h2>
+          <div class="wsub">Your AI Agent Team · 4 Agents · 24/7 · Always On</div>
+        </div>
+      </div>
+
+      <div class="callout" style="background:rgba(167,139,250,.06);border-color:#A78BFA">
+        <strong style="color:#A78BFA">Setting Up Your AI Agent Team</strong>
+        4-Agent Architecture · DBR AI Council · Your Digital Mind · 24/7. Every council member has a permanent Delphi.ai Digital Mind — trained on their voice, knowledge, and expertise.
+      </div>
+
+      <div class="srow" style="grid-template-columns:repeat(4,1fr)">
+        <div class="sbox"><div class="sval" style="color:#AB47BC">4</div><div class="slbl">AI Agents</div></div>
+        <div class="sbox"><div class="sval" style="color:#AB47BC">24/7</div><div class="slbl">Always On</div></div>
+        <div class="sbox"><div class="sval" style="color:#AB47BC">3 Min</div><div class="slbl">Proposal Gen</div></div>
+        <div class="sbox"><div class="sval" style="color:#AB47BC">4</div><div class="slbl">DBR Experts</div></div>
+      </div>
+
+      <div class="rl">The 4 Agents</div>
+      <div class="g2">
+        <div class="card" style="border-color:rgba(66,165,245,.2)">
+          <div class="ct" style="color:#42A5F5">🎯 Recruiting Agent</div>
+          <ul>
+            <li><strong>Pipeline Builder</strong> — Outreach Writer — Objection Handler</li>
+            <li>LinkedIn outreach &amp; follow-up sequences</li>
+            <li>Live recruiting scripts for every situation</li>
+            <li>CRM sync + tracking in Dreams Cloud</li>
+            <li>Automated connection requests at scale</li>
+          </ul>
+        </div>
+        <div class="card" style="border-color:rgba(255,167,38,.2)">
+          <div class="ct" style="color:#FFA726">🚀 Onboarding Agent</div>
+          <ul>
+            <li><strong>New Agent Guide</strong> — DBR Training — First 30 Days</li>
+            <li>125 Q&amp;A auto-responder for new reps</li>
+            <li>Weekly checklists &amp; onboarding tracker</li>
+            <li>Welcome sequences &amp; first-week action plan</li>
+            <li>Answers every question so you don't have to</li>
+          </ul>
+        </div>
+        <div class="card" style="border-color:rgba(46,204,113,.2)">
+          <div class="ct green">💼 B2B Sales Agent</div>
+          <ul>
+            <li><strong>Employer Presentations</strong> — FICA · R&amp;D Credits</li>
+            <li>Prep presentations in under 3 minutes</li>
+            <li>FICA savings calculator built in</li>
+            <li>Multi-touch follow-up sequences</li>
+            <li>Sales enablement &amp; objection handling</li>
+          </ul>
+        </div>
+        <div class="card" style="border-color:rgba(0,201,184,.2)">
+          <div class="ct teal">🧠 Intelligence Agent</div>
+          <ul>
+            <li><strong>Strategy &amp; Priorities</strong> — Business Snapshot</li>
+            <li>Daily 7am briefing on your top 3 priorities</li>
+            <li>Priority tracking &amp; 90-day growth forecast</li>
+            <li>Risk &amp; churn alerts for your team</li>
+            <li>Performance insights &amp; trend analysis</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="rl">Activate Your Tools</div>
+      <div class="callout gold">
+        <strong>Everything is Already Connected</strong>
+        Just flip the switches for what you want your AI team to use. Dreams Business Cloud CRM, Engager Pro AI DMs, Dreams Leads LinkedIn AI, Social Media Ad Campaigns, Sales Assistant AI, Daily 7am AI Briefing, and Agent Churn Risk Alerts — all in one ecosystem.
+      </div>
+
+      <div class="g2">
+        <div class="card">
+          <div class="ct teal">📊 DBR Digital Ecosystem Stats</div>
+          <ul>
+            <li><strong>35 DMs/Day</strong> — Engager Pro automated outreach</li>
+            <li><strong>12 LinkedIn/Day</strong> — Dreams Leads AI connections</li>
+            <li><strong>2 Ad Campaigns</strong> — Social Media AI managed</li>
+            <li><strong>7AM Daily Briefing</strong> — Intelligence Agent priorities</li>
+            <li><strong>15+ Platforms</strong> — All connected, all automated</li>
+          </ul>
+        </div>
+        <div class="card">
+          <div class="ct" style="color:#AB47BC">🏆 Every Council Member Gets</div>
+          <ul>
+            <li>A permanent Delphi.ai Digital Mind</li>
+            <li>Trained on your voice, knowledge &amp; expertise</li>
+            <li>Works while you sleep — 24/7 availability</li>
+            <li>Expert backup on every conversation</li>
+            <li>4 AI agents + 4 DBR experts in one platform</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="rl">Resources</div>
+      <div class="res-hub">
+        <a href="https://dreamsfaststart.com/#week-5" target="_blank" class="link-badge">🤖 AI Agent Team Setup</a>
+        <a href="https://aigeniedatabase.com/" target="_blank" class="link-badge">🧞 AI Genie Platform</a>
+        <a href="https://erctrainers.com/aiagents/" target="_blank" class="link-badge">👁 AI Agent Preview</a>
+      </div>
+    </div><!-- /gp-aigenies -->
+
+    <!-- ═══════════════════════════════════════════════ -->
+    <!-- PANEL 02 — CLAUDE CODE -->
+    <!-- ═══════════════════════════════════════════════ -->
+    <div class="sub-panel" id="gp-claudecode">
+      <div class="wh">
+        <div class="wbadge" style="background:linear-gradient(135deg,#0D47A1,#1565C0);border:2px solid #42A5F5;color:#90CAF9;font-size:1.4rem">⚡</div>
+        <div class="wt">
+          <h2 style="color:#42A5F5">CLAUDE CODE</h2>
+          <div class="wsub">Your Complete Guide to Claude AI · Think, Plan, Research, Automate</div>
+        </div>
+      </div>
+
+      <div class="callout blue">
+        <strong>The AI Thinking Partner That Writes, Plans, Researches &amp; Automates</strong>
+        So you can focus on leading and growing your team. 24/7 Always On · 3 Power Products · Unlimited Use Cases · Free to Start.
+      </div>
+
+      <div class="srow">
+        <div class="sbox"><div class="sval" style="color:#42A5F5">24/7</div><div class="slbl">Always On</div></div>
+        <div class="sbox"><div class="sval" style="color:#42A5F5">3</div><div class="slbl">Power Products</div></div>
+        <div class="sbox"><div class="sval" style="color:#42A5F5">∞</div><div class="slbl">Use Cases</div></div>
+        <div class="sbox"><div class="sval" style="color:#42A5F5">Free</div><div class="slbl">To Start</div></div>
+      </div>
+
+      <div class="rl">What Claude Can Do For You</div>
+      <div class="g2">
+        <div class="card">
+          <div class="ct" style="color:#42A5F5">✏️ Write &amp; Edit</div>
+          <ul>
+            <li>Emails, proposals, scripts, posts, reports</li>
+            <li>Draft anything in seconds, in your own voice</li>
+            <li>Personalized outreach at scale</li>
+          </ul>
+        </div>
+        <div class="card">
+          <div class="ct" style="color:#AB47BC">💡 Brainstorm Ideas</div>
+          <ul>
+            <li>Stuck? Claude generates creative options instantly</li>
+            <li>Marketing angles &amp; action plans on demand</li>
+            <li>Unlimited ideation, zero judgment</li>
+          </ul>
+        </div>
+        <div class="card">
+          <div class="ct" style="color:#66BB6A">🔍 Research Any Topic</div>
+          <ul>
+            <li>Ask anything — get clear, organized summaries</li>
+            <li>No endless Googling — answers you can act on</li>
+            <li>Industry research, competitor analysis, trends</li>
+          </ul>
+        </div>
+        <div class="card">
+          <div class="ct gold">📋 Organize &amp; Plan</div>
+          <ul>
+            <li>Turn big goals into step-by-step action plans</li>
+            <li>Checklists, structured workflows, project plans</li>
+            <li>90-day plans built in minutes</li>
+          </ul>
+        </div>
+        <div class="card">
+          <div class="ct" style="color:#EF5350">🧠 Think It Through</div>
+          <ul>
+            <li>Talk out a decision, pitch, or business problem</li>
+            <li>Claude thinks with you like a senior advisor</li>
+            <li>Stress-test your strategy before you execute</li>
+          </ul>
+        </div>
+        <div class="card">
+          <div class="ct teal">📄 Read &amp; Summarize</div>
+          <ul>
+            <li>Upload any document — Claude reads it instantly</li>
+            <li>Pulls the key points and tells you what matters</li>
+            <li>Contracts, reports, training materials</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="rl">The Claude Product Family</div>
+      <div class="g3">
+        <div class="card">
+          <div class="ct teal">🌐 Claude.ai — Start Here Free</div>
+          <ul>
+            <li>The everyday Claude — type a question, get a brilliant answer</li>
+            <li>Works in your browser on any phone or computer</li>
+            <li>Free tier — no credit card needed</li>
+            <li>Upload files, images &amp; PDFs</li>
+            <li>Mobile + desktop browser</li>
+          </ul>
+        </div>
+        <div class="card">
+          <div class="ct" style="color:#FFA726">⚡ Cowork — Desktop Power Mode</div>
+          <ul>
+            <li>Claude gets superpowers — connects to your real apps</li>
+            <li>Google, Slack, email, calendar — actually does the work</li>
+            <li>Works with your files &amp; folders directly</li>
+            <li>Automate repeating tasks on a schedule</li>
+            <li>Connects 50+ business apps via plugins</li>
+          </ul>
+        </div>
+        <div class="card">
+          <div class="ct" style="color:#42A5F5">💻 Claude Code — For Developers</div>
+          <ul>
+            <li>A coding partner that lives in your terminal</li>
+            <li>Writes, reviews, and debugs code alongside you</li>
+            <li>Works in any programming language</li>
+            <li>Understands your whole codebase</li>
+            <li>Build full apps with a conversation</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="rl">How Claude Grows With You</div>
+      <div class="g4">
+        <div class="card">
+          <div class="ct teal">💬 Free Chat</div>
+          <ul><li>Ask questions, get brilliant answers instantly</li></ul>
+        </div>
+        <div class="card">
+          <div class="ct" style="color:#FFA726">⚡ Pro Plan</div>
+          <ul><li>More messages, smarter models, priority access</li></ul>
+        </div>
+        <div class="card">
+          <div class="ct" style="color:#42A5F5">🔗 + Connections</div>
+          <ul><li>Link your apps &amp; real-world business tools</li></ul>
+        </div>
+        <div class="card">
+          <div class="ct" style="color:#AB47BC">🤖 + Automation</div>
+          <ul><li>Claude works your pipeline while you sleep</li></ul>
+        </div>
+      </div>
+
+      <div class="callout">
+        <strong>Smarter Work. Stronger Teams. Powered by Claude AI.</strong>
+        The AI thinking partner that writes, plans, researches, and automates — so you can focus on leading and growing your team.
+      </div>
+
+      <div class="res-hub">
+        <a href="https://claude.ai" target="_blank" class="link-badge">🌐 Start Claude Free</a>
+        <a href="https://claude.ai/public/artifacts/0113f1c9-aa34-4bf9-9b67-a4496c4ebee3" target="_blank" class="link-badge">📖 Complete Claude Guide</a>
+        <a href="https://anthropic.skilljar.com/claude-101/383389" target="_blank" class="link-badge">🎓 Claude 101 Training</a>
+      </div>
+    </div><!-- /gp-claudecode -->
+
+    <!-- ═══════════════════════════════════════════════ -->
+    <!-- PANEL 03 — DREAMS CLOUD -->
+    <!-- ═══════════════════════════════════════════════ -->
+    <div class="sub-panel" id="gp-dreamscloud">
+      <div class="wh">
+        <div class="wbadge" style="background:linear-gradient(135deg,#00695C,#004D40);border:2px solid #26A69A;color:#80CBC4;font-size:1.4rem">☁️</div>
+        <div class="wt">
+          <h2 style="color:var(--teal)">DREAMS CLOUD</h2>
+          <div class="wsub">All-In-One CRM · Automation · Communication · Grow &amp; Scale</div>
+        </div>
+      </div>
+
+      <div class="callout">
+        <strong>One Platform. Everything You Need.</strong>
+        Dreams Cloud 3 gives you AI-powered ads, LinkedIn automation, and multiplied commission credits from Day 1. Choose the package that fits your goals — every package includes your Dreams Score and subscription credits for SaaS qualifications.
+      </div>
+
+      <div class="srow">
+        <div class="sbox"><div class="sval">3</div><div class="slbl">Package Options</div></div>
+        <div class="sbox"><div class="sval">4x</div><div class="slbl">Max Credits</div></div>
+        <div class="sbox"><div class="sval">60%</div><div class="slbl">Max Commission</div></div>
+        <div class="sbox"><div class="sval">AI</div><div class="slbl">Powered Tools</div></div>
+      </div>
+
+      <div class="rl">Choose Your Package</div>
+      <div class="pkg-grid">
+        <div class="pc-pkg">
+          <div class="pname">Digital Marketer Pro</div>
+          <div class="pprice">$197<span>/mo · $200 setup</span></div>
+          <ul class="pfeats">
+            <li>Dreams Score for Individuals included</li>
+            <li>Facebook Ads campaign included</li>
+            <li>Dreams Business Cloud CRM access</li>
+            <li>Engager Pro (10–30 Facebook AI DMs daily)</li>
+            <li>20 Free Engager Trial Memberships ($1,000)</li>
+            <li>Start at 40% commission · Up to 60%</li>
+            <li>2x subscription credits</li>
+          </ul>
+          <a href="https://products.dreamsresources.com/dreams_tracker_pro?refid=AA0233" target="_blank" class="pbtn">Get Digital Marketer Pro →</a>
+        </div>
+        <div class="pc-pkg" style="border-color:rgba(0,201,184,.3)">
+          <div class="pbadge">Most Popular</div>
+          <div class="pname">Dreams Leads Social Media Pro</div>
+          <div class="pprice">$297<span>/mo · $300 setup</span></div>
+          <ul class="pfeats">
+            <li>AI reaches out daily to LinkedIn businesses</li>
+            <li>Weekly conversations turn into meetings</li>
+            <li>Dreams Business Cloud CRM + Links coaching</li>
+            <li>30 Free Engager Trial Memberships ($1,500)</li>
+            <li>2 coupon codes — waive $1,500 setup fee</li>
+            <li>Start at 45% commission · Up to 60%</li>
+            <li>3x subscription credits</li>
+          </ul>
+          <a href="https://products.dreamsresources.com/dreams_digital_agency?refid=AA0233" target="_blank" class="pbtn">Get Social Media Pro →</a>
+        </div>
+        <div class="pc-pkg pe">
+          <div class="pbadge" style="background:var(--gold);color:var(--n1)">Best Value</div>
+          <div class="pname">Digital Marketing Agency Bundle</div>
+          <div class="pprice" style="color:var(--gold)">$497<span>/mo · Setup Waived</span></div>
+          <ul class="pfeats">
+            <li>Includes Digital Marketer Pro + Social Media Pro</li>
+            <li>AI agent follow-up campaigns (email, text &amp; calls)</li>
+            <li>Senior sales trainer 2x per week</li>
+            <li>Sales Assistant AI (Bot + Voice Bot)</li>
+            <li>50 Free Engager Trial Memberships ($2,500)</li>
+            <li>5 coupon codes — $6,000 value</li>
+            <li>Start at 50% · Bonus at $100K team production</li>
+            <li>4x subscription credits · Exclusive trips</li>
+          </ul>
+          <a href="https://products.dreamsresources.com/dreams_digital_agency_pro_yearly-promo?refid=AA0233" target="_blank" class="pbtn gold">Get Agency Bundle →</a>
+        </div>
+      </div>
+
+      <div class="rl">CRM Features — One Platform</div>
+      <div class="g4">
+        <div class="card"><div class="ct teal">🗂 CRM &amp; Pipeline</div><ul><li>Manage leads, track deals &amp; close more</li></ul></div>
+        <div class="card"><div class="ct" style="color:#42A5F5">📧 Email Marketing</div><ul><li>Send smart campaigns that convert</li></ul></div>
+        <div class="card"><div class="ct" style="color:#FFA726">📱 SMS &amp; Voice</div><ul><li>Two-way texting &amp; calling built in</li></ul></div>
+        <div class="card"><div class="ct" style="color:#AB47BC">⚙️ Automation</div><ul><li>Save time with powerful workflows</li></ul></div>
+        <div class="card"><div class="ct green">🌐 Websites &amp; Funnels</div><ul><li>Build stunning sites that sell</li></ul></div>
+        <div class="card"><div class="ct" style="color:#EF5350">📅 Calendars</div><ul><li>Book more appointments automatically</li></ul></div>
+        <div class="card"><div class="ct gold">⭐ Reputation</div><ul><li>Collect reviews &amp; build trust</li></ul></div>
+        <div class="card"><div class="ct teal">📊 Reporting</div><ul><li>Real-time insights to grow faster</li></ul></div>
+      </div>
+
+      <div class="callout gold">
+        <strong>SaaS Commission Qualifications</strong>
+        $1,000 in monthly subscriptions qualifies you for residual 5% commission on all SaaS sales. First month commission on all SaaS is 50%. The higher your plan, the more subscription credits you earn — up to 4x with the Agency Bundle.
+      </div>
+
+      <div class="res-hub">
+        <a href="https://dreams3pkg-5hqcaqth.manus.space/?refid=AA0233" target="_blank" class="link-badge">☁️ View All Packages</a>
+        <a href="https://dreamsbusinesscloud.com/?refid=AA0233" target="_blank" class="link-badge">🤖 Dreams AI Employee</a>
+        <a href="https://rdappsetters-bidzzhdx.manus.space/" target="_blank" class="link-badge">💰 Compensation Details</a>
+      </div>
+    </div><!-- /gp-dreamscloud -->
+
+    <!-- ═══════════════════════════════════════════════ -->
+    <!-- PANEL 04 — YOUR DATABASE -->
+    <!-- ═══════════════════════════════════════════════ -->
+    <div class="sub-panel" id="gp-database">
+      <div class="wh">
+        <div class="wbadge" style="background:linear-gradient(135deg,#1B5E20,#2E7D32);border:2px solid #66BB6A;color:#A5D6A7;font-size:1.4rem">🗄</div>
+        <div class="wt">
+          <h2 style="color:#66BB6A">YOUR DATABASE</h2>
+          <div class="wsub">Build Your Pipeline · 3 Sources · Zero Cold Calling Required</div>
+        </div>
+      </div>
+
+      <div class="callout green">
+        <strong>// 02 — Build Your Database</strong>
+        Three databases. Already on your devices. Most people are shocked at how many names they already have. This is your database — you just haven't organized it yet. Download all three, merge them, and you'll have more names than you can handle. That's a good problem.
+      </div>
+
+      <div class="srow">
+        <div class="sbox"><div class="sval" style="color:#66BB6A">500–2K</div><div class="slbl">Phone Contacts</div></div>
+        <div class="sbox"><div class="sval" style="color:#66BB6A">300–3K</div><div class="slbl">LinkedIn Connections</div></div>
+        <div class="sbox"><div class="sval" style="color:#66BB6A">1K–5K</div><div class="slbl">Gmail Contacts</div></div>
+        <div class="sbox"><div class="sval" style="color:#66BB6A">0</div><div class="slbl">Cold Calls Needed</div></div>
+      </div>
+
+      <div class="rl">The 3 Database Sources</div>
+      <div class="g3">
+        <div class="card" style="border-color:rgba(102,187,106,.2)">
+          <div class="ct green">📱 Phone Contacts</div>
+          <div style="font-family:'Cormorant Garamond',serif;font-size:1.4rem;color:#66BB6A;margin:.4rem 0">500–2,000+ contacts</div>
+          <div style="font-size:.7rem;color:var(--mt);margin-bottom:.7rem">The most underestimated database you already own</div>
+          <ul>
+            <li><strong>Step 1:</strong> Clean the list — filter for business owners, managers, and professionals first</li>
+            <li><strong>Step 2:</strong> Import to GHL (Dreams Cloud) — the Onboarding Agent walks you through it</li>
+            <li>Most people have 500–2,000 contacts and have never thought of them as a business database</li>
+          </ul>
+          <div style="display:flex;gap:.5rem;flex-wrap:wrap;margin-top:.7rem">
+            <a href="https://youtu.be/cutjumwa7hU?si=_C4ZXEL6kULlDMzM" target="_blank" class="link-badge">📱 iPhone — Watch How</a>
+            <a href="https://play.google.com/store/apps/details?id=in.ajaykhatri.exportcontactstoexcel" target="_blank" class="link-badge">🤖 Android — Get App</a>
+          </div>
+        </div>
+        <div class="card" style="border-color:rgba(66,165,245,.2)">
+          <div class="ct" style="color:#42A5F5">💼 LinkedIn Connections</div>
+          <div style="font-family:'Cormorant Garamond',serif;font-size:1.4rem;color:#42A5F5;margin:.4rem 0">300–3,000+ connections</div>
+          <div style="font-size:.7rem;color:var(--mt);margin-bottom:.7rem">Your professional network — already pre-qualified</div>
+          <ul>
+            <li><strong>Step 1:</strong> Export connections — LinkedIn Settings → Data Privacy → Get a copy of your data</li>
+            <li><strong>Step 2:</strong> Filter for business owners — Owner, CEO, President, Founder, Partner</li>
+            <li>LinkedIn connections convert 3–5x better than cold emails — they already accepted you</li>
+          </ul>
+          <div style="display:flex;gap:.5rem;flex-wrap:wrap;margin-top:.7rem">
+            <a href="https://www.youtube.com/watch?v=xiC1DDw64Ec" target="_blank" class="link-badge">▶ LinkedIn Export — Watch How</a>
+            <a href="https://phantombuster.com/blog/sales-prospecting/export-linkedin-connections-contacts/" target="_blank" class="link-badge">📖 Export Guide</a>
+          </div>
+        </div>
+        <div class="card" style="border-color:rgba(239,83,80,.2)">
+          <div class="ct" style="color:#EF5350">📧 Gmail / Google Contacts</div>
+          <div style="font-family:'Cormorant Garamond',serif;font-size:1.4rem;color:#EF5350;margin:.4rem 0">1,000–5,000+ contacts</div>
+          <div style="font-size:.7rem;color:var(--mt);margin-bottom:.7rem">Everyone you've ever emailed is already in here</div>
+          <ul>
+            <li><strong>Step 1:</strong> Export from Google Contacts — contacts.google.com → Select All → Export → Google CSV</li>
+            <li><strong>Step 2:</strong> Combine all three lists into one master Excel file — remove duplicates</li>
+            <li>Your Gmail contacts include vendors, clients, colleagues — many are business owners you've lost touch with</li>
+          </ul>
+          <div style="display:flex;gap:.5rem;flex-wrap:wrap;margin-top:.7rem">
+            <a href="https://www.youtube.com/watch?v=sn4lZnobvGo" target="_blank" class="link-badge">▶ Gmail Contacts — Watch How</a>
+            <a href="https://contacts.google.com" target="_blank" class="link-badge">📤 Google Contacts Export</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="card full" style="border-color:rgba(245,197,24,.2);background:rgba(245,197,24,.03)">
+        <div class="ct gold">🗂 Step 4 — Combine All Three → Your Master Database</div>
+        <p style="font-size:.8rem;color:var(--mt);line-height:1.7;margin-bottom:.7rem">Merge all three Excel files into one master list. Remove duplicates. Filter for business owners, managers, and professionals first (Owner, CEO, President, Founder, Partner). You'll have more names than you can handle — and that's exactly the right problem to have.</p>
+        <p style="font-size:.8rem;color:var(--mt);line-height:1.7;margin-bottom:.9rem"><strong style="color:var(--gold)">Cleaning the list is a good problem.</strong> It means you have abundance. The AI Recruiting Agent will help you prioritize who to contact first based on industry, title, and likelihood of qualifying for DREAMS Score savings.</p>
+        <div style="display:flex;gap:.6rem;flex-wrap:wrap">
+          <a href="https://files.manuscdn.com/user_upload_by_module/session_file/310519663540400260/PXHXheAeGRuAcZkn.pdf" target="_blank" class="pbtn gold" style="display:inline-flex;align-items:center;gap:5px">📥 Download Database Checklist (PDF)</a>
+          <a href="https://aigeniedatabase.com/" target="_blank" class="pbtn" style="display:inline-flex;align-items:center;gap:5px">🧞 AI Database Merger &amp; Cleaner</a>
+        </div>
+      </div>
+
+      <div class="rl">AI Genie Cold Start — Step-by-Step</div>
+      <div class="roadmap">
+        <div class="step" style="background:rgba(102,187,106,.05);border:1px solid rgba(102,187,106,.15)">
+          <div class="step-label" style="color:#66BB6A">Step 1 — Export Your Phone Contacts</div>
+          <ul>
+            <li><span style="color:#66BB6A;flex-shrink:0">①</span><span>iPhone: Use the Contacts2XL method or watch the video above</span></li>
+            <li><span style="color:#66BB6A;flex-shrink:0">②</span><span>Android: Download Contacts2XL from Google Play — exports to Excel instantly</span></li>
+          </ul>
+        </div>
+        <div class="step" style="background:rgba(66,165,245,.05);border:1px solid rgba(66,165,245,.15)">
+          <div class="step-label" style="color:#42A5F5">Step 2 — Export LinkedIn Connections</div>
+          <ul>
+            <li><span style="color:#42A5F5;flex-shrink:0">①</span><span>Settings → Data Privacy → Get a copy of your data → Connections CSV</span></li>
+            <li><span style="color:#42A5F5;flex-shrink:0">②</span><span>LinkedIn emails you the file within 10 minutes</span></li>
+          </ul>
+        </div>
+        <div class="step" style="background:rgba(239,83,80,.05);border:1px solid rgba(239,83,80,.15)">
+          <div class="step-label" style="color:#EF5350">Step 3 — Export Gmail Contacts</div>
+          <ul>
+            <li><span style="color:#EF5350;flex-shrink:0">①</span><span>Go to contacts.google.com → Select All → Export → Google CSV</span></li>
+            <li><span style="color:#EF5350;flex-shrink:0">②</span><span>Downloads instantly — every person you've ever emailed is in this list</span></li>
+          </ul>
+        </div>
+        <div class="step" style="background:rgba(245,197,24,.05);border:1px solid rgba(245,197,24,.15)">
+          <div class="step-label" style="color:var(--gold)">Step 4 — Merge &amp; Import to Dreams Cloud</div>
+          <ul>
+            <li><span style="color:var(--gold);flex-shrink:0">①</span><span>Merge all 3 files into one master Excel — remove duplicates</span></li>
+            <li><span style="color:var(--gold);flex-shrink:0">②</span><span>Upload directly into GHL (Dreams Cloud) — Onboarding Agent guides you</span></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="res-hub">
+        <a href="https://aigeniedatabase.com/" target="_blank" class="link-badge">🧞 AI Genie Database Platform</a>
+        <a href="https://dreams3pkg-5hqcaqth.manus.space/?refid=AA0233" target="_blank" class="link-badge">☁️ Dreams Cloud CRM</a>
+      </div>
+    </div><!-- /gp-database -->
+
+    <!-- ═══════════════════════════════════════════════ -->
+    <!-- PANEL 05 — PARTNER PROGRAM -->
+    <!-- ═══════════════════════════════════════════════ -->
+    <div class="sub-panel" id="gp-partner">
+      <div class="wh">
+        <div class="wbadge" style="background:linear-gradient(135deg,#E65100,#BF360C);border:2px solid #FFA726;color:#FFCC80;font-size:1.4rem">🤝</div>
+        <div class="wt">
+          <h2 style="color:#FFA726">PARTNER PROGRAM</h2>
+          <div class="wsub">Strategic Alliance Ecosystem · Partner. Grow. Dream Big.</div>
+        </div>
+      </div>
+
+      <div class="callout orange">
+        <strong>The Dreams Partner Program</strong>
+        A strategic alliance ecosystem for professionals who already advise, serve, or influence business owners — built to create new revenue streams, deepen client loyalty, and uncover hidden money for every business you touch. Work smarter, not just harder.
+      </div>
+
+      <div class="srow">
+        <div class="sbox"><div class="sval" style="color:#FFA726">70–90%</div><div class="slbl">B2B Sales from Warm Relationships</div></div>
+        <div class="sbox"><div class="sval" style="color:#FFA726">10+</div><div class="slbl">Alliance Categories</div></div>
+        <div class="sbox"><div class="sval" style="color:#FFA726">6</div><div class="slbl">DREAMS Dimensions</div></div>
+        <div class="sbox"><div class="sval" style="color:#FFA726">$0</div><div class="slbl">Upfront to Join</div></div>
+      </div>
+
+      <div class="rl">Why Partner With Dreams?</div>
+      <div class="g3">
+        <div class="card">
+          <div class="ct" style="color:#FFA726">💰 Recurring Income</div>
+          <ul>
+            <li>Earn ongoing commissions and bonuses by referring clients and growing your network</li>
+            <li>Revenue sharing, referral fees, and recurring overrides</li>
+          </ul>
+        </div>
+        <div class="card">
+          <div class="ct teal">🚀 Leverage &amp; Scale Faster</div>
+          <ul>
+            <li>Access enterprise-grade tools, training, and support to scale your business</li>
+            <li>One introduction can unlock ongoing revenue</li>
+          </ul>
+        </div>
+        <div class="card">
+          <div class="ct" style="color:#AB47BC">🌐 Expand Your Network</div>
+          <ul>
+            <li>Connect with high-value professionals, owners, and decision makers across industries</li>
+            <li>Build a flywheel, not a treadmill</li>
+          </ul>
+        </div>
+        <div class="card">
+          <div class="ct gold">🎁 Exclusive Partner Perks</div>
+          <ul>
+            <li>Early access to new features, co-marketing materials, and private events</li>
+            <li>White-label the analyzer as your own service</li>
+          </ul>
+        </div>
+        <div class="card">
+          <div class="ct green">📈 Increase Your Credibility</div>
+          <ul>
+            <li>Align with a trusted brand and deliver more value to your clients</li>
+            <li>You look like the hero — we do the work</li>
+          </ul>
+        </div>
+        <div class="card">
+          <div class="ct" style="color:#42A5F5">🌟 Make a Bigger Impact</div>
+          <ul>
+            <li>Help more businesses thrive using the Dreams ecosystem of tools and resources</li>
+            <li>No selling required — simply make an introduction</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="rl">Partnership Tracks</div>
+      <div class="g4">
+        <div class="card">
+          <div class="ct teal">🤝 Referral Partner</div>
+          <ul>
+            <li>Perfect for professionals who want to refer and earn</li>
+            <li>Simple. Flexible. Rewarding.</li>
+            <li>Earn referral commissions + co-marketing support</li>
+          </ul>
+        </div>
+        <div class="card">
+          <div class="ct" style="color:#AB47BC">⭐ Strategic Partner</div>
+          <ul>
+            <li>Ideal for consultants, agencies, and experts with clients</li>
+            <li>Higher commission tiers + joint marketing</li>
+            <li>Priority support</li>
+          </ul>
+        </div>
+        <div class="card" style="border-color:rgba(245,197,24,.3)">
+          <div class="ct gold">👑 Elite Partner — Popular</div>
+          <ul>
+            <li>For top performers who want to maximize impact and income</li>
+            <li>Highest payouts + exclusive territory access</li>
+            <li>Executive-level benefits</li>
+          </ul>
+        </div>
+        <div class="card">
+          <div class="ct" style="color:#42A5F5">🏢 Organization Partner</div>
+          <ul>
+            <li>For firms and enterprises bringing Dreams to their network</li>
+            <li>Volume-based rewards + team enablement</li>
+            <li>Custom solutions</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="rl">How It Works — 5 Steps</div>
+      <div class="roadmap">
+        <div class="step" style="background:rgba(255,167,38,.05);border:1px solid rgba(255,167,38,.15)">
+          <div class="step-label" style="color:#FFA726">01 — Identify a Business Owner</div>
+          <ul><li><span style="color:#FFA726">①</span><span>Someone in your existing network who could benefit from a financial review</span></li></ul>
+        </div>
+        <div class="step" style="background:rgba(0,201,184,.05);border:1px solid rgba(0,201,184,.15)">
+          <div class="step-label" style="color:var(--teal)">02 — Introduce the Analyzer™</div>
+          <ul><li><span style="color:var(--teal)">①</span><span>A simple, no-pressure introduction to the DREAMS Score Analyzer™</span></li></ul>
+        </div>
+        <div class="step" style="background:rgba(102,187,106,.05);border:1px solid rgba(102,187,106,.15)">
+          <div class="step-label" style="color:#66BB6A">03 — We Analyze the Business</div>
+          <ul><li><span style="color:#66BB6A">①</span><span>Our team conducts a comprehensive review across all six DREAMS dimensions</span></li></ul>
+        </div>
+        <div class="step" style="background:rgba(66,165,245,.05);border:1px solid rgba(66,165,245,.15)">
+          <div class="step-label" style="color:#42A5F5">04 — We Present the Findings</div>
+          <ul><li><span style="color:#42A5F5">①</span><span>A clear, compelling presentation of savings and opportunities uncovered</span></li></ul>
+        </div>
+        <div class="step" style="background:rgba(245,197,24,.05);border:1px solid rgba(245,197,24,.15)">
+          <div class="step-label" style="color:var(--gold)">05 — Everyone Wins</div>
+          <ul><li><span style="color:var(--gold)">①</span><span>Your client saves money. You earn revenue. We grow together.</span></li></ul>
+        </div>
+      </div>
+
+      <div class="script">
+        <div class="script-lbl">🎯 Partner Conversation Opener</div>
+        <p>"Would you be opposed to a simple way to add more value to your business-owner clients — without adding more work or learning a new product? We help business owners uncover hidden money — tax credits, payroll savings, benefit overpayments, energy inefficiencies, and AI optimization."</p>
+      </div>
+
+      <div class="res-hub">
+        <a href="https://dreamspartn-etgf7r9k.manus.space/" target="_blank" class="link-badge">🤝 Dreams Partner Program</a>
+        <a href="https://dreamsscores.com/?refid=AA0233" target="_blank" class="link-badge">📊 Business Dreams Score</a>
+      </div>
+    </div><!-- /gp-partner -->
+
+    <!-- ═══════════════════════════════════════════════ -->
+    <!-- PANEL 06 — ENGAGER PRO -->
+    <!-- ═══════════════════════════════════════════════ -->
+    <div class="sub-panel" id="gp-engager">
+      <div class="wh">
+        <div class="wbadge" style="background:linear-gradient(135deg,#1A237E,#283593);border:2px solid #5C6BC0;color:#9FA8DA;font-size:1.4rem">💬</div>
+        <div class="wt">
+          <h2 style="color:#7986CB">ENGAGER PRO</h2>
+          <div class="wsub">AI-Powered Facebook DM Automation · Warm Prospects · Real Conversations · More Clients</div>
+        </div>
+      </div>
+
+      <div class="callout" style="background:rgba(121,134,203,.06);border-color:#7986CB">
+        <strong style="color:#7986CB">Let Engager Pro Do the Talking. You Focus on Closing.</strong>
+        Engager Pro automates your Facebook DM outreach, replies, and follow-ups so you can build relationships, book more appointments, and close more deals — on autopilot. Easy Setup · No Tech Skills Needed · Cancel Anytime.
+      </div>
+
+      <div class="srow">
+        <div class="sbox"><div class="sval" style="color:#7986CB">10K+</div><div class="slbl">Businesses</div></div>
+        <div class="sbox"><div class="sval" style="color:#7986CB">1M+</div><div class="slbl">Conversations</div></div>
+        <div class="sbox"><div class="sval" style="color:#7986CB">200K+</div><div class="slbl">Appointments Booked</div></div>
+        <div class="sbox"><div class="sval" style="color:#7986CB">$100M+</div><div class="slbl">Revenue Generated</div></div>
+      </div>
+
+      <div class="rl">Powerful Features That Do the Work For You</div>
+      <div class="g3">
+        <div class="card">
+          <div class="ct" style="color:#7986CB">🎯 Automated DM Outreach</div>
+          <ul>
+            <li>Start conversations with targeted prospects automatically</li>
+            <li>10–50 automated Facebook DMs per day to warm prospects</li>
+            <li>Reach more people without lifting a finger</li>
+          </ul>
+        </div>
+        <div class="card">
+          <div class="ct teal">🤖 AI Replies That Sound Human</div>
+          <ul>
+            <li>Engage naturally with AI that understands context</li>
+            <li>Keeps conversations flowing — never misses a message</li>
+            <li>Builds real relationships at scale</li>
+          </ul>
+        </div>
+        <div class="card">
+          <div class="ct" style="color:#FFA726">🔄 Smart Follow-Ups</div>
+          <ul>
+            <li>Never miss an opportunity with intelligent multi-step follow-ups</li>
+            <li>Automated sequences that nurture until they're ready</li>
+            <li>5–12 touches handled automatically</li>
+          </ul>
+        </div>
+        <div class="card">
+          <div class="ct green">📅 Book Appointments on Autopilot</div>
+          <ul>
+            <li>Let Engager Pro handle scheduling so you can focus on closing</li>
+            <li>Calendar integration — appointments appear automatically</li>
+            <li>Qualified leads book themselves</li>
+          </ul>
+        </div>
+        <div class="card">
+          <div class="ct gold">🏷 Lead Tagging &amp; Segmentation</div>
+          <ul>
+            <li>Organize leads, track interactions, and segment for maximum results</li>
+            <li>Know exactly where every prospect is in your pipeline</li>
+          </ul>
+        </div>
+        <div class="card">
+          <div class="ct" style="color:#EF5350">📊 Performance Analytics</div>
+          <ul>
+            <li>Track every conversation, reply, and booking in real time</li>
+            <li>Data-driven decisions to optimize your campaigns</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="rl">How Engager Pro Works</div>
+      <div class="roadmap">
+        <div class="step" style="background:rgba(121,134,203,.05);border:1px solid rgba(121,134,203,.15)">
+          <div class="step-label" style="color:#7986CB">1. Target</div>
+          <ul><li><span style="color:#7986CB">①</span><span>Find and target your ideal prospects on Facebook</span></li></ul>
+        </div>
+        <div class="step" style="background:rgba(0,201,184,.05);border:1px solid rgba(0,201,184,.15)">
+          <div class="step-label" style="color:var(--teal)">2. Engage</div>
+          <ul><li><span style="color:var(--teal)">①</span><span>Engager Pro starts conversations with personalized DMs</span></li></ul>
+        </div>
+        <div class="step" style="background:rgba(255,167,38,.05);border:1px solid rgba(255,167,38,.15)">
+          <div class="step-label" style="color:#FFA726">3. Nurture</div>
+          <ul><li><span style="color:#FFA726">①</span><span>AI replies, answers questions, and builds trust automatically</span></li></ul>
+        </div>
+        <div class="step" style="background:rgba(102,187,106,.05);border:1px solid rgba(102,187,106,.15)">
+          <div class="step-label" style="color:#66BB6A">4. Book</div>
+          <ul><li><span style="color:#66BB6A">①</span><span>Qualified leads book appointments automatically on your calendar</span></li></ul>
+        </div>
+        <div class="step" style="background:rgba(245,197,24,.05);border:1px solid rgba(245,197,24,.15)">
+          <div class="step-label" style="color:var(--gold)">5. Close</div>
+          <ul><li><span style="color:var(--gold)">①</span><span>Show up, close deals, and grow your business — Engager handled everything else</span></li></ul>
+        </div>
+      </div>
+
+      <div class="callout gold">
+        <strong>Why Businesses Love Engager Pro</strong>
+        Save 10+ hours every week · More conversations, more opportunities · Higher booking rate, more sales · Built for results — designed for coaches, agencies, consultants, and local businesses who want real growth.
+      </div>
+
+      <div class="res-hub">
+        <a href="https://engagerpro.com/" target="_blank" class="link-badge">💬 Start Your Free Trial</a>
+        <a href="https://dreams3pkg-5hqcaqth.manus.space/?refid=AA0233" target="_blank" class="link-badge">☁️ Get Engager via Dreams Cloud</a>
+      </div>
+    </div><!-- /gp-engager -->
+
+    <!-- ═══════════════════════════════════════════════ -->
+    <!-- PANEL 07 — SALES CONNECTOR -->
+    <!-- ═══════════════════════════════════════════════ -->
+    <div class="sub-panel" id="gp-salesconnector">
+      <div class="wh">
+        <div class="wbadge" style="background:linear-gradient(135deg,#0D47A1,#1565C0);border:2px solid #42A5F5;color:#90CAF9;font-size:1.4rem">🔗</div>
+        <div class="wt">
+          <h2 style="color:#42A5F5">SALES CONNECTOR</h2>
+          <div class="wsub">Supercharge Your LinkedIn Outreach · Find · Verify · Connect · Close</div>
+        </div>
+      </div>
+
+      <div class="callout blue">
+        <strong>The All-In-One LinkedIn Automation Platform</strong>
+        Sales Connector finds your ideal prospects, verifies their emails, and creates multi-step follow-up sequences that drive results. Trusted by sales professionals worldwide — 4.9/5 from 500+ users.
+      </div>
+
+      <div class="srow">
+        <div class="sbox"><div class="sval" style="color:#42A5F5">97%</div><div class="slbl">Verified Emails</div></div>
+        <div class="sbox"><div class="sval" style="color:#42A5F5">2–3x</div><div class="slbl">More Replies</div></div>
+        <div class="sbox"><div class="sval" style="color:#42A5F5">50%+</div><div class="slbl">Positive Reply Rate</div></div>
+        <div class="sbox"><div class="sval" style="color:#42A5F5">30%+</div><div class="slbl">More Meetings Booked</div></div>
+      </div>
+
+      <div class="rl">How Sales Connector Works</div>
+      <div class="roadmap">
+        <div class="step" style="background:rgba(66,165,245,.05);border:1px solid rgba(66,165,245,.15)">
+          <div class="step-label" style="color:#42A5F5">Step 1 — LinkedIn Search</div>
+          <ul>
+            <li><span style="color:#42A5F5">①</span><span>Find targeted prospects from LinkedIn Sales Navigator with precision</span></li>
+            <li><span style="color:#42A5F5">②</span><span>AUTO Mode automatically detects and pushes to your default list</span></li>
+          </ul>
+        </div>
+        <div class="step" style="background:rgba(102,187,106,.05);border:1px solid rgba(102,187,106,.15)">
+          <div class="step-label" style="color:#66BB6A">Step 2 — Extract &amp; Enrich</div>
+          <ul>
+            <li><span style="color:#66BB6A">①</span><span>Extract prospect data and enrich with verified contact information</span></li>
+            <li><span style="color:#66BB6A">②</span><span>Advanced email finding with 97%+ accuracy for maximum deliverability</span></li>
+          </ul>
+        </div>
+        <div class="step" style="background:rgba(245,197,24,.05);border:1px solid rgba(245,197,24,.15)">
+          <div class="step-label" style="color:var(--gold)">Step 3 — Verify Emails</div>
+          <ul>
+            <li><span style="color:var(--gold)">①</span><span>97% verified emails for higher deliverability — no bounces</span></li>
+            <li><span style="color:var(--gold)">②</span><span>Every email confirmed before you hit send</span></li>
+          </ul>
+        </div>
+        <div class="step" style="background:rgba(171,71,188,.05);border:1px solid rgba(171,71,188,.15)">
+          <div class="step-label" style="color:#AB47BC">Step 4 — Create Sequences</div>
+          <ul>
+            <li><span style="color:#AB47BC">①</span><span>Use AI to write highly personalized messages at scale that get responses</span></li>
+            <li><span style="color:#AB47BC">②</span><span>Build automated follow-up sequences with smart delays and conditional logic</span></li>
+          </ul>
+        </div>
+        <div class="step" style="background:rgba(0,201,184,.05);border:1px solid rgba(0,201,184,.15)">
+          <div class="step-label" style="color:var(--teal)">Step 5 — Send &amp; Follow Up</div>
+          <ul>
+            <li><span style="color:var(--teal)">①</span><span>Multi-step sequences that convert — automated and on schedule</span></li>
+            <li><span style="color:var(--teal)">②</span><span>Book more meetings with seamless calendar integration</span></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="rl">Powerful Features Built for Results</div>
+      <div class="g3">
+        <div class="card">
+          <div class="ct" style="color:#42A5F5">🔍 LinkedIn Scraping</div>
+          <ul>
+            <li>Extract targeted prospects from LinkedIn Sales Navigator with precision</li>
+            <li>Filter by industry, title, company size, location</li>
+          </ul>
+        </div>
+        <div class="card">
+          <div class="ct green">✅ 97% Verified Emails</div>
+          <ul>
+            <li>Advanced email finding with 97%+ accuracy for maximum deliverability</li>
+            <li>Zero bounces — every email confirmed before sending</li>
+          </ul>
+        </div>
+        <div class="card">
+          <div class="ct" style="color:#AB47BC">🤖 AI Personalization</div>
+          <ul>
+            <li>Use AI to write highly personalized messages at scale that get replies</li>
+            <li>Sounds human — because it thinks like one</li>
+          </ul>
+        </div>
+        <div class="card">
+          <div class="ct" style="color:#FFA726">🔄 Multi-Step Sequences</div>
+          <ul>
+            <li>Build automated follow-up sequences with smart delays and conditional logic</li>
+            <li>5–12 touches handled automatically</li>
+          </ul>
+        </div>
+        <div class="card">
+          <div class="ct teal">📅 Meetings &amp; Booking</div>
+          <ul>
+            <li>Book more meetings with seamless calendar integration and automation</li>
+            <li>Prospects self-schedule — you just show up</li>
+          </ul>
+        </div>
+        <div class="card">
+          <div class="ct gold">📊 Advanced Analytics</div>
+          <ul>
+            <li>Track opens, replies, clicks, and conversions with real-time analytics</li>
+            <li>Optimize your campaigns with data-driven insights</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="rl">Why Sales Professionals Love Sales Connector</div>
+      <div class="g4">
+        <div class="card"><div class="ct teal">⏰ Save Hours Every Day</div><ul><li>Automate your outreach and focus on closing</li></ul></div>
+        <div class="card"><div class="ct" style="color:#42A5F5">💬 More Replies</div><ul><li>Personalized messages that get attention and responses</li></ul></div>
+        <div class="card"><div class="ct green">📅 More Meetings</div><ul><li>Turn conversations into qualified meetings on autopilot</li></ul></div>
+        <div class="card"><div class="ct gold">💰 More Pipeline</div><ul><li>Consistent outreach that builds your pipeline every day</li></ul></div>
+      </div>
+
+      <div class="res-hub">
+        <a href="https://salesconnector.com/" target="_blank" class="link-badge">🔗 Start Free Trial — Sales Connector</a>
+        <a href="https://www.linkedin.com/sales/ssi" target="_blank" class="link-badge">💼 LinkedIn Sales Navigator</a>
+      </div>
+    </div><!-- /gp-salesconnector -->
+
+    <!-- ═══════════════════════════════════════════════ -->
+    <!-- PANEL 08 — AI ASSISTANT -->
+    <!-- ═══════════════════════════════════════════════ -->
+    <div class="sub-panel" id="gp-aiassistant">
+      <div class="wh">
+        <div class="wbadge" style="background:linear-gradient(135deg,#00695C,#004D40);border:2px solid #26A69A;color:#80CBC4;font-size:1.4rem">🤖</div>
+        <div class="wt">
+          <h2 style="color:var(--teal)">AI ASSISTANT</h2>
+          <div class="wsub">Your 24/7 AI Power Team · Work Smarter · Automate More · Grow Faster</div>
+        </div>
+      </div>
+
+      <div class="callout">
+        <strong>AI Assistants That Work. Results That Matter.</strong>
+        Our AI Assistants handle the repetitive work, capture more leads, engage instantly, and help you close more deals — all while you focus on what matters most. 24/7 Availability · AI Intelligence · Automated Actions · Real Results, Real Fast.
+      </div>
+
+      <div class="srow">
+        <div class="sbox"><div class="sval">24/7</div><div class="slbl">Availability</div></div>
+        <div class="sbox"><div class="sval">AI</div><div class="slbl">Intelligence</div></div>
+        <div class="sbox"><div class="sval">Auto</div><div class="slbl">Actions</div></div>
+        <div class="sbox"><div class="sval">Real</div><div class="slbl">Results Fast</div></div>
+      </div>
+
+      <div class="rl">Meet Your AI Assistants</div>
+      <div class="g3">
+        <div class="card">
+          <div class="ct" style="color:#AB47BC">💬 AI Chat Agent</div>
+          <ul>
+            <li>Engages visitors in real-time, answers questions, captures qualified leads</li>
+            <li>Smart Conversations · Lead Qualification · Instant Responses · 24/7 Engagement</li>
+          </ul>
+        </div>
+        <div class="card">
+          <div class="ct teal">📞 AI Voice Agent</div>
+          <ul>
+            <li>Handles inbound &amp; outbound calls, books appointments, follows up automatically</li>
+            <li>Natural Conversations · Call Qualification · Appointment Booking · Voicemail Detection</li>
+          </ul>
+        </div>
+        <div class="card">
+          <div class="ct" style="color:#42A5F5">📧 AI Email Agent</div>
+          <ul>
+            <li>Writes, sends, and follows up on emails that get opened, replied to, and convert</li>
+            <li>Smart Email Writing · Automated Follow-Ups · Reply Detection · Inbox Management</li>
+          </ul>
+        </div>
+        <div class="card">
+          <div class="ct gold">📅 AI Appointment Setter</div>
+          <ul>
+            <li>Qualifies leads and sets appointments directly on your calendar</li>
+            <li>Calendar Sync · Smart Scheduling · Reschedule Handling · No Back-and-Forth</li>
+          </ul>
+        </div>
+        <div class="card">
+          <div class="ct" style="color:#FFA726">🔄 AI Pipeline Manager</div>
+          <ul>
+            <li>Moves deals forward, updates stages, and keeps your pipeline clean</li>
+            <li>Stage Automation · Task Creation · Deal Tracking · Pipeline Insights</li>
+          </ul>
+        </div>
+        <div class="card">
+          <div class="ct green">📊 AI Analytics Assistant</div>
+          <ul>
+            <li>Analyzes data, finds trends, and gives you actionable insights</li>
+            <li>Performance Reports · Trend Detection · Smart Insights · Growth Recommendations</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="rl">AI That Works For You So You Don't Have To</div>
+      <div class="g2">
+        <div class="card">
+          <div class="ct teal">✅ What Our AI Assistants Do</div>
+          <ul>
+            <li><strong>24/7 Lead Engagement</strong> — Never miss. Always respond.</li>
+            <li><strong>Smart Qualifying</strong> — Focus on the leads that matter</li>
+            <li><strong>Automated Follow-ups</strong> — Nurture leads until they're ready</li>
+            <li><strong>Appointment Booking</strong> — More meetings, less manual work</li>
+            <li><strong>Pipeline Automation</strong> — Keep your pipeline moving</li>
+            <li><strong>Performance Insights</strong> — Data-driven decisions, faster growth</li>
+          </ul>
+        </div>
+        <div class="card">
+          <div class="ct" style="color:#AB47BC">🌐 Powered by the DBR AI Ecosystem</div>
+          <ul>
+            <li><strong>Dreams Business Cloud CRM</strong> — Your pipeline command center</li>
+            <li><strong>Engager Pro AI DMs</strong> — Facebook automation at scale</li>
+            <li><strong>Leads AI</strong> — LinkedIn prospect identification</li>
+            <li><strong>Social Media AI</strong> — Auto-post and grow everywhere</li>
+            <li><strong>Chat AI + Voice AI</strong> — All connected, all automated</li>
+            <li>One System. Endless Possibilities.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="callout">
+        <strong>Built Secure · Easy to Set Up · Designed to Scale</strong>
+        Your data is protected with enterprise-grade security. Get started in minutes with simple onboarding and training. From solopreneurs to enterprises — AI that grows with you.
+      </div>
+
+      <div class="res-hub">
+        <a href="https://dreamsbusinesscloud.com/?refid=AA0233" target="_blank" class="link-badge">🤖 Activate Your AI Team</a>
+        <a href="https://dreams3pkg-5hqcaqth.manus.space/?refid=AA0233" target="_blank" class="link-badge">☁️ Dreams Cloud Packages</a>
+        <a href="https://aigeniedatabase.com/" target="_blank" class="link-badge">🧞 AI Genie Platform</a>
+      </div>
+    </div><!-- /gp-aiassistant -->
+
+    <!-- ═══════════════════════════════════════════════ -->
+    <!-- PANEL 09 — SOCIAL MEDIA -->
+    <!-- ═══════════════════════════════════════════════ -->
+    <div class="sub-panel" id="gp-socialmedia">
+      <div class="wh">
+        <div class="wbadge" style="background:linear-gradient(135deg,#880E4F,#AD1457);border:2px solid #F06292;color:#F8BBD9;font-size:1.4rem">📣</div>
+        <div class="wt">
+          <h2 style="color:#F06292">SOCIAL MEDIA</h2>
+          <div class="wsub">Post Smarter · Grow Everywhere · One Platform · Every Network · Infinite Impact</div>
+        </div>
+      </div>
+
+      <div class="callout" style="background:rgba(240,98,146,.06);border-color:#F06292">
+        <strong style="color:#F06292">Automate Today. Grow Tomorrow.</strong>
+        Plan, create, schedule, and auto post across all major social media platforms from one powerful dashboard. Save time, stay consistent, and grow your brand on autopilot. Let Your Content Work 24/7.
+      </div>
+
+      <div class="srow">
+        <div class="sbox"><div class="sval" style="color:#F06292">10x</div><div class="slbl">More Engagement</div></div>
+        <div class="sbox"><div class="sval" style="color:#F06292">5x</div><div class="slbl">More Leads</div></div>
+        <div class="sbox"><div class="sval" style="color:#F06292">80%+</div><div class="slbl">Time Saved</div></div>
+        <div class="sbox"><div class="sval" style="color:#F06292">24/7</div><div class="slbl">Brand Growth</div></div>
+      </div>
+
+      <div class="rl">All Your Platforms. One Dashboard.</div>
+      <div class="g4">
+        <div class="card" style="border-color:rgba(66,165,245,.2)">
+          <div class="ct" style="color:#42A5F5">💼 LinkedIn</div>
+          <ul><li>Build authority, network, and generate leads</li></ul>
+        </div>
+        <div class="card" style="border-color:rgba(66,103,178,.2)">
+          <div class="ct" style="color:#4267B2">📘 Facebook</div>
+          <ul><li>Engage your audience and grow brand awareness</li></ul>
+        </div>
+        <div class="card" style="border-color:rgba(255,0,0,.2)">
+          <div class="ct" style="color:#FF0000">▶ YouTube</div>
+          <ul><li>Share videos, educate, and grow subscribers</li></ul>
+        </div>
+        <div class="card" style="border-color:rgba(225,48,108,.2)">
+          <div class="ct" style="color:#E1306C">📸 Instagram</div>
+          <ul><li>Showcase your brand and connect visually</li></ul>
+        </div>
+        <div class="card" style="border-color:rgba(29,161,242,.2)">
+          <div class="ct" style="color:#1DA1F2">✖ X (Twitter)</div>
+          <ul><li>Join conversations, share updates, stay relevant</li></ul>
+        </div>
+        <div class="card" style="border-color:rgba(255,107,0,.2)">
+          <div class="ct" style="color:#FF6B00">🔗 Alignable</div>
+          <ul><li>Connect with local businesses and build relationships</li></ul>
+        </div>
+        <div class="card" style="border-color:rgba(255,0,80,.2)">
+          <div class="ct" style="color:#FF0050">🎵 TikTok</div>
+          <ul><li>Create viral content and reach new audiences</li></ul>
+        </div>
+      </div>
+
+      <div class="rl">Powerful Features That Save Time &amp; Drive Results</div>
+      <div class="g4">
+        <div class="card">
+          <div class="ct teal">📤 Auto Posting</div>
+          <ul><li>Schedule once, post automatically across every platform</li></ul>
+        </div>
+        <div class="card">
+          <div class="ct" style="color:#FFA726">📅 Content Calendar</div>
+          <ul><li>Visual calendar to plan and organize your content strategy</li></ul>
+        </div>
+        <div class="card">
+          <div class="ct" style="color:#AB47BC">🤖 AI Content Creator</div>
+          <ul><li>Generate captions, ideas, hashtags and more with AI</li></ul>
+        </div>
+        <div class="card">
+          <div class="ct" style="color:#42A5F5">⚙️ Custom Workflows</div>
+          <ul><li>Create approval flows and team workflows for scale</li></ul>
+        </div>
+        <div class="card">
+          <div class="ct green">🖼 Media Library</div>
+          <ul><li>Store, organize, and reuse your media assets</li></ul>
+        </div>
+        <div class="card">
+          <div class="ct gold">📊 Analytics &amp; Reports</div>
+          <ul><li>Track performance and optimize your strategy with real data</li></ul>
+        </div>
+        <div class="card">
+          <div class="ct" style="color:#F06292">👥 Team Collaboration</div>
+          <ul><li>Work together and scale your brand across your team</li></ul>
+        </div>
+        <div class="card">
+          <div class="ct teal">⏰ Best Time to Post</div>
+          <ul><li>AI suggests the best time to post for maximum reach</li></ul>
+        </div>
+      </div>
+
+      <div class="callout" style="background:rgba(240,98,146,.05);border-color:#F06292">
+        <strong style="color:#F06292">Stop Posting Manually. Start Growing Automatically.</strong>
+        Save hours every week · Stay consistent everywhere · Reach more people · Grow your business. One Platform. Every Network. Limitless Possibilities.
+      </div>
+
+      <div class="rl">DBR Social Media Strategy</div>
+      <div class="g2">
+        <div class="card">
+          <div class="ct teal">📋 Daily Content Formula</div>
+          <ul>
+            <li><strong>Monday:</strong> Motivational/Leadership post — inspire your team</li>
+            <li><strong>Tuesday:</strong> Educational content — tax credits, savings tips</li>
+            <li><strong>Wednesday:</strong> Success story or testimonial</li>
+            <li><strong>Thursday:</strong> Behind-the-scenes or team recognition</li>
+            <li><strong>Friday:</strong> Call to action — Dreams Score, opportunity</li>
+            <li>Consistency over perfection — one post per day wins</li>
+          </ul>
+        </div>
+        <div class="card">
+          <div class="ct gold">🎯 Platform Priority for DBR</div>
+          <ul>
+            <li><strong>LinkedIn:</strong> Primary B2B prospecting platform — post daily</li>
+            <li><strong>Facebook:</strong> Engager Pro DMs + group engagement</li>
+            <li><strong>YouTube:</strong> Training videos, product overviews, testimonials</li>
+            <li><strong>Instagram:</strong> Lifestyle + success story content</li>
+            <li><strong>Alignable:</strong> Local business networking — underutilized goldmine</li>
+            <li>Facebook and LinkedIn content builds awareness and inbound leads</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="res-hub">
+        <a href="https://dreams3pkg-5hqcaqth.manus.space/?refid=AA0233" target="_blank" class="link-badge">📣 Social Media via Dreams Cloud</a>
+        <a href="https://engagerpro.com/" target="_blank" class="link-badge">💬 Engager Pro Facebook DMs</a>
+      </div>
+    </div><!-- /gp-socialmedia -->
+
+    <!-- ═══════════════════════════════════════════════ -->
+    <!-- PANEL 10 — CRAIGSLIST -->
+    <!-- ═══════════════════════════════════════════════ -->
+    <div class="sub-panel" id="gp-craigslist">
+      <div class="wh">
+        <div class="wbadge" style="background:linear-gradient(135deg,#7B5E00,#5C4500);border:2px solid var(--gold);color:var(--gold);font-size:1.4rem">📋</div>
+        <div class="wt">
+          <h2 style="color:var(--gold)">CRAIGSLIST RECRUITING</h2>
+          <div class="wsub">The Recruiting Explosion · 100+ Recruits Per Month · Proven System</div>
+        </div>
+      </div>
+
+      <div class="callout gold">
+        <strong>Post Today. Get Clicks Today. Build Your Team. Build Your Freedom.</strong>
+        Proven System. Strategic Posting. Quality Recruits. Education Over Selling — your ad has ONE job: get the click. The video closes. No closing required. Lifetime residuals. Zero barrier.
+      </div>
+
+      <div class="srow">
+        <div class="sbox"><div class="sval" style="color:var(--gold)">100+</div><div class="slbl">Recruits/Month</div></div>
+        <div class="sbox"><div class="sval" style="color:var(--gold)">5</div><div class="slbl">Top Markets</div></div>
+        <div class="sbox"><div class="sval" style="color:var(--gold)">1/Day</div><div class="slbl">Posting Frequency</div></div>
+        <div class="sbox"><div class="sval" style="color:var(--gold)">100%</div><div class="slbl">Lifetime Residuals</div></div>
+      </div>
+
+      <div class="rl">The Core Strategy</div>
+      <div class="g2">
+        <div class="card">
+          <div class="ct gold">🎯 Core Principles</div>
+          <ul>
+            <li><strong>Education Over Selling</strong> — Your ad has ONE job: get the click. The video closes.</li>
+            <li><strong>No Closing Required</strong> — Agents only set the appointment — experts close the deal</li>
+            <li><strong>Lifetime Residuals</strong> — 100% renewals for the life of every contract</li>
+            <li><strong>Zero Barrier</strong> — No cost to join, no license required to earn</li>
+            <li><strong>True Freedom</strong> — 100% remote, own schedule, no quotas or territories</li>
+          </ul>
+        </div>
+        <div class="card">
+          <div class="ct teal">📊 DBR vs. Traditional Pay</div>
+          <table class="tbl" style="margin-bottom:0">
+            <thead><tr><th>Traditional 1x Pay</th><th>DBR Lifetime Pay</th></tr></thead>
+            <tbody>
+              <tr><td>One-time commission</td><td style="color:#66BB6A">100% renewals for life</td></tr>
+              <tr><td>Start at zero monthly</td><td style="color:#66BB6A">Income compounds</td></tr>
+              <tr><td>Must close every deal</td><td style="color:#66BB6A">We close — you set appt</td></tr>
+              <tr><td>License required</td><td style="color:#66BB6A">No license needed</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="rl">Top 5 Markets to Target</div>
+      <div class="g2">
+        <div class="card">
+          <div class="ct gold">📍 Best Markets</div>
+          <ul>
+            <li><strong>1. Dallas / Fort Worth, TX</strong> — Strong sales culture, high B2B activity</li>
+            <li><strong>2. Houston, TX</strong> — Massive metro, receptive to residual income</li>
+            <li><strong>3. Atlanta, GA</strong> — Entrepreneurial spirit, great side-hustle market</li>
+            <li><strong>4. Miami / South Florida</strong> — High sales turnover, lifestyle messaging works</li>
+            <li><strong>5. Birmingham / Alabama</strong> — Less competition, highly WFH-responsive</li>
+          </ul>
+        </div>
+        <div class="card">
+          <div class="ct" style="color:#EF5350">⚠️ Markets to Avoid</div>
+          <ul>
+            <li><strong>New York City</strong> — Saturated, expensive, low response rate for this model</li>
+            <li><strong>Los Angeles</strong> — Saturated, expensive, low response rate for this model</li>
+          </ul>
+          <div class="ct teal" style="margin-top:.9rem">📅 Weekly Posting Schedule</div>
+          <ul>
+            <li><strong>Mon</strong> — Dallas (Sales)</li>
+            <li><strong>Tue</strong> — Houston (Customer Svc)</li>
+            <li><strong>Wed</strong> — Atlanta (Gigs)</li>
+            <li><strong>Thu</strong> — Miami (Sales)</li>
+            <li><strong>Fri</strong> — Alabama (Labor/Gigs)</li>
+            <li><strong>Sat</strong> — Refresh/repost Monday ad</li>
+            <li><strong>Sun</strong> — Review &amp; plan next week</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="rl">Categories, Rotation Rules &amp; Quick Tips</div>
+      <div class="g3">
+        <div class="card">
+          <div class="ct gold">📁 Best Categories to Post In</div>
+          <ul>
+            <li>Sales / Business Development</li>
+            <li>Customer Service</li>
+            <li>Marketing</li>
+            <li>Gigs / Small Biz Ads</li>
+            <li>General Labor (hustle)</li>
+          </ul>
+        </div>
+        <div class="card">
+          <div class="ct teal">🔄 Rotation Rules</div>
+          <ul>
+            <li>Never post the same ad twice</li>
+            <li>Change headline on every repost</li>
+            <li>Wait 48 hrs before reposting same city/category</li>
+            <li>Change at least 20% of body text</li>
+            <li>Always include the DBR banner image</li>
+          </ul>
+        </div>
+        <div class="card">
+          <div class="ct" style="color:#FFA726">💡 Quick Tips for Max Results</div>
+          <ul>
+            <li><strong>Use a Strong Headline</strong> — Lead with benefits, not your company</li>
+            <li><strong>Change &amp; Rotate</strong> — New title + new city = more exposure</li>
+            <li><strong>Post at Prime Times</strong> — Weekdays 9AM–11AM &amp; 6PM–8PM</li>
+            <li><strong>Use the DBR Banner Image</strong> — Visual trust = more clicks</li>
+            <li><strong>Be Consistent</strong> — Consistency beats intensity — post weekly</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="rl">The Conversion Funnel — How the System Works</div>
+      <div class="roadmap">
+        <div class="step" style="background:rgba(245,197,24,.05);border:1px solid rgba(245,197,24,.15)">
+          <div class="step-label" style="color:var(--gold)">Step 1 — Craigslist Ad</div>
+          <ul><li><span style="color:var(--gold)">①</span><span>Grabs attention. Drives the click. Education over selling.</span></li></ul>
+        </div>
+        <div class="step" style="background:rgba(0,201,184,.05);border:1px solid rgba(0,201,184,.15)">
+          <div class="step-label" style="color:var(--teal)">Step 2 — Interactive Video</div>
+          <ul><li><span style="color:var(--teal)">①</span><span>Does the full presentation &amp; closes. You don't have to say a word.</span></li></ul>
+        </div>
+        <div class="step" style="background:rgba(102,187,106,.05);border:1px solid rgba(102,187,106,.15)">
+          <div class="step-label" style="color:#66BB6A">Step 3 — Sign-Up Link</div>
+          <ul><li><span style="color:#66BB6A">①</span><span>Prospect enrolls. You get notified. Zero friction.</span></li></ul>
+        </div>
+        <div class="step" style="background:rgba(66,165,245,.05);border:1px solid rgba(66,165,245,.15)">
+          <div class="step-label" style="color:#42A5F5">Step 4 — New Recruit</div>
+          <ul><li><span style="color:#42A5F5">①</span><span>Welcome them &amp; follow up within 24 hours. The system did the work.</span></li></ul>
+        </div>
+      </div>
+
+      <div class="script">
+        <div class="script-lbl">📧 Follow-Up Script (for prospects who email directly)</div>
+        <p>"Thanks for reaching out! Watch this quick 5-min overview: [YOUR LINK]. It covers everything — compensation, products, and how to get started. Let me know what you think!"</p>
+      </div>
+
+      <div class="rl">The 100/Month Math — Scaling the Movement</div>
+      <div class="callout gold">
+        <strong>50 Agents × 5 Ads/Week × 2 Recruits/Agent = 100 Recruits/Month</strong>
+        100 agents running campaigns = 200 recruits per month. 200 agents = 400 recruits per month. The system scales with your team. Every recruit you bring in can lead to lifetime residual income.
+      </div>
+
+      <div class="rl">Ad Template — Copy &amp; Paste</div>
+      <div class="card" style="border-color:rgba(245,197,24,.2);background:rgba(245,197,24,.03)">
+        <div class="ct gold">📋 Craigslist Ad Template (Dallas/Fort Worth)</div>
+        <div style="background:rgba(2,11,24,.8);border:1px solid var(--br2);border-radius:6px;padding:.9rem;margin:.7rem 0;font-family:monospace;font-size:.72rem;color:var(--mt);line-height:1.8;overflow-x:auto">
+          <div style="color:var(--teal)">Headline:</div>
+          <div style="color:var(--tx);margin-bottom:.5rem">B2B Residuals for Life — No Closing. No Quotas. No Ceiling. (Dallas)</div>
+          <div style="color:var(--teal)">Category:</div>
+          <div style="color:var(--tx);margin-bottom:.5rem">Sales / Business Development</div>
+          <div style="color:var(--teal)">Key Points:</div>
+          <div style="color:var(--tx)">• Set qualified appointments — expert closers handle everything from there<br>• 100% remote | Work your own schedule | No territories or quotas<br>• Lifetime residual commissions — 100% renewals for life of every contract<br>• First 100 LinkedIn B2B leads provided | Full training &amp; software included<br>• NOT a get-rich-quick scheme — a serious long-term income stream</div>
+        </div>
+        <div style="font-size:.72rem;color:var(--mt);margin-top:.5rem">Change city name for each market: Dallas → Houston → Atlanta → Miami → Alabama. Rotate headlines and change 20% of body text on every repost.</div>
+      </div>
+
+      <div class="res-hub">
+        <a href="https://dreamsfaststart.com/#prospecting" target="_blank" class="link-badge">📋 Full Prospecting System</a>
+        <a href="https://aigeniedatabase.com/" target="_blank" class="link-badge">🧞 AI Genie Database</a>
+      </div>
+    </div><!-- /gp-craigslist -->
+
+  </div><!-- /split-body -->
+</div><!-- /split -->
+</div><!-- /tab-panel #100000 -->
+
+
 <!-- FOOTER -->
 <!-- ══════════════════════════════════════════════════════ -->
 <footer>
@@ -4575,23 +5907,25 @@ const HASH_MAP = {
   'prospecting': 'prospecting',
   'marketing': 'marketing',
   'comp-plan': 'comp', 'comp': 'comp',
+  '100000': '100000', 'growth-plan': '100000', 'dbr-growth-plan': '100000',
   'home': 'home'
 };
 const TAB_HASH = {
   'home': 'home', 'week1': 'week-1', 'week2': 'week-2',
   'week3': 'week-3', 'week4': 'week-4', 'week5': 'week-5',
   'calc': 'resources', 'prospecting': 'prospecting',
-  'marketing': 'marketing', 'comp': 'comp-plan'
+  'marketing': 'marketing', 'comp': 'comp-plan',
+  '100000': '100000'
 };
 // Maps prefix used in showSub() to the canonical URL tab segment
 const PREFIX_TAB = {
   'w1': 'week-1', 'w2': 'week-2', 'w3': 'week-3',
-  'w4': 'week-4', 'w5': 'week-5', 'pr': 'prospecting'
+  'w4': 'week-4', 'w5': 'week-5', 'pr': 'prospecting', 'gp': '100000'
 };
 // Maps URL tab segment back to the showSub prefix
 const TAB_PREFIX = {
   'week-1': 'w1', 'week-2': 'w2', 'week-3': 'w3',
-  'week-4': 'w4', 'week-5': 'w5', 'prospecting': 'pr'
+  'week-4': 'w4', 'week-5': 'w5', 'prospecting': 'pr', '100000': 'gp'
 };
 
 function showTab(tabId, btn) {
