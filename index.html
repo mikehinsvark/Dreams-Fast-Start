@@ -4357,6 +4357,16 @@ const TAB_HASH = {
   'calc': 'resources', 'prospecting': 'prospecting',
   'marketing': 'marketing', 'comp': 'comp-plan'
 };
+// Maps prefix used in showSub() to the canonical URL tab segment
+const PREFIX_TAB = {
+  'w1': 'week-1', 'w2': 'week-2', 'w3': 'week-3',
+  'w4': 'week-4', 'w5': 'week-5', 'pr': 'prospecting'
+};
+// Maps URL tab segment back to the showSub prefix
+const TAB_PREFIX = {
+  'week-1': 'w1', 'week-2': 'w2', 'week-3': 'w3',
+  'week-4': 'w4', 'week-5': 'w5', 'prospecting': 'pr'
+};
 
 function showTab(tabId, btn) {
   document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
@@ -4371,7 +4381,7 @@ function showTab(tabId, btn) {
 }
 
 // ── SUB-PANEL NAVIGATION ─────────────────────────────────
-function showSub(prefix, subId, btn) {
+function showSub(prefix, subId, btn, skipHistory) {
   const allSubs = document.querySelectorAll('[id^="' + prefix + '-"]');
   allSubs.forEach(p => p.classList.remove('active'));
   const allBtns = btn ? btn.closest('.split-nav').querySelectorAll('.sbtn') : [];
@@ -4379,6 +4389,12 @@ function showSub(prefix, subId, btn) {
   const panel = document.getElementById(prefix + '-' + subId);
   if (panel) panel.classList.add('active');
   if (btn) btn.classList.add('active');
+  // Write sub-panel hash to URL (e.g. #prospecting-database, #week-3-products)
+  if (!skipHistory && PREFIX_TAB[prefix]) {
+    const tabSeg = PREFIX_TAB[prefix];
+    const subSeg = subId.replace(/([a-z])([A-Z])/g, '$1-$2').toLowerCase();
+    history.replaceState(null, '', '#' + tabSeg + '-' + subSeg);
+  }
   // On mobile: close the nav after selection and update toggle button text
   if (window.innerWidth <= 768) {
     const nav = btn ? btn.closest('.split-nav') : null;
@@ -4592,15 +4608,92 @@ document.querySelector('.nav').addEventListener('wheel', function(e) {
 calcAll();
 
 // ── HASH ROUTING INIT ──────────────────────────────────
+// Sub-panel hash map: maps URL hash to { prefix, subId }
+const SUB_HASH_MAP = {
+  // Prospecting
+  'prospecting-b2bbasics':      { prefix:'pr', subId:'b2bbasics' },
+  'prospecting-walktalk':       { prefix:'pr', subId:'walktalk' },
+  'prospecting-fivetypes':      { prefix:'pr', subId:'fivetypes' },
+  'prospecting-productmap':     { prefix:'pr', subId:'productmap' },
+  'prospecting-followup':       { prefix:'pr', subId:'followup' },
+  'prospecting-linkedin':       { prefix:'pr', subId:'linkedin' },
+  'prospecting-chamber':        { prefix:'pr', subId:'chamber' },
+  'prospecting-targets':        { prefix:'pr', subId:'targets' },
+  'prospecting-database':       { prefix:'pr', subId:'database' },
+  'prospecting-partnerprogram': { prefix:'pr', subId:'partnerprogram' },
+  'prospecting-referrals':      { prefix:'pr', subId:'referrals' },
+  'prospecting-rdleads':        { prefix:'pr', subId:'rdleads' },
+  // Week 1
+  'week-1-overview':  { prefix:'w1', subId:'overview' },
+  'week-1-roadmap':   { prefix:'w1', subId:'roadmap' },
+  'week-1-scripts':   { prefix:'w1', subId:'scripts' },
+  'week-1-email':     { prefix:'w1', subId:'email' },
+  'week-1-quiz':      { prefix:'w1', subId:'quiz' },
+  // Week 2
+  'week-2-overview':  { prefix:'w2', subId:'overview' },
+  'week-2-rd':        { prefix:'w2', subId:'rd' },
+  'week-2-fica':      { prefix:'w2', subId:'fica' },
+  'week-2-scripts':   { prefix:'w2', subId:'scripts' },
+  'week-2-email':     { prefix:'w2', subId:'email' },
+  'week-2-quiz':      { prefix:'w2', subId:'quiz' },
+  // Week 3
+  'week-3-overview':  { prefix:'w3', subId:'overview' },
+  'week-3-products':  { prefix:'w3', subId:'products' },
+  'week-3-cert':      { prefix:'w3', subId:'cert' },
+  'week-3-scripts':   { prefix:'w3', subId:'scripts' },
+  'week-3-email':     { prefix:'w3', subId:'email' },
+  'week-3-quiz':      { prefix:'w3', subId:'quiz' },
+  // Week 4
+  'week-4-overview':    { prefix:'w4', subId:'overview' },
+  'week-4-section125':  { prefix:'w4', subId:'section125' },
+  'week-4-residual':    { prefix:'w4', subId:'residual' },
+  'week-4-scripts':     { prefix:'w4', subId:'scripts' },
+  'week-4-email':       { prefix:'w4', subId:'email' },
+  'week-4-quiz':        { prefix:'w4', subId:'quiz' },
+  // Week 5
+  'week-5-overview':  { prefix:'w5', subId:'overview' },
+  'week-5-agents':    { prefix:'w5', subId:'agents' },
+  'week-5-tools':     { prefix:'w5', subId:'tools' },
+  'week-5-email':     { prefix:'w5', subId:'email' },
+  'week-5-quiz':      { prefix:'w5', subId:'quiz' }
+};
+
 function activateFromHash() {
   const raw = (location.hash || '').replace('#', '').toLowerCase().trim();
-  const tabId = HASH_MAP[raw] || (raw ? null : 'home');
+  if (!raw) { showTab('home', document.querySelectorAll('.nb')[0]); return; }
+
+  // Check for sub-panel hash first (e.g. #prospecting-database, #week-3-products)
+  const subEntry = SUB_HASH_MAP[raw];
+  if (subEntry) {
+    const tabSeg = PREFIX_TAB[subEntry.prefix];
+    const tabId  = HASH_MAP[tabSeg];
+    if (tabId) {
+      const navBtns = document.querySelectorAll('.nb');
+      let matchBtn = null;
+      navBtns.forEach(b => {
+        if ((b.getAttribute('onclick') || '').includes("'" + tabId + "'")) matchBtn = b;
+      });
+      showTab(tabId, matchBtn);
+      // Find the matching sbtn and activate the sub-panel
+      const tabPanel = document.getElementById('tab-' + tabId);
+      const nav = tabPanel ? tabPanel.querySelector('.split-nav') : null;
+      if (nav) {
+        const sbtn = Array.from(nav.querySelectorAll('.sbtn')).find(b =>
+          (b.getAttribute('onclick') || '').includes("'" + subEntry.subId + "'")
+        );
+        showSub(subEntry.prefix, subEntry.subId, sbtn || null, true);
+      }
+    }
+    return;
+  }
+
+  // Fall back to tab-level hash
+  const tabId = HASH_MAP[raw];
   if (!tabId) return;
   const navBtns = document.querySelectorAll('.nb');
   let matchBtn = null;
   navBtns.forEach(b => {
-    const onclick = b.getAttribute('onclick') || '';
-    if (onclick.includes("'" + tabId + "'")) matchBtn = b;
+    if ((b.getAttribute('onclick') || '').includes("'" + tabId + "'")) matchBtn = b;
   });
   showTab(tabId, matchBtn);
 }
