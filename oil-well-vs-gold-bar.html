@@ -1,0 +1,1176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Oil Well vs. The Gold Bar — Income For Life | DBR Learning Library</title>
+<meta name="description" content="Why passive residual income beats asset-rich, cash-poor wealth. The Oil Well vs. The Gold Bar — and why Multimillionaire beats Billionaire every time.">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
+<style>
+/* ============================================================
+   DBR / dreamsfaststart.com — Combined Premium Design System
+   The Oil Well vs. The Gold Bar + Multimillionaire, Not Billionaire
+   ============================================================ */
+:root {
+  --bg-deep:    #040c18;
+  --bg-card:    #0a1525;
+  --bg-card2:   #0d1c32;
+  --bg-card3:   #101f38;
+  --teal:       #00d4aa;
+  --teal-glow:  rgba(0,212,170,0.28);
+  --teal-glow2: rgba(0,212,170,0.12);
+  --teal-glow3: rgba(0,212,170,0.06);
+  --purple:     #7c6ff7;
+  --purple-glow:rgba(124,111,247,0.25);
+  --amber:      #f0a832;
+  --amber-glow: rgba(240,168,50,0.22);
+  --coral:      #ff6b6b;
+  --coral-glow: rgba(255,107,107,0.22);
+  --blue:       #4da6ff;
+  --blue-glow:  rgba(77,166,255,0.22);
+  --green:      #56e39f;
+  --green-glow: rgba(86,227,159,0.22);
+  --gold:       #ffd700;
+  --gold-glow:  rgba(255,215,0,0.2);
+  --text-primary:   #e8f4f1;
+  --text-secondary: #7fb5a8;
+  --text-dim:       #4a7a6e;
+  --border:         rgba(0,212,170,0.15);
+  --border-strong:  rgba(0,212,170,0.28);
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--bg-deep);
+  color: var(--text-primary);
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Inter', sans-serif;
+  min-height: 100vh;
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+/* Grid background */
+body::before {
+  content: '';
+  position: fixed; inset: 0;
+  background-image:
+    linear-gradient(rgba(0,212,170,0.025) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0,212,170,0.025) 1px, transparent 1px);
+  background-size: 44px 44px;
+  pointer-events: none; z-index: 0;
+}
+
+/* Ambient glow orbs */
+body::after {
+  content: '';
+  position: fixed;
+  top: -200px; left: 50%;
+  transform: translateX(-50%);
+  width: 800px; height: 600px;
+  background: radial-gradient(ellipse at center, rgba(0,212,170,0.04) 0%, transparent 70%);
+  pointer-events: none; z-index: 0;
+}
+
+/* ── SITE HEADER ── */
+.site-header {
+  position: sticky; top: 0; z-index: 100;
+  text-align: center;
+  padding: 0;
+  border-bottom: 1px solid rgba(0,212,170,0.15);
+  background: rgba(4,12,24,0.96);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+.header-inner {
+  display: flex; align-items: center; justify-content: space-between;
+  max-width: 1100px; margin: 0 auto;
+  padding: 10px 1.5rem;
+  gap: 1rem;
+}
+.header-brand {
+  font-size: 16px; font-weight: 800;
+  color: var(--teal); letter-spacing: .08em;
+  text-shadow: 0 0 16px var(--teal-glow);
+  text-decoration: none; white-space: nowrap;
+}
+.header-nav {
+  display: flex; gap: 0; align-items: center;
+  flex-wrap: wrap; justify-content: center;
+}
+.header-nav a {
+  font-size: 12px; font-weight: 600;
+  color: var(--text-secondary);
+  text-decoration: none; padding: 6px 12px;
+  border-radius: 6px; letter-spacing: .03em;
+  transition: color .15s, background .15s;
+  white-space: nowrap;
+}
+.header-nav a:hover { color: var(--teal); background: rgba(0,212,170,0.07); }
+.header-cta {
+  display: inline-flex; align-items: center; gap: 6px;
+  background: var(--teal); color: #040c18;
+  font-weight: 800; font-size: 12px;
+  border: none; border-radius: 999px;
+  padding: 8px 18px; cursor: pointer;
+  text-decoration: none; white-space: nowrap;
+  box-shadow: 0 0 20px var(--teal-glow2);
+  transition: transform .15s, box-shadow .15s;
+}
+.header-cta:hover { transform: scale(1.04); box-shadow: 0 0 32px var(--teal-glow); }
+
+/* ── PAGE WRAPPER ── */
+.page { position: relative; z-index: 1; max-width: 960px; margin: 0 auto; padding: 0 1.5rem 4rem; }
+
+/* ── HERO ── */
+.hero {
+  text-align: center;
+  padding: 4rem 1rem 3rem;
+  margin-bottom: 0.5rem;
+  position: relative;
+}
+.hero-eyebrow {
+  font-size: 11px; font-weight: 600;
+  letter-spacing: .14em; text-transform: uppercase;
+  color: var(--text-dim); margin-bottom: .9rem;
+}
+.hero-badge {
+  display: inline-flex; align-items: center; gap: 8px;
+  background: rgba(0,212,170,0.08);
+  border: 1px solid rgba(0,212,170,0.3);
+  border-radius: 999px; padding: 7px 20px;
+  font-size: 12px; font-weight: 700;
+  color: var(--teal); letter-spacing: .08em;
+  text-transform: uppercase; margin-bottom: 1.75rem;
+  box-shadow: 0 0 24px var(--teal-glow2);
+}
+.hero-dot {
+  width: 7px; height: 7px;
+  background: var(--teal); border-radius: 50%;
+  box-shadow: 0 0 10px var(--teal);
+  animation: pulse 2s infinite;
+}
+@keyframes pulse { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:.3;transform:scale(.85)} }
+
+.hero h1 {
+  font-size: clamp(2.2rem, 7vw, 4rem);
+  font-weight: 900; color: var(--text-primary);
+  margin-bottom: .5rem;
+  letter-spacing: -.03em; line-height: 1.08;
+}
+.hero h1 .teal { color: var(--teal); text-shadow: 0 0 50px var(--teal-glow); }
+.hero h1 .gold { color: var(--gold); text-shadow: 0 0 50px var(--gold-glow); }
+.hero h1 .coral { color: var(--coral); text-shadow: 0 0 50px var(--coral-glow); }
+
+.hero-divider {
+  display: flex; align-items: center; gap: 1rem;
+  justify-content: center; margin: 1.2rem 0;
+}
+.hero-divider-line {
+  width: 60px; height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(0,212,170,.4));
+}
+.hero-divider-line.rev { background: linear-gradient(270deg, transparent, rgba(0,212,170,.4)); }
+.hero-divider-text {
+  font-size: 11px; font-weight: 700;
+  letter-spacing: .12em; text-transform: uppercase;
+  color: var(--text-dim);
+}
+
+.hero-sub {
+  font-size: clamp(15px, 3vw, 18px);
+  color: var(--text-secondary);
+  max-width: 640px; margin: 0 auto 2.5rem;
+  line-height: 1.65;
+}
+
+.hero-stats {
+  display: flex; justify-content: center; gap: 0;
+  background: var(--bg-card); border-radius: 16px;
+  border: 1px solid rgba(0,212,170,0.18);
+  box-shadow: 0 0 40px rgba(0,212,170,0.07), 0 8px 32px rgba(0,0,0,0.4);
+  max-width: 680px; margin: 0 auto;
+  overflow: hidden;
+}
+.hero-stat {
+  flex: 1; padding: 1.5rem 1rem;
+  border-right: 1px solid rgba(0,212,170,0.1);
+  transition: background .2s;
+}
+.hero-stat:last-child { border-right: none; }
+.hero-stat:hover { background: rgba(0,212,170,0.04); }
+.hero-stat-num {
+  font-size: 28px; font-weight: 900;
+  color: var(--teal);
+  text-shadow: 0 0 24px var(--teal-glow);
+  line-height: 1; margin-bottom: 5px;
+}
+.hero-stat-label {
+  font-size: 10px; color: var(--text-dim);
+  text-transform: uppercase; letter-spacing: .09em;
+  line-height: 1.4;
+}
+
+/* ── SECTION HEADERS ── */
+.sec-header {
+  display: flex; align-items: center; gap: 14px;
+  margin: 3rem 0 1.25rem;
+}
+.sec-line {
+  flex: 1; height: 1px;
+  background: linear-gradient(90deg, rgba(0,212,170,.3), transparent);
+}
+.sec-line.rev { background: linear-gradient(270deg, rgba(0,212,170,.3), transparent); }
+.sec-label {
+  font-size: 11px; font-weight: 800;
+  letter-spacing: .12em; text-transform: uppercase;
+  color: var(--teal); white-space: nowrap;
+}
+.sec-num {
+  display: inline-flex; align-items: center; justify-content: center;
+  width: 24px; height: 24px;
+  background: rgba(0,212,170,0.12);
+  border: 1px solid rgba(0,212,170,0.3);
+  border-radius: 50%; font-size: 10px;
+  font-weight: 800; color: var(--teal);
+}
+
+/* ── INTRO TEXT ── */
+.intro-text {
+  font-size: 14.5px; color: var(--text-secondary);
+  line-height: 1.75; margin-bottom: 1.4rem;
+}
+.intro-text strong { color: var(--text-primary); }
+.intro-text em { color: var(--teal); font-style: normal; font-weight: 600; }
+
+/* ── GLOW CARDS ── */
+.glow-card {
+  background: var(--bg-card);
+  border-radius: 16px;
+  border: 1px solid var(--border);
+  padding: 1.3rem 1.4rem;
+  transition: transform .22s ease, box-shadow .22s ease;
+}
+.glow-card:hover { transform: translateY(-4px); }
+.glow-card.teal   { border-color: rgba(0,212,170,.28);   box-shadow: 0 0 24px var(--teal-glow3); }
+.glow-card.teal:hover   { box-shadow: 0 0 48px var(--teal-glow); }
+.glow-card.amber  { border-color: rgba(240,168,50,.28);  box-shadow: 0 0 24px rgba(240,168,50,.06); }
+.glow-card.amber:hover  { box-shadow: 0 0 48px var(--amber-glow); }
+.glow-card.coral  { border-color: rgba(255,107,107,.28); box-shadow: 0 0 24px rgba(255,107,107,.06); }
+.glow-card.coral:hover  { box-shadow: 0 0 48px var(--coral-glow); }
+.glow-card.purple { border-color: rgba(124,111,247,.28); box-shadow: 0 0 24px rgba(124,111,247,.08); }
+.glow-card.purple:hover { box-shadow: 0 0 48px var(--purple-glow); }
+.glow-card.blue   { border-color: rgba(77,166,255,.28);  box-shadow: 0 0 24px rgba(77,166,255,.06); }
+.glow-card.blue:hover   { box-shadow: 0 0 48px var(--blue-glow); }
+.glow-card.green  { border-color: rgba(86,227,159,.28);  box-shadow: 0 0 24px rgba(86,227,159,.06); }
+.glow-card.green:hover  { box-shadow: 0 0 48px var(--green-glow); }
+.glow-card.gold   { border-color: rgba(255,215,0,.28);   box-shadow: 0 0 24px rgba(255,215,0,.06); }
+.glow-card.gold:hover   { box-shadow: 0 0 48px var(--gold-glow); }
+
+/* ── PART DIVIDERS ── */
+.part-banner {
+  position: relative; overflow: hidden;
+  border-radius: 18px; padding: 2.2rem 2rem;
+  margin: 3.5rem 0 1rem;
+  text-align: center;
+}
+.part-banner.part1 {
+  background: linear-gradient(135deg, rgba(0,212,170,0.09) 0%, rgba(77,166,255,0.06) 100%);
+  border: 1px solid rgba(0,212,170,0.25);
+  box-shadow: 0 0 60px rgba(0,212,170,0.08);
+}
+.part-banner.part2 {
+  background: linear-gradient(135deg, rgba(124,111,247,0.09) 0%, rgba(0,212,170,0.06) 100%);
+  border: 1px solid rgba(124,111,247,0.25);
+  box-shadow: 0 0 60px rgba(124,111,247,0.08);
+}
+.part-banner::before {
+  content: '';
+  position: absolute; inset: 0;
+  background-image: linear-gradient(rgba(0,212,170,0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0,212,170,0.03) 1px, transparent 1px);
+  background-size: 28px 28px;
+}
+.part-tag {
+  display: inline-block;
+  font-size: 10px; font-weight: 800;
+  letter-spacing: .14em; text-transform: uppercase;
+  padding: 4px 14px; border-radius: 999px;
+  margin-bottom: .8rem;
+}
+.part1 .part-tag { background: rgba(0,212,170,0.12); color: var(--teal); border: 1px solid rgba(0,212,170,0.3); }
+.part2 .part-tag { background: rgba(124,111,247,0.12); color: var(--purple); border: 1px solid rgba(124,111,247,0.3); }
+.part-title {
+  font-size: clamp(1.6rem, 4.5vw, 2.4rem);
+  font-weight: 900; letter-spacing: -.025em;
+  line-height: 1.1; margin-bottom: .6rem;
+  position: relative; z-index: 1;
+}
+.part1 .part-title { color: var(--teal); text-shadow: 0 0 40px var(--teal-glow); }
+.part2 .part-title { color: var(--purple); text-shadow: 0 0 40px var(--purple-glow); }
+.part-sub {
+  font-size: 14px; color: var(--text-secondary);
+  max-width: 520px; margin: 0 auto;
+  line-height: 1.6; position: relative; z-index: 1;
+}
+
+/* ── THREE BUCKETS ── */
+.bucket {
+  display: flex; align-items: flex-start;
+  gap: 16px; padding: 1.3rem 1.4rem;
+}
+.bucket-ico { font-size: 30px; flex-shrink: 0; margin-top: 2px; }
+.bucket-title { font-size: 16px; font-weight: 800; margin-bottom: 4px; }
+.bucket-desc { font-size: 13px; color: var(--text-secondary); line-height: 1.6; }
+.teal .bucket-title  { color: var(--teal); }
+.amber .bucket-title { color: var(--amber); }
+.coral .bucket-title { color: var(--coral); }
+.blue .bucket-title  { color: var(--blue); }
+.stack { display: flex; flex-direction: column; gap: 13px; }
+
+/* ── VS GRID ── */
+.vs-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.vs-card { padding: 1.6rem 1.5rem; }
+.vs-emoji { font-size: 44px; margin-bottom: .6rem; }
+.vs-name { font-size: 21px; font-weight: 900; letter-spacing: -.015em; margin-bottom: 3px; }
+.vs-card.coral .vs-name { color: var(--coral); }
+.vs-card.teal .vs-name  { color: var(--teal); }
+.vs-card.gold .vs-name  { color: var(--gold); }
+.vs-card.purple .vs-name { color: var(--purple); }
+.vs-tag {
+  display: inline-block; font-size: 10px; font-weight: 800;
+  letter-spacing: .08em; text-transform: uppercase;
+  padding: 3px 10px; border-radius: 999px; margin-bottom: 1.1rem;
+}
+.vs-card.coral .vs-tag { background: rgba(255,107,107,.12); color: var(--coral); border: 1px solid rgba(255,107,107,.28); }
+.vs-card.teal .vs-tag  { background: rgba(0,212,170,.12);   color: var(--teal);  border: 1px solid rgba(0,212,170,.28); }
+.vs-card.gold .vs-tag  { background: rgba(255,215,0,.1);    color: var(--gold);  border: 1px solid rgba(255,215,0,.28); }
+.vs-card.purple .vs-tag { background: rgba(124,111,247,.12); color: var(--purple); border: 1px solid rgba(124,111,247,.28); }
+.vs-line {
+  display: flex; align-items: flex-start; gap: 10px;
+  font-size: 13px; color: var(--text-secondary);
+  line-height: 1.55; margin-bottom: 10px;
+}
+.vs-ico { flex-shrink: 0; font-size: 14px; margin-top: 1px; font-weight: 800; }
+.vs-card.coral .vs-ico  { color: var(--coral); }
+.vs-card.teal .vs-ico   { color: var(--teal); }
+.vs-card.gold .vs-ico   { color: var(--gold); }
+.vs-card.purple .vs-ico { color: var(--purple); }
+
+/* ── CHART CARDS ── */
+.chart-card {
+  background: var(--bg-card);
+  border-radius: 16px;
+  border: 1px solid rgba(0,212,170,.2);
+  box-shadow: 0 0 40px rgba(0,212,170,.06), 0 8px 32px rgba(0,0,0,.3);
+  padding: 1.75rem 1.5rem 1.4rem;
+}
+.chart-title {
+  font-size: 16px; font-weight: 800;
+  color: var(--text-primary);
+  margin-bottom: 3px; text-align: center;
+}
+.chart-cap {
+  font-size: 11.5px; color: var(--text-dim);
+  text-align: center; margin-bottom: 1.2rem;
+}
+.chart-holder { position: relative; height: 340px; }
+.chart-foot {
+  font-size: 10.5px; color: var(--text-dim);
+  text-align: center; margin-top: 1rem; line-height: 1.6;
+}
+.callout-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 13px; margin-top: 16px; }
+.callout { padding: 1.1rem 1.3rem; }
+.callout-title { font-size: 14px; font-weight: 800; margin-bottom: 5px; }
+.callout-desc { font-size: 12.5px; color: var(--text-secondary); line-height: 1.55; }
+.teal .callout-title  { color: var(--teal); }
+.coral .callout-title { color: var(--coral); }
+.purple .callout-title { color: var(--purple); }
+
+/* ── MORTALITY TABLE ── */
+.mort-table-wrap {
+  overflow-x: auto;
+  border-radius: 12px;
+  border: 1px solid rgba(0,212,170,.18);
+  margin-top: 1rem;
+}
+.mort-table {
+  width: 100%; border-collapse: collapse;
+  font-size: 13px;
+}
+.mort-table thead tr {
+  background: rgba(0,212,170,0.1);
+  border-bottom: 1px solid rgba(0,212,170,.25);
+}
+.mort-table th {
+  padding: 10px 14px; text-align: center;
+  font-size: 11px; font-weight: 800;
+  letter-spacing: .07em; text-transform: uppercase;
+  color: var(--teal);
+}
+.mort-table th:first-child { text-align: left; }
+.mort-table td {
+  padding: 9px 14px; text-align: center;
+  color: var(--text-secondary);
+  border-bottom: 1px solid rgba(0,212,170,.07);
+}
+.mort-table td:first-child { text-align: left; color: var(--text-primary); font-weight: 600; }
+.mort-table .group-row td {
+  background: rgba(0,212,170,0.05);
+  color: var(--teal); font-weight: 800;
+  font-size: 11px; letter-spacing: .06em;
+  text-transform: uppercase; padding: 7px 14px;
+  border-bottom: 1px solid rgba(0,212,170,.12);
+}
+.mort-table .annuitant { color: var(--teal); font-weight: 700; }
+.mort-table tbody tr:hover td { background: rgba(0,212,170,0.04); }
+
+/* ── PASSIVITY LADDER ── */
+.ladder { display: flex; flex-direction: column; gap: 12px; }
+.rung { display: flex; align-items: stretch; gap: 0; overflow: hidden; }
+.rung-bar { width: 7px; flex-shrink: 0; border-radius: 4px 0 0 4px; }
+.rung-body { flex: 1; padding: 1.1rem 1.4rem; }
+.rung-tier {
+  font-size: 12px; font-weight: 900;
+  letter-spacing: .1em; text-transform: uppercase;
+  margin-bottom: 6px;
+}
+.rung-assets { font-size: 13px; color: var(--text-primary); line-height: 1.55; }
+.rung-note { font-size: 11.5px; color: var(--text-secondary); font-style: italic; margin-top: 4px; }
+.r-teal  { border-color: rgba(0,212,170,.28); }
+.r-teal  .rung-tier { color: var(--teal); }
+.r-teal  .rung-bar  { background: var(--teal); }
+.r-green { border-color: rgba(86,227,159,.28); }
+.r-green .rung-tier { color: var(--green); }
+.r-green .rung-bar  { background: var(--green); }
+.r-amber { border-color: rgba(240,168,50,.28); }
+.r-amber .rung-tier { color: var(--amber); }
+.r-amber .rung-bar  { background: var(--amber); }
+.r-coral { border-color: rgba(255,107,107,.28); }
+.r-coral .rung-tier { color: var(--coral); }
+.r-coral .rung-bar  { background: var(--coral); }
+
+/* ── FREEDOM METRIC ── */
+.metric-box { text-align: center; padding: 2rem 1.5rem; }
+.metric-eq {
+  font-size: clamp(16px, 3.8vw, 22px);
+  font-weight: 900; color: var(--text-primary);
+  line-height: 1.55;
+}
+.metric-eq .num { color: var(--teal); }
+.metric-eq .den { color: var(--blue); }
+.metric-note {
+  font-size: 13.5px; color: var(--text-secondary);
+  max-width: 580px; margin: 1.1rem auto 0;
+  line-height: 1.65;
+}
+
+/* ── TAKE GRID ── */
+.take-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 13px; margin-top: 16px; }
+.take-card { padding: 1.3rem 1.4rem; }
+.take-title { font-size: 14.5px; font-weight: 800; margin-bottom: 6px; }
+.take-desc { font-size: 12.5px; color: var(--text-secondary); line-height: 1.55; }
+.teal .take-title  { color: var(--teal); }
+.amber .take-title { color: var(--amber); }
+.blue .take-title  { color: var(--blue); }
+.purple .take-title { color: var(--purple); }
+
+/* ── QUOTE BLOCK ── */
+.quote-block {
+  border-left: 3px solid var(--teal);
+  padding: 1.2rem 1.5rem;
+  background: rgba(0,212,170,0.04);
+  border-radius: 0 12px 12px 0;
+  margin: 1.5rem 0;
+}
+.quote-text {
+  font-size: 15px; color: var(--text-primary);
+  font-style: italic; line-height: 1.7;
+  margin-bottom: .4rem;
+}
+.quote-attr { font-size: 11px; color: var(--text-dim); font-weight: 600; letter-spacing: .06em; }
+
+/* ── CTA BOX ── */
+.cta-box {
+  border-radius: 20px;
+  border: 1px solid rgba(0,212,170,.45);
+  background: linear-gradient(135deg, rgba(0,212,170,.07) 0%, rgba(124,111,247,.07) 100%);
+  box-shadow: 0 0 80px rgba(0,212,170,.1), 0 0 80px rgba(124,111,247,.06), 0 16px 48px rgba(0,0,0,.4);
+  padding: 3rem 2rem; text-align: center;
+  margin-top: 3rem;
+}
+.cta-icon  { font-size: 50px; margin-bottom: 1rem; }
+.cta-title {
+  font-size: clamp(22px, 4.5vw, 30px);
+  font-weight: 900; color: var(--text-primary);
+  margin-bottom: .6rem; letter-spacing: -.02em;
+}
+.cta-title span { color: var(--teal); text-shadow: 0 0 30px var(--teal-glow); }
+.cta-sub {
+  font-size: 15px; color: var(--text-secondary);
+  max-width: 520px; margin: 0 auto 2rem; line-height: 1.65;
+}
+.cta-buttons { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
+.btn-primary {
+  display: inline-flex; align-items: center; gap: 8px;
+  background: var(--teal); color: #040c18;
+  font-weight: 900; font-size: 15px;
+  border: none; border-radius: 999px;
+  padding: 14px 32px; cursor: pointer;
+  text-decoration: none;
+  box-shadow: 0 0 32px var(--teal-glow), 0 4px 18px rgba(0,212,170,.3);
+  transition: transform .15s, box-shadow .15s;
+}
+.btn-primary:hover { transform: scale(1.05); box-shadow: 0 0 52px var(--teal-glow), 0 6px 26px rgba(0,212,170,.4); }
+.btn-secondary {
+  display: inline-flex; align-items: center; gap: 8px;
+  background: transparent; color: var(--teal);
+  font-weight: 700; font-size: 15px;
+  border: 1px solid rgba(0,212,170,.45);
+  border-radius: 999px; padding: 13px 30px;
+  cursor: pointer; text-decoration: none;
+  transition: background .15s, box-shadow .15s;
+}
+.btn-secondary:hover { background: rgba(0,212,170,.09); box-shadow: 0 0 24px var(--teal-glow2); }
+.cta-fine { font-size: 11px; color: var(--text-dim); margin-top: 1.2rem; }
+
+/* ── DISCLAIMER ── */
+.disclaimer {
+  font-size: 11px; color: var(--text-dim);
+  text-align: center; padding: 1.2rem 1.5rem 0;
+  line-height: 1.65; max-width: 740px;
+  margin: 2.5rem auto 0;
+  border-top: 1px solid rgba(0,212,170,.08);
+}
+
+/* ── SITE FOOTER ── */
+.site-footer {
+  position: relative; z-index: 10;
+  border-top: 1px solid rgba(0,212,170,.12);
+  background: rgba(4,12,24,.98);
+  margin-top: 4rem;
+}
+.footer-nav {
+  display: flex; justify-content: center;
+  gap: 1.75rem; flex-wrap: wrap;
+  padding: 1.2rem 1rem;
+  border-bottom: 1px solid rgba(0,212,170,.08);
+}
+.footer-nav a {
+  font-size: 13px; font-weight: 600;
+  color: var(--teal); text-decoration: none;
+  letter-spacing: .03em; transition: opacity .15s;
+}
+.footer-nav a:hover { opacity: .65; }
+.footer-legal {
+  text-align: center; padding: 1.2rem 1rem 1.6rem;
+  font-size: 11px; color: var(--text-dim); line-height: 1.8;
+}
+.footer-legal a { color: var(--teal); text-decoration: none; }
+.footer-dbr {
+  font-size: 20px; font-weight: 900;
+  color: var(--teal); letter-spacing: .1em;
+  text-shadow: 0 0 20px var(--teal-glow);
+  display: block; margin-bottom: .5rem;
+}
+
+/* ── SCROLL REVEAL ── */
+.reveal {
+  opacity: 0; transform: translateY(28px);
+  transition: opacity .6s ease, transform .6s ease;
+}
+.reveal.visible { opacity: 1; transform: translateY(0); }
+
+/* ── RESPONSIVE ── */
+@media (max-width: 700px) {
+  .vs-grid, .callout-grid { grid-template-columns: 1fr; }
+  .hero-stats { flex-direction: column; }
+  .hero-stat { border-right: none; border-bottom: 1px solid rgba(0,212,170,.1); }
+  .hero-stat:last-child { border-bottom: none; }
+  .cta-buttons { flex-direction: column; align-items: center; }
+  .footer-nav { gap: 1rem; }
+  .header-nav { display: none; }
+  .header-inner { justify-content: space-between; }
+  .part-banner { padding: 1.6rem 1.2rem; }
+}
+@media (max-width: 480px) {
+  .bucket { flex-direction: column; gap: 8px; }
+  .bucket-ico { font-size: 24px; }
+  .hero h1 { font-size: 2rem; }
+}
+</style>
+</head>
+<body>
+
+<!-- ══════════════════════════════════════════════
+     STICKY HEADER
+══════════════════════════════════════════════ -->
+<header class="site-header">
+  <div class="header-inner">
+    <a href="https://dreamsfaststart.com" class="header-brand">DBR</a>
+    <nav class="header-nav">
+      <a href="#part1">Oil Well vs. Gold Bar</a>
+      <a href="#longevity">Longevity Data</a>
+      <a href="#part2">Multimillionaire Mindset</a>
+      <a href="#passivity">Passivity Ladder</a>
+      <a href="#freedom">Freedom Metric</a>
+    </nav>
+    <a href="https://renewalsforlifestyle.com" class="header-cta" target="_blank">Renewals For Life →</a>
+  </div>
+</header>
+
+<!-- ══════════════════════════════════════════════
+     HERO
+══════════════════════════════════════════════ -->
+<div class="page">
+  <div class="hero">
+    <div class="hero-eyebrow">DBR Learning Library · Renewals For Lifestyle · The Income-for-Life Playbook</div>
+    <div class="hero-badge"><div class="hero-dot"></div>The Complete Income Architecture</div>
+    <h1>The <span class="teal">Oil Well</span><br>vs. the <span class="gold">Gold Bar</span></h1>
+    <div class="hero-divider">
+      <div class="hero-divider-line"></div>
+      <div class="hero-divider-text">and why</div>
+      <div class="hero-divider-line rev"></div>
+    </div>
+    <h1 style="font-size: clamp(1.4rem, 4.5vw, 2.4rem); margin-bottom: 1.2rem;">
+      Multimillionaire Beats <span class="coral">Billionaire</span>
+    </h1>
+    <p class="hero-sub">A gold bar is only worth something when you sell a piece of it. An oil well pumps income whether you're watching or not. And past a certain point, more money stops buying more life — and starts buying more problems. Here's the complete playbook.</p>
+    <div class="hero-stats">
+      <div class="hero-stat">
+        <div class="hero-stat-num">~50%</div>
+        <div class="hero-stat-label">Lower mortality<br>for annuitants</div>
+      </div>
+      <div class="hero-stat">
+        <div class="hero-stat-num">$0</div>
+        <div class="hero-stat-label">Sold to<br>get paid</div>
+      </div>
+      <div class="hero-stat">
+        <div class="hero-stat-num">For Life</div>
+        <div class="hero-stat-label">Income by<br>contract</div>
+      </div>
+      <div class="hero-stat">
+        <div class="hero-stat-num">1.0</div>
+        <div class="hero-stat-label">Freedom<br>metric target</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════════════
+       PART 1 BANNER
+  ══════════════════════════════════════════════ -->
+  <div class="part-banner part1 reveal" id="part1">
+    <div class="part-tag">Part One</div>
+    <div class="part-title">🛢️ The Oil Well vs. The Gold Bar</div>
+    <div class="part-sub">Asset rich and cash poor — same net worth, completely different life. Here's why how your money behaves matters more than how much you have.</div>
+  </div>
+
+  <!-- THREE BUCKETS -->
+  <div class="sec-header reveal">
+    <div class="sec-line"></div>
+    <div class="sec-num">1</div>
+    <div class="sec-label">Three Kinds of Wealth</div>
+    <div class="sec-line rev"></div>
+  </div>
+  <p class="intro-text reveal">Net worth tells you what you <strong>own</strong>. It says nothing about whether it pays you. The same dollar amount behaves in three completely different ways — and only one of them sets you free.</p>
+  <div class="stack reveal">
+    <div class="glow-card coral bucket">
+      <div class="bucket-ico">📈</div>
+      <div>
+        <div class="bucket-title">Market Assets — Crypto &amp; Stocks</div>
+        <div class="bucket-desc">Latent wealth. They may grow, but you don't benefit until you <strong>liquidate</strong> — and selling means timing the market, triggering taxes, and giving up future growth. A bad year forces you to sell more at the worst possible time. This is a scoreboard, not a paycheck.</div>
+      </div>
+    </div>
+    <div class="glow-card amber bucket">
+      <div class="bucket-ico">🏃</div>
+      <div>
+        <div class="bucket-title">Effort Assets — A Business You Must Run</div>
+        <div class="bucket-desc">They pay — but only while you push. A book you re-sell every January, property you actively manage, a practice that needs you in the chair. Stop pushing, and the income stops with you. You haven't bought freedom; you've bought a second job.</div>
+      </div>
+    </div>
+    <div class="glow-card teal bucket">
+      <div class="bucket-ico">🛢️</div>
+      <div>
+        <div class="bucket-title">Income for Life — Annuities &amp; B2B Renewals</div>
+        <div class="bucket-desc">Contractual, residual income that arrives on a schedule with little or no ongoing effort. The principal stays at work; the cash you live on shows up whether the market is green or red that morning. This is the oil well — it pumps whether you're watching or not.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- GOLD BAR VS OIL WELL -->
+  <div class="sec-header reveal">
+    <div class="sec-line"></div>
+    <div class="sec-num">2</div>
+    <div class="sec-label">Same Net Worth, Different Life</div>
+    <div class="sec-line rev"></div>
+  </div>
+  <p class="intro-text reveal">Picture two people, each worth <strong>$2 million</strong>. One holds it in crypto and equities. The other holds income-producing contracts and a renewal book. On paper they're equal. In life, they are nothing alike.</p>
+  <div class="vs-grid reveal">
+    <div class="glow-card gold vs-card">
+      <div class="vs-emoji">🥇</div>
+      <div class="vs-name">The Gold Bar</div>
+      <div class="vs-tag">Asset Rich · Cash Poor</div>
+      <div class="vs-line"><span class="vs-ico">✕</span><span>Worth something only when you sell a piece of it</span></div>
+      <div class="vs-line"><span class="vs-ico">✕</span><span>Lifestyle is hostage to daily price swings</span></div>
+      <div class="vs-line"><span class="vs-ico">✕</span><span>Every withdrawal shrinks the engine</span></div>
+      <div class="vs-line"><span class="vs-ico">✕</span><span>Capital-gains tax triggered when you cash in</span></div>
+      <div class="vs-line"><span class="vs-ico">✕</span><span>Sequence-of-returns risk in a down market</span></div>
+      <div class="vs-line"><span class="vs-ico">✕</span><span>"What's it worth today?" — every single day</span></div>
+    </div>
+    <div class="glow-card teal vs-card">
+      <div class="vs-emoji">🛢️</div>
+      <div class="vs-name">The Oil Well</div>
+      <div class="vs-tag">Income for Life</div>
+      <div class="vs-line"><span class="vs-ico">✓</span><span>Pumps income on a schedule — nothing to sell</span></div>
+      <div class="vs-line"><span class="vs-ico">✓</span><span>Pays the same whether the market is up or down</span></div>
+      <div class="vs-line"><span class="vs-ico">✓</span><span>Principal stays at work; you spend the yield</span></div>
+      <div class="vs-line"><span class="vs-ico">✓</span><span>Often part return-of-principal — more tax-efficient*</span></div>
+      <div class="vs-line"><span class="vs-ico">✓</span><span>Contractual income — by design, not by luck</span></div>
+      <div class="vs-line"><span class="vs-ico">✓</span><span>You never have to ask "what's it worth today?"</span></div>
+    </div>
+  </div>
+
+  <div class="quote-block reveal" style="margin-top: 1.8rem;">
+    <div class="quote-text">"Wealth you can't spend without dismantling it isn't freedom — it's a scoreboard."</div>
+    <div class="quote-attr">— The Asset-Rich, Cash-Poor Trap</div>
+  </div>
+
+  <!-- LONGEVITY DATA -->
+  <div class="sec-header reveal" id="longevity">
+    <div class="sec-line"></div>
+    <div class="sec-num">3</div>
+    <div class="sec-label">The Longevity Evidence</div>
+    <div class="sec-line rev"></div>
+  </div>
+  <p class="intro-text reveal">It's not just a lifestyle story — it shows up in the mortality data. People who own lifetime income <strong>die at roughly half the rate</strong> of the general population at nearly every age. The research is peer-reviewed and the gap is consistent.</p>
+
+  <div class="chart-card reveal">
+    <div class="chart-title">Annual Deaths per 100,000 — Men &amp; Women</div>
+    <div class="chart-cap">General Population vs. Annuitant Population · Ages 65–90</div>
+    <div class="chart-holder"><canvas id="mortChart"></canvas></div>
+    <div class="chart-foot">Source: Mitchell, Poterba &amp; Warshawsky, <em>New Evidence on the Money's Worth of Individual Annuities</em> (1999). Rates per 100,000 persons, 1995 data.</div>
+  </div>
+
+  <!-- MORTALITY TABLE -->
+  <div class="reveal" style="margin-top: 1.5rem;">
+    <div class="mort-table-wrap">
+      <table class="mort-table">
+        <thead>
+          <tr>
+            <th>Age</th>
+            <th>General Population</th>
+            <th>Annuitant Population</th>
+            <th>Annuitant Advantage</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="group-row"><td colspan="4">Men</td></tr>
+          <tr><td>65</td><td>22.2</td><td class="annuitant">11.5</td><td style="color:var(--teal)">48% lower</td></tr>
+          <tr><td>70</td><td>31.5</td><td class="annuitant">18.8</td><td style="color:var(--teal)">40% lower</td></tr>
+          <tr><td>75</td><td>46.7</td><td class="annuitant">30.9</td><td style="color:var(--teal)">34% lower</td></tr>
+          <tr><td>80</td><td>73.7</td><td class="annuitant">50.4</td><td style="color:var(--teal)">32% lower</td></tr>
+          <tr><td>85</td><td>113.8</td><td class="annuitant">79.8</td><td style="color:var(--teal)">30% lower</td></tr>
+          <tr><td>90</td><td>169.0</td><td class="annuitant">120.6</td><td style="color:var(--teal)">29% lower</td></tr>
+          <tr class="group-row"><td colspan="4">Women</td></tr>
+          <tr><td>65</td><td>13.4</td><td class="annuitant">7.3</td><td style="color:var(--teal)">46% lower</td></tr>
+          <tr><td>70</td><td>19.8</td><td class="annuitant">11.5</td><td style="color:var(--teal)">42% lower</td></tr>
+          <tr><td>75</td><td>29.1</td><td class="annuitant">19.4</td><td style="color:var(--teal)">33% lower</td></tr>
+          <tr><td>80</td><td>44.3</td><td class="annuitant">33.4</td><td style="color:var(--teal)">25% lower</td></tr>
+          <tr><td>85</td><td>69.6</td><td class="annuitant">57.6</td><td style="color:var(--teal)">17% lower</td></tr>
+          <tr><td>90</td><td>116.7</td><td class="annuitant">101.3</td><td style="color:var(--teal)">13% lower</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p style="font-size:10.5px; color:var(--text-dim); text-align:center; margin-top:.6rem;">Rates per 100,000 persons. Source: Mitchell, Poterba &amp; Warshawsky, 1999.</p>
+  </div>
+
+  <!-- WHY THEY LIVE LONGER -->
+  <div class="sec-header reveal">
+    <div class="sec-line"></div>
+    <div class="sec-num">4</div>
+    <div class="sec-label">Why They Live Longer</div>
+    <div class="sec-line rev"></div>
+  </div>
+  <div class="stack reveal">
+    <div class="glow-card blue bucket">
+      <div class="bucket-ico">🧬</div>
+      <div>
+        <div class="bucket-title">Part of it is selection</div>
+        <div class="bucket-desc">Healthier, longer-lived people are more likely to choose lifetime income in the first place — partly because they expect to live long enough to make it pay off. That's real, and worth saying out loud, because it makes the rest of the case bulletproof.</div>
+      </div>
+    </div>
+    <div class="glow-card teal bucket">
+      <div class="bucket-ico">🧘</div>
+      <div>
+        <div class="bucket-title">And part of it is the income itself</div>
+        <div class="bucket-desc">Guaranteed lifetime income removes the single biggest source of retirement stress — the fear of running out. Retirees with predictable income consistently report higher life satisfaction and lower anxiety than those drawing down a volatile portfolio. Chronic financial stress is one of the best-documented drivers of poor health outcomes.</div>
+      </div>
+    </div>
+    <div class="glow-card green bucket">
+      <div class="bucket-ico">🌿</div>
+      <div>
+        <div class="bucket-title">The lifestyle dividend</div>
+        <div class="bucket-desc">Residual income decouples earning from hours. That's the actual freedom: you're at the recital, on the trip, with the grandkids — and the income doesn't notice you're gone. Lower stress, plus the freedom to actually live the longevity pillars (sleep, movement, nature, and presence), is how residual income adds years, not just dollars.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="quote-block reveal" style="margin-top: 1.5rem;">
+    <div class="quote-text">"Residual income doesn't just fund a longer life — it helps create the conditions for one."</div>
+    <div class="quote-attr">— Lower stress · Freedom to live the longevity pillars · Legacy, not just a lump sum</div>
+  </div>
+
+  <!-- ══════════════════════════════════════════════
+       PART 2 BANNER
+  ══════════════════════════════════════════════ -->
+  <div class="part-banner part2 reveal" id="part2">
+    <div class="part-tag">Part Two</div>
+    <div class="part-title">💎 Multimillionaire, Not Billionaire</div>
+    <div class="part-sub">There's a point where more money stops buying more life — and starts buying more problems. The goal was never to be the richest. It's to be the freest.</div>
+  </div>
+
+  <!-- QOL CURVE -->
+  <div class="sec-header reveal">
+    <div class="sec-line"></div>
+    <div class="sec-num">5</div>
+    <div class="sec-label">The Quality-of-Life Curve</div>
+    <div class="sec-line rev"></div>
+  </div>
+  <p class="intro-text reveal">Economists call it the <strong>diminishing marginal utility of wealth</strong>: life satisfaction keeps rising with money, but the slope flattens hard once your needs and security are fully covered. Meanwhile, liability, complexity, and lost privacy keep climbing — until the two lines cross.</p>
+  <div class="chart-card reveal">
+    <div class="chart-title">More Money, Flatter Happiness — Steeper Headaches</div>
+    <div class="chart-cap">Life satisfaction vs. liability &amp; complexity, by net worth</div>
+    <div class="chart-holder"><canvas id="qolChart"></canvas></div>
+    <div class="callout-grid">
+      <div class="glow-card teal callout">
+        <div class="callout-title">The Sweet Spot — $10–50M</div>
+        <div class="callout-desc">Happiness near its peak, headaches still low. Maximum freedom per dollar — total security, full privacy, a life one advisor and one CPA can run.</div>
+      </div>
+      <div class="glow-card coral callout">
+        <div class="callout-title">The Crossover — $1B+</div>
+        <div class="callout-desc">Past the billion mark, the headache line overtakes the happiness line. Security details, scrutiny, lawsuits, staff to manage the staff. The wealth owns you.</div>
+      </div>
+    </div>
+    <div class="chart-foot">Conceptual illustration of the diminishing marginal utility of wealth — shape is for discussion, not plotted from a specific dataset.</div>
+  </div>
+
+  <!-- DECAMILLIONAIRE VS BILLIONAIRE -->
+  <div class="sec-header reveal">
+    <div class="sec-line"></div>
+    <div class="sec-num">6</div>
+    <div class="sec-label">Same Freedom · Different Burden</div>
+    <div class="sec-line rev"></div>
+  </div>
+  <p class="intro-text reveal">Both can buy almost anything. Only one of them is actually <strong>free</strong>.</p>
+  <div class="vs-grid reveal">
+    <div class="glow-card teal vs-card">
+      <div class="vs-emoji">🏡</div>
+      <div class="vs-name">The Decamillionaire</div>
+      <div class="vs-tag">$10–50M · Free &amp; Unseen</div>
+      <div class="vs-line"><span class="vs-ico">✓</span><span>Total financial freedom — zero money stress</span></div>
+      <div class="vs-line"><span class="vs-ico">✓</span><span>Moves through the world unguarded and private</span></div>
+      <div class="vs-line"><span class="vs-ico">✓</span><span>Balance sheet one advisor + one CPA can run</span></div>
+      <div class="vs-line"><span class="vs-ico">✓</span><span>Best healthcare, travel, and time on demand</span></div>
+      <div class="vs-line"><span class="vs-ico">✓</span><span>People around you for the right reasons</span></div>
+      <div class="vs-line"><span class="vs-ico">✓</span><span>Wealth serves the life — not the other way around</span></div>
+    </div>
+    <div class="glow-card coral vs-card">
+      <div class="vs-emoji">🏰</div>
+      <div class="vs-name">The Billionaire</div>
+      <div class="vs-tag">$1B+ · Owned by the Empire</div>
+      <div class="vs-line"><span class="vs-ico">✕</span><span>Security detail, entourage, constant scrutiny</span></div>
+      <div class="vs-line"><span class="vs-ico">✕</span><span>Armies of lawyers, accountants, and staff</span></div>
+      <div class="vs-line"><span class="vs-ico">✕</span><span>Perpetual lawsuits, regulatory &amp; lobbying load</span></div>
+      <div class="vs-line"><span class="vs-ico">✕</span><span>No privacy — everyone wants something</span></div>
+      <div class="vs-line"><span class="vs-ico">✕</span><span>So complex it needs staff to manage the staff</span></div>
+      <div class="vs-line"><span class="vs-ico">✕</span><span>The wealth owns you — not the other way around</span></div>
+    </div>
+  </div>
+
+  <!-- PASSIVITY LADDER -->
+  <div class="sec-header reveal" id="passivity">
+    <div class="sec-line"></div>
+    <div class="sec-num">7</div>
+    <div class="sec-label">The Passivity Ladder</div>
+    <div class="sec-line rev"></div>
+  </div>
+  <p class="intro-text reveal">Rank every asset by the time, attention, and liability it quietly eats. A 9% return that needs you on the phone with contractors and tenants is often worse — for your life — than a 5% return that arrives while you sleep. <strong>Buy income, not a second job.</strong></p>
+  <div class="ladder reveal">
+    <div class="glow-card r-teal rung">
+      <div class="rung-bar"></div>
+      <div class="rung-body">
+        <div class="rung-tier">🛢️ Mailbox Money</div>
+        <div class="rung-assets">Income annuities · B2B renewals &amp; overrides · dividend &amp; covered-call ETFs · muni &amp; Treasury bond ladders · REITs &amp; income funds</div>
+        <div class="rung-note">Near-zero time cost. Liability lives inside the corporate or contractual wrapper — not on your personal balance sheet. The trade-off: less control, modest returns. But you get your life back.</div>
+      </div>
+    </div>
+    <div class="glow-card r-green rung">
+      <div class="rung-bar"></div>
+      <div class="rung-body">
+        <div class="rung-tier">🏢 Managed Real Assets</div>
+        <div class="rung-assets">Storage &amp; Airbnb via funds / syndications · triple-net (NNN) leases · royalty streams · private-credit &amp; BDC funds · farmland REITs</div>
+        <div class="rung-note">Someone else operates it and carries the liability; you hold the income claim. This is where storage and short-term rentals belong if you want them headache-free.</div>
+      </div>
+    </div>
+    <div class="glow-card r-amber rung">
+      <div class="rung-bar"></div>
+      <div class="rung-body">
+        <div class="rung-tier">🔧 Hands-On Real Assets</div>
+        <div class="rung-assets">Directly-owned rentals · self-managed storage · short-term rentals you run yourself · active real estate</div>
+        <div class="rung-note">Real upside — but billed to you in time, turnover, reviews, and regulatory risk. You've bought a business, not passive income.</div>
+      </div>
+    </div>
+    <div class="glow-card r-coral rung">
+      <div class="rung-bar"></div>
+      <div class="rung-body">
+        <div class="rung-tier">💼 The Second Job</div>
+        <div class="rung-assets">Operating businesses you actively run · raw land you develop · active flipping · practices that need you in the chair</div>
+        <div class="rung-note">Highest control and upside, lowest passivity. Great wealth-builders — just don't mistake them for freedom.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- FREEDOM METRIC -->
+  <div class="sec-header reveal" id="freedom">
+    <div class="sec-line"></div>
+    <div class="sec-num">8</div>
+    <div class="sec-label">The Freedom Metric</div>
+    <div class="sec-line rev"></div>
+  </div>
+  <div class="glow-card purple metric-box reveal">
+    <div class="metric-eq">
+      Freedom Ratio = <span class="num">Monthly Recurring Income</span> &divide; <span class="den">Monthly Living Expenses</span>
+    </div>
+    <div class="metric-note">When the ratio hits <strong style="color:var(--teal);">1.0</strong>, your recurring income covers your entire life — that's escape velocity. Everything after that is leverage, not survival. A gold bar can't give you a ratio. It can only give you a balance. Crypto can't give you a ratio. It can only give you a price.</div>
+  </div>
+  <div class="take-grid reveal">
+    <div class="glow-card teal take-card">
+      <div class="take-title">Buy income, not assets</div>
+      <div class="take-desc">Cash flow you don't have to sell anything to spend. The oil well, not the gold bar.</div>
+    </div>
+    <div class="glow-card amber take-card">
+      <div class="take-title">Buy it with low drag</div>
+      <div class="take-desc">Climb the passivity ladder — let others carry the work and the liability. Your time is the real asset.</div>
+    </div>
+    <div class="glow-card blue take-card">
+      <div class="take-title">Stop at "enough"</div>
+      <div class="take-desc">Past the sweet spot, each extra zero buys mostly problems. Multimillionaire beats billionaire.</div>
+    </div>
+    <div class="glow-card purple take-card">
+      <div class="take-title">Leave a legacy</div>
+      <div class="take-desc">A renewal book and override stream can pass on a continuing engine — not just a lump sum that gets spent.</div>
+    </div>
+  </div>
+
+  <!-- CTA -->
+  <div class="cta-box reveal">
+    <div class="cta-icon">🛢️</div>
+    <div class="cta-title">Build the <span>Oil Well</span>, Not the Gold Bar</div>
+    <div class="cta-sub">Stop trading hours and gambling on assets you have to sell. Build streams of recurring income that renew, compound, and pay you for life — then protect your quality of life from your own ambition.</div>
+    <div class="cta-buttons">
+      <a href="https://renewalsforlifestyle.com" class="btn-primary" target="_blank">Explore Renewals For Life →</a>
+      <a href="https://dreamsfaststart.com" class="btn-secondary">← Back to DBR</a>
+    </div>
+    <div class="cta-fine">Renewal income · Override &amp; network income · Income for life · Buy income, not assets · Stop at enough</div>
+  </div>
+
+  <!-- DISCLAIMER -->
+  <div class="disclaimer">
+    *Tax treatment of annuities depends on contract type and whether funds are qualified or non-qualified; consult a CPA or tax advisor for your situation. This page is for educational and motivational purposes only and is not financial, tax, legal, or investment advice. The right asset mix depends on your situation, risk tolerance, and a conversation with a licensed fiduciary advisor and CPA. The quality-of-life curve is a conceptual illustration. Annuity and B2B income results vary. Longevity research reflects population-level correlations, not individual guarantees. DBR training materials are provided for informational use only.
+  </div>
+
+</div><!-- /page -->
+
+<!-- ══════════════════════════════════════════════
+     FOOTER
+══════════════════════════════════════════════ -->
+<footer class="site-footer">
+  <div class="footer-nav">
+    <a href="https://dreamsfaststart.com">Fast Start</a>
+    <a href="https://dreamsfaststart.com/vf-video-book-summaries.html">Video Library</a>
+    <a href="https://aigeniedatabase.com">AI Genie Database</a>
+    <a href="https://renewalsforlifestyle.com">Renewals For Life</a>
+  </div>
+  <div class="footer-legal">
+    <span class="footer-dbr">DBR</span>
+    © 2026 Dreams Business Resources &nbsp;·&nbsp; Mike Hinsvark, Senior Agency Partner &nbsp;·&nbsp;
+    <a href="mailto:mikeceo@gmail.com">mikeceo@gmail.com</a><br>
+    All rights reserved. Income results vary. This training material is for educational purposes only.
+  </div>
+</footer>
+
+<!-- ══════════════════════════════════════════════
+     CHARTS + SCROLL REVEAL
+══════════════════════════════════════════════ -->
+<script>
+/* ── MORTALITY BAR CHART ── */
+const mortCtx = document.getElementById('mortChart');
+new Chart(mortCtx, {
+  type: 'bar',
+  data: {
+    labels: ['65 (M)', '70 (M)', '75 (M)', '80 (M)', '85 (M)', '90 (M)', '65 (W)', '70 (W)', '75 (W)', '80 (W)', '85 (W)', '90 (W)'],
+    datasets: [
+      {
+        label: 'General Population',
+        data: [22.2, 31.5, 46.7, 73.7, 113.8, 169.0, 13.4, 19.8, 29.1, 44.3, 69.6, 116.7],
+        backgroundColor: 'rgba(255,107,107,0.82)',
+        borderRadius: 5,
+        borderSkipped: false
+      },
+      {
+        label: 'Annuitant Population',
+        data: [11.5, 18.8, 30.9, 50.4, 79.8, 120.6, 7.3, 11.5, 19.4, 33.4, 57.6, 101.3],
+        backgroundColor: 'rgba(0,212,170,0.88)',
+        borderRadius: 5,
+        borderSkipped: false
+      }
+    ]
+  },
+  options: {
+    responsive: true,
+    maintainAspectRatio: false,
+    plugins: {
+      legend: {
+        labels: {
+          color: '#e8f4f1',
+          font: { size: 13, weight: '600' },
+          padding: 20,
+          usePointStyle: true,
+          pointStyleWidth: 14
+        }
+      },
+      tooltip: {
+        backgroundColor: 'rgba(10,21,37,0.95)',
+        borderColor: 'rgba(0,212,170,0.3)',
+        borderWidth: 1,
+        titleColor: '#e8f4f1',
+        bodyColor: '#7fb5a8',
+        callbacks: {
+          label: (c) => ' ' + c.dataset.label + ': ' + c.parsed.y + ' per 100k'
+        }
+      }
+    },
+    scales: {
+      x: {
+        ticks: { color: '#7fb5a8', font: { size: 11 }, maxRotation: 45 },
+        grid: { color: 'rgba(0,212,170,0.06)' }
+      },
+      y: {
+        beginAtZero: true,
+        ticks: { color: '#7fb5a8', font: { size: 11 } },
+        grid: { color: 'rgba(0,212,170,0.06)' },
+        title: { display: true, text: 'Deaths per 100,000 / year', color: '#4a7a6e', font: { size: 11 } }
+      }
+    }
+  }
+});
+
+/* ── QOL LINE CHART ── */
+const qolCtx = document.getElementById('qolChart');
+new Chart(qolCtx, {
+  type: 'line',
+  data: {
+    labels: ['$100K', '$500K', '$1M', '$5M', '$10M', '$50M', '$250M', '$1B+'],
+    datasets: [
+      {
+        label: 'Life Satisfaction',
+        data: [28, 48, 64, 80, 88, 91, 89, 84],
+        borderColor: '#00d4aa',
+        backgroundColor: 'rgba(0,212,170,0.09)',
+        borderWidth: 4,
+        tension: 0.45,
+        pointRadius: 5,
+        pointBackgroundColor: '#00d4aa',
+        pointBorderColor: '#040c18',
+        pointBorderWidth: 2,
+        fill: true
+      },
+      {
+        label: 'Headaches & Liability',
+        data: [10, 14, 18, 26, 36, 52, 74, 97],
+        borderColor: '#ff6b6b',
+        backgroundColor: 'rgba(255,107,107,0.06)',
+        borderWidth: 4,
+        tension: 0.45,
+        pointRadius: 5,
+        pointBackgroundColor: '#ff6b6b',
+        pointBorderColor: '#040c18',
+        pointBorderWidth: 2,
+        fill: true
+      }
+    ]
+  },
+  options: {
+    responsive: true,
+    maintainAspectRatio: false,
+    plugins: {
+      legend: {
+        labels: {
+          color: '#e8f4f1',
+          font: { size: 13, weight: '600' },
+          padding: 20,
+          usePointStyle: true,
+          pointStyleWidth: 14
+        }
+      },
+      tooltip: {
+        backgroundColor: 'rgba(10,21,37,0.95)',
+        borderColor: 'rgba(0,212,170,0.3)',
+        borderWidth: 1,
+        titleColor: '#e8f4f1',
+        bodyColor: '#7fb5a8'
+      },
+      annotation: {}
+    },
+    scales: {
+      x: {
+        title: { display: true, text: 'Net Worth', color: '#4a7a6e', font: { size: 11 } },
+        ticks: { color: '#7fb5a8', font: { size: 12 } },
+        grid: { color: 'rgba(0,212,170,0.06)' }
+      },
+      y: {
+        beginAtZero: true,
+        max: 100,
+        ticks: { display: false },
+        grid: { color: 'rgba(0,212,170,0.06)' }
+      }
+    }
+  }
+});
+
+/* ── SCROLL REVEAL ── */
+const revealEls = document.querySelectorAll('.reveal');
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+      observer.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+revealEls.forEach(el => observer.observe(el));
+
+/* ── ACTIVE NAV HIGHLIGHT ── */
+const sections = document.querySelectorAll('[id]');
+const navLinks = document.querySelectorAll('.header-nav a');
+window.addEventListener('scroll', () => {
+  let current = '';
+  sections.forEach(section => {
+    const sectionTop = section.offsetTop;
+    if (pageYOffset >= sectionTop - 120) {
+      current = section.getAttribute('id');
+    }
+  });
+  navLinks.forEach(link => {
+    link.style.color = '';
+    if (link.getAttribute('href') === '#' + current) {
+      link.style.color = 'var(--teal)';
+    }
+  });
+});
+</script>
+
+</body>
+</html>
