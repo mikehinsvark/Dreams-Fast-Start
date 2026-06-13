@@ -1,0 +1,1065 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The 4M Opportunity Scorecard — DBR Learning Library</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Jost:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+/* ─── DESIGN TOKENS ─────────────────────────────────────────── */
+:root {
+  --bg-deep:       #010810;
+  --bg-nav:        #020c1b;
+  --bg-card:       #071220;
+  --bg-card2:      #0b1a2e;
+  --bg-hero:       #030f1f;
+  --teal:          #00C9B8;
+  --teal-dim:      #009e90;
+  --teal-glow:     rgba(0,201,184,0.30);
+  --teal-glow2:    rgba(0,201,184,0.12);
+  --teal-glow3:    rgba(0,201,184,0.06);
+  --purple:        #7c6ff7;
+  --purple-glow:   rgba(124,111,247,0.25);
+  --amber:         #f0a832;
+  --amber-glow:    rgba(240,168,50,0.22);
+  --coral:         #ff6b6b;
+  --coral-glow:    rgba(255,107,107,0.22);
+  --blue:          #4da6ff;
+  --blue-glow:     rgba(77,166,255,0.22);
+  --green:         #56e39f;
+  --green-glow:    rgba(86,227,159,0.22);
+  --cream:         #F0E8D5;
+  --text-primary:  #e8f4f1;
+  --text-secondary:#7fb5a8;
+  --text-dim:      #3d6b62;
+  --border:        rgba(0,201,184,0.14);
+  --border-bright: rgba(0,201,184,0.35);
+  --font-head:     'Cormorant Garamond', Georgia, serif;
+  --font-body:     'Jost', -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+/* ─── RESET & BASE ──────────────────────────────────────────── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  background: var(--bg-deep);
+  color: var(--text-primary);
+  font-family: var(--font-body);
+  min-height: 100vh;
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+/* ─── GRID BACKGROUND ───────────────────────────────────────── */
+body::before {
+  content: '';
+  position: fixed; inset: 0;
+  background-image:
+    linear-gradient(rgba(0,201,184,0.025) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0,201,184,0.025) 1px, transparent 1px);
+  background-size: 44px 44px;
+  pointer-events: none; z-index: 0;
+}
+
+/* ─── AMBIENT GLOW ORBS ─────────────────────────────────────── */
+body::after {
+  content: '';
+  position: fixed; inset: 0;
+  background:
+    radial-gradient(ellipse 60% 40% at 15% 20%, rgba(0,201,184,0.06) 0%, transparent 60%),
+    radial-gradient(ellipse 50% 35% at 85% 75%, rgba(124,111,247,0.05) 0%, transparent 60%),
+    radial-gradient(ellipse 40% 30% at 50% 50%, rgba(0,201,184,0.03) 0%, transparent 70%);
+  pointer-events: none; z-index: 0;
+}
+
+/* ─── TOP NAV BAR ───────────────────────────────────────────── */
+.top-nav {
+  position: sticky; top: 0; z-index: 100;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 0 2rem;
+  height: 56px;
+  background: rgba(1,8,16,0.92);
+  backdrop-filter: blur(14px);
+  border-bottom: 1px solid var(--border);
+}
+.nav-brand {
+  display: flex; align-items: center; gap: 10px;
+  text-decoration: none;
+}
+.nav-logo-box {
+  width: 30px; height: 30px; border-radius: 8px;
+  background: linear-gradient(135deg, var(--teal), var(--teal-dim));
+  display: flex; align-items: center; justify-content: center;
+  font-size: 14px; font-weight: 900; color: #010810;
+  font-family: var(--font-body); letter-spacing: -.02em;
+  box-shadow: 0 0 14px var(--teal-glow2);
+}
+.nav-brand-name {
+  font-size: 15px; font-weight: 700; color: var(--teal);
+  letter-spacing: .06em; text-shadow: 0 0 14px var(--teal-glow2);
+}
+.nav-brand-sub {
+  font-size: 11px; color: var(--text-dim); letter-spacing: .04em;
+  padding-left: 1px;
+}
+.nav-pills {
+  display: flex; align-items: center; gap: 1.5rem;
+}
+.nav-pill {
+  display: flex; align-items: center; gap: 6px;
+  font-size: 11px; font-weight: 600; letter-spacing: .07em;
+  text-transform: uppercase; color: var(--text-secondary);
+}
+.nav-pill-icon {
+  width: 18px; height: 18px; border-radius: 50%;
+  border: 1.5px solid currentColor; display: flex; align-items: center;
+  justify-content: center; font-size: 9px; opacity: .8;
+}
+@media (max-width: 700px) { .nav-pills { display: none; } }
+
+/* ─── HERO SECTION ──────────────────────────────────────────── */
+.hero-section {
+  position: relative; z-index: 1;
+  background: var(--bg-hero);
+  border-bottom: 1px solid var(--border);
+  padding: 3.5rem 2rem 2.5rem;
+  overflow: hidden;
+}
+/* hero particle shimmer */
+.hero-section::before {
+  content: '';
+  position: absolute; inset: 0;
+  background:
+    radial-gradient(ellipse 80% 60% at 70% 50%, rgba(0,201,184,0.07) 0%, transparent 65%),
+    radial-gradient(ellipse 40% 50% at 90% 80%, rgba(77,166,255,0.06) 0%, transparent 60%);
+  pointer-events: none;
+}
+.hero-inner {
+  position: relative; z-index: 1;
+  max-width: 1200px; margin: 0 auto;
+  display: grid; grid-template-columns: 1fr 420px; gap: 2.5rem; align-items: center;
+}
+@media (max-width: 900px) { .hero-inner { grid-template-columns: 1fr; } }
+
+/* LEFT HERO COPY */
+.hero-left {}
+.hero-badge {
+  display: inline-flex; align-items: center; gap: 8px;
+  background: rgba(0,201,184,0.07); border: 1px solid rgba(0,201,184,0.28);
+  border-radius: 999px; padding: 6px 16px;
+  font-size: 11px; font-weight: 700; color: var(--teal);
+  letter-spacing: .1em; text-transform: uppercase;
+  margin-bottom: 1.4rem;
+  box-shadow: 0 0 20px var(--teal-glow3);
+}
+.hero-dot {
+  width: 7px; height: 7px; background: var(--teal);
+  border-radius: 50%; box-shadow: 0 0 8px var(--teal);
+  animation: pulse 2s infinite;
+}
+@keyframes pulse { 0%,100%{opacity:1} 50%{opacity:.3} }
+
+.hero-h1 {
+  font-family: var(--font-head);
+  font-size: clamp(2.6rem, 5.5vw, 4.2rem);
+  font-weight: 700; line-height: 1.08;
+  color: var(--cream); letter-spacing: -.01em;
+  margin-bottom: .5rem;
+}
+.hero-h1 .accent { color: var(--teal); text-shadow: 0 0 40px var(--teal-glow); }
+
+.hero-pillars-line {
+  font-size: clamp(14px, 2vw, 17px); font-weight: 500;
+  color: var(--text-secondary); margin-bottom: .6rem;
+}
+.hero-pillars-line span { color: var(--teal); font-weight: 700; }
+
+.hero-desc {
+  font-size: 14px; color: var(--text-secondary);
+  max-width: 500px; line-height: 1.65; margin-bottom: 2rem;
+}
+
+.hero-cta-row {
+  display: flex; gap: 12px; flex-wrap: wrap; margin-bottom: 2.2rem;
+}
+.btn-primary {
+  display: inline-flex; align-items: center; gap: 9px;
+  background: var(--teal); color: #010810;
+  font-family: var(--font-body); font-weight: 800; font-size: 14px;
+  border: none; border-radius: 999px; padding: 13px 28px;
+  cursor: pointer; text-decoration: none;
+  box-shadow: 0 0 28px var(--teal-glow), 0 4px 16px rgba(0,201,184,.3);
+  transition: transform .15s, box-shadow .15s;
+  letter-spacing: .02em;
+}
+.btn-primary:hover { transform: scale(1.04); box-shadow: 0 0 44px var(--teal-glow), 0 6px 22px rgba(0,201,184,.4); }
+.btn-secondary {
+  display: inline-flex; align-items: center; gap: 9px;
+  background: transparent; color: var(--teal);
+  font-family: var(--font-body); font-weight: 700; font-size: 14px;
+  border: 1px solid rgba(0,201,184,.35); border-radius: 999px;
+  padding: 12px 26px; cursor: pointer; text-decoration: none;
+  transition: background .15s, box-shadow .15s;
+  letter-spacing: .02em;
+}
+.btn-secondary:hover { background: rgba(0,201,184,.08); box-shadow: 0 0 20px var(--teal-glow2); }
+
+/* HERO BOTTOM FEATURE STRIP */
+.hero-features {
+  display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px;
+  background: var(--border); border-radius: 12px; overflow: hidden;
+  border: 1px solid var(--border);
+}
+.hero-feat {
+  background: var(--bg-card); padding: .9rem 1rem;
+  display: flex; align-items: flex-start; gap: 10px;
+}
+.hero-feat-icon {
+  width: 32px; height: 32px; border-radius: 8px; flex-shrink: 0;
+  background: rgba(0,201,184,.1); border: 1px solid rgba(0,201,184,.2);
+  display: flex; align-items: center; justify-content: center; font-size: 15px;
+}
+.hero-feat-title { font-size: 12px; font-weight: 700; color: var(--text-primary); }
+.hero-feat-sub   { font-size: 11px; color: var(--text-dim); }
+@media (max-width: 600px) { .hero-features { grid-template-columns: repeat(2, 1fr); } }
+
+/* RIGHT HERO PANEL */
+.hero-right { display: flex; flex-direction: column; gap: 12px; }
+
+/* SCORE GAUGE CARD */
+.gauge-card {
+  background: var(--bg-card2);
+  border: 1px solid rgba(0,201,184,.22);
+  border-radius: 16px; padding: 1.4rem 1.5rem;
+  box-shadow: 0 0 40px rgba(0,201,184,.08);
+}
+.gauge-top { display: flex; align-items: center; gap: 1.2rem; margin-bottom: 1rem; }
+.gauge-circle {
+  position: relative; width: 90px; height: 90px; flex-shrink: 0;
+}
+.gauge-svg { width: 90px; height: 90px; transform: rotate(-90deg); }
+.gauge-bg   { fill: none; stroke: rgba(255,255,255,.07); stroke-width: 8; }
+.gauge-fill { fill: none; stroke-width: 8; stroke-linecap: round;
+  stroke-dasharray: 220; stroke-dashoffset: 110;
+  stroke: url(#gaugeGrad); transition: stroke-dashoffset .4s ease; }
+.gauge-label {
+  position: absolute; inset: 0;
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+}
+.gauge-num {
+  font-size: 24px; font-weight: 800; color: var(--amber);
+  text-shadow: 0 0 16px var(--amber-glow); line-height: 1;
+  font-variant-numeric: tabular-nums;
+}
+.gauge-max { font-size: 10px; color: var(--text-dim); font-weight: 600; }
+.gauge-right { flex: 1; }
+.gauge-verdict-label {
+  font-size: 14px; font-weight: 800; color: var(--amber);
+  margin-bottom: 4px; letter-spacing: -.01em;
+}
+.gauge-verdict-sub { font-size: 12px; color: var(--text-secondary); line-height: 1.45; }
+.gauge-bar {
+  height: 8px; border-radius: 999px; background: rgba(255,255,255,.07);
+  overflow: hidden; margin-top: 10px;
+}
+.gauge-bar-fill {
+  height: 100%; width: 0%; border-radius: 999px;
+  background: linear-gradient(90deg, var(--coral), var(--amber), var(--teal));
+  transition: width .4s ease;
+}
+.gauge-tip {
+  font-size: 11px; color: var(--text-dim); margin-top: .7rem;
+  display: flex; align-items: center; gap: 6px;
+}
+
+/* PILLAR MINI CARDS */
+.pillar-mini-grid {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 10px;
+}
+.pillar-mini {
+  background: var(--bg-card); border-radius: 12px;
+  border: 1px solid var(--border); padding: .85rem 1rem;
+  display: flex; align-items: center; gap: 10px;
+}
+.pillar-mini-icon {
+  width: 36px; height: 36px; border-radius: 10px; flex-shrink: 0;
+  display: flex; align-items: center; justify-content: center; font-size: 18px;
+}
+.pm-teal   .pillar-mini-icon { background: rgba(0,201,184,.12); box-shadow: 0 0 12px var(--teal-glow2); }
+.pm-blue   .pillar-mini-icon { background: rgba(77,166,255,.12); box-shadow: 0 0 12px var(--blue-glow); }
+.pm-purple .pillar-mini-icon { background: rgba(124,111,247,.12); box-shadow: 0 0 12px var(--purple-glow); }
+.pm-amber  .pillar-mini-icon { background: rgba(240,168,50,.12); box-shadow: 0 0 12px var(--amber-glow); }
+.pillar-mini-name { font-size: 13px; font-weight: 700; }
+.pm-teal   .pillar-mini-name { color: var(--teal); }
+.pm-blue   .pillar-mini-name { color: var(--blue); }
+.pm-purple .pillar-mini-name { color: var(--purple); }
+.pm-amber  .pillar-mini-name { color: var(--amber); }
+.pillar-mini-sub { font-size: 10px; color: var(--text-dim); line-height: 1.3; }
+.pillar-mini-score {
+  margin-left: auto; font-size: 13px; font-weight: 800;
+  font-variant-numeric: tabular-nums;
+}
+.pm-teal   .pillar-mini-score { color: var(--teal); }
+.pm-blue   .pillar-mini-score { color: var(--blue); }
+.pm-purple .pillar-mini-score { color: var(--purple); }
+.pm-amber  .pillar-mini-score { color: var(--amber); }
+
+/* HERO STATS ROW */
+.hero-stat-row {
+  background: var(--bg-card); border-radius: 12px;
+  border: 1px solid var(--border);
+  display: flex; justify-content: space-around; padding: .9rem 1rem;
+}
+.hero-stat { text-align: center; }
+.hero-stat-icon { font-size: 18px; margin-bottom: 3px; }
+.hero-stat-num {
+  font-size: 22px; font-weight: 800; color: var(--teal);
+  text-shadow: 0 0 16px var(--teal-glow); line-height: 1;
+}
+.hero-stat-label { font-size: 9px; color: var(--text-dim); text-transform: uppercase; letter-spacing: .08em; }
+
+/* ─── MAIN CONTENT AREA ─────────────────────────────────────── */
+.main-wrap {
+  position: relative; z-index: 1;
+  max-width: 900px; margin: 0 auto;
+  padding: 0 1.5rem 4rem;
+}
+
+/* ─── STICKY VERDICT BAR ────────────────────────────────────── */
+.verdict-bar {
+  position: sticky; top: 56px; z-index: 50;
+  background: rgba(2,12,27,0.96);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(0,201,184,.25);
+  border-top: none; border-radius: 0 0 16px 16px;
+  box-shadow: 0 8px 32px rgba(0,0,0,.5);
+  padding: 1rem 1.4rem;
+  margin-bottom: 2rem;
+}
+.verdict-grid { display: flex; align-items: center; gap: 1.2rem; flex-wrap: wrap; }
+.verdict-score { text-align: center; flex-shrink: 0; }
+.verdict-score .big {
+  font-size: 42px; font-weight: 800; line-height: 1;
+  color: var(--teal); text-shadow: 0 0 26px var(--teal-glow);
+  font-variant-numeric: tabular-nums;
+}
+.verdict-score .max { font-size: 14px; color: var(--text-dim); font-weight: 700; }
+.verdict-mid { flex: 1; min-width: 200px; }
+.verdict-label { font-size: 16px; font-weight: 800; margin-bottom: 5px; letter-spacing: -.01em; }
+.verdict-sub { font-size: 12px; color: var(--text-secondary); line-height: 1.45; }
+.meter { height: 10px; border-radius: 999px; background: rgba(255,255,255,.07); overflow: hidden; margin-top: 9px; }
+.meter-fill {
+  height: 100%; width: 0%; border-radius: 999px;
+  background: linear-gradient(90deg, var(--coral), var(--amber), var(--teal));
+  transition: width .35s ease;
+}
+.reset-btn {
+  background: transparent; color: var(--text-dim);
+  border: 1px solid rgba(255,255,255,.12); border-radius: 999px;
+  padding: 7px 16px; font-size: 11px; font-weight: 700; cursor: pointer;
+  letter-spacing: .05em; text-transform: uppercase; transition: .15s;
+  font-family: var(--font-body);
+}
+.reset-btn:hover { color: var(--teal); border-color: rgba(0,201,184,.4); }
+.verdict-print { font-size: 11px; color: var(--text-dim); margin-top: .5rem; }
+.v-green  .big, .v-green  .verdict-label { color: var(--green);  text-shadow: 0 0 26px var(--green-glow); }
+.v-teal   .big, .v-teal   .verdict-label { color: var(--teal);   text-shadow: 0 0 26px var(--teal-glow); }
+.v-amber  .big, .v-amber  .verdict-label { color: var(--amber);  text-shadow: 0 0 26px var(--amber-glow); }
+.v-coral  .big, .v-coral  .verdict-label { color: var(--coral);  text-shadow: 0 0 26px var(--coral-glow); }
+
+/* ─── SECTION DIVIDERS ──────────────────────────────────────── */
+.sec-header { display: flex; align-items: center; gap: 12px; margin: 2.5rem 0 1.2rem; }
+.sec-line { flex: 1; height: 1px; background: linear-gradient(90deg, rgba(0,201,184,.25), transparent); }
+.sec-line.rev { background: linear-gradient(270deg, rgba(0,201,184,.25), transparent); }
+.sec-label {
+  font-size: 11px; font-weight: 700; letter-spacing: .1em;
+  text-transform: uppercase; color: var(--teal); white-space: nowrap;
+}
+
+/* ─── PILLAR CARDS ──────────────────────────────────────────── */
+.pillar {
+  border-radius: 18px; background: var(--bg-card);
+  border: 1px solid var(--border); padding: 1.2rem 1.4rem 1.5rem;
+  margin-bottom: 1.2rem; transition: box-shadow .25s;
+}
+.pillar.teal   { border-color: rgba(0,201,184,.28);   box-shadow: 0 0 28px rgba(0,201,184,.06); }
+.pillar.blue   { border-color: rgba(77,166,255,.28);  box-shadow: 0 0 28px rgba(77,166,255,.06); }
+.pillar.purple { border-color: rgba(124,111,247,.28); box-shadow: 0 0 28px rgba(124,111,247,.06); }
+.pillar.amber  { border-color: rgba(240,168,50,.28);  box-shadow: 0 0 28px rgba(240,168,50,.06); }
+.pillar:hover  { box-shadow: 0 0 40px rgba(0,201,184,.12); }
+
+.pillar-head {
+  display: flex; align-items: center; gap: 14px;
+  padding-bottom: 1rem; margin-bottom: .5rem;
+  border-bottom: 1px solid rgba(255,255,255,.05);
+}
+.pillar-num {
+  font-family: var(--font-head); font-size: 11px; font-weight: 600;
+  color: var(--text-dim); letter-spacing: .08em; text-transform: uppercase;
+  margin-bottom: 2px;
+}
+.pillar-emoji {
+  width: 52px; height: 52px; border-radius: 14px; flex-shrink: 0;
+  display: flex; align-items: center; justify-content: center; font-size: 26px;
+}
+.teal   .pillar-emoji { background: rgba(0,201,184,.12);   box-shadow: 0 0 18px rgba(0,201,184,.15); }
+.blue   .pillar-emoji { background: rgba(77,166,255,.12);  box-shadow: 0 0 18px rgba(77,166,255,.12); }
+.purple .pillar-emoji { background: rgba(124,111,247,.12); box-shadow: 0 0 18px rgba(124,111,247,.12); }
+.amber  .pillar-emoji { background: rgba(240,168,50,.12);  box-shadow: 0 0 18px rgba(240,168,50,.12); }
+.pillar-titles { flex: 1; }
+.pillar-name {
+  font-family: var(--font-head); font-size: 22px; font-weight: 700;
+  letter-spacing: -.01em; line-height: 1.1;
+}
+.teal   .pillar-name { color: var(--teal); }
+.blue   .pillar-name { color: var(--blue); }
+.purple .pillar-name { color: var(--purple); }
+.amber  .pillar-name { color: var(--amber); }
+.pillar-tag { font-size: 12px; color: var(--text-secondary); margin-top: 2px; }
+.pillar-score-chip {
+  font-size: 14px; font-weight: 800; padding: 8px 14px; border-radius: 999px;
+  white-space: nowrap; border: 1px solid; font-variant-numeric: tabular-nums;
+}
+.teal   .pillar-score-chip { color: var(--teal);   background: rgba(0,201,184,.1);   border-color: rgba(0,201,184,.3); }
+.blue   .pillar-score-chip { color: var(--blue);   background: rgba(77,166,255,.1);  border-color: rgba(77,166,255,.3); }
+.purple .pillar-score-chip { color: var(--purple); background: rgba(124,111,247,.1); border-color: rgba(124,111,247,.3); }
+.amber  .pillar-score-chip { color: var(--amber);  background: rgba(240,168,50,.1);  border-color: rgba(240,168,50,.3); }
+
+/* ─── FACTOR ROWS ───────────────────────────────────────────── */
+.factor {
+  padding: 1rem .2rem .9rem;
+  border-bottom: 1px dashed rgba(255,255,255,.05);
+}
+.factor:last-child { border-bottom: none; padding-bottom: 0; }
+.factor-top { display: flex; align-items: baseline; gap: 9px; margin-bottom: 4px; }
+.factor-num {
+  font-size: 11px; font-weight: 800; color: var(--text-dim);
+  flex-shrink: 0; width: 22px; font-variant-numeric: tabular-nums;
+}
+.factor-name {
+  font-size: 15px; font-weight: 700; color: var(--text-primary);
+  font-family: var(--font-body);
+}
+.factor-desc {
+  font-size: 12.5px; color: var(--text-secondary);
+  line-height: 1.55; margin: 0 0 .8rem 31px;
+}
+.factor-desc b { color: var(--text-primary); font-weight: 700; }
+
+/* ─── SLIDERS ───────────────────────────────────────────────── */
+.slider-row { display: flex; align-items: center; gap: 14px; margin-left: 31px; }
+.slider-wrap { flex: 1; position: relative; }
+input[type=range] {
+  -webkit-appearance: none; appearance: none;
+  width: 100%; height: 7px; border-radius: 999px;
+  background: rgba(255,255,255,.08);
+  outline: none; cursor: pointer;
+}
+input[type=range]::-webkit-slider-thumb {
+  -webkit-appearance: none; appearance: none;
+  width: 22px; height: 22px; border-radius: 50%;
+  background: var(--teal); border: 3px solid #010810;
+  box-shadow: 0 0 12px var(--teal-glow), 0 2px 6px rgba(0,0,0,.4);
+  cursor: pointer; transition: transform .12s;
+}
+input[type=range]::-webkit-slider-thumb:hover { transform: scale(1.15); }
+input[type=range]::-moz-range-thumb {
+  width: 22px; height: 22px; border-radius: 50%;
+  background: var(--teal); border: 3px solid #010810;
+  box-shadow: 0 0 12px var(--teal-glow); cursor: pointer;
+}
+.slider-val {
+  width: 56px; flex-shrink: 0; text-align: center;
+  font-size: 20px; font-weight: 800; color: var(--teal);
+  text-shadow: 0 0 14px var(--teal-glow);
+  font-variant-numeric: tabular-nums;
+}
+.slider-val small { font-size: 11px; color: var(--text-dim); font-weight: 600; }
+
+/* ─── LEGEND GRID ───────────────────────────────────────────── */
+.legend-grid {
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 10px;
+}
+.legend-card {
+  background: var(--bg-card); border-radius: 14px;
+  border: 1px solid var(--border); padding: 1.1rem 1.2rem;
+  display: flex; align-items: flex-start; gap: 12px;
+  transition: transform .2s, box-shadow .2s;
+}
+.legend-card:hover { transform: translateY(-2px); }
+.legend-band { width: 4px; border-radius: 999px; flex-shrink: 0; align-self: stretch; min-height: 40px; }
+.legend-card.green  .legend-band { background: var(--green);  box-shadow: 0 0 10px var(--green-glow); }
+.legend-card.teal   .legend-band { background: var(--teal);   box-shadow: 0 0 10px var(--teal-glow); }
+.legend-card.amber  .legend-band { background: var(--amber);  box-shadow: 0 0 10px var(--amber-glow); }
+.legend-card.coral  .legend-band { background: var(--coral);  box-shadow: 0 0 10px var(--coral-glow); }
+.legend-range { font-size: 13px; font-weight: 800; margin-bottom: 3px; }
+.legend-card.green  .legend-range { color: var(--green); }
+.legend-card.teal   .legend-range { color: var(--teal); }
+.legend-card.amber  .legend-range { color: var(--amber); }
+.legend-card.coral  .legend-range { color: var(--coral); }
+.legend-text { font-size: 12px; color: var(--text-secondary); line-height: 1.45; }
+
+/* ─── CTA BOX ───────────────────────────────────────────────── */
+.cta-box {
+  border-radius: 20px; border: 1px solid rgba(0,201,184,.35);
+  background: linear-gradient(135deg, rgba(0,201,184,.07) 0%, rgba(124,111,247,.06) 100%);
+  box-shadow: 0 0 60px rgba(0,201,184,.08), 0 0 60px rgba(124,111,247,.05);
+  padding: 2.8rem 2rem; text-align: center; margin-top: 2.5rem;
+  position: relative; overflow: hidden;
+}
+.cta-box::before {
+  content: '';
+  position: absolute; inset: 0;
+  background: radial-gradient(ellipse 60% 50% at 50% 0%, rgba(0,201,184,.06) 0%, transparent 70%);
+  pointer-events: none;
+}
+.cta-icon { font-size: 48px; margin-bottom: 1rem; }
+.cta-title {
+  font-family: var(--font-head); font-size: clamp(22px, 4vw, 30px);
+  font-weight: 700; color: var(--cream); margin-bottom: .6rem;
+}
+.cta-title span { color: var(--teal); text-shadow: 0 0 24px var(--teal-glow); }
+.cta-sub {
+  font-size: 14px; color: var(--text-secondary);
+  max-width: 500px; margin: 0 auto 2rem; line-height: 1.65;
+}
+.cta-buttons { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+.cta-fine { font-size: 11px; color: var(--text-dim); margin-top: 1.2rem; letter-spacing: .04em; }
+
+/* ─── DISCLAIMER ────────────────────────────────────────────── */
+.disclaimer {
+  font-size: 11px; color: var(--text-dim); text-align: center;
+  padding: 1.2rem 1.5rem 0; line-height: 1.7;
+  max-width: 700px; margin: 2rem auto 0;
+  border-top: 1px solid rgba(0,201,184,.07);
+}
+
+/* ─── FOOTER ────────────────────────────────────────────────── */
+.site-footer {
+  position: relative; z-index: 10;
+  border-top: 1px solid rgba(0,201,184,.1);
+  background: rgba(1,8,16,.98);
+  margin-top: 3rem;
+}
+.footer-nav {
+  display: flex; justify-content: center; gap: 2rem; flex-wrap: wrap;
+  padding: 1.2rem 1rem; border-bottom: 1px solid rgba(0,201,184,.07);
+}
+.footer-nav a {
+  font-size: 13px; font-weight: 600; color: var(--teal);
+  text-decoration: none; letter-spacing: .03em; transition: opacity .15s;
+}
+.footer-nav a:hover { opacity: .65; }
+.footer-legal {
+  text-align: center; padding: 1.2rem 1rem 1.6rem;
+  font-size: 11px; color: var(--text-dim); line-height: 1.8;
+}
+.footer-legal a { color: var(--teal); text-decoration: none; }
+.footer-dbr {
+  font-family: var(--font-head); font-size: 22px; font-weight: 700;
+  color: var(--teal); letter-spacing: .1em; text-shadow: 0 0 16px var(--teal-glow);
+  display: block; margin-bottom: .5rem;
+}
+
+/* ─── RESPONSIVE ────────────────────────────────────────────── */
+@media (max-width: 600px) {
+  .hero-section { padding: 2rem 1.2rem 1.8rem; }
+  .main-wrap { padding: 0 1rem 3rem; }
+  .cta-buttons { flex-direction: column; align-items: center; }
+  .footer-nav { gap: 1.1rem; }
+  .verdict-grid { justify-content: center; text-align: center; }
+  .factor-desc, .slider-row { margin-left: 0; }
+  .verdict-bar { position: static; border-radius: 14px; }
+  .pillar-mini-grid { grid-template-columns: 1fr; }
+}
+
+/* ─── PRINT ─────────────────────────────────────────────────── */
+@media print {
+  body::before, body::after, .top-nav, .site-footer, .reset-btn, .cta-box { display: none; }
+  .verdict-bar { position: static; }
+  .hero-section { padding: 1.5rem; }
+}
+</style>
+</head>
+<body>
+
+<!-- ═══════════════════════════════════════════════════════════
+     TOP NAV
+═══════════════════════════════════════════════════════════ -->
+<nav class="top-nav">
+  <a class="nav-brand" href="https://dreamsfaststart.com">
+    <div class="nav-logo-box">DBR</div>
+    <div>
+      <div class="nav-brand-name">DBR Learning Library</div>
+      <div class="nav-brand-sub">Skills Training &amp; Leadership</div>
+    </div>
+  </a>
+  <div class="nav-pills">
+    <div class="nav-pill"><div class="nav-pill-icon">◎</div>Data-Driven</div>
+    <div class="nav-pill"><div class="nav-pill-icon">✓</div>Objective</div>
+    <div class="nav-pill"><div class="nav-pill-icon">⚡</div>Actionable</div>
+    <div class="nav-pill"><div class="nav-pill-icon">↻</div>Repeatable</div>
+  </div>
+</nav>
+
+<!-- ═══════════════════════════════════════════════════════════
+     HERO
+═══════════════════════════════════════════════════════════ -->
+<section class="hero-section">
+  <div class="hero-inner">
+
+    <!-- LEFT: COPY -->
+    <div class="hero-left">
+      <div class="hero-badge"><div class="hero-dot"></div>Interactive Scorecard</div>
+
+      <h1 class="hero-h1">The 4M<br><span class="accent">Opportunity Scorecard</span></h1>
+
+      <p class="hero-pillars-line">
+        Evaluate any opportunity across four pillars —<br>
+        <span>Money, Market, Moat &amp; Machine.</span>
+      </p>
+      <p class="hero-desc">
+        Score 12 factors across the 4 pillars to find and focus on the best opportunities.
+        Before you invest your time, energy, and reputation into a product or company —
+        run it through this framework first.
+      </p>
+
+      <div class="hero-cta-row">
+        <a href="#scorecard" class="btn-primary">🚀 Start Scorecard →</a>
+        <a href="#how-to-read" class="btn-secondary">▶ Learn More</a>
+      </div>
+
+      <!-- FEATURE STRIP -->
+      <div class="hero-features">
+        <div class="hero-feat">
+          <div class="hero-feat-icon">◎</div>
+          <div><div class="hero-feat-title">Objective scoring</div><div class="hero-feat-sub">Reduce bias and emotion</div></div>
+        </div>
+        <div class="hero-feat">
+          <div class="hero-feat-icon">✓</div>
+          <div><div class="hero-feat-title">12 proven factors</div><div class="hero-feat-sub">Cover what truly matters</div></div>
+        </div>
+        <div class="hero-feat">
+          <div class="hero-feat-icon">👥</div>
+          <div><div class="hero-feat-title">Compare with confidence</div><div class="hero-feat-sub">Find the best opportunities</div></div>
+        </div>
+        <div class="hero-feat">
+          <div class="hero-feat-icon">⚡</div>
+          <div><div class="hero-feat-title">Take action faster</div><div class="hero-feat-sub">Align, decide, and execute</div></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- RIGHT: LIVE SCORE PANEL -->
+    <div class="hero-right">
+
+      <!-- GAUGE CARD -->
+      <div class="gauge-card">
+        <div class="gauge-top">
+          <div class="gauge-circle">
+            <svg class="gauge-svg" viewBox="0 0 90 90">
+              <defs>
+                <linearGradient id="gaugeGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+                  <stop offset="0%"   stop-color="#ff6b6b"/>
+                  <stop offset="50%"  stop-color="#f0a832"/>
+                  <stop offset="100%" stop-color="#00C9B8"/>
+                </linearGradient>
+              </defs>
+              <circle class="gauge-bg"   cx="45" cy="45" r="35"/>
+              <circle class="gauge-fill" cx="45" cy="45" r="35" id="gaugeFill"/>
+            </svg>
+            <div class="gauge-label">
+              <div class="gauge-num" id="gaugeNum">60</div>
+              <div class="gauge-max">/120</div>
+            </div>
+          </div>
+          <div class="gauge-right">
+            <div class="gauge-verdict-label" id="gaugeLabel">⚠️ Caution — Mixed Signals</div>
+            <div class="gauge-verdict-sub" id="gaugeSub">Get answers on the low-scoring factors before you commit your team's time and reputation.</div>
+            <div class="gauge-bar"><div class="gauge-bar-fill" id="gaugeBarFill" style="width:50%"></div></div>
+          </div>
+        </div>
+        <div class="gauge-tip">🖨 Tip: print this page (Ctrl/Cmd+P) to save a scored PDF for the deal file.</div>
+      </div>
+
+      <!-- PILLAR MINI CARDS -->
+      <div class="pillar-mini-grid">
+        <div class="pillar-mini pm-teal">
+          <div class="pillar-mini-icon">💰</div>
+          <div>
+            <div class="pillar-mini-name">1 – Money</div>
+            <div class="pillar-mini-sub">Does the income compound, wet, and pay you well?</div>
+          </div>
+          <div class="pillar-mini-score"><span data-pillar-score="money">15</span>/30</div>
+        </div>
+        <div class="pillar-mini pm-blue">
+          <div class="pillar-mini-icon">🌊</div>
+          <div>
+            <div class="pillar-mini-name">2 – Market</div>
+            <div class="pillar-mini-sub">Big enough, hungry enough, moving your way?</div>
+          </div>
+          <div class="pillar-mini-score"><span data-pillar-score="market">20</span>/40</div>
+        </div>
+        <div class="pillar-mini pm-purple">
+          <div class="pillar-mini-icon">🛡️</div>
+          <div>
+            <div class="pillar-mini-name">3 – Moat</div>
+            <div class="pillar-mini-sub">Why you, why this company — hard to copy?</div>
+          </div>
+          <div class="pillar-mini-score"><span data-pillar-score="moat">15</span>/30</div>
+        </div>
+        <div class="pillar-mini pm-amber">
+          <div class="pillar-mini-icon">⚙️</div>
+          <div>
+            <div class="pillar-mini-name">4 – Machine</div>
+            <div class="pillar-mini-sub">Will it last, retain clients, and scale?</div>
+          </div>
+          <div class="pillar-mini-score"><span data-pillar-score="machine">10</span>/20</div>
+        </div>
+      </div>
+
+      <!-- STAT ROW -->
+      <div class="hero-stat-row">
+        <div class="hero-stat">
+          <div class="hero-stat-icon">🏛</div>
+          <div class="hero-stat-num">4</div>
+          <div class="hero-stat-label">Pillars</div>
+        </div>
+        <div class="hero-stat">
+          <div class="hero-stat-icon">🔗</div>
+          <div class="hero-stat-num">12</div>
+          <div class="hero-stat-label">Factors</div>
+        </div>
+        <div class="hero-stat">
+          <div class="hero-stat-icon">🏆</div>
+          <div class="hero-stat-num">120</div>
+          <div class="hero-stat-label">Top Score</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════════
+     MAIN SCORECARD
+═══════════════════════════════════════════════════════════ -->
+<div class="main-wrap" id="scorecard">
+
+  <!-- STICKY VERDICT BAR -->
+  <div class="verdict-bar" id="verdictBox">
+    <div class="verdict-grid">
+      <div class="verdict-score">
+        <span class="big" id="totalScore">60</span><span class="max"> / 120</span>
+      </div>
+      <div class="verdict-mid">
+        <div class="verdict-label" id="verdictLabel">⚠️ Caution — Mixed Signals</div>
+        <div class="verdict-sub" id="verdictSub">Move each slider to rate the opportunity on that factor.</div>
+        <div class="meter"><div class="meter-fill" id="meterFill"></div></div>
+      </div>
+      <button class="reset-btn" onclick="resetAll()">↺ Reset</button>
+    </div>
+    <div class="verdict-print">🖨 Tip: print this page (Ctrl/Cmd+P) to save a scored PDF for the deal file.</div>
+  </div>
+
+  <!-- ── PILLAR 1: MONEY ── -->
+  <div class="pillar teal">
+    <div class="pillar-head">
+      <div class="pillar-emoji">💰</div>
+      <div class="pillar-titles">
+        <div class="pillar-num">Pillar 1</div>
+        <div class="pillar-name">Money</div>
+        <div class="pillar-tag">Does the income compound, vest, and pay you well?</div>
+      </div>
+      <div class="pillar-score-chip"><span data-pillar-score="money">0</span>/30</div>
+    </div>
+
+    <div class="factor" data-pillar="money">
+      <div class="factor-top"><span class="factor-num">01</span><span class="factor-name">Income for the Life of the Contract</span></div>
+      <div class="factor-desc">Recurring income that's <b>vested</b> (you keep it if you stop), ideally <b>willable or sellable</b>, with <b>low chargeback/persistency risk</b>. Recurring income you don't own is just a longer commission.</div>
+      <div class="slider-row"><div class="slider-wrap"><input type="range" min="1" max="10" value="5" class="score-slider"></div><div class="slider-val"><span class="sv">5</span><small>/10</small></div></div>
+    </div>
+
+    <div class="factor" data-pillar="money">
+      <div class="factor-top"><span class="factor-num">02</span><span class="factor-name">Compensation &amp; Speed of Pay</span></div>
+      <div class="factor-desc">Strong <b>payout percentage</b>, paid <b>fast</b> (daily/weekly vs. 60 days), fair advances, and reasonable <b>clawback</b> terms. Two "great residual" products can have wildly different cash flow.</div>
+      <div class="slider-row"><div class="slider-wrap"><input type="range" min="1" max="10" value="5" class="score-slider"></div><div class="slider-val"><span class="sv">5</span><small>/10</small></div></div>
+    </div>
+
+    <div class="factor" data-pillar="money">
+      <div class="factor-top"><span class="factor-num">03</span><span class="factor-name">Wallet Share &amp; Cross-Sell</span></div>
+      <div class="factor-desc">Can you sell the <b>same client more than one thing</b> over time (R&amp;D now, Section 125 next, wealth/RIA later)? Maximize <b>lifetime value</b>, not just the first sale.</div>
+      <div class="slider-row"><div class="slider-wrap"><input type="range" min="1" max="10" value="5" class="score-slider"></div><div class="slider-val"><span class="sv">5</span><small>/10</small></div></div>
+    </div>
+  </div>
+
+  <!-- ── PILLAR 2: MARKET ── -->
+  <div class="pillar blue">
+    <div class="pillar-head">
+      <div class="pillar-emoji">🌊</div>
+      <div class="pillar-titles">
+        <div class="pillar-num">Pillar 2</div>
+        <div class="pillar-name">Market</div>
+        <div class="pillar-tag">Big enough, hungry enough, and moving your way?</div>
+      </div>
+      <div class="pillar-score-chip"><span data-pillar-score="market">0</span>/40</div>
+    </div>
+
+    <div class="factor" data-pillar="market">
+      <div class="factor-top"><span class="factor-num">04</span><span class="factor-name">Market Size — % of Prospects Who Qualify</span></div>
+      <div class="factor-desc">How big is the <b>qualified universe</b>? (e.g. R&amp;D fits ~40% of businesses; Quantum fits any company with 25+ employees.) A bigger pool means more shots for your whole team.</div>
+      <div class="slider-row"><div class="slider-wrap"><input type="range" min="1" max="10" value="5" class="score-slider"></div><div class="slider-val"><span class="sv">5</span><small>/10</small></div></div>
+    </div>
+
+    <div class="factor" data-pillar="market">
+      <div class="factor-top"><span class="factor-num">05</span><span class="factor-name">Urgent, Compelling Pain</span></div>
+      <div class="factor-desc">Does the prospect <b>lose money or carry risk every month they wait</b>? Tax savings, compliance deadlines, and rate hikes create urgency. No urgency = long, stalled sales cycles.</div>
+      <div class="slider-row"><div class="slider-wrap"><input type="range" min="1" max="10" value="5" class="score-slider"></div><div class="slider-val"><span class="sv">5</span><small>/10</small></div></div>
+    </div>
+
+    <div class="factor" data-pillar="market">
+      <div class="factor-top"><span class="factor-num">06</span><span class="factor-name">Blue Ocean vs. Red Ocean</span></div>
+      <div class="factor-desc">Is the market <b>uncontested</b> or saturated with copycats? The sweet spot: a known, understood need (everyone knows they overpay) paired with a <b>genuinely differentiated</b> answer.</div>
+      <div class="slider-row"><div class="slider-wrap"><input type="range" min="1" max="10" value="5" class="score-slider"></div><div class="slider-val"><span class="sv">5</span><small>/10</small></div></div>
+    </div>
+
+    <div class="factor" data-pillar="market">
+      <div class="factor-top"><span class="factor-num">07</span><span class="factor-name">Tailwind / Trend</span></div>
+      <div class="factor-desc">Is something <b>pushing this market to grow</b> — demographics, new regulation, technology, economic shift? Selling with the current is far easier than selling against it.</div>
+      <div class="slider-row"><div class="slider-wrap"><input type="range" min="1" max="10" value="5" class="score-slider"></div><div class="slider-val"><span class="sv">5</span><small>/10</small></div></div>
+    </div>
+  </div>
+
+  <!-- ── PILLAR 3: MOAT ── -->
+  <div class="pillar purple">
+    <div class="pillar-head">
+      <div class="pillar-emoji">🛡️</div>
+      <div class="pillar-titles">
+        <div class="pillar-num">Pillar 3</div>
+        <div class="pillar-name">Moat</div>
+        <div class="pillar-tag">Why you, why this company — and is it hard to copy?</div>
+      </div>
+      <div class="pillar-score-chip"><span data-pillar-score="moat">0</span>/30</div>
+    </div>
+
+    <div class="factor" data-pillar="moat">
+      <div class="factor-top"><span class="factor-num">08</span><span class="factor-name">Differentiator — "Why Us"</span></div>
+      <div class="factor-desc">A <b>verifiable, hard-to-copy</b> advantage (e.g. top CPA firm with proprietary AI 10 years in the making). "Better service" is not a differentiator; "the only one that does X" is.</div>
+      <div class="slider-row"><div class="slider-wrap"><input type="range" min="1" max="10" value="5" class="score-slider"></div><div class="slider-val"><span class="sv">5</span><small>/10</small></div></div>
+    </div>
+
+    <div class="factor" data-pillar="moat">
+      <div class="factor-top"><span class="factor-num">09</span><span class="factor-name">Regulatory Durability &amp; Moat</span></div>
+      <div class="factor-desc">Can the product <b>survive a rule change</b> — or better, is it <b>protected by approval</b>? (e.g. fully insured, the only plan approved by the Dept. of Insurance in all 50 states vs. 90% self-insured ERISA competitors.)</div>
+      <div class="slider-row"><div class="slider-wrap"><input type="range" min="1" max="10" value="5" class="score-slider"></div><div class="slider-val"><span class="sv">5</span><small>/10</small></div></div>
+    </div>
+
+    <div class="factor" data-pillar="moat">
+      <div class="factor-top"><span class="factor-num">10</span><span class="factor-name">Group / Enterprise Leverage</span></div>
+      <div class="factor-desc">Does <b>one signature unlock many units</b> — covering 200 employees, multiple locations, or a whole association? One close that delivers enterprise-size volume beats hundreds of one-off sales.</div>
+      <div class="slider-row"><div class="slider-wrap"><input type="range" min="1" max="10" value="5" class="score-slider"></div><div class="slider-val"><span class="sv">5</span><small>/10</small></div></div>
+    </div>
+  </div>
+
+  <!-- ── PILLAR 4: MACHINE ── -->
+  <div class="pillar amber">
+    <div class="pillar-head">
+      <div class="pillar-emoji">⚙️</div>
+      <div class="pillar-titles">
+        <div class="pillar-num">Pillar 4</div>
+        <div class="pillar-name">Machine</div>
+        <div class="pillar-tag">Will it last, retain clients, and scale across a team?</div>
+      </div>
+      <div class="pillar-score-chip"><span data-pillar-score="machine">0</span>/20</div>
+    </div>
+
+    <div class="factor" data-pillar="machine">
+      <div class="factor-top"><span class="factor-num">11</span><span class="factor-name">Best Product + Retention Systems</span></div>
+      <div class="factor-desc">Due diligence confirms it's <b>the best product on the market</b>, backed by <b>real support and service systems</b> with a documented renewal/retention rate — so reps keep selling instead of servicing.</div>
+      <div class="slider-row"><div class="slider-wrap"><input type="range" min="1" max="10" value="5" class="score-slider"></div><div class="slider-val"><span class="sv">5</span><small>/10</small></div></div>
+    </div>
+
+    <div class="factor" data-pillar="machine">
+      <div class="factor-top"><span class="factor-num">12</span><span class="factor-name">Company Durability &amp; Duplicatability</span></div>
+      <div class="factor-desc">The <b>company is strong enough to outlive the contract</b>, and an <b>average rep can be trained to sell it</b> in a reasonable ramp — with leads and marketing support. A product only scales if it's teachable.</div>
+      <div class="slider-row"><div class="slider-wrap"><input type="range" min="1" max="10" value="5" class="score-slider"></div><div class="slider-val"><span class="sv">5</span><small>/10</small></div></div>
+    </div>
+  </div>
+
+  <!-- ── HOW TO READ YOUR SCORE ── -->
+  <div class="sec-header" id="how-to-read">
+    <div class="sec-line"></div>
+    <div class="sec-label">How to Read Your Score</div>
+    <div class="sec-line rev"></div>
+  </div>
+  <div class="legend-grid">
+    <div class="legend-card green">
+      <div class="legend-band"></div>
+      <div>
+        <div class="legend-range">96 – 120 · Green Light</div>
+        <div class="legend-text">Rare and powerful. Recruit to it, build your team around it, and protect your position.</div>
+      </div>
+    </div>
+    <div class="legend-card teal">
+      <div class="legend-band"></div>
+      <div>
+        <div class="legend-range">72 – 95 · Strong</div>
+        <div class="legend-text">Worth your effort. Shore up the 1–2 weakest factors before going all in.</div>
+      </div>
+    </div>
+    <div class="legend-card amber">
+      <div class="legend-band"></div>
+      <div>
+        <div class="legend-range">48 – 71 · Caution</div>
+        <div class="legend-text">Mixed. Fix the low scores or get answers before you commit your team's time.</div>
+      </div>
+    </div>
+    <div class="legend-card coral">
+      <div class="legend-band"></div>
+      <div>
+        <div class="legend-range">Below 48 · Walk Away</div>
+        <div class="legend-text">The math is against you. Your time is better spent elsewhere.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── CTA BOX ── -->
+  <div class="cta-box">
+    <div class="cta-icon">🚀</div>
+    <div class="cta-title">Score it before you <span>sell it</span></div>
+    <div class="cta-sub">Run every new product, company, or partnership through the 4M Scorecard. Discipline up front protects the time and trust of your whole team.</div>
+    <div class="cta-buttons">
+      <a href="javascript:window.print()" class="btn-primary">🖨 Print / Save as PDF →</a>
+      <a href="https://dreamsfaststart.com" class="btn-secondary">← Back to DBR Fast Start</a>
+    </div>
+    <div class="cta-fine">Money · Market · Moat · Machine — the four pillars of a great opportunity</div>
+  </div>
+
+  <div class="disclaimer">
+    This page is for educational and training purposes only. The 4M Scorecard is a decision-support
+    framework, not financial, legal, or investment advice. Income results vary.
+    DBR training materials are provided for informational use only.
+  </div>
+
+</div><!-- /main-wrap -->
+
+<!-- ═══════════════════════════════════════════════════════════
+     FOOTER
+═══════════════════════════════════════════════════════════ -->
+<footer class="site-footer">
+  <div class="footer-nav">
+    <a href="https://dreamsfaststart.com">Fast Start</a>
+    <a href="https://dreamsfaststart.com/vf-video-book-summaries.html">Video Library</a>
+    <a href="https://aigeniedatabase.com">AI Genie Database</a>
+    <a href="https://renewalsforlifestyle.com">Renewals For Life</a>
+  </div>
+  <div class="footer-legal">
+    <span class="footer-dbr">DBR</span>
+    © 2026 Dreams Business Resources &nbsp;·&nbsp; Mike Hinsvark, Senior Agency Partner &nbsp;·&nbsp;
+    <a href="mailto:mikeceo@gmail.com">mikeceo@gmail.com</a><br>
+    All rights reserved. Income results vary. This training material is for educational purposes only.
+  </div>
+</footer>
+
+<!-- ═══════════════════════════════════════════════════════════
+     JAVASCRIPT
+═══════════════════════════════════════════════════════════ -->
+<script>
+(function () {
+  var sliders   = Array.prototype.slice.call(document.querySelectorAll('.score-slider'));
+  var totalEl   = document.getElementById('totalScore');
+  var meterEl   = document.getElementById('meterFill');
+  var labelEl   = document.getElementById('verdictLabel');
+  var subEl     = document.getElementById('verdictSub');
+  var boxEl     = document.getElementById('verdictBox');
+  var gaugeNumEl    = document.getElementById('gaugeNum');
+  var gaugeLabelEl  = document.getElementById('gaugeLabel');
+  var gaugeSubEl    = document.getElementById('gaugeSub');
+  var gaugeBarEl    = document.getElementById('gaugeBarFill');
+  var gaugeFillEl   = document.getElementById('gaugeFill');
+
+  /* Gauge arc: circumference = 2π×35 ≈ 220 */
+  var CIRC = 220;
+
+  function paintSlider(s) {
+    var pct = ((s.value - 1) / 9) * 100;
+    s.style.background = 'linear-gradient(90deg, var(--teal) 0%, var(--teal) ' + pct + '%, rgba(255,255,255,.08) ' + pct + '%, rgba(255,255,255,.08) 100%)';
+  }
+
+  function update() {
+    var total = 0;
+    var pillarTotals = { money: 0, market: 0, moat: 0, machine: 0 };
+
+    sliders.forEach(function (s) {
+      var v = parseInt(s.value, 10);
+      total += v;
+      var svEl = s.closest('.slider-row').querySelector('.sv');
+      if (svEl) svEl.textContent = v;
+      var pillar = s.closest('.factor').getAttribute('data-pillar');
+      pillarTotals[pillar] += v;
+      paintSlider(s);
+    });
+
+    /* Update all pillar score spans (verdict bar + hero mini cards) */
+    Object.keys(pillarTotals).forEach(function (p) {
+      var els = document.querySelectorAll('[data-pillar-score="' + p + '"]');
+      els.forEach(function (el) { el.textContent = pillarTotals[p]; });
+    });
+
+    /* Update main total */
+    totalEl.textContent = total;
+    meterEl.style.width = (total / 120 * 100) + '%';
+
+    /* Update hero gauge */
+    gaugeNumEl.textContent = total;
+    var pct = total / 120;
+    var offset = CIRC - pct * CIRC;
+    gaugeFillEl.style.strokeDashoffset = offset;
+    gaugeBarEl.style.width = (pct * 100) + '%';
+
+    /* Verdict */
+    boxEl.classList.remove('v-green', 'v-teal', 'v-amber', 'v-coral');
+    var label, sub, cls;
+    if (total >= 96) {
+      cls = 'v-green'; label = '🟢 Green Light — Build Hard';
+      sub = 'Rare and powerful. Recruit to it, build your team around it, and protect your position.';
+    } else if (total >= 72) {
+      cls = 'v-teal'; label = '✅ Strong — Worth Your Effort';
+      sub = 'A solid opportunity. Shore up your 1–2 weakest factors, then go all in.';
+    } else if (total >= 48) {
+      cls = 'v-amber'; label = '⚠️ Caution — Mixed Signals';
+      sub = "Get answers on the low-scoring factors before you commit your team's time and reputation.";
+    } else {
+      cls = 'v-coral'; label = '🛑 Walk Away — Math Is Against You';
+      sub = 'Too many weak pillars. Your time and effort will pay off better elsewhere.';
+    }
+    boxEl.classList.add(cls);
+    labelEl.textContent = label;
+    subEl.textContent   = sub;
+
+    /* Sync hero gauge label/sub */
+    gaugeLabelEl.textContent = label;
+    gaugeSubEl.textContent   = sub;
+
+    /* Sync gauge number color */
+    var gaugeColor = cls === 'v-green' ? 'var(--green)' :
+                     cls === 'v-teal'  ? 'var(--teal)'  :
+                     cls === 'v-amber' ? 'var(--amber)' : 'var(--coral)';
+    gaugeNumEl.style.color = gaugeColor;
+    gaugeLabelEl.style.color = gaugeColor;
+  }
+
+  window.resetAll = function () {
+    sliders.forEach(function (s) { s.value = 5; });
+    update();
+  };
+
+  sliders.forEach(function (s) { s.addEventListener('input', update); });
+  update();
+})();
+</script>
+
+</body>
+</html>
