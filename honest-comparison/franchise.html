@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Top 10 Franchises Compared — DBR Honest Comparison Series</title>
+<meta name="description" content="Top 10 franchise investment ranges, royalties, time commitment, and real pros and cons from public Franchise Disclosure Documents. Compare vs DBR.">
+<style>
+:root{
+  --bg:#050d1a;--card:#0b1628;--card2:#0e1e35;
+  --teal:#00d4aa;--teal-glow:rgba(0,212,170,.25);--teal-dim:rgba(0,212,170,.12);
+  --green:#56e39f;--amber:#f0a832;--coral:#ff6b6b;--purple:#7c6ff7;--blue:#4da6ff;
+  --tx:#e8f4f1;--tx2:#9fc4ba;--dim:#5f8b80;--border:rgba(0,212,170,.15);
+  --accent:var(--amber);
+}
+*{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{background:var(--bg);color:var(--tx);font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;line-height:1.55;}
+body::before{content:'';position:fixed;inset:0;background-image:linear-gradient(rgba(0,212,170,.03) 1px,transparent 1px),linear-gradient(90deg,rgba(0,212,170,.03) 1px,transparent 1px);background-size:40px 40px;pointer-events:none;z-index:0;}
+
+.site-header{position:sticky;top:0;z-index:100;background:rgba(5,13,26,.97);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);}
+.header-inner{max-width:1100px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;padding:14px 1.25rem;gap:1rem;}
+.logo-name{font-size:22px;font-weight:800;color:var(--teal);letter-spacing:.04em;text-shadow:0 0 20px var(--teal-glow);text-decoration:none;}
+.logo-sub{font-size:10px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--dim);}
+.header-quote{font-size:12px;font-style:italic;color:var(--tx2);text-align:right;max-width:260px;line-height:1.4;display:none;}
+@media(min-width:640px){.header-quote{display:block;}}
+
+.tab-nav{position:sticky;top:57px;z-index:99;background:rgba(5,13,26,.95);backdrop-filter:blur(8px);border-bottom:2px solid rgba(0,212,170,.18);overflow-x:auto;scrollbar-width:none;}
+.tab-nav::-webkit-scrollbar{display:none;}
+.tab-list{display:flex;align-items:stretch;max-width:1100px;margin:0 auto;padding:0 1rem;gap:0;min-width:max-content;}
+.tab-item{display:flex;align-items:center;gap:8px;padding:14px 20px;font-size:12px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;color:var(--dim);text-decoration:none;border-bottom:3px solid transparent;margin-bottom:-2px;transition:color .2s,border-color .2s;white-space:nowrap;}
+.tab-item:hover{color:var(--teal);}
+.tab-item.active{color:var(--amber);border-bottom-color:var(--amber);}
+.tab-item .tab-icon{font-size:16px;}
+
+/* HERO */
+.hero-section{position:relative;z-index:1;overflow:hidden;min-height:72vh;display:flex;align-items:center;padding:3rem 1.25rem 2rem;}
+.hero-section::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 70% 60% at 75% 50%,rgba(240,168,50,.06) 0%,transparent 70%),radial-gradient(ellipse 40% 40% at 85% 30%,rgba(0,212,170,.05) 0%,transparent 60%);pointer-events:none;}
+.hero-dots{position:absolute;right:0;top:0;bottom:0;width:55%;max-width:700px;pointer-events:none;overflow:hidden;}
+.hero-dots canvas{width:100%;height:100%;display:block;}
+.hero-left{position:relative;z-index:2;flex:0 0 auto;width:min(300px,100%);display:flex;flex-direction:column;gap:14px;margin-right:2rem;}
+.stat-card{background:rgba(11,22,40,.85);border:1px solid rgba(240,168,50,.2);border-radius:12px;padding:14px 16px;backdrop-filter:blur(6px);}
+.stat-label{font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--dim);margin-bottom:4px;}
+.stat-value{font-size:20px;font-weight:800;color:var(--amber);text-shadow:0 0 16px rgba(240,168,50,.3);}
+.stat-value.teal{color:var(--teal);text-shadow:0 0 16px var(--teal-glow);}
+.stat-value.coral{color:var(--coral);}
+.stat-bar{height:3px;border-radius:2px;margin-top:6px;background:linear-gradient(90deg,var(--amber),transparent);}
+.stat-bar.teal{background:linear-gradient(90deg,var(--teal),transparent);}
+.stat-bar.coral{background:linear-gradient(90deg,var(--coral),transparent);}
+.stat-icon{font-size:18px;margin-bottom:4px;}
+.hero-center{position:relative;z-index:2;flex:1 1 auto;max-width:680px;}
+.hero-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(240,168,50,.08);border:1px solid rgba(240,168,50,.35);border-radius:999px;padding:7px 18px;font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--amber);margin-bottom:1.4rem;box-shadow:0 0 20px rgba(240,168,50,.1);}
+.badge-dot{width:7px;height:7px;border-radius:50%;background:var(--amber);box-shadow:0 0 8px var(--amber);animation:pulse 2s infinite;}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.3}}
+.hero-h1{font-size:clamp(2.4rem,6.5vw,4.5rem);font-weight:800;letter-spacing:-.03em;line-height:1.05;color:var(--tx);margin-bottom:.5rem;}
+.hero-h1 .accent{color:var(--teal);text-shadow:0 0 40px var(--teal-glow);}
+.hero-h1 .accent2{color:var(--amber);text-shadow:0 0 30px rgba(240,168,50,.3);}
+.hero-divider{display:flex;align-items:center;gap:14px;margin:1rem 0;}
+.hero-divider-line{flex:1;height:1px;background:linear-gradient(90deg,rgba(240,168,50,.4),transparent);}
+.hero-divider-text{font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--amber);white-space:nowrap;}
+.hero-sub{font-size:clamp(14px,2.4vw,17px);color:var(--tx2);max-width:560px;margin-bottom:1.8rem;line-height:1.65;}
+.hero-sub b{color:var(--tx);}
+.hero-stats-row{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;background:rgba(11,22,40,.7);border:1px solid rgba(240,168,50,.18);border-radius:14px;padding:18px 16px;backdrop-filter:blur(6px);margin-bottom:1.8rem;}
+.hs-item{text-align:center;}
+.hs-num{font-size:clamp(16px,2.8vw,24px);font-weight:800;color:var(--amber);text-shadow:0 0 20px rgba(240,168,50,.3);line-height:1;margin-bottom:4px;}
+.hs-num.teal{color:var(--teal);text-shadow:0 0 20px var(--teal-glow);}
+.hs-num.coral{color:var(--coral);}
+.hs-num.green{color:var(--green);}
+.hs-label{font-size:9px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--dim);}
+.hs-sub{font-size:9px;color:rgba(95,139,128,.7);margin-top:1px;}
+.hero-cta-row{display:flex;gap:12px;flex-wrap:wrap;}
+.btn-primary{display:inline-flex;align-items:center;gap:8px;background:var(--amber);color:#050d1a;font-weight:800;font-size:14px;border:none;border-radius:999px;padding:13px 28px;cursor:pointer;text-decoration:none;box-shadow:0 0 28px rgba(240,168,50,.3),0 4px 16px rgba(240,168,50,.2);transition:transform .15s;}
+.btn-primary:hover{transform:scale(1.04);}
+.btn-secondary{display:inline-flex;align-items:center;gap:8px;background:transparent;color:var(--amber);font-weight:700;font-size:14px;border:1px solid rgba(240,168,50,.4);border-radius:999px;padding:12px 24px;cursor:pointer;text-decoration:none;transition:background .15s;}
+.btn-secondary:hover{background:rgba(240,168,50,.08);}
+
+.bottom-strip{position:relative;z-index:1;background:rgba(5,13,26,.97);border-top:1px solid rgba(0,212,170,.15);overflow-x:auto;scrollbar-width:none;}
+.bottom-strip::-webkit-scrollbar{display:none;}
+.bottom-list{display:flex;justify-content:center;gap:0;max-width:1100px;margin:0 auto;padding:0 1rem;min-width:max-content;}
+.bottom-item{display:flex;flex-direction:column;align-items:center;gap:4px;padding:14px 20px;font-size:9px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;color:var(--dim);text-decoration:none;border-top:2px solid transparent;transition:color .2s,border-color .2s;white-space:nowrap;}
+.bottom-item:hover{color:var(--teal);}
+.bottom-item.active{color:var(--amber);border-top-color:var(--amber);}
+.bottom-item .bi-icon{font-size:20px;}
+.bottom-item .bi-sub{font-size:8px;color:var(--dim);margin-top:1px;}
+
+/* CONTENT */
+.wrap{position:relative;z-index:1;max-width:980px;margin:0 auto;padding:2.5rem 1.1rem 3rem;}
+.sec{font-size:12px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--amber);margin:2.2rem 0 .9rem;padding-bottom:.5rem;border-bottom:1px solid rgba(240,168,50,.25);}
+.thead{display:grid;grid-template-columns:1.4fr 1.1fr 1.7fr 1.7fr;gap:12px;padding:0 14px 6px;font-size:10px;font-weight:800;letter-spacing:.07em;text-transform:uppercase;color:var(--amber);}
+.row{display:grid;grid-template-columns:1.4fr 1.1fr 1.7fr 1.7fr;gap:12px;background:var(--card);border:1px solid rgba(240,168,50,.16);border-left:3px solid var(--amber);border-radius:11px;padding:13px 14px;margin-bottom:9px;align-items:start;}
+.nm{font-size:15px;font-weight:800;color:var(--teal);}
+.cat{font-size:11px;color:var(--dim);margin-top:2px;}
+.time{font-size:11px;color:var(--tx2);margin-top:5px;}
+.cost{font-size:14px;font-weight:700;color:#c4dad4;}
+.roy{font-size:11px;color:var(--amber);margin-top:2px;}
+.pro{font-size:12.5px;color:#8fe3c4;}
+.con{font-size:12.5px;color:#f0a8a8;}
+.flabel{display:none;font-size:9px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;color:var(--amber);margin-bottom:2px;}
+.sec2{font-size:13px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--teal);margin:2rem 0 .9rem;text-align:center;}
+.free{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
+.fcol{background:var(--card);border:1px solid rgba(0,212,170,.22);border-radius:12px;padding:16px 18px;}
+.fhead{font-size:13px;font-weight:800;color:var(--green);text-transform:uppercase;letter-spacing:.04em;margin-bottom:.7rem;padding-bottom:.5rem;border-bottom:1px solid rgba(0,212,170,.18);}
+.fhead.g{color:var(--amber);}
+.fcol li{font-size:13px;color:#c4dad4;list-style:none;margin-bottom:6px;padding-left:18px;position:relative;}
+.fcol li::before{content:"\2713";position:absolute;left:0;color:var(--teal);font-weight:800;}
+.fbig{font-size:13px;color:#8fe3c4;font-weight:700;margin-top:.8rem;padding-top:.8rem;border-top:1px solid rgba(0,212,170,.18);}
+.disc{font-size:11px;color:var(--dim);text-align:center;max-width:760px;margin:2rem auto 0;padding-top:1rem;border-top:1px solid rgba(0,212,170,.12);line-height:1.6;}
+.site-footer{position:relative;z-index:10;border-top:1px solid rgba(0,212,170,.12);background:rgba(5,13,26,.97);margin-top:2.4rem;}
+.fnav{display:flex;justify-content:center;gap:1.4rem;flex-wrap:wrap;padding:1rem;border-bottom:1px solid rgba(0,212,170,.08);}
+.fnav a{font-size:13px;font-weight:600;color:var(--teal);text-decoration:none;}
+.flegal{text-align:center;padding:1rem;font-size:11px;color:var(--dim);line-height:1.7;}
+.flegal a{color:var(--teal);text-decoration:none;}
+.fdbr{font-size:18px;font-weight:800;color:var(--teal);display:block;margin-bottom:.3rem;}
+@media(max-width:900px){.hero-left{display:none;}.hero-section{min-height:auto;padding:2.5rem 1.25rem 2rem;}}
+@media(max-width:760px){.thead{display:none;}.row{grid-template-columns:1fr;gap:7px;}.flabel{display:block;}.free{grid-template-columns:1fr;}}
+@media(max-width:600px){.hero-stats-row{grid-template-columns:repeat(2,1fr);}.tab-item{padding:12px 14px;font-size:11px;}}
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="header-inner">
+    <div>
+      <a href="index.html" class="logo-name">DBR</a>
+      <div class="logo-sub">Dreams Business Resources · Honest Comparison Series</div>
+    </div>
+    <div class="header-quote">"Know the real cost before<br>you sign on the dotted line."</div>
+  </div>
+</header>
+
+<nav class="tab-nav">
+  <div class="tab-list">
+    <a href="index.html" class="tab-item"><span class="tab-icon">🏠</span> Home</a>
+    <a href="savings.html" class="tab-item"><span class="tab-icon">💰</span> Savings</a>
+    <a href="franchise.html" class="tab-item active"><span class="tab-icon">🏢</span> Top 10 Franchise</a>
+    <a href="network-marketing.html" class="tab-item"><span class="tab-icon">🔗</span> Network Marketing</a>
+    <a href="online-sales.html" class="tab-item"><span class="tab-icon">🚀</span> Online Sales Business</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero-section">
+  <div class="hero-dots"><canvas id="dotCanvas"></canvas></div>
+  <div class="hero-left">
+    <div class="stat-card">
+      <div class="stat-icon">🏢</div>
+      <div class="stat-label">Avg Franchise Cost</div>
+      <div class="stat-value">$500K+</div>
+      <div class="stat-bar"></div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-icon">📋</div>
+      <div class="stat-label">Royalty Rate</div>
+      <div class="stat-value">4–8%</div>
+      <div class="stat-bar"></div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-icon">⚡</div>
+      <div class="stat-label">DBR Start Cost</div>
+      <div class="stat-value teal">$0</div>
+      <div class="stat-bar teal"></div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-icon">🚫</div>
+      <div class="stat-label">Employees Needed</div>
+      <div class="stat-value coral">NONE</div>
+      <div class="stat-bar coral"></div>
+    </div>
+  </div>
+  <div class="hero-center">
+    <div class="hero-badge">
+      <span class="badge-dot"></span>
+      🏢 The Honest Comparison Series — DBR 2026
+    </div>
+    <h1 class="hero-h1">
+      TOP 10<br>
+      <span class="accent2">FRANCHISES</span><br>
+      <span class="accent">COMPARED™</span>
+    </h1>
+    <div class="hero-divider">
+      <div class="hero-divider-line"></div>
+      <div class="hero-divider-text">Cost · Commitment · Trade-offs</div>
+      <div class="hero-divider-line" style="background:linear-gradient(270deg,rgba(240,168,50,.4),transparent);"></div>
+    </div>
+    <p class="hero-sub">
+      Typical <b>total initial investment</b> ranges from public Franchise Disclosure Documents.<br>
+      Plus ongoing royalty, time commitment, and the real pros and cons. <b>Always confirm the current FDD.</b>
+    </p>
+    <div class="hero-stats-row">
+      <div class="hs-item">
+        <div class="hs-num">10</div>
+        <div class="hs-label">Franchises</div>
+        <div class="hs-sub">Side by Side</div>
+      </div>
+      <div class="hs-item">
+        <div class="hs-num coral">$2.5M</div>
+        <div class="hs-label">McDonald's Max</div>
+        <div class="hs-sub">Plus Ongoing Fees</div>
+      </div>
+      <div class="hs-item">
+        <div class="hs-num green">$0</div>
+        <div class="hs-label">DBR Entry</div>
+        <div class="hs-sub">No Franchise Fee</div>
+      </div>
+      <div class="hs-item">
+        <div class="hs-num teal">∞</div>
+        <div class="hs-label">Residual</div>
+        <div class="hs-sub">Renewals for Life</div>
+      </div>
+    </div>
+    <div class="hero-cta-row">
+      <a href="#comparison" class="btn-primary">See the Comparison ↓</a>
+      <a href="savings.html" class="btn-secondary">Savings Calculator →</a>
+    </div>
+  </div>
+</section>
+
+<nav class="bottom-strip">
+  <div class="bottom-list">
+    <a href="savings.html" class="bottom-item"><span class="bi-icon">💰</span><span>SAVINGS</span><span class="bi-sub">Nest Egg Calc</span></a>
+    <a href="franchise.html" class="bottom-item active"><span class="bi-icon">🏢</span><span>FRANCHISE</span><span class="bi-sub">Top 10 Compared</span></a>
+    <a href="network-marketing.html" class="bottom-item"><span class="bi-icon">🔗</span><span>NETWORK MKT</span><span class="bi-sub">MLM Truth</span></a>
+    <a href="online-sales.html" class="bottom-item"><span class="bi-icon">🚀</span><span>ONLINE SALES</span><span class="bi-sub">Digital Models</span></a>
+    <a href="https://dreamsfaststart.com" class="bottom-item" target="_blank"><span class="bi-icon">⚡</span><span>FAST START</span><span class="bi-sub">DBR Training</span></a>
+  </div>
+</nav>
+
+<div class="wrap" id="comparison">
+  <div class="sec">10 Franchises Compared</div>
+  <div class="thead"><div>Franchise</div><div>Total Investment</div><div>Advantages</div><div>Disadvantages</div></div>
+  <div class="row"><div><div class="nm">McDonald's</div><div class="cat">QSR</div><div class="time">Full-time owner/operator; multi-year</div></div><div><span class="flabel">Investment</span><div class="cost">$1.5M&ndash;$2.5M</div><div class="roy">~4% royalty + rent; $500K liquid</div></div><div><span class="flabel">Advantages</span><div class="pro">#1 brand &amp; proven system; high per-store sales; strong support &amp; real estate.</div></div><div><span class="flabel">Disadvantages</span><div class="con">Huge capital; you must already have cash; tight corporate control; long hours.</div></div></div>
+  <div class="row"><div><div class="nm">Chick-fil-A</div><div class="cat">QSR</div><div class="time">Full-time hands-on operator</div></div><div><span class="flabel">Investment</span><div class="cost">$10K fee only</div><div class="roy">CFA funds the rest; you don't own it</div></div><div><span class="flabel">Advantages</span><div class="pro">Lowest entry; highest sales per unit in QSR; brand does the marketing.</div></div><div><span class="flabel">Disadvantages</span><div class="con">You build NO equity &mdash; can't sell, pass on, or own multiple; ~&lt;1% accepted.</div></div></div>
+  <div class="row"><div><div class="nm">Taco Bell</div><div class="cat">QSR</div><div class="time">Full-time; multi-unit expected</div></div><div><span class="flabel">Investment</span><div class="cost">$650K&ndash;$3.4M</div><div class="roy">~5.5% royalty + 4.25% ad</div></div><div><span class="flabel">Advantages</span><div class="pro">Strong brand &amp; high average unit volume; loyal base.</div></div><div><span class="flabel">Disadvantages</span><div class="con">High capital; pushes multi-store development; labor-heavy.</div></div></div>
+  <div class="row"><div><div class="nm">Dunkin'</div><div class="cat">Coffee / QSR</div><div class="time">Full-time; multi-unit deals common</div></div><div><span class="flabel">Investment</span><div class="cost">$0.5M&ndash;$1.8M</div><div class="roy">~5.9% royalty + 5% ad</div></div><div><span class="flabel">Advantages</span><div class="pro">Daily-habit traffic; strong brand; repeat customers.</div></div><div><span class="flabel">Disadvantages</span><div class="con">High build-out cost; development commitments; thin per-cup margins.</div></div></div>
+  <div class="row"><div><div class="nm">Subway</div><div class="cat">QSR</div><div class="time">Full-time; owner-operator</div></div><div><span class="flabel">Investment</span><div class="cost">$230K&ndash;$1M</div><div class="roy">8% royalty (high) + 4.5% ad</div></div><div><span class="flabel">Advantages</span><div class="pro">Lower entry cost; simple build; globally recognized name.</div></div><div><span class="flabel">Disadvantages</span><div class="con">Very high royalties; mass closures &amp; saturation; thin margins.</div></div></div>
+  <div class="row"><div><div class="nm">7-Eleven</div><div class="cat">Convenience</div><div class="time">24/7; very hands-on</div></div><div><span class="flabel">Investment</span><div class="cost">$100K&ndash;$1.2M</div><div class="roy">Gross-profit SPLIT model</div></div><div><span class="flabel">Advantages</span><div class="pro">Lower entry; they own real estate &amp; equipment; established systems.</div></div><div><span class="flabel">Disadvantages</span><div class="con">Franchisor takes a large share of gross profit; round-the-clock grind.</div></div></div>
+  <div class="row"><div><div class="nm">The UPS Store</div><div class="cat">Retail / B2B</div><div class="time">Mostly normal retail hours</div></div><div><span class="flabel">Investment</span><div class="cost">$150K&ndash;$500K</div><div class="roy">~5% royalty + 2.5% ad</div></div><div><span class="flabel">Advantages</span><div class="pro">Lower cost; B2B + retail mix; more predictable hours.</div></div><div><span class="flabel">Disadvantages</span><div class="con">Modest revenue ceiling; foot-traffic dependent; print/ship margins.</div></div></div>
+  <div class="row"><div><div class="nm">Anytime Fitness</div><div class="cat">Fitness</div><div class="time">Semi-absentee possible</div></div><div><span class="flabel">Investment</span><div class="cost">$200K&ndash;$900K</div><div class="roy">flat ~$700+/mo royalty</div></div><div><span class="flabel">Advantages</span><div class="pro">Recurring memberships; 24/7 keyfob model; can run lean on staff.</div></div><div><span class="flabel">Disadvantages</span><div class="con">Equipment cost; membership churn; saturated fitness market.</div></div></div>
+  <div class="row"><div><div class="nm">Servpro</div><div class="cat">Restoration / Home svc.</div><div class="time">On-call / emergency; crew mgmt</div></div><div><span class="flabel">Investment</span><div class="cost">$180K&ndash;$250K</div><div class="roy">~3&ndash;10% royalty</div></div><div><span class="flabel">Advantages</span><div class="pro">Insurance-driven demand; recession-resistant; scalable crews.</div></div><div><span class="flabel">Disadvantages</span><div class="con">Emergency/after-hours work; heavy labor &amp; equipment management.</div></div></div>
+  <div class="row"><div><div class="nm">Great Clips</div><div class="cat">Hair / Service</div><div class="time">Semi-absentee w/ manager</div></div><div><span class="flabel">Investment</span><div class="cost">$140K&ndash;$370K</div><div class="roy">6% royalty + 5% ad</div></div><div><span class="flabel">Advantages</span><div class="pro">Simple, cash-business model; repeat haircuts; semi-absentee friendly.</div></div><div><span class="flabel">Disadvantages</span><div class="con">Stylist hiring &amp; turnover is the whole game; hourly-labor headaches.</div></div></div>
+
+  <div class="sec2">What DBR Frees You From</div>
+  <div class="free">
+    <div class="fcol">
+      <div class="fhead">vs. a Traditional Franchise / Business</div>
+      <ul>
+        <li>No franchise fee or large upfront investment</li>
+        <li>No building lease to sign &mdash; or pay for</li>
+        <li>No liability insurance</li>
+        <li>No health-insurance requirement</li>
+        <li>No minimum-wage issues</li>
+        <li>No FICA / payroll taxes</li>
+        <li>No employees &middot; No payroll</li>
+        <li>No bookkeeping or accounting needed</li>
+        <li>No sales taxes</li>
+        <li>No trash, sewer &amp; water bills</li>
+        <li>No inventory &middot; No parking problems</li>
+        <li>Low startup (under ~$300&ndash;400)</li>
+        <li>No or low advertising expense</li>
+      </ul>
+    </div>
+    <div class="fcol">
+      <div class="fhead g">vs. Network Marketing / Home Business</div>
+      <ul>
+        <li>No lotions or potions</li>
+        <li>No BS training programs or e-currency products</li>
+        <li>No making money off books, tapes &amp; events sold to your own agents</li>
+        <li>No auto-ship</li>
+        <li>No binary / matrix / BS comp plan</li>
+        <li>No product that's at Costco for 1/4 the price</li>
+        <li>Reps can make a living in real sales &mdash; recruiting is NOT required</li>
+      </ul>
+      <div class="fbig">$0 to start &middot; no real estate &middot; no employees &middot; renewals for life &mdash; you earn them instead of paying them.</div>
+    </div>
+  </div>
+
+  <div class="disc">For personal planning use only. Investment ranges, royalties and terms are from public FDDs and reporting and change frequently &mdash; verify the current Franchise Disclosure Document before any decision. Not financial or franchising advice; results vary.</div>
+</div>
+
+<footer class="site-footer">
+  <div class="fnav">
+    <a href="https://dreamsfaststart.com" target="_blank">Fast Start</a>
+    <a href="https://aigeniedatabase.com" target="_blank">AI Genie Database</a>
+    <a href="https://renewalsforlifestyle.com" target="_blank">Renewals For Life</a>
+  </div>
+  <div class="flegal"><span class="fdbr">DBR</span>© 2026 Dreams Business Resources &nbsp;·&nbsp; Mike Hinsvark, Senior Agency Partner &nbsp;·&nbsp; <a href="mailto:mikeceo@gmail.com">mikeceo@gmail.com</a><br>All rights reserved. Income results vary. Educational purposes only.</div>
+</footer>
+
+<script>
+(function(){
+  var canvas=document.getElementById('dotCanvas');if(!canvas)return;
+  var ctx=canvas.getContext('2d');var dots=[];var W,H;
+  function resize(){W=canvas.offsetWidth;H=canvas.offsetHeight;canvas.width=W*(window.devicePixelRatio||1);canvas.height=H*(window.devicePixelRatio||1);ctx.setTransform(window.devicePixelRatio||1,0,0,window.devicePixelRatio||1,0,0);buildDots();}
+  function buildDots(){dots=[];var cols=Math.floor(W/28);var rows=Math.floor(H/28);for(var r=0;r<rows;r++){for(var c=0;c<cols;c++){var x=c*28+14;var y=r*28+14;var dx=x/W-.2;var dy=y/H-.5;var dist=Math.sqrt(dx*dx+dy*dy);var alpha=Math.max(0,.55-dist*1.1);if(alpha<.04)continue;dots.push({x:x,y:y,baseAlpha:alpha,phase:Math.random()*Math.PI*2,speed:.4+Math.random()*.8,r:1.5+Math.random()*1.5});}}}
+  var t=0;function draw(){ctx.clearRect(0,0,W,H);t+=.012;for(var i=0;i<dots.length;i++){var d=dots[i];var a=d.baseAlpha*(.5+.5*Math.sin(t*d.speed+d.phase));ctx.beginPath();ctx.arc(d.x,d.y,d.r,0,Math.PI*2);ctx.fillStyle='rgba(240,168,50,'+a.toFixed(3)+')';ctx.fill();}requestAnimationFrame(draw);}
+  window.addEventListener('resize',resize);resize();draw();
+})();
+</script>
+</body>
+</html>

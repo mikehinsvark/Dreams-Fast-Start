@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Million-Dollar Reality — Nest Egg Calculator | DBR Honest Comparison Series</title>
+<meta name="description" content="Move the sliders and watch what it actually takes to build a real nest egg. The case for building recurring income, not just saving harder.">
+<style>
+:root{
+  --bg:#050d1a;--card:#0b1628;--card2:#0e1e35;
+  --teal:#00d4aa;--teal-glow:rgba(0,212,170,.25);--teal-dim:rgba(0,212,170,.12);
+  --green:#56e39f;--amber:#f0a832;--coral:#ff6b6b;--purple:#7c6ff7;--blue:#4da6ff;
+  --tx:#e8f4f1;--tx2:#9fc4ba;--dim:#5f8b80;--border:rgba(0,212,170,.15);
+}
+*{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{background:var(--bg);color:var(--tx);font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;line-height:1.6;}
+body::before{content:'';position:fixed;inset:0;background-image:linear-gradient(rgba(0,212,170,.03) 1px,transparent 1px),linear-gradient(90deg,rgba(0,212,170,.03) 1px,transparent 1px);background-size:40px 40px;pointer-events:none;z-index:0;}
+
+/* ─── HEADER ─── */
+.site-header{position:sticky;top:0;z-index:100;background:rgba(5,13,26,.97);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);}
+.header-inner{max-width:1100px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;padding:14px 1.25rem;gap:1rem;}
+.logo-name{font-size:22px;font-weight:800;color:var(--teal);letter-spacing:.04em;text-shadow:0 0 20px var(--teal-glow);text-decoration:none;}
+.logo-sub{font-size:10px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--dim);}
+.header-quote{font-size:12px;font-style:italic;color:var(--tx2);text-align:right;max-width:260px;line-height:1.4;display:none;}
+@media(min-width:640px){.header-quote{display:block;}}
+
+/* ─── TAB NAV ─── */
+.tab-nav{position:sticky;top:57px;z-index:99;background:rgba(5,13,26,.95);backdrop-filter:blur(8px);border-bottom:2px solid rgba(0,212,170,.18);overflow-x:auto;scrollbar-width:none;}
+.tab-nav::-webkit-scrollbar{display:none;}
+.tab-list{display:flex;align-items:stretch;max-width:1100px;margin:0 auto;padding:0 1rem;gap:0;min-width:max-content;}
+.tab-item{display:flex;align-items:center;gap:8px;padding:14px 20px;font-size:12px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;color:var(--dim);text-decoration:none;border-bottom:3px solid transparent;margin-bottom:-2px;transition:color .2s,border-color .2s;white-space:nowrap;}
+.tab-item:hover{color:var(--teal);}
+.tab-item.active{color:var(--teal);border-bottom-color:var(--teal);}
+.tab-item .tab-icon{font-size:16px;}
+
+/* ─── HERO ─── */
+.hero-section{position:relative;z-index:1;overflow:hidden;min-height:72vh;display:flex;align-items:center;padding:3rem 1.25rem 2rem;}
+.hero-section::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 70% 60% at 75% 50%,rgba(0,212,170,.07) 0%,transparent 70%),radial-gradient(ellipse 40% 40% at 85% 30%,rgba(77,166,255,.06) 0%,transparent 60%);pointer-events:none;}
+.hero-dots{position:absolute;right:0;top:0;bottom:0;width:55%;max-width:700px;pointer-events:none;overflow:hidden;}
+.hero-dots canvas{width:100%;height:100%;display:block;}
+.hero-left{position:relative;z-index:2;flex:0 0 auto;width:min(300px,100%);display:flex;flex-direction:column;gap:14px;margin-right:2rem;}
+.stat-card{background:rgba(11,22,40,.85);border:1px solid rgba(0,212,170,.2);border-radius:12px;padding:14px 16px;backdrop-filter:blur(6px);}
+.stat-label{font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--dim);margin-bottom:4px;}
+.stat-value{font-size:20px;font-weight:800;color:var(--teal);text-shadow:0 0 16px var(--teal-glow);}
+.stat-value.amber{color:var(--amber);}
+.stat-value.green{color:var(--green);}
+.stat-bar{height:3px;border-radius:2px;margin-top:6px;background:linear-gradient(90deg,var(--teal),transparent);}
+.stat-bar.amber{background:linear-gradient(90deg,var(--amber),transparent);}
+.stat-bar.green{background:linear-gradient(90deg,var(--green),transparent);}
+.stat-icon{font-size:18px;margin-bottom:4px;}
+.hero-center{position:relative;z-index:2;flex:1 1 auto;max-width:680px;}
+.hero-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(0,212,170,.08);border:1px solid rgba(0,212,170,.35);border-radius:999px;padding:7px 18px;font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--teal);margin-bottom:1.4rem;box-shadow:0 0 20px var(--teal-dim);}
+.badge-dot{width:7px;height:7px;border-radius:50%;background:var(--teal);box-shadow:0 0 8px var(--teal);animation:pulse 2s infinite;}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.3}}
+.hero-h1{font-size:clamp(2.4rem,6.5vw,4.5rem);font-weight:800;letter-spacing:-.03em;line-height:1.05;color:var(--tx);margin-bottom:.5rem;}
+.hero-h1 .accent{color:var(--teal);text-shadow:0 0 40px var(--teal-glow);}
+.hero-h1 .accent2{color:var(--amber);text-shadow:0 0 30px rgba(240,168,50,.3);}
+.hero-divider{display:flex;align-items:center;gap:14px;margin:1rem 0;}
+.hero-divider-line{flex:1;height:1px;background:linear-gradient(90deg,rgba(0,212,170,.4),transparent);}
+.hero-divider-text{font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--teal);white-space:nowrap;}
+.hero-sub{font-size:clamp(14px,2.4vw,17px);color:var(--tx2);max-width:560px;margin-bottom:1.8rem;line-height:1.65;}
+.hero-sub b{color:var(--tx);}
+.hero-stats-row{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;background:rgba(11,22,40,.7);border:1px solid rgba(0,212,170,.18);border-radius:14px;padding:18px 16px;backdrop-filter:blur(6px);margin-bottom:1.8rem;}
+.hs-item{text-align:center;}
+.hs-num{font-size:clamp(16px,2.8vw,24px);font-weight:800;color:var(--teal);text-shadow:0 0 20px var(--teal-glow);line-height:1;margin-bottom:4px;}
+.hs-num.amber{color:var(--amber);}
+.hs-num.green{color:var(--green);}
+.hs-num.blue{color:var(--blue);}
+.hs-label{font-size:9px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--dim);}
+.hs-sub{font-size:9px;color:rgba(95,139,128,.7);margin-top:1px;}
+.hero-cta-row{display:flex;gap:12px;flex-wrap:wrap;}
+.btn-primary{display:inline-flex;align-items:center;gap:8px;background:var(--teal);color:#050d1a;font-weight:800;font-size:14px;border:none;border-radius:999px;padding:13px 28px;cursor:pointer;text-decoration:none;box-shadow:0 0 28px var(--teal-glow),0 4px 16px rgba(0,212,170,.3);transition:transform .15s,box-shadow .15s;}
+.btn-primary:hover{transform:scale(1.04);}
+.btn-secondary{display:inline-flex;align-items:center;gap:8px;background:transparent;color:var(--teal);font-weight:700;font-size:14px;border:1px solid rgba(0,212,170,.4);border-radius:999px;padding:12px 24px;cursor:pointer;text-decoration:none;transition:background .15s;}
+.btn-secondary:hover{background:rgba(0,212,170,.08);}
+
+/* ─── BOTTOM STRIP ─── */
+.bottom-strip{position:relative;z-index:1;background:rgba(5,13,26,.97);border-top:1px solid rgba(0,212,170,.15);overflow-x:auto;scrollbar-width:none;}
+.bottom-strip::-webkit-scrollbar{display:none;}
+.bottom-list{display:flex;justify-content:center;gap:0;max-width:1100px;margin:0 auto;padding:0 1rem;min-width:max-content;}
+.bottom-item{display:flex;flex-direction:column;align-items:center;gap:4px;padding:14px 20px;font-size:9px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;color:var(--dim);text-decoration:none;border-top:2px solid transparent;transition:color .2s,border-color .2s;white-space:nowrap;}
+.bottom-item:hover{color:var(--teal);}
+.bottom-item.active{color:var(--teal);border-top-color:var(--teal);}
+.bottom-item .bi-icon{font-size:20px;}
+.bottom-item .bi-sub{font-size:8px;color:var(--dim);margin-top:1px;}
+
+/* ─── MAIN CONTENT ─── */
+.wrap{position:relative;z-index:1;max-width:1000px;margin:0 auto;padding:2.5rem 1.1rem 3rem;}
+.sec{font-size:12px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--teal);margin:2.2rem 0 .9rem;padding-bottom:.5rem;border-bottom:1px solid rgba(0,212,170,.25);}
+.grid{display:grid;grid-template-columns:1fr 1.15fr;gap:16px;margin-top:1.4rem;align-items:start;}
+.panel{background:var(--card);border:1px solid rgba(0,212,170,.18);border-radius:16px;padding:20px 22px;box-shadow:0 0 30px rgba(0,212,170,.05);}
+.ctrl{margin-bottom:18px;}
+.ctrl:last-child{margin-bottom:0;}
+.ctrl .top{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:7px;}
+.ctrl .lab{font-size:12.5px;font-weight:700;color:var(--tx);}
+.ctrl .val{font-size:15px;font-weight:800;color:var(--teal);font-variant-numeric:tabular-nums;}
+.ctrl .val.neg{color:var(--coral);}
+input[type=range]{-webkit-appearance:none;appearance:none;width:100%;height:6px;border-radius:999px;background:#13243d;outline:none;}
+input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;appearance:none;width:20px;height:20px;border-radius:50%;background:var(--teal);cursor:pointer;box-shadow:0 0 12px rgba(0,212,170,.7),0 2px 6px rgba(0,0,0,.4);border:2px solid #062018;}
+input[type=range]::-moz-range-thumb{width:18px;height:18px;border-radius:50%;background:var(--teal);cursor:pointer;border:2px solid #062018;box-shadow:0 0 12px rgba(0,212,170,.7);}
+.scale{display:flex;justify-content:space-between;font-size:9.5px;color:var(--dim);margin-top:4px;}
+.result{background:linear-gradient(150deg,rgba(0,212,170,.10),rgba(124,111,247,.08));border:1px solid rgba(0,212,170,.4);border-radius:16px;padding:22px;text-align:center;box-shadow:0 0 50px rgba(0,212,170,.1);}
+.result .cap{font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--tx2);}
+.result .big{font-size:clamp(2.6rem,9vw,4.2rem);font-weight:800;color:var(--teal);line-height:1;margin:6px 0 2px;text-shadow:0 0 40px rgba(0,212,170,.4);font-variant-numeric:tabular-nums;}
+.result .per{font-size:13px;color:var(--tx2);}
+.result .reality{font-size:12.5px;color:var(--amber);margin-top:10px;font-weight:600;}
+.warn{color:var(--coral)!important;}
+.stats{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:14px;}
+.stat{background:var(--card2);border:1px solid rgba(0,212,170,.14);border-radius:11px;padding:11px 13px;}
+.stat .l{font-size:10px;color:var(--dim);text-transform:uppercase;letter-spacing:.06em;}
+.stat .n{font-size:17px;font-weight:800;color:var(--tx);font-variant-numeric:tabular-nums;margin-top:2px;}
+.stat .n.g{color:var(--green);}.stat .n.b{color:var(--blue);}.stat .n.a{color:var(--amber);}
+.chartwrap{margin-top:16px;background:var(--card);border:1px solid rgba(0,212,170,.16);border-radius:16px;padding:16px 18px 10px;}
+.chartwrap .ct{font-size:11px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--teal);margin-bottom:6px;}
+.legend{display:flex;gap:16px;font-size:11px;color:var(--tx2);margin-bottom:8px;flex-wrap:wrap;}
+.legend span{display:inline-flex;align-items:center;gap:6px;}
+.dot{width:10px;height:10px;border-radius:3px;display:inline-block;}
+canvas{width:100%;height:240px;display:block;}
+.note{font-size:12px;color:var(--tx2);background:#0e0b24;border:1px solid rgba(124,111,247,.4);border-left:3px solid var(--purple);border-radius:0 11px 11px 0;padding:13px 16px;margin-top:16px;}
+.note b{color:var(--purple);}
+.disc{font-size:11px;color:var(--dim);text-align:center;max-width:760px;margin:1.6rem auto 0;padding-top:1rem;border-top:1px solid rgba(0,212,170,.12);line-height:1.6;}
+.site-footer{position:relative;z-index:10;border-top:1px solid rgba(0,212,170,.12);background:rgba(5,13,26,.97);margin-top:2.2rem;}
+.fnav{display:flex;justify-content:center;gap:1.4rem;flex-wrap:wrap;padding:1rem;border-bottom:1px solid rgba(0,212,170,.08);}
+.fnav a{font-size:13px;font-weight:600;color:var(--teal);text-decoration:none;}
+.flegal{text-align:center;padding:1rem;font-size:11px;color:var(--dim);line-height:1.7;}
+.flegal a{color:var(--teal);text-decoration:none;}
+.fdbr{font-size:18px;font-weight:800;color:var(--teal);display:block;margin-bottom:.3rem;}
+@media(max-width:900px){.hero-left{display:none;}.hero-section{min-height:auto;padding:2.5rem 1.25rem 2rem;}}
+@media(max-width:780px){.grid{grid-template-columns:1fr;}.stats{grid-template-columns:1fr 1fr;}}
+@media(max-width:600px){.hero-stats-row{grid-template-columns:repeat(2,1fr);}.tab-item{padding:12px 14px;font-size:11px;}}
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="header-inner">
+    <div>
+      <a href="index.html" class="logo-name">DBR</a>
+      <div class="logo-sub">Dreams Business Resources · Honest Comparison Series</div>
+    </div>
+    <div class="header-quote">"The shortcut isn't saving harder —<br>it's adding income that compounds."</div>
+  </div>
+</header>
+
+<nav class="tab-nav">
+  <div class="tab-list">
+    <a href="index.html" class="tab-item"><span class="tab-icon">🏠</span> Home</a>
+    <a href="savings.html" class="tab-item active"><span class="tab-icon">💰</span> Savings</a>
+    <a href="franchise.html" class="tab-item"><span class="tab-icon">🏢</span> Top 10 Franchise</a>
+    <a href="network-marketing.html" class="tab-item"><span class="tab-icon">🔗</span> Network Marketing</a>
+    <a href="online-sales.html" class="tab-item"><span class="tab-icon">🚀</span> Online Sales Business</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero-section">
+  <div class="hero-dots"><canvas id="dotCanvas"></canvas></div>
+  <div class="hero-left">
+    <div class="stat-card">
+      <div class="stat-icon">⚡</div>
+      <div class="stat-label">System Status</div>
+      <div class="stat-value">● ONLINE</div>
+      <div class="stat-bar"></div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-icon">📈</div>
+      <div class="stat-label">Avg Return Needed</div>
+      <div class="stat-value amber">7%+</div>
+      <div class="stat-bar amber"></div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-icon">💡</div>
+      <div class="stat-label">The Real Answer</div>
+      <div class="stat-value green">Renewals</div>
+      <div class="stat-bar green"></div>
+    </div>
+  </div>
+  <div class="hero-center">
+    <div class="hero-badge">
+      <span class="badge-dot"></span>
+      ⚡ The Honest Comparison Series — DBR 2026
+    </div>
+    <h1 class="hero-h1">
+      THE MILLION-<br>
+      DOLLAR <span class="accent">REALITY</span><br>
+      <span class="accent2">CALCULATOR™</span>
+    </h1>
+    <div class="hero-divider">
+      <div class="hero-divider-line"></div>
+      <div class="hero-divider-text">Nest Egg Intelligence</div>
+      <div class="hero-divider-line" style="background:linear-gradient(270deg,rgba(0,212,170,.4),transparent);"></div>
+    </div>
+    <p class="hero-sub">
+      Move the sliders and watch what it actually takes to build a real nest egg.<br>
+      <b>Most people are shocked by the monthly number</b> — that's the case for building recurring income, not just saving harder.
+    </p>
+    <div class="hero-stats-row">
+      <div class="hs-item">
+        <div class="hs-num">$1M+</div>
+        <div class="hs-label">Target Goal</div>
+        <div class="hs-sub">Adjustable</div>
+      </div>
+      <div class="hs-item">
+        <div class="hs-num amber">25 yrs</div>
+        <div class="hs-label">Avg Save Time</div>
+        <div class="hs-sub">Most Start Late</div>
+      </div>
+      <div class="hs-item">
+        <div class="hs-num green">7%</div>
+        <div class="hs-label">Return Rate</div>
+        <div class="hs-sub">Historical Avg</div>
+      </div>
+      <div class="hs-item">
+        <div class="hs-num blue">∞</div>
+        <div class="hs-label">Renewals</div>
+        <div class="hs-sub">DBR Advantage</div>
+      </div>
+    </div>
+    <div class="hero-cta-row">
+      <a href="#calculator" class="btn-primary">Open Calculator ↓</a>
+      <a href="franchise.html" class="btn-secondary">Compare Franchises →</a>
+    </div>
+  </div>
+</section>
+
+<nav class="bottom-strip">
+  <div class="bottom-list">
+    <a href="savings.html" class="bottom-item active"><span class="bi-icon">💰</span><span>SAVINGS</span><span class="bi-sub">Nest Egg Calc</span></a>
+    <a href="franchise.html" class="bottom-item"><span class="bi-icon">🏢</span><span>FRANCHISE</span><span class="bi-sub">Top 10 Compared</span></a>
+    <a href="network-marketing.html" class="bottom-item"><span class="bi-icon">🔗</span><span>NETWORK MKT</span><span class="bi-sub">MLM Truth</span></a>
+    <a href="online-sales.html" class="bottom-item"><span class="bi-icon">🚀</span><span>ONLINE SALES</span><span class="bi-sub">Digital Models</span></a>
+    <a href="https://dreamsfaststart.com" class="bottom-item" target="_blank"><span class="bi-icon">⚡</span><span>FAST START</span><span class="bi-sub">DBR Training</span></a>
+  </div>
+</nav>
+
+<!-- CALCULATOR CONTENT -->
+<div class="wrap" id="calculator">
+  <div class="sec">Interactive Nest Egg Calculator</div>
+  <div class="grid">
+    <div class="panel">
+      <div class="ctrl">
+        <div class="top"><span class="lab">Current Age</span><span class="val" id="vCur">40</span></div>
+        <input type="range" id="cur" min="30" max="67" step="1" value="40">
+        <div class="scale"><span>30</span><span>67</span></div>
+      </div>
+      <div class="ctrl">
+        <div class="top"><span class="lab">Target Retirement Age</span><span class="val" id="vRet">65</span></div>
+        <input type="range" id="ret" min="45" max="100" step="1" value="65">
+        <div class="scale"><span>45</span><span>100</span></div>
+      </div>
+      <div class="ctrl">
+        <div class="top"><span class="lab">Target Nest Egg</span><span class="val" id="vGoal">$1,000,000</span></div>
+        <input type="range" id="goal" min="1000000" max="20000000" step="250000" value="1000000">
+        <div class="scale"><span>$1M</span><span>$20M</span></div>
+      </div>
+      <div class="ctrl">
+        <div class="top"><span class="lab">Starting Nest Egg (already saved)</span><span class="val" id="vSaved">$0</span></div>
+        <input type="range" id="saved" min="0" max="500000" step="10000" value="0">
+        <div class="scale"><span>$0</span><span>$500K</span></div>
+      </div>
+      <div class="ctrl">
+        <div class="top"><span class="lab">Starting Debt Load</span><span class="val neg" id="vStart">$0</span></div>
+        <input type="range" id="start" min="-500000" max="0" step="10000" value="0">
+        <div class="scale"><span>-$500K (in debt)</span><span>$0</span></div>
+      </div>
+      <div class="ctrl">
+        <div class="top"><span class="lab">Average Annual Return</span><span class="val" id="vRate">7.0%</span></div>
+        <input type="range" id="rate" min="1" max="12" step="0.5" value="7">
+        <div class="scale"><span>1%</span><span>12%</span></div>
+      </div>
+    </div>
+    <div>
+      <div class="result">
+        <div class="cap">You Must Save</div>
+        <div class="big" id="pmt">$1,234</div>
+        <div class="per">per month, every month, for <b id="yrs">25</b> years</div>
+        <div class="reality" id="reality">That's about $41/day — for 300 straight months.</div>
+      </div>
+      <div class="stats">
+        <div class="stat"><div class="l">Years to Save</div><div class="n" id="sYrs">25</div></div>
+        <div class="stat"><div class="l">You Contribute</div><div class="n b" id="sContrib">$370,200</div></div>
+        <div class="stat"><div class="l">Growth / Interest</div><div class="n g" id="sInt">$629,800</div></div>
+        <div class="stat"><div class="l">Ending Balance</div><div class="n a" id="sEnd">$1,000,000</div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="chartwrap">
+    <div class="ct">How The Balance Builds</div>
+    <div class="legend"><span><span class="dot" style="background:var(--teal)"></span>Total Balance</span><span><span class="dot" style="background:#3a5a78"></span>What You Put In</span><span><span class="dot" style="background:var(--amber)"></span>Target</span></div>
+    <canvas id="chart"></canvas>
+  </div>
+
+  <div class="note"><b>The reality check:</b> notice how much of the ending balance is <b>growth</b>, not your own deposits — that only works with decades and discipline. Start late, start in debt, or earn a lower return, and the monthly number climbs fast. The shortcut isn't saving harder — it's adding <b>income that compounds on its own</b> (renewals, overrides, recurring revenue) so your money has more to grow from.</div>
+
+  <div class="disc">For illustration only — not financial advice. Assumes a constant average annual return compounded monthly with level monthly contributions; real markets vary and are not guaranteed. Figures are estimates to show the math of compounding, not a projection of your results.</div>
+</div>
+
+<footer class="site-footer">
+  <div class="fnav">
+    <a href="https://dreamsfaststart.com" target="_blank">Fast Start</a>
+    <a href="https://aigeniedatabase.com" target="_blank">AI Genie Database</a>
+    <a href="https://renewalsforlifestyle.com" target="_blank">Renewals For Life</a>
+  </div>
+  <div class="flegal"><span class="fdbr">DBR</span>© 2026 Dreams Business Resources &nbsp;·&nbsp; Mike Hinsvark, Senior Agency Partner &nbsp;·&nbsp; <a href="mailto:mikeceo@gmail.com">mikeceo@gmail.com</a><br>All rights reserved. Income results vary. Educational purposes only.</div>
+</footer>
+
+<script>
+// Dot canvas
+(function(){
+  var canvas=document.getElementById('dotCanvas');if(!canvas)return;
+  var ctx=canvas.getContext('2d');var dots=[];var W,H;
+  function resize(){W=canvas.offsetWidth;H=canvas.offsetHeight;canvas.width=W*(window.devicePixelRatio||1);canvas.height=H*(window.devicePixelRatio||1);ctx.setTransform(window.devicePixelRatio||1,0,0,window.devicePixelRatio||1,0,0);buildDots();}
+  function buildDots(){dots=[];var cols=Math.floor(W/28);var rows=Math.floor(H/28);for(var r=0;r<rows;r++){for(var c=0;c<cols;c++){var x=c*28+14;var y=r*28+14;var dx=x/W-.2;var dy=y/H-.5;var dist=Math.sqrt(dx*dx+dy*dy);var alpha=Math.max(0,.55-dist*1.1);if(alpha<.04)continue;dots.push({x:x,y:y,baseAlpha:alpha,phase:Math.random()*Math.PI*2,speed:.4+Math.random()*.8,r:1.5+Math.random()*1.5});}}}
+  var t=0;function draw(){ctx.clearRect(0,0,W,H);t+=.012;for(var i=0;i<dots.length;i++){var d=dots[i];var a=d.baseAlpha*(.5+.5*Math.sin(t*d.speed+d.phase));ctx.beginPath();ctx.arc(d.x,d.y,d.r,0,Math.PI*2);ctx.fillStyle='rgba(0,212,170,'+a.toFixed(3)+')';ctx.fill();}requestAnimationFrame(draw);}
+  window.addEventListener('resize',resize);resize();draw();
+})();
+
+// Calculator
+(function(){
+  var $=function(id){return document.getElementById(id);};
+  var cur=$('cur'),ret=$('ret'),goal=$('goal'),start=$('start'),saved=$('saved'),rate=$('rate');
+  function money(n){var s=n<0?'-':'';n=Math.abs(Math.round(n));return s+'$'+n.toLocaleString('en-US');}
+  function moneyShort(n){var a=Math.abs(n);if(a>=1e6)return (n<0?'-':'')+'$'+(a/1e6).toFixed(a%1e6===0?0:1)+'M';if(a>=1e3)return (n<0?'-':'')+'$'+Math.round(a/1e3)+'K';return money(n);}
+  function calc(){
+    var c=+cur.value,R=+ret.value,G=+goal.value,debt=+start.value,svd=+saved.value,ratePct=+rate.value;
+    var S=debt+svd;
+    $('vCur').textContent=c;$('vRet').textContent=R;$('vGoal').textContent=money(G);
+    var vs=$('vStart');vs.textContent=money(debt);vs.classList.toggle('neg',debt<0);
+    $('vSaved').textContent=money(svd);$('vRate').textContent=ratePct.toFixed(1)+'%';
+    var bigEl=$('pmt'),realEl=$('reality');
+    if(R<=c){bigEl.textContent='—';bigEl.classList.add('warn');realEl.textContent='Set your retirement age above your current age.';$('yrs').textContent='0';$('sYrs').textContent='0';$('sContrib').textContent='—';$('sInt').textContent='—';$('sEnd').textContent=money(G);drawChart(c,c,S,0,0,G);return;}
+    bigEl.classList.remove('warn');
+    var years=R-c,n=years*12,r=(ratePct/100)/12;
+    var fvStart=S*Math.pow(1+r,n);var need=G-fvStart;var factor=(Math.pow(1+r,n)-1)/r;var pmt=need/factor;if(pmt<0)pmt=0;
+    var contrib=pmt*n;var interest=G-(S+contrib);
+    bigEl.textContent=money(pmt);$('yrs').textContent=years;$('sYrs').textContent=years;$('sContrib').textContent=money(S+contrib);$('sInt').textContent=money(interest);$('sEnd').textContent=money(G);
+    var perDay=pmt*12/365;realEl.textContent='That\'s about '+money(perDay)+'/day — for '+n+' straight months, with zero misses.';
+    drawChart(c,R,S,pmt,r,G);
+  }
+  function drawChart(c,R,S,pmt,r,G){
+    var cv=$('chart');var dpr=window.devicePixelRatio||1;var W=cv.clientWidth||600,H=240;
+    cv.width=W*dpr;cv.height=H*dpr;var ctx=cv.getContext('2d');ctx.setTransform(dpr,0,0,dpr,0,0);ctx.clearRect(0,0,W,H);
+    var padL=46,padR=12,padT=12,padB=22;var pw=W-padL-padR,ph=H-padT-padB;
+    var years=Math.max(R-c,1);var bal=[],con=[];var b=S,contributed=S;
+    bal.push(b);con.push(contributed);
+    for(var m=1;m<=years*12;m++){b=(b+pmt)*(1+r);contributed+=pmt;if(m%12===0){bal.push(b);con.push(contributed);}}
+    var maxY=Math.max(G,bal[bal.length-1])*1.05;var minY=Math.min(0,S);
+    function X(i){return padL+pw*(i/(bal.length-1));}
+    function Y(v){return padT+ph*(1-(v-minY)/(maxY-minY));}
+    ctx.strokeStyle='rgba(0,212,170,.10)';ctx.fillStyle='#5f8b80';ctx.font='10px sans-serif';ctx.textAlign='right';
+    for(var g=0;g<=4;g++){var v=minY+(maxY-minY)*g/4;var y=Y(v);ctx.beginPath();ctx.moveTo(padL,y);ctx.lineTo(W-padR,y);ctx.stroke();ctx.fillText(moneyShort(v),padL-6,y+3);}
+    var ty=Y(G);ctx.strokeStyle='rgba(240,168,50,.8)';ctx.setLineDash([5,4]);ctx.beginPath();ctx.moveTo(padL,ty);ctx.lineTo(W-padR,ty);ctx.stroke();ctx.setLineDash([]);
+    function plot(arr,color,fill){ctx.beginPath();for(var i=0;i<arr.length;i++){var x=X(i),y=Y(arr[i]);if(i===0)ctx.moveTo(x,y);else ctx.lineTo(x,y);}ctx.strokeStyle=color;ctx.lineWidth=2.5;ctx.stroke();if(fill){ctx.lineTo(X(arr.length-1),Y(minY));ctx.lineTo(X(0),Y(minY));ctx.closePath();ctx.fillStyle=fill;ctx.fill();}}
+    plot(bal,'#00d4aa','rgba(0,212,170,.10)');plot(con,'#3a5a78',null);
+    ctx.fillStyle='#5f8b80';ctx.textAlign='center';ctx.fillText('Age '+c,padL,H-7);ctx.fillText('Age '+R,W-padR,H-7);
+  }
+  [cur,ret,goal,start,saved,rate].forEach(function(el){el.addEventListener('input',calc);});
+  window.addEventListener('resize',calc);calc();
+})();
+</script>
+</body>
+</html>
