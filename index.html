@@ -1,0 +1,724 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Honest Comparison Series — DBR Learning Library</title>
+<meta name="description" content="Dreams Business Resources — The Honest Comparison Series. Compare savings, franchises, network marketing, and online sales business models side by side.">
+<style>
+:root {
+  --bg:       #050d1a;
+  --card:     #0b1628;
+  --card2:    #0e1e35;
+  --teal:     #00d4aa;
+  --teal-glow:rgba(0,212,170,0.25);
+  --teal-dim: rgba(0,212,170,0.12);
+  --green:    #56e39f;
+  --amber:    #f0a832;
+  --coral:    #ff6b6b;
+  --purple:   #7c6ff7;
+  --blue:     #4da6ff;
+  --tx:       #e8f4f1;
+  --tx2:      #9fc4ba;
+  --dim:      #5f8b80;
+  --border:   rgba(0,212,170,0.15);
+}
+*{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{
+  background:var(--bg);
+  color:var(--tx);
+  font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+  line-height:1.6;
+  min-height:100vh;
+}
+/* Grid background */
+body::before{
+  content:'';position:fixed;inset:0;
+  background-image:
+    linear-gradient(rgba(0,212,170,.03) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(0,212,170,.03) 1px,transparent 1px);
+  background-size:40px 40px;
+  pointer-events:none;z-index:0;
+}
+
+/* ─── SITE HEADER ─── */
+.site-header{
+  position:sticky;top:0;z-index:100;
+  background:rgba(5,13,26,.97);
+  backdrop-filter:blur(12px);
+  border-bottom:1px solid var(--border);
+}
+.header-inner{
+  max-width:1100px;margin:0 auto;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:14px 1.25rem;gap:1rem;
+}
+.logo-block{display:flex;flex-direction:column;gap:2px;}
+.logo-name{
+  font-size:22px;font-weight:800;color:var(--teal);
+  letter-spacing:.04em;text-shadow:0 0 20px var(--teal-glow);
+  text-decoration:none;
+}
+.logo-sub{font-size:10px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--dim);}
+.header-quote{
+  font-size:12px;font-style:italic;color:var(--tx2);
+  text-align:right;max-width:260px;line-height:1.4;
+  display:none;
+}
+@media(min-width:640px){.header-quote{display:block;}}
+
+/* ─── TAB NAV ─── */
+.tab-nav{
+  position:sticky;top:57px;z-index:99;
+  background:rgba(5,13,26,.95);
+  backdrop-filter:blur(8px);
+  border-bottom:2px solid rgba(0,212,170,.18);
+  overflow-x:auto;
+  scrollbar-width:none;
+}
+.tab-nav::-webkit-scrollbar{display:none;}
+.tab-list{
+  display:flex;align-items:stretch;
+  max-width:1100px;margin:0 auto;
+  padding:0 1rem;
+  gap:0;
+  min-width:max-content;
+}
+.tab-item{
+  display:flex;align-items:center;gap:8px;
+  padding:14px 20px;
+  font-size:12px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;
+  color:var(--dim);
+  text-decoration:none;
+  border-bottom:3px solid transparent;
+  margin-bottom:-2px;
+  transition:color .2s,border-color .2s;
+  white-space:nowrap;
+}
+.tab-item:hover{color:var(--teal);}
+.tab-item.active{color:var(--teal);border-bottom-color:var(--teal);}
+.tab-item .tab-icon{font-size:16px;}
+
+/* ─── HERO SECTION ─── */
+.hero-section{
+  position:relative;z-index:1;
+  overflow:hidden;
+  min-height:88vh;
+  display:flex;align-items:center;
+  padding:3rem 1.25rem 2rem;
+}
+/* Animated dot-matrix background */
+.hero-section::before{
+  content:'';
+  position:absolute;inset:0;
+  background:
+    radial-gradient(ellipse 70% 60% at 75% 50%, rgba(0,212,170,.07) 0%, transparent 70%),
+    radial-gradient(ellipse 40% 40% at 85% 30%, rgba(77,166,255,.06) 0%, transparent 60%);
+  pointer-events:none;
+}
+.hero-dots{
+  position:absolute;right:0;top:0;bottom:0;
+  width:55%;max-width:700px;
+  pointer-events:none;
+  overflow:hidden;
+}
+.hero-dots canvas{width:100%;height:100%;display:block;}
+
+.hero-left{
+  position:relative;z-index:2;
+  flex:0 0 auto;
+  width:min(320px,100%);
+  display:flex;flex-direction:column;gap:14px;
+  margin-right:2rem;
+}
+.stat-card{
+  background:rgba(11,22,40,.85);
+  border:1px solid rgba(0,212,170,.2);
+  border-radius:12px;
+  padding:14px 16px;
+  backdrop-filter:blur(6px);
+}
+.stat-label{font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--dim);margin-bottom:4px;}
+.stat-value{font-size:22px;font-weight:800;color:var(--teal);text-shadow:0 0 16px var(--teal-glow);}
+.stat-value.amber{color:var(--amber);text-shadow:0 0 16px rgba(240,168,50,.3);}
+.stat-value.purple{color:var(--purple);text-shadow:0 0 16px rgba(124,111,247,.3);}
+.stat-bar{height:3px;border-radius:2px;margin-top:6px;background:linear-gradient(90deg,var(--teal),transparent);}
+.stat-bar.amber{background:linear-gradient(90deg,var(--amber),transparent);}
+.stat-bar.purple{background:linear-gradient(90deg,var(--purple),transparent);}
+.stat-icon{font-size:18px;margin-bottom:4px;}
+
+.hero-center{
+  position:relative;z-index:2;
+  flex:1 1 auto;
+  max-width:680px;
+}
+.hero-badge{
+  display:inline-flex;align-items:center;gap:8px;
+  background:rgba(0,212,170,.08);
+  border:1px solid rgba(0,212,170,.35);
+  border-radius:999px;
+  padding:7px 18px;
+  font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;
+  color:var(--teal);
+  margin-bottom:1.4rem;
+  box-shadow:0 0 20px var(--teal-dim);
+}
+.badge-dot{
+  width:7px;height:7px;border-radius:50%;
+  background:var(--teal);box-shadow:0 0 8px var(--teal);
+  animation:pulse 2s infinite;
+}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.3}}
+.hero-h1{
+  font-size:clamp(2.6rem,7vw,5rem);
+  font-weight:800;letter-spacing:-.03em;line-height:1.05;
+  color:var(--tx);
+  margin-bottom:.5rem;
+}
+.hero-h1 .accent{color:var(--teal);text-shadow:0 0 40px var(--teal-glow);}
+.hero-h1 .accent2{color:var(--amber);text-shadow:0 0 30px rgba(240,168,50,.3);}
+.hero-divider{
+  display:flex;align-items:center;gap:14px;
+  margin:1rem 0;
+}
+.hero-divider-line{flex:1;height:1px;background:linear-gradient(90deg,rgba(0,212,170,.4),transparent);}
+.hero-divider-text{font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--teal);white-space:nowrap;}
+.hero-sub{
+  font-size:clamp(15px,2.5vw,18px);
+  color:var(--tx2);
+  max-width:560px;
+  margin-bottom:1.8rem;
+  line-height:1.65;
+}
+.hero-sub b{color:var(--tx);}
+.hero-stats-row{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:12px;
+  background:rgba(11,22,40,.7);
+  border:1px solid rgba(0,212,170,.18);
+  border-radius:14px;
+  padding:18px 16px;
+  backdrop-filter:blur(6px);
+  margin-bottom:1.8rem;
+}
+.hs-item{text-align:center;}
+.hs-num{font-size:clamp(18px,3vw,26px);font-weight:800;color:var(--teal);text-shadow:0 0 20px var(--teal-glow);line-height:1;margin-bottom:4px;}
+.hs-num.amber{color:var(--amber);}
+.hs-num.purple{color:var(--purple);}
+.hs-num.blue{color:var(--blue);}
+.hs-label{font-size:9px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--dim);}
+.hs-sub{font-size:9px;color:rgba(95,139,128,.7);margin-top:1px;}
+.hero-cta-row{display:flex;gap:12px;flex-wrap:wrap;}
+.btn-primary{
+  display:inline-flex;align-items:center;gap:8px;
+  background:var(--teal);color:#050d1a;
+  font-weight:800;font-size:14px;
+  border:none;border-radius:999px;
+  padding:13px 28px;cursor:pointer;text-decoration:none;
+  box-shadow:0 0 28px var(--teal-glow),0 4px 16px rgba(0,212,170,.3);
+  transition:transform .15s,box-shadow .15s;
+}
+.btn-primary:hover{transform:scale(1.04);box-shadow:0 0 44px var(--teal-glow),0 6px 22px rgba(0,212,170,.4);}
+.btn-secondary{
+  display:inline-flex;align-items:center;gap:8px;
+  background:transparent;color:var(--teal);
+  font-weight:700;font-size:14px;
+  border:1px solid rgba(0,212,170,.4);border-radius:999px;
+  padding:12px 24px;cursor:pointer;text-decoration:none;
+  transition:background .15s,box-shadow .15s;
+}
+.btn-secondary:hover{background:rgba(0,212,170,.08);box-shadow:0 0 20px var(--teal-dim);}
+
+/* ─── BOTTOM NAV STRIP ─── */
+.bottom-strip{
+  position:relative;z-index:1;
+  background:rgba(5,13,26,.97);
+  border-top:1px solid rgba(0,212,170,.15);
+  overflow-x:auto;scrollbar-width:none;
+}
+.bottom-strip::-webkit-scrollbar{display:none;}
+.bottom-list{
+  display:flex;justify-content:center;
+  gap:0;
+  max-width:1100px;margin:0 auto;
+  padding:0 1rem;
+  min-width:max-content;
+}
+.bottom-item{
+  display:flex;flex-direction:column;align-items:center;gap:4px;
+  padding:14px 20px;
+  font-size:9px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;
+  color:var(--dim);text-decoration:none;
+  border-top:2px solid transparent;
+  transition:color .2s,border-color .2s;
+  white-space:nowrap;
+}
+.bottom-item:hover{color:var(--teal);}
+.bottom-item.active{color:var(--teal);border-top-color:var(--teal);}
+.bottom-item .bi-icon{font-size:20px;}
+.bottom-item .bi-sub{font-size:8px;color:var(--dim);margin-top:1px;}
+
+/* ─── MAIN CONTENT ─── */
+.main-wrap{
+  position:relative;z-index:1;
+  max-width:1100px;margin:0 auto;
+  padding:3rem 1.25rem 4rem;
+}
+
+/* Section headers */
+.sec-header{display:flex;align-items:center;gap:14px;margin:2.5rem 0 1.2rem;}
+.sec-line{flex:1;height:1px;background:linear-gradient(90deg,rgba(0,212,170,.3),transparent);}
+.sec-line.rev{background:linear-gradient(270deg,rgba(0,212,170,.3),transparent);}
+.sec-label{font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--teal);white-space:nowrap;}
+
+/* Feature cards grid */
+.features-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+  gap:16px;
+  margin-bottom:2.5rem;
+}
+.feat-card{
+  background:var(--card);
+  border:1px solid rgba(0,212,170,.18);
+  border-radius:16px;
+  padding:24px 22px;
+  transition:transform .2s,box-shadow .2s;
+  cursor:pointer;
+  text-decoration:none;
+  display:block;
+}
+.feat-card:hover{transform:translateY(-3px);box-shadow:0 8px 40px rgba(0,212,170,.12);}
+.feat-card.amber{border-color:rgba(240,168,50,.25);}
+.feat-card.amber:hover{box-shadow:0 8px 40px rgba(240,168,50,.1);}
+.feat-card.coral{border-color:rgba(255,107,107,.25);}
+.feat-card.coral:hover{box-shadow:0 8px 40px rgba(255,107,107,.1);}
+.feat-card.purple{border-color:rgba(124,111,247,.25);}
+.feat-card.purple:hover{box-shadow:0 8px 40px rgba(124,111,247,.1);}
+.feat-icon{font-size:36px;margin-bottom:14px;}
+.feat-title{font-size:17px;font-weight:800;color:var(--tx);margin-bottom:6px;}
+.feat-title.teal{color:var(--teal);}
+.feat-title.amber{color:var(--amber);}
+.feat-title.coral{color:var(--coral);}
+.feat-title.purple{color:var(--purple);}
+.feat-desc{font-size:13px;color:var(--tx2);line-height:1.6;}
+.feat-link{
+  display:inline-flex;align-items:center;gap:6px;
+  font-size:12px;font-weight:700;color:var(--teal);
+  margin-top:14px;letter-spacing:.04em;
+}
+.feat-card.amber .feat-link{color:var(--amber);}
+.feat-card.coral .feat-link{color:var(--coral);}
+.feat-card.purple .feat-link{color:var(--purple);}
+
+/* Intro text block */
+.intro-block{
+  background:var(--card);
+  border:1px solid rgba(0,212,170,.18);
+  border-radius:16px;
+  padding:28px 28px;
+  margin-bottom:2.5rem;
+}
+.intro-block p{font-size:15px;color:var(--tx2);line-height:1.75;margin-bottom:1rem;}
+.intro-block p:last-child{margin-bottom:0;}
+.intro-block b{color:var(--tx);}
+.intro-block .highlight{color:var(--teal);}
+
+/* 4M framework teaser */
+.framework-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+  gap:14px;
+  margin-bottom:2.5rem;
+}
+.fw-card{
+  background:var(--card);
+  border-radius:14px;
+  padding:20px 18px;
+  text-align:center;
+}
+.fw-card.m1{border:1px solid rgba(0,212,170,.3);box-shadow:0 0 20px var(--teal-dim);}
+.fw-card.m2{border:1px solid rgba(77,166,255,.3);box-shadow:0 0 20px rgba(77,166,255,.08);}
+.fw-card.m3{border:1px solid rgba(124,111,247,.3);box-shadow:0 0 20px rgba(124,111,247,.08);}
+.fw-card.m4{border:1px solid rgba(240,168,50,.3);box-shadow:0 0 20px rgba(240,168,50,.08);}
+.fw-letter{font-size:48px;font-weight:800;line-height:1;margin-bottom:6px;}
+.fw-card.m1 .fw-letter{color:var(--teal);}
+.fw-card.m2 .fw-letter{color:var(--blue);}
+.fw-card.m3 .fw-letter{color:var(--purple);}
+.fw-card.m4 .fw-letter{color:var(--amber);}
+.fw-word{font-size:14px;font-weight:800;color:var(--tx);margin-bottom:6px;}
+.fw-desc{font-size:12px;color:var(--tx2);line-height:1.5;}
+
+/* CTA box */
+.cta-box{
+  background:linear-gradient(135deg,rgba(0,212,170,.08),rgba(124,111,247,.06));
+  border:1px solid rgba(0,212,170,.35);
+  border-radius:20px;
+  padding:3rem 2rem;
+  text-align:center;
+  box-shadow:0 0 60px rgba(0,212,170,.08),0 0 60px rgba(124,111,247,.04);
+  margin-top:2.5rem;
+}
+.cta-icon{font-size:48px;margin-bottom:1rem;}
+.cta-title{font-size:clamp(22px,4vw,30px);font-weight:800;color:var(--tx);margin-bottom:.6rem;}
+.cta-title span{color:var(--teal);text-shadow:0 0 24px var(--teal-glow);}
+.cta-sub{font-size:15px;color:var(--tx2);max-width:500px;margin:0 auto 2rem;line-height:1.65;}
+.cta-btns{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;}
+
+/* ─── FOOTER ─── */
+.site-footer{
+  position:relative;z-index:10;
+  border-top:1px solid rgba(0,212,170,.12);
+  background:rgba(5,13,26,.98);
+  margin-top:0;
+}
+.fnav{
+  display:flex;justify-content:center;gap:1.5rem;flex-wrap:wrap;
+  padding:1.1rem 1rem;
+  border-bottom:1px solid rgba(0,212,170,.08);
+}
+.fnav a{font-size:13px;font-weight:600;color:var(--teal);text-decoration:none;transition:opacity .15s;}
+.fnav a:hover{opacity:.7;}
+.flegal{
+  text-align:center;padding:1rem 1rem 1.5rem;
+  font-size:11px;color:var(--dim);line-height:1.7;
+}
+.flegal a{color:var(--teal);text-decoration:none;}
+.fdbr{font-size:18px;font-weight:800;color:var(--teal);display:block;margin-bottom:.4rem;letter-spacing:.08em;text-shadow:0 0 14px var(--teal-glow);}
+
+/* ─── RESPONSIVE ─── */
+@media(max-width:900px){
+  .hero-left{display:none;}
+  .hero-section{min-height:auto;padding:2.5rem 1.25rem 2rem;}
+}
+@media(max-width:600px){
+  .hero-stats-row{grid-template-columns:repeat(2,1fr);}
+  .tab-item{padding:12px 14px;font-size:11px;}
+  .hero-h1{font-size:clamp(2.2rem,10vw,3.5rem);}
+}
+</style>
+</head>
+<body>
+
+<!-- SITE HEADER -->
+<header class="site-header">
+  <div class="header-inner">
+    <div class="logo-block">
+      <a href="index.html" class="logo-name">DBR</a>
+      <div class="logo-sub">Dreams Business Resources · Honest Comparison Series</div>
+    </div>
+    <div class="header-quote">"You are in business for yourself,<br>but not by yourself."</div>
+  </div>
+</header>
+
+<!-- TAB NAVIGATION -->
+<nav class="tab-nav" aria-label="Main navigation">
+  <div class="tab-list">
+    <a href="index.html" class="tab-item active">
+      <span class="tab-icon">🏠</span> Home
+    </a>
+    <a href="savings.html" class="tab-item">
+      <span class="tab-icon">💰</span> Savings
+    </a>
+    <a href="franchise.html" class="tab-item">
+      <span class="tab-icon">🏢</span> Top 10 Franchise
+    </a>
+    <a href="network-marketing.html" class="tab-item">
+      <span class="tab-icon">🔗</span> Network Marketing
+    </a>
+    <a href="online-sales.html" class="tab-item">
+      <span class="tab-icon">🚀</span> Online Sales Business
+    </a>
+  </div>
+</nav>
+
+<!-- HERO SECTION -->
+<section class="hero-section">
+  <!-- Animated dot-matrix canvas -->
+  <div class="hero-dots">
+    <canvas id="dotCanvas"></canvas>
+  </div>
+
+  <!-- Left stat cards -->
+  <div class="hero-left">
+    <div class="stat-card">
+      <div class="stat-icon">⚡</div>
+      <div class="stat-label">System Status</div>
+      <div class="stat-value">● ONLINE</div>
+      <div class="stat-bar"></div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-icon">👥</div>
+      <div class="stat-label">Active Consultants</div>
+      <div class="stat-value">11,000+</div>
+      <div class="stat-bar"></div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-icon">🌐</div>
+      <div class="stat-label">Network Strength</div>
+      <div class="stat-value amber">98.7%</div>
+      <div class="stat-bar amber"></div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-icon">📊</div>
+      <div class="stat-label">Comparisons Live</div>
+      <div class="stat-value purple">4 Models</div>
+      <div class="stat-bar purple"></div>
+    </div>
+  </div>
+
+  <!-- Center hero content -->
+  <div class="hero-center">
+    <div class="hero-badge">
+      <span class="badge-dot"></span>
+      ⚡ AI-Powered Training — DBR 2026
+    </div>
+    <h1 class="hero-h1">
+      THE <span class="accent">HONEST</span><br>
+      COMPARISON<br>
+      <span class="accent2">SERIES™</span>
+    </h1>
+    <div class="hero-divider">
+      <div class="hero-divider-line"></div>
+      <div class="hero-divider-text">Business Model Intelligence</div>
+      <div class="hero-divider-line" style="background:linear-gradient(270deg,rgba(0,212,170,.4),transparent);"></div>
+    </div>
+    <p class="hero-sub">
+      Dreams Business Resources · Know Before You Commit.<br>
+      <b>Real numbers, real trade-offs</b> — so you can build the right business the first time.
+    </p>
+    <div class="hero-stats-row">
+      <div class="hs-item">
+        <div class="hs-num">4</div>
+        <div class="hs-label">Business Models</div>
+        <div class="hs-sub">Side by Side</div>
+      </div>
+      <div class="hs-item">
+        <div class="hs-num amber">$0</div>
+        <div class="hs-label">DBR Start Cost</div>
+        <div class="hs-sub">No Franchise Fee</div>
+      </div>
+      <div class="hs-item">
+        <div class="hs-num purple">12</div>
+        <div class="hs-label">Scoring Factors</div>
+        <div class="hs-sub">4M Framework</div>
+      </div>
+      <div class="hs-item">
+        <div class="hs-num blue">∞</div>
+        <div class="hs-label">Residual Upside</div>
+        <div class="hs-sub">Renewals for Life</div>
+      </div>
+    </div>
+    <div class="hero-cta-row">
+      <a href="savings.html" class="btn-primary">Start Comparing →</a>
+      <a href="franchise.html" class="btn-secondary">View Franchises</a>
+    </div>
+  </div>
+</section>
+
+<!-- BOTTOM NAV STRIP -->
+<nav class="bottom-strip" aria-label="Quick navigation">
+  <div class="bottom-list">
+    <a href="savings.html" class="bottom-item">
+      <span class="bi-icon">💰</span>
+      <span>SAVINGS</span>
+      <span class="bi-sub">Nest Egg Calc</span>
+    </a>
+    <a href="franchise.html" class="bottom-item">
+      <span class="bi-icon">🏢</span>
+      <span>FRANCHISE</span>
+      <span class="bi-sub">Top 10 Compared</span>
+    </a>
+    <a href="network-marketing.html" class="bottom-item">
+      <span class="bi-icon">🔗</span>
+      <span>NETWORK MKT</span>
+      <span class="bi-sub">MLM Truth</span>
+    </a>
+    <a href="online-sales.html" class="bottom-item">
+      <span class="bi-icon">🚀</span>
+      <span>ONLINE SALES</span>
+      <span class="bi-sub">Digital Models</span>
+    </a>
+    <a href="https://dreamsfaststart.com" class="bottom-item" target="_blank">
+      <span class="bi-icon">⚡</span>
+      <span>FAST START</span>
+      <span class="bi-sub">DBR Training</span>
+    </a>
+  </div>
+</nav>
+
+<!-- MAIN CONTENT -->
+<main class="main-wrap">
+
+  <div class="sec-header">
+    <div class="sec-line"></div>
+    <div class="sec-label">Explore the Series</div>
+    <div class="sec-line rev"></div>
+  </div>
+
+  <!-- Feature cards -->
+  <div class="features-grid">
+    <a href="savings.html" class="feat-card">
+      <div class="feat-icon">💰</div>
+      <div class="feat-title teal">The Million-Dollar Reality</div>
+      <div class="feat-desc">Move the sliders and discover what it actually takes to build a real nest egg. Most people are shocked by the monthly number — that's the case for building <b>recurring income</b>, not just saving harder.</div>
+      <div class="feat-link">Open Calculator →</div>
+    </a>
+    <a href="franchise.html" class="feat-card amber">
+      <div class="feat-icon">🏢</div>
+      <div class="feat-title amber">Top 10 Franchises Compared</div>
+      <div class="feat-desc">Typical total initial investment ranges from public Franchise Disclosure Documents, plus ongoing royalty, time commitment, and the real pros and cons. From McDonald's to Great Clips.</div>
+      <div class="feat-link">Compare Franchises →</div>
+    </a>
+    <a href="network-marketing.html" class="feat-card coral">
+      <div class="feat-icon">🔗</div>
+      <div class="feat-title coral">The MLM Trap</div>
+      <div class="feat-desc">Most network-marketing deals are built on recruiting, one-time commissions, and marked-up products. Here are the red flags, the real success numbers, and why jumping company-to-company destroys your reputation.</div>
+      <div class="feat-link">See the Truth →</div>
+    </a>
+    <a href="online-sales.html" class="feat-card purple">
+      <div class="feat-icon">🚀</div>
+      <div class="feat-title purple">Online Sales Business</div>
+      <div class="feat-desc">High-volume digital products that pay you once per sale — no renewals, no residual. Great for fast cash and front-end offers; you keep selling to keep earning. Income screenshots are marketing, not the norm.</div>
+      <div class="feat-link">Explore Models →</div>
+    </a>
+  </div>
+
+  <div class="sec-header">
+    <div class="sec-line"></div>
+    <div class="sec-label">The DBR Difference</div>
+    <div class="sec-line rev"></div>
+  </div>
+
+  <!-- Intro block -->
+  <div class="intro-block">
+    <p>Every business model on this site has been evaluated through the same lens: <b>Money, Market, Moat, and Machine</b>. These four pillars determine whether a business creates real, lasting wealth — or just keeps you busy.</p>
+    <p>The best businesses score high on <span class="highlight">Money</span> (recurring, vested, fast-paid), <span class="highlight">Market</span> (big TAM + urgent pain + tailwind), <span class="highlight">Moat</span> (differentiator that's hard to copy), and <span class="highlight">Machine</span> (duplicatable system that retains clients). DBR nails all four — with <b>$0 to start, no employees, no inventory, and renewals for life.</b></p>
+    <p>Use these comparisons to educate your prospects, train your team, and help people make the best decision for their future. <b>Know before you commit.</b></p>
+  </div>
+
+  <!-- 4M Framework -->
+  <div class="sec-header">
+    <div class="sec-line"></div>
+    <div class="sec-label">The 4M Framework</div>
+    <div class="sec-line rev"></div>
+  </div>
+  <div class="framework-grid">
+    <div class="fw-card m1">
+      <div class="fw-letter">M</div>
+      <div class="fw-word">Money</div>
+      <div class="fw-desc">Recurring, vested, fast-paid income. Renewals you own — not just longer commissions.</div>
+    </div>
+    <div class="fw-card m2">
+      <div class="fw-letter">M</div>
+      <div class="fw-word">Market</div>
+      <div class="fw-desc">Big TAM with urgent pain and a clear tailwind. Existing demand, differentiated answer.</div>
+    </div>
+    <div class="fw-card m3">
+      <div class="fw-letter">M</div>
+      <div class="fw-word">Moat</div>
+      <div class="fw-desc">A differentiator that's hard to copy — regulatory, proprietary, or exclusive. Not "better service."</div>
+    </div>
+    <div class="fw-card m4">
+      <div class="fw-letter">M</div>
+      <div class="fw-word">Machine</div>
+      <div class="fw-desc">A duplicatable system any average rep can learn, with leads, support, and client retention built in.</div>
+    </div>
+  </div>
+
+  <!-- CTA -->
+  <div class="cta-box">
+    <div class="cta-icon">⚡</div>
+    <div class="cta-title">Ready to <span>Build the Right Way?</span></div>
+    <div class="cta-sub">DBR gives you real B2B products businesses actually keep, multiple stacked streams, renewals for life instead of one-time commissions, and $0 to start.</div>
+    <div class="cta-btns">
+      <a href="https://dreamsfaststart.com" class="btn-primary" target="_blank">Go to Fast Start →</a>
+      <a href="savings.html" class="btn-secondary">See the Numbers</a>
+    </div>
+  </div>
+
+</main>
+
+<!-- FOOTER -->
+<footer class="site-footer">
+  <div class="fnav">
+    <a href="https://dreamsfaststart.com" target="_blank">Fast Start</a>
+    <a href="https://aigeniedatabase.com" target="_blank">AI Genie Database</a>
+    <a href="https://renewalsforlifestyle.com" target="_blank">Renewals For Life</a>
+    <a href="savings.html">Savings Calculator</a>
+    <a href="franchise.html">Franchise Compare</a>
+  </div>
+  <div class="flegal">
+    <span class="fdbr">DBR</span>
+    © 2026 Dreams Business Resources &nbsp;·&nbsp; Mike Hinsvark, Senior Agency Partner &nbsp;·&nbsp; <a href="mailto:mikeceo@gmail.com">mikeceo@gmail.com</a><br>
+    All rights reserved. Income results vary. Educational purposes only.
+  </div>
+</footer>
+
+<script>
+// ─── Animated dot-matrix canvas ───
+(function(){
+  var canvas = document.getElementById('dotCanvas');
+  if(!canvas) return;
+  var ctx = canvas.getContext('2d');
+  var dots = [];
+  var W, H;
+
+  function resize(){
+    W = canvas.offsetWidth;
+    H = canvas.offsetHeight;
+    canvas.width = W * (window.devicePixelRatio||1);
+    canvas.height = H * (window.devicePixelRatio||1);
+    ctx.setTransform(window.devicePixelRatio||1, 0, 0, window.devicePixelRatio||1, 0, 0);
+    buildDots();
+  }
+
+  function buildDots(){
+    dots = [];
+    var cols = Math.floor(W / 28);
+    var rows = Math.floor(H / 28);
+    for(var r=0; r<rows; r++){
+      for(var c=0; c<cols; c++){
+        var x = c * 28 + 14;
+        var y = r * 28 + 14;
+        // Fade based on distance from center-left
+        var dx = x/W - 0.2;
+        var dy = y/H - 0.5;
+        var dist = Math.sqrt(dx*dx + dy*dy);
+        var alpha = Math.max(0, 0.55 - dist * 1.1);
+        if(alpha < 0.04) continue;
+        dots.push({
+          x: x, y: y,
+          baseAlpha: alpha,
+          phase: Math.random() * Math.PI * 2,
+          speed: 0.4 + Math.random() * 0.8,
+          r: 1.5 + Math.random() * 1.5
+        });
+      }
+    }
+  }
+
+  var t = 0;
+  function draw(){
+    ctx.clearRect(0, 0, W, H);
+    t += 0.012;
+    for(var i=0; i<dots.length; i++){
+      var d = dots[i];
+      var a = d.baseAlpha * (0.5 + 0.5 * Math.sin(t * d.speed + d.phase));
+      ctx.beginPath();
+      ctx.arc(d.x, d.y, d.r, 0, Math.PI*2);
+      ctx.fillStyle = 'rgba(0,212,170,' + a.toFixed(3) + ')';
+      ctx.fill();
+    }
+    requestAnimationFrame(draw);
+  }
+
+  window.addEventListener('resize', resize);
+  resize();
+  draw();
+})();
+</script>
+</body>
+</html>
