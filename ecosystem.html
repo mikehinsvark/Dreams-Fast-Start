@@ -1,0 +1,961 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>DBR Digital Ecosystem Map | Dreams Business Resources</title>
+  <meta name="description" content="The complete DBR Digital Ecosystem — 27 live platforms, 100+ indexed pages, AI-powered tools, training hubs, and marketing sites built for financial services producers." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Jost:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg:       #010810;
+      --bg2:      #050f1c;
+      --bg3:      #0a1628;
+      --teal:     #00C9B8;
+      --teal-dim: #00a89a;
+      --teal-glow:rgba(0,201,184,0.18);
+      --gold:     #C9A84C;
+      --white:    #f0f4f8;
+      --muted:    #7a8fa8;
+      --border:   rgba(0,201,184,0.22);
+
+      /* Category colors */
+      --cat-training: #00C9B8;
+      --cat-ai:       #a78bfa;
+      --cat-marketing:#f59e0b;
+      --cat-finance:  #34d399;
+      --cat-partner:  #f87171;
+      --cat-content:  #60a5fa;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { background: var(--bg); color: var(--white); font-family: 'Jost', sans-serif; font-size: 15px; line-height: 1.6; overflow-x: hidden; }
+
+    /* ── HEADER ── */
+    header { background: rgba(1,8,16,0.97); border-bottom: 1px solid var(--border); position: sticky; top: 0; z-index: 200; backdrop-filter: blur(12px); }
+    .header-inner { max-width: 1300px; margin: 0 auto; padding: 0 28px; display: flex; align-items: center; justify-content: space-between; height: 64px; }
+    .logo-wrap { display: flex; flex-direction: column; }
+    .logo-main { font-family: 'Cormorant Garamond', serif; font-size: 1.25rem; font-weight: 700; color: var(--teal); letter-spacing: 0.06em; }
+    .logo-sub  { font-size: 0.62rem; color: var(--muted); letter-spacing: 0.16em; text-transform: uppercase; }
+    nav { display: flex; gap: 6px; }
+    nav a { color: var(--muted); text-decoration: none; font-size: 0.78rem; font-weight: 500; padding: 6px 12px; border-radius: 6px; transition: all 0.2s; }
+    nav a:hover { color: var(--teal); background: var(--teal-glow); }
+    .nav-cta { background: var(--teal) !important; color: var(--bg) !important; font-weight: 700 !important; border-radius: 8px !important; }
+
+    /* ── HERO ── */
+    .hero { max-width: 1300px; margin: 0 auto; padding: 56px 28px 40px; text-align: center; }
+    .hero-eyebrow { display: inline-block; background: var(--teal-glow); border: 1px solid var(--border); color: var(--teal); font-size: 0.68rem; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; padding: 6px 18px; border-radius: 20px; margin-bottom: 22px; }
+    .hero h1 { font-family: 'Cormorant Garamond', serif; font-size: clamp(2.4rem, 5vw, 4rem); font-weight: 700; line-height: 1.08; margin-bottom: 16px; }
+    .hero h1 em { color: var(--teal); font-style: normal; }
+    .hero p { color: var(--muted); font-size: 1.05rem; max-width: 700px; margin: 0 auto 32px; }
+    .stat-row { display: flex; gap: 28px; justify-content: center; flex-wrap: wrap; margin-bottom: 8px; }
+    .stat-pill { background: var(--bg2); border: 1px solid var(--border); border-radius: 40px; padding: 10px 22px; display: flex; flex-direction: column; align-items: center; }
+    .stat-num { font-family: 'Cormorant Garamond', serif; font-size: 1.8rem; font-weight: 700; color: var(--teal); line-height: 1; }
+    .stat-lbl { font-size: 0.65rem; color: var(--muted); letter-spacing: 0.12em; text-transform: uppercase; margin-top: 2px; }
+
+    /* ── LEGEND ── */
+    .legend { max-width: 1300px; margin: 0 auto 8px; padding: 0 28px; display: flex; gap: 16px; flex-wrap: wrap; justify-content: center; }
+    .legend-item { display: flex; align-items: center; gap: 7px; font-size: 0.75rem; color: var(--muted); }
+    .legend-dot { width: 12px; height: 12px; border-radius: 50%; flex-shrink: 0; }
+
+    /* ── CONTROLS ── */
+    .controls { max-width: 1300px; margin: 0 auto 28px; padding: 0 28px; display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; }
+    .ctrl-btn { background: var(--bg2); border: 1px solid var(--border); color: var(--muted); font-family: 'Jost', sans-serif; font-size: 0.78rem; font-weight: 600; padding: 8px 18px; border-radius: 8px; cursor: pointer; transition: all 0.2s; letter-spacing: 0.04em; }
+    .ctrl-btn:hover { color: var(--teal); border-color: var(--teal); background: var(--teal-glow); }
+    .ctrl-btn.active { color: var(--bg); background: var(--teal); border-color: var(--teal); }
+
+    /* ── ECOSYSTEM GRID ── */
+    .ecosystem { max-width: 1300px; margin: 0 auto; padding: 0 28px 60px; }
+
+    /* Category section */
+    .cat-section { margin-bottom: 40px; }
+    .cat-header { display: flex; align-items: center; gap: 12px; margin-bottom: 18px; padding-bottom: 10px; border-bottom: 1px solid var(--border); }
+    .cat-dot { width: 14px; height: 14px; border-radius: 50%; flex-shrink: 0; }
+    .cat-title { font-family: 'Cormorant Garamond', serif; font-size: 1.3rem; font-weight: 700; }
+    .cat-count { background: var(--bg3); color: var(--muted); font-size: 0.7rem; font-weight: 700; padding: 3px 10px; border-radius: 20px; letter-spacing: 0.08em; }
+
+    /* Site cards grid */
+    .sites-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(340px, 1fr)); gap: 16px; }
+
+    /* Individual site card */
+    .site-card { background: var(--bg2); border: 1px solid var(--border); border-radius: 14px; overflow: hidden; transition: all 0.3s; position: relative; }
+    .site-card:hover { border-color: var(--card-color, var(--teal)); box-shadow: 0 0 24px rgba(0,201,184,0.1); }
+    .site-card.expanded { border-color: var(--card-color, var(--teal)); box-shadow: 0 0 30px rgba(0,201,184,0.15); }
+
+    .card-top { display: flex; align-items: center; gap: 14px; padding: 16px 18px; cursor: pointer; user-select: none; }
+    .card-icon { width: 42px; height: 42px; border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 1.2rem; flex-shrink: 0; background: var(--bg3); border: 1px solid var(--border); }
+    .card-info { flex: 1; min-width: 0; }
+    .card-name { font-weight: 700; font-size: 0.95rem; color: var(--white); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+    .card-domain { font-size: 0.75rem; color: var(--card-color, var(--teal)); margin-top: 2px; }
+    .card-toggle { color: var(--muted); font-size: 1rem; transition: transform 0.3s; flex-shrink: 0; }
+    .site-card.expanded .card-toggle { transform: rotate(180deg); }
+
+    .card-status { position: absolute; top: 12px; right: 44px; font-size: 0.62rem; font-weight: 700; padding: 2px 8px; border-radius: 10px; letter-spacing: 0.08em; }
+    .status-live { background: rgba(52,211,153,0.15); color: #34d399; border: 1px solid rgba(52,211,153,0.3); }
+    .status-manus { background: rgba(251,191,36,0.12); color: #fbbf24; border: 1px solid rgba(251,191,36,0.25); }
+
+    /* Sub-pages list */
+    .sub-pages { display: none; border-top: 1px solid var(--border); padding: 12px 18px 16px; background: var(--bg3); }
+    .site-card.expanded .sub-pages { display: block; }
+    .sub-label { font-size: 0.65rem; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; color: var(--muted); margin-bottom: 10px; }
+    .sub-list { list-style: none; display: flex; flex-direction: column; gap: 5px; }
+    .sub-list li a { display: flex; align-items: center; gap: 8px; color: var(--muted); text-decoration: none; font-size: 0.82rem; padding: 5px 8px; border-radius: 6px; transition: all 0.2s; }
+    .sub-list li a:hover { color: var(--white); background: rgba(255,255,255,0.05); }
+    .sub-list li a .sub-type { font-size: 0.6rem; font-weight: 700; padding: 1px 6px; border-radius: 8px; letter-spacing: 0.08em; flex-shrink: 0; }
+    .type-main   { background: rgba(0,201,184,0.15); color: var(--teal); }
+    .type-sub    { background: rgba(167,139,250,0.15); color: #a78bfa; }
+    .type-anchor { background: rgba(245,158,11,0.12); color: #f59e0b; }
+    .type-pdf    { background: rgba(248,113,113,0.12); color: #f87171; }
+    .type-portal { background: rgba(96,165,250,0.15); color: #60a5fa; }
+    .sub-arrow { margin-left: auto; font-size: 0.7rem; opacity: 0; transition: opacity 0.2s; }
+    .sub-list li a:hover .sub-arrow { opacity: 1; }
+
+    .card-desc { padding: 0 18px 14px; font-size: 0.8rem; color: var(--muted); line-height: 1.5; display: none; }
+    .site-card.expanded .card-desc { display: block; }
+
+    /* ── FULL FLOW DIAGRAM ── */
+    .flow-section { max-width: 1300px; margin: 0 auto 60px; padding: 0 28px; }
+    .flow-title { font-family: 'Cormorant Garamond', serif; font-size: 1.8rem; font-weight: 700; text-align: center; margin-bottom: 8px; }
+    .flow-sub { color: var(--muted); text-align: center; font-size: 0.9rem; margin-bottom: 32px; }
+    .flow-diagram { background: var(--bg2); border: 1px solid var(--border); border-radius: 16px; padding: 40px 32px; overflow-x: auto; }
+
+    /* SVG Flow */
+    .flow-svg { width: 100%; min-width: 900px; }
+
+    /* ── FOOTER ── */
+    footer { background: var(--bg2); border-top: 1px solid var(--border); padding: 40px 28px; text-align: center; }
+    .footer-inner { max-width: 1300px; margin: 0 auto; }
+    .footer-brand { font-family: 'Cormorant Garamond', serif; font-size: 1.1rem; font-weight: 700; color: var(--teal); margin-bottom: 6px; }
+    .footer-sub { font-size: 0.75rem; color: var(--muted); margin-bottom: 18px; }
+    .footer-links { display: flex; gap: 18px; justify-content: center; flex-wrap: wrap; margin-bottom: 16px; }
+    .footer-links a { color: var(--muted); text-decoration: none; font-size: 0.8rem; transition: color 0.2s; }
+    .footer-links a:hover { color: var(--teal); }
+    .footer-copy { font-size: 0.72rem; color: var(--muted); opacity: 0.5; }
+
+    /* Scroll top */
+    #scrollTop { position: fixed; bottom: 28px; right: 28px; width: 44px; height: 44px; background: var(--teal); color: var(--bg); border: none; border-radius: 50%; font-size: 1.1rem; cursor: pointer; display: none; align-items: center; justify-content: center; box-shadow: 0 4px 20px rgba(0,201,184,0.4); transition: all 0.2s; z-index: 999; }
+    #scrollTop.visible { display: flex; }
+    #scrollTop:hover { background: var(--teal-dim); transform: translateY(-2px); }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .header-inner { flex-direction: column; height: auto; padding: 10px 16px; gap: 8px; }
+      nav { justify-content: center; }
+      .hero { padding: 32px 16px 28px; }
+      .ecosystem { padding: 0 16px 40px; }
+      .sites-grid { grid-template-columns: 1fr; }
+      .stat-row { gap: 12px; }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="header-inner">
+    <div class="logo-wrap">
+      <span class="logo-main">DBR Fast Start</span>
+      <span class="logo-sub">Dreams Business Resources · Ecosystem Map</span>
+    </div>
+    <nav>
+      <a href="https://dreamsfaststart.com">Home</a>
+      <a href="https://dreamsfaststart.com/portfolio.html">Portfolio</a>
+      <a href="https://renewalsforlife.com" class="nav-cta">Renewals For Life →</a>
+    </nav>
+  </div>
+</header>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-eyebrow">🗺️ DBR Digital Ecosystem</div>
+  <h1>The Complete <em>DBR</em> Platform Map</h1>
+  <p>Every site, tool, training hub, and AI platform built for the DBR network — mapped, linked, and indexed. Click any site to expand its pages.</p>
+  <div class="stat-row">
+    <div class="stat-pill"><span class="stat-num">27</span><span class="stat-lbl">Live Platforms</span></div>
+    <div class="stat-pill"><span class="stat-num">103+</span><span class="stat-lbl">Indexed Pages</span></div>
+    <div class="stat-pill"><span class="stat-num">5</span><span class="stat-lbl">Categories</span></div>
+    <div class="stat-pill"><span class="stat-num">24/7</span><span class="stat-lbl">Always On</span></div>
+    <div class="stat-pill"><span class="stat-num">$0</span><span class="stat-lbl">Cost to Access</span></div>
+  </div>
+</div>
+
+<!-- LEGEND -->
+<div class="legend">
+  <div class="legend-item"><div class="legend-dot" style="background:#00C9B8"></div>Training Hubs</div>
+  <div class="legend-item"><div class="legend-dot" style="background:#a78bfa"></div>AI Tools & Platforms</div>
+  <div class="legend-item"><div class="legend-dot" style="background:#f59e0b"></div>Marketing & Prospecting</div>
+  <div class="legend-item"><div class="legend-dot" style="background:#34d399"></div>Finance & Calculators</div>
+  <div class="legend-item"><div class="legend-dot" style="background:#f87171"></div>Partner Programs</div>
+  <div class="legend-item"><div class="legend-dot" style="background:#60a5fa"></div>Content & Research</div>
+</div>
+
+<!-- CONTROLS -->
+<div class="controls">
+  <button class="ctrl-btn active" onclick="filterCat('all', this)">All Sites</button>
+  <button class="ctrl-btn" onclick="filterCat('training', this)">🎓 Training</button>
+  <button class="ctrl-btn" onclick="filterCat('ai', this)">🤖 AI Tools</button>
+  <button class="ctrl-btn" onclick="filterCat('marketing', this)">📣 Marketing</button>
+  <button class="ctrl-btn" onclick="filterCat('finance', this)">💰 Finance</button>
+  <button class="ctrl-btn" onclick="filterCat('partner', this)">🤝 Partner</button>
+  <button class="ctrl-btn" onclick="filterCat('content', this)">📚 Content</button>
+  <button class="ctrl-btn" onclick="expandAll()">Expand All</button>
+  <button class="ctrl-btn" onclick="collapseAll()">Collapse All</button>
+</div>
+
+<!-- ECOSYSTEM GRID -->
+<div class="ecosystem" id="ecosystem">
+
+  <!-- ── TRAINING HUBS ── -->
+  <div class="cat-section" data-cat="training">
+    <div class="cat-header">
+      <div class="cat-dot" style="background:#00C9B8"></div>
+      <div class="cat-title">🎓 Training Hubs</div>
+      <div class="cat-count">4 SITES</div>
+    </div>
+    <div class="sites-grid">
+
+      <div class="site-card" style="--card-color:#00C9B8" data-cat="training">
+        <div class="card-status status-live">✅ LIVE</div>
+        <div class="card-top" onclick="toggleCard(this)">
+          <div class="card-icon">🚀</div>
+          <div class="card-info">
+            <div class="card-name">DBR Fast Start</div>
+            <div class="card-domain">dreamsfaststart.com</div>
+          </div>
+          <div class="card-toggle">▼</div>
+        </div>
+        <div class="card-desc">Flagship 5-week AI-powered onboarding system. 10 deep-linked training tabs covering Quantum Health, Group Health, AI Agents, and more.</div>
+        <div class="sub-pages">
+          <div class="sub-label">Indexed Pages & Deep Links</div>
+          <ul class="sub-list">
+            <li><a href="https://dreamsfaststart.com/" target="_blank"><span class="sub-type type-main">MAIN</span> Home / Training Hub <span class="sub-arrow">↗</span></a></li>
+            <li><a href="https://dreamsfaststart.com/portfolio.html" target="_blank"><span class="sub-type type-sub">PAGE</span> Business Portfolio (27 sites) <span class="sub-arrow">↗</span></a></li>
+            <li><a href="https://dreamsfaststart.com/ecosystem.html" target="_blank"><span class="sub-type type-sub">PAGE</span> Ecosystem Map (this page) <span class="sub-arrow">↗</span></a></li>
+            <li><a href="https://dreamsfaststart.com/referrals-by-design.html" target="_blank"><span class="sub-type type-sub">PAGE</span> Referrals By Design <span class="sub-arrow">↗</span></a></li>
+            <li><a href="https://dreamsfaststart.com/brian-moran-12-week-year.html" target="_blank"><span class="sub-type type-sub">PAGE</span> The 12 Week Year <span class="sub-arrow">↗</span></a></li>
+            <li><a href="https://dreamsfaststart.com/vf-video-book-summaries.html" target="_blank"><span class="sub-type type-sub">PAGE</span> Video Book Summaries <span class="sub-arrow">↗</span></a></li>
+            <li><a href="https://dreamsfaststart.com/honest-comparison/index.html" target="_blank"><span class="sub-type type-sub">PAGE</span> The Honest Comparison Series™ <span class="sub-arrow">↗</span></a></li>
+            <li><a href="https://dreamsfaststart.com/#week-1" target="_blank"><span class="sub-type type-anchor">TAB</span> Week 1–5 Training Tabs <span class="sub-arrow">↗</span></a></li>
+            <li><a href="https://dreamsfaststart.com/#calculator" target="_blank"><span class="sub-type type-anchor">TAB</span> Income Calculator Tab <span class="sub-arrow">↗</span></a></li>
+            <li><a href="https://dreamsfaststart.com/#comp-plan" target="_blank"><span class="sub-type type-anchor">TAB</span> Comp Plan Tab <span class="sub-arrow">↗</span></a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="site-card" style="--card-color:#00C9B8" data-cat="training">
+        <div class="card-status status-live">✅ LIVE</div>
+        <div class="card-top" onclick="toggleCard(this)">
+          <div class="card-icon">⚡</div>
+          <div class="card-info">
+            <div class="card-name">DBR AI Leverage Lab™</div>
+            <div class="card-domain">aileveragelab.pro</div>
+          </div>
+          <div class="card-toggle">▼</div>
+        </div>
+        <div class="card-desc">12-week live AI accelerator for working producers. No coding. Save 5–10 hrs/week. Build prospecting systems, follow-up machines, and AI automation.</div>
+        <div class="sub-pages">
+          <div class="sub-label">Indexed Pages & Deep Links</div>
+          <ul class="sub-list">
+            <li><a href="https://aileveragelab.pro/" target="_blank"><span class="sub-type type-main">MAIN</span> Home — Lab Overview <span class="sub-arrow">↗</span></a></li>
+            <li><a href="https://aileveragelab.pro/curriculum" target="_blank"><span class="sub-type type-sub">PAGE</span> 12-Week Curriculum <span class="sub-arrow">↗</span></a></li>
+            <li><a href="https://aileveragelab.pro/tools" target="_blank"><span class="sub-type type-sub">PAGE</span> AI Tool Stack (5 tools) <span class="sub-arrow">↗</span></a></li>
+            <li><a href="https://aileveragelab.pro/faq" target="_blank"><span class="sub-type type-sub">PAGE</span> FAQ (18 questions) <span class="sub-arrow">↗</span></a></li>
+            <li><a href="https://aileveragelab.pro/curriculum#week-5" target="_blank"><span class="sub-type type-anchor">ANCHOR</span> Week 5: 30-Day Follow-Up Machine <span class="sub-arrow">↗</span></a></li>
+            <li><a href="https://aileveragelab.pro/curriculum#week-12" target="_blank"><span class="sub-type type-anchor">ANCHOR</span> Week 12: B2B Division Reveal <span class="sub-arrow">↗</span></a></li>
+            <li><a href="https://aileveragelab.pro/tools#claude" target="_blank"><span class="sub-type type-anchor">ANCHOR</span> Tool: Claude (Home Base) <span class="sub-arrow">↗</span></a></li>
+            <li><a href="https://aileveragelab.pro/sitemap.xml" target="_blank"><span class="sub-type type-anchor">XML</span> Sitemap (Google Search Console) <span class="sub-arrow">↗</span></a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="site-card" style="--card-color:#00C9B8" data-cat="training">
+        <div class="card-status status-live">✅ LIVE</div>
+        <div class="card-top" onclick="toggleCard(this)">
+          <div class="card-icon">📚</div>
+          <div class="card-info">
+            <div class="card-name">Dreams Intelligent Prospecting Playbooks</div>
+            <div class="card-domain">dbrlibrary.com</div>
+          </div>
+          <div class="card-toggle">▼</div>
+        </div>
+        <div class="card-desc">7 high-end color-themed training playbooks covering sales mastery, AI prospecting, LinkedIn outreach, C-Suite closing, and the full DREAMS comp plan.</div>
+        <div class="sub-pages">
+          <div class="sub-label">Indexed Pages</div>
+          <ul class="sub-list">
+            <li><a href="https://dbrlibrary.com/" target="_blank"><span class="sub-type type-main">MAIN</span> Home — Playbook Library <span class="sub-arrow">↗</span></a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="site-card" style="--card-color:#00C9B8" data-cat="training">
+        <div class="card-status status-live">✅ LIVE</div>
+        <div class="card-top" onclick="toggleCard(this)">
+          <div class="card-icon">🧠</div>
+          <div class="card-info">
+            <div class="card-name">Human Intelligence OS</div>
+            <div class="card-domain">myhumanos.pro</div>
+          </div>
+          <div class="card-toggle">▼</div>
+        </div>
+        <div class="card-desc">10-module operating system for the human mind in the AI age. Covers Attention, State, Perspective, Learning, Language, Paradigm, Decision, Influence, and AI Leverage.</div>
+        <div class="sub-pages">
+          <div class="sub-label">Indexed Pages & Deep Links</div>
+          <ul class="sub-list">
+            <li><a href="https://myhumanos.pro/" target="_blank"><span class="sub-type type-main">MAIN</span> Home — HIOS Overview <span class="sub-arrow">↗</span></a></li>
+            <li><a href="https://myhumanos.pro/module/reality-gap" target="_blank"><span class="sub-type type-sub">PAGE</span> Module 00: Reality Gap <span class="sub-arrow">↗</span></a></li>
+            <li><a href="https://myhumanos.pro/module/attention-os" target="_blank"><span class="sub-type type-sub">PAGE</span> Module 01: Attention OS <span class="sub-arrow">↗</span></a></li>
+            <li><a href="https://myhumanos.pro/module/state-os" target="_blank"><span class="sub-type type-sub">PAGE</span> Module 02: State OS <span class="sub-arrow">↗</span></a></li>
+            <li><a href="https://myhumanos.pro/module/perspective" target="_blank"><span class="sub-type type-sub">PAGE</span> Module 03: Perspective OS <span class="sub-arrow">↗</span></a></li>
+            <li><a href="https://myhumanos.pro/module/learning-os" target="_blank"><span class="sub-type type-sub">PAGE</span> Module 04: Learning OS <span class="sub-arrow">↗</span></a></li>
+            <li><a href="https://myhumanos.pro/module/language-os" target="_blank"><span class="sub-type type-sub">PAGE</span> Module 05: Language OS <span class="sub-arrow">↗</span></a></li>
+            <li><a href="https://myhumanos.pro/module/paradigm-os" target="_blank"><span class="sub-type type-sub">PAGE</span> Module 06: Paradigm OS <span class="sub-arrow">↗</span></a></li>
+            <li><a href="https://myhumanos.pro/module/decision-os" target="_blank"><span class="sub-type type-sub">PAGE</span> Module 07: Decision OS <span class="sub-arrow">↗</span></a></li>
+            <li><a href="https://myhumanos.pro/module/ethical-influence-os" target="_blank"><span class="sub-type type-sub">PAGE</span> Module 08: Influence OS <span class="sub-arrow">↗</span></a></li>
+            <li><a href="https://myhumanos.pro/module/ai-leverage-os" target="_blank"><span class="sub-type type-sub">PAGE</span> Module 09: AI Leverage OS <span class="sub-arrow">↗</span></a></li>
+            <li><a href="https://myhumanos.pro/manus-storage/Human_Intelligence_OS_Field_Guide_c2f623f6.pdf" target="_blank"><span class="sub-type type-pdf">PDF</span> HIOS Field Guide Download <span class="sub-arrow">↗</span></a></li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ── AI TOOLS ── -->
+  <div class="cat-section" data-cat="ai">
+    <div class="cat-header">
+      <div class="cat-dot" style="background:#a78bfa"></div>
+      <div class="cat-title">🤖 AI Tools & Platforms</div>
+      <div class="cat-count">7 SITES</div>
+    </div>
+    <div class="sites-grid">
+
+      <div class="site-card" style="--card-color:#a78bfa" data-cat="ai">
+        <div class="card-status status-live">✅ LIVE</div>
+        <div class="card-top" onclick="toggleCard(this)">
+          <div class="card-icon">🧞</div>
+          <div class="card-info">
+            <div class="card-name">Your AI Agent Genie Team</div>
+            <div class="card-domain">aigenies.pro</div>
+          </div>
+          <div class="card-toggle">▼</div>
+        </div>
+        <div class="card-desc">The AI Genie PRO platform — your entire AI team working while you sleep. 4 agents: AI coach, B2B sales, digital mind. Built for producers who refuse to trade time for income.</div>
+        <div class="sub-pages">
+          <div class="sub-label">Indexed Pages</div>
+          <ul class="sub-list">
+            <li><a href="https://aigenies.pro/" target="_blank"><span class="sub-type type-main">MAIN</span> Home — AI Genie Platform <span class="sub-arrow">↗</span></a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="site-card" style="--card-color:#a78bfa" data-cat="ai">
+        <div class="card-status status-live">✅ LIVE</div>
+        <div class="card-top" onclick="toggleCard(this)">
+          <div class="card-icon">🤝</div>
+          <div class="card-info">
+            <div class="card-name">Meet Your AI Agent Team</div>
+            <div class="card-domain">dreamsaiagents.pro</div>
+          </div>
+          <div class="card-toggle">▼</div>
+        </div>
+        <div class="card-desc">AI Agent onboarding experience. Set up your Recruiting Agent, B2B Sales Agent, Onboarding Agent, and Intelligence Agent — all working 24/7 on your behalf.</div>
+        <div class="sub-pages">
+          <div class="sub-label">Indexed Pages</div>
+          <ul class="sub-list">
+            <li><a href="https://dreamsaiagents.pro/" target="_blank"><span class="sub-type type-main">MAIN</span> Home — AI Agent Setup <span class="sub-arrow">↗</span></a></li>
+            <li><a href="https://dreamsaiagents.pro/mike-portal.html" target="_blank"><span class="sub-type type-portal">PORTAL</span> Live AI Genie Command Center <span class="sub-arrow">↗</span></a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="site-card" style="--card-color:#a78bfa" data-cat="ai">
+        <div class="card-status status-live">✅ LIVE</div>
+        <div class="card-top" onclick="toggleCard(this)">
+          <div class="card-icon">🗄️</div>
+          <div class="card-info">
+            <div class="card-name">Build Your Database</div>
+            <div class="card-domain">aigeniedatabase.com</div>
+          </div>
+          <div class="card-toggle">▼</div>
+        </div>
+        <div class="card-desc">The DBR AI Genie Database strategy — build a full, active pipeline using contacts already on your phone, LinkedIn, and Gmail. 500–5,000 contacts. Zero cold calling.</div>
+        <div class="sub-pages">
+          <div class="sub-label">Indexed Pages</div>
+          <ul class="sub-list">
+            <li><a href="https://aigeniedatabase.com/" target="_blank"><span class="sub-type type-main">MAIN</span> Home — Database Builder <span class="sub-arrow">↗</span></a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="site-card" style="--card-color:#a78bfa" data-cat="ai">
+        <div class="card-status status-live">✅ LIVE</div>
+        <div class="card-top" onclick="toggleCard(this)">
+          <div class="card-icon">⚙️</div>
+          <div class="card-info">
+            <div class="card-name">Your AI Agent Command Center</div>
+            <div class="card-domain">claude.ai (artifact)</div>
+          </div>
+          <div class="card-toggle">▼</div>
+        </div>
+        <div class="card-desc">Your AI Agent dashboard — track active recruits, B2B prospects, monthly residual, and AI tasks in real time. Recruiting, Onboarding, B2B Sales, and Intelligence agents from one unified command center.</div>
+        <div class="sub-pages">
+          <div class="sub-label">Direct Link</div>
+          <ul class="sub-list">
+            <li><a href="https://claude.ai/public/artifacts/2be0608a-8435-41db-82fc-8442f84bce0a" target="_blank"><span class="sub-type type-portal">PORTAL</span> AI Agent Command Center <span class="sub-arrow">↗</span></a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="site-card" style="--card-color:#a78bfa" data-cat="ai">
+        <div class="card-status status-live">✅ LIVE</div>
+        <div class="card-top" onclick="toggleCard(this)">
+          <div class="card-icon">📖</div>
+          <div class="card-info">
+            <div class="card-name">Financial Services AI Playbook™</div>
+            <div class="card-domain">aifinancialplaybook.com</div>
+          </div>
+          <div class="card-toggle">▼</div>
+        </div>
+        <div class="card-desc">11-chapter complete guide to AI for life insurance & annuity producers. Covers 67 AI models, advanced prompting, indexed annuities, estate planning, and a 90-day roadmap.</div>
+        <div class="sub-pages">
+          <div class="sub-label">Indexed Pages & Deep Links</div>
+          <ul class="sub-list">
+            <li><a href="https://aifinancialplaybook.com/" target="_blank"><span class="sub-type type-main">MAIN</span> Home — Playbook Overview <span class="sub-arrow">↗</span></a></li>
+            <li><a href="https://aifinancialplaybook.com/#ch01" target="_blank"><span class="sub-type type-anchor">CH</span> CH01: Executive Overview <span class="sub-arrow">↗</span></a></li>
+            <li><a href="https://aifinancialplaybook.com/#ch04" target="_blank"><span class="sub-type type-anchor">CH</span> CH04: 67 AI Models <span class="sub-arrow">↗</span></a></li>
+            <li><a href="https://aifinancialplaybook.com/#ch06" target="_blank"><span class="sub-type type-anchor">CH</span> CH06: Life Insurance & AI <span class="sub-arrow">↗</span></a></li>
+            <li><a href="https://aifinancialplaybook.com/#ch11" target="_blank"><span class="sub-type type-anchor">CH</span> CH11: 90-Day Crawl-Walk-Run Roadmap <span class="sub-arrow">↗</span></a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="site-card" style="--card-color:#a78bfa" data-cat="ai">
+        <div class="card-status status-live">✅ LIVE</div>
+        <div class="card-top" onclick="toggleCard(this)">
+          <div class="card-icon">🔬</div>
+          <div class="card-info">
+            <div class="card-name">Business Dreams Score Report</div>
+            <div class="card-domain">dreamsscores.com</div>
+          </div>
+          <div class="card-toggle">▼</div>
+        </div>
+        <div class="card-desc">A 15-minute business financial assessment that uncovers $50,000 to $800,000 in hidden savings, tax credits, and profit opportunities. No cost to review.</div>
+        <div class="sub-pages">
+          <div class="sub-label">Direct Link</div>
+          <ul class="sub-list">
+            <li><a href="https://dreamsscores.com/?refid=AA0233" target="_blank"><span class="sub-type type-main">MAIN</span> DREAMS Score Assessment <span class="sub-arrow">↗</span></a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="site-card" style="--card-color:#a78bfa" data-cat="ai">
+        <div class="card-status status-live">✅ LIVE</div>
+        <div class="card-top" onclick="toggleCard(this)">
+          <div class="card-icon">🗂️</div>
+          <div class="card-info">
+            <div class="card-name">Your Retirement Reality</div>
+            <div class="card-domain">claude.ai (artifact)</div>
+          </div>
+          <div class="card-toggle">▼</div>
+        </div>
+        <div class="card-desc">Interactive state-by-state map showing what retirement actually costs where you live — with and without Social Security. Compare your required monthly savings against the DBR residual income target.</div>
+        <div class="sub-pages">
+          <div class="sub-label">Direct Link</div>
+          <ul class="sub-list">
+            <li><a href="https://claude.ai/public/artifacts/ee253a3b-106f-483d-867e-1be865f081ed" target="_blank"><span class="sub-type type-portal">TOOL</span> Retirement Reality Calculator <span class="sub-arrow">↗</span></a></li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ── MARKETING & PROSPECTING ── -->
+  <div class="cat-section" data-cat="marketing">
+    <div class="cat-header">
+      <div class="cat-dot" style="background:#f59e0b"></div>
+      <div class="cat-title">📣 Marketing & Prospecting</div>
+      <div class="cat-count">8 SITES</div>
+    </div>
+    <div class="sites-grid">
+
+      <div class="site-card" style="--card-color:#f59e0b" data-cat="marketing">
+        <div class="card-status status-live">✅ LIVE</div>
+        <div class="card-top" onclick="toggleCard(this)">
+          <div class="card-icon">💵</div>
+          <div class="card-info">
+            <div class="card-name">Show Me The Money</div>
+            <div class="card-domain">showmethemoney.pro</div>
+          </div>
+          <div class="card-toggle">▼</div>
+        </div>
+        <div class="card-desc">The DREAMS Score simulcast site for business owners. Uncovers hidden tax credits, overpriced benefits, and untapped EBITDA growth. One relationship. Multiple revenue streams.</div>
+        <div class="sub-pages">
+          <div class="sub-label">Indexed Pages</div>
+          <ul class="sub-list">
+            <li><a href="https://showmethemoney.pro/" target="_blank"><span class="sub-type type-main">MAIN</span> Home — Business Owner Prospecting <span class="sub-arrow">↗</span></a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="site-card" style="--card-color:#f59e0b" data-cat="marketing">
+        <div class="card-status status-live">✅ LIVE</div>
+        <div class="card-top" onclick="toggleCard(this)">
+          <div class="card-icon">🎯</div>
+          <div class="card-info">
+            <div class="card-name">4M Opportunity Scorecard</div>
+            <div class="card-domain">realopportunity.pro</div>
+          </div>
+          <div class="card-toggle">▼</div>
+        </div>
+        <div class="card-desc">Evaluate any business opportunity across Money, Market, Moat & Machine. Score 12 factors to find and focus on only the best opportunities before you invest your time and reputation.</div>
+        <div class="sub-pages">
+          <div class="sub-label">Indexed Pages</div>
+          <ul class="sub-list">
+            <li><a href="https://realopportunity.pro/" target="_blank"><span class="sub-type type-main">MAIN</span> Home — 4M Scorecard <span class="sub-arrow">↗</span></a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="site-card" style="--card-color:#f59e0b" data-cat="marketing">
+        <div class="card-status status-live">✅ LIVE</div>
+        <div class="card-top" onclick="toggleCard(this)">
+          <div class="card-icon">⚖️</div>
+          <div class="card-info">
+            <div class="card-name">The Honest Comparison Series™</div>
+            <div class="card-domain">dreamsfaststart.com/honest-comparison</div>
+          </div>
+          <div class="card-toggle">▼</div>
+        </div>
+        <div class="card-desc">Real numbers, real trade-offs. DBR compared side-by-side against Top 10 Franchises, MLM/Network Marketing, and Online Sales models using the 4M Framework. DBR wins on every pillar.</div>
+        <div class="sub-pages">
+          <div class="sub-label">Indexed Pages</div>
+          <ul class="sub-list">
+            <li><a href="https://dreamsfaststart.com/honest-comparison/index.html" target="_blank"><span class="sub-type type-main">MAIN</span> Honest Comparison Hub <span class="sub-arrow">↗</span></a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="site-card" style="--card-color:#f59e0b" data-cat="marketing">
+        <div class="card-status status-live">✅ LIVE</div>
+        <div class="card-top" onclick="toggleCard(this)">
+          <div class="card-icon">🔗</div>
+          <div class="card-info">
+            <div class="card-name">Referrals By Design</div>
+            <div class="card-domain">dreamsfaststart.com/referrals-by-design</div>
+          </div>
+          <div class="card-toggle">▼</div>
+        </div>
+        <div class="card-desc">Build a business so rooted in trust and relationships that your best clients become your most powerful sales force. Based on the proven strategies of Brian Buffini and Joe Niego.</div>
+        <div class="sub-pages">
+          <div class="sub-label">Indexed Pages</div>
+          <ul class="sub-list">
+            <li><a href="https://dreamsfaststart.com/referrals-by-design.html" target="_blank"><span class="sub-type type-main">MAIN</span> Referrals By Design <span class="sub-arrow">↗</span></a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="site-card" style="--card-color:#f59e0b" data-cat="marketing">
+        <div class="card-status status-live">✅ LIVE</div>
+        <div class="card-top" onclick="toggleCard(this)">
+          <div class="card-icon">🪤</div>
+          <div class="card-info">
+            <div class="card-name">The Linear Income Trap</div>
+            <div class="card-domain">lineartrap.pro</div>
+          </div>
+          <div class="card-toggle">▼</div>
+        </div>
+        <div class="card-desc">America's structural earning blind spot exposed. 27 of 30 highest-paying careers are pure linear traps. A compelling data-driven case for why the renewals model is the only path to true financial freedom.</div>
+        <div class="sub-pages">
+          <div class="sub-label">Indexed Pages</div>
+          <ul class="sub-list">
+            <li><a href="https://lineartrap.pro/" target="_blank"><span class="sub-type type-main">MAIN</span> Home — Linear Income Trap <span class="sub-arrow">↗</span></a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="site-card" style="--card-color:#f59e0b" data-cat="marketing">
+        <div class="card-status status-live">✅ LIVE</div>
+        <div class="card-top" onclick="toggleCard(this)">
+          <div class="card-icon">🛢️</div>
+          <div class="card-info">
+            <div class="card-name">Income Architecture: Oil Well vs. Gold Bar</div>
+            <div class="card-domain">oilwellvsgold.pro</div>
+          </div>
+          <div class="card-toggle">▼</div>
+        </div>
+        <div class="card-desc">Why multimillionaire beats billionaire. The passivity ladder, the freedom metric, and why annuitants live ~50% longer. Build income by contract, not by chance.</div>
+        <div class="sub-pages">
+          <div class="sub-label">Indexed Pages</div>
+          <ul class="sub-list">
+            <li><a href="https://oilwellvsgold.pro/" target="_blank"><span class="sub-type type-main">MAIN</span> Home — Oil Well vs. Gold Bar <span class="sub-arrow">↗</span></a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="site-card" style="--card-color:#f59e0b" data-cat="marketing">
+        <div class="card-status status-live">✅ LIVE</div>
+        <div class="card-top" onclick="toggleCard(this)">
+          <div class="card-icon">🃏</div>
+          <div class="card-info">
+            <div class="card-name">DBR Connect Cards</div>
+            <div class="card-domain">dbrconnectcards.site</div>
+          </div>
+          <div class="card-toggle">▼</div>
+        </div>
+        <div class="card-desc">Order your premium 5×7 matte finish DBR Connect Cards and Business Cards. Your name, email, phone, and QR code — all on both sides. Featuring FICA Tip Credit, Quantum Health, Dreams Score, and Bank Breezy card designs.</div>
+        <div class="sub-pages">
+          <div class="sub-label">Indexed Pages</div>
+          <ul class="sub-list">
+            <li><a href="https://dbrconnectcards.site/" target="_blank"><span class="sub-type type-main">MAIN</span> Home — Connect Cards Order <span class="sub-arrow">↗</span></a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="site-card" style="--card-color:#f59e0b" data-cat="marketing">
+        <div class="card-status status-live">✅ LIVE</div>
+        <div class="card-top" onclick="toggleCard(this)">
+          <div class="card-icon">🏠</div>
+          <div class="card-info">
+            <div class="card-name">Your Family Legacy</div>
+            <div class="card-domain">familylegacy.pro</div>
+          </div>
+          <div class="card-toggle">▼</div>
+        </div>
+        <div class="card-desc">The DBR Legacy Program. Your legacy is not a bank account — it's a mission, written down, handed forward, and funded permanently by income that never stops. Create freedom, build generations, leave a legacy, and live purposefully.</div>
+        <div class="sub-pages">
+          <div class="sub-label">Indexed Pages</div>
+          <ul class="sub-list">
+            <li><a href="https://familylegacy.pro/" target="_blank"><span class="sub-type type-main">MAIN</span> Home — Family Legacy <span class="sub-arrow">↗</span></a></li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ── FINANCE & CALCULATORS ── -->
+  <div class="cat-section" data-cat="finance">
+    <div class="cat-header">
+      <div class="cat-dot" style="background:#34d399"></div>
+      <div class="cat-title">💰 Finance & Calculators</div>
+      <div class="cat-count">4 SITES</div>
+    </div>
+    <div class="sites-grid">
+
+      <div class="site-card" style="--card-color:#34d399" data-cat="finance">
+        <div class="card-status status-live">✅ LIVE</div>
+        <div class="card-top" onclick="toggleCard(this)">
+          <div class="card-icon">♾️</div>
+          <div class="card-info">
+            <div class="card-name">Renewals For Life</div>
+            <div class="card-domain">renewalsforlife.com</div>
+          </div>
+          <div class="card-toggle">▼</div>
+        </div>
+        <div class="card-desc">The income model paradigm shift. Discover how to stop building someone else's asset and start building residual income that pays for life — the 1-to-∞ B2B opportunity.</div>
+        <div class="sub-pages">
+          <div class="sub-label">Indexed Pages</div>
+          <ul class="sub-list">
+            <li><a href="https://renewalsforlife.com/" target="_blank"><span class="sub-type type-main">MAIN</span> Home — Renewals For Life <span class="sub-arrow">↗</span></a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="site-card" style="--card-color:#34d399" data-cat="finance">
+        <div class="card-status status-live">✅ LIVE</div>
+        <div class="card-top" onclick="toggleCard(this)">
+          <div class="card-icon">🌴</div>
+          <div class="card-info">
+            <div class="card-name">Renewals For Lifestyle</div>
+            <div class="card-domain">renewalsforlifestyle.com</div>
+          </div>
+          <div class="card-toggle">▼</div>
+        </div>
+        <div class="card-desc">Lifestyle Design Intelligence — it is time to dream again. Explore city guides, the USA bucket list, national parks, road trips, and world travel for destinations. Real wealth is agency, opportunity, and time.</div>
+        <div class="sub-pages">
+          <div class="sub-label">Indexed Pages & Deep Links</div>
+          <ul class="sub-list">
+            <li><a href="https://renewalsforlifestyle.com/" target="_blank"><span class="sub-type type-main">MAIN</span> Home — The Dream Tab <span class="sub-arrow">↗</span></a></li>
+            <li><a href="https://renewalsforlifestyle.com/#tab-cities" target="_blank"><span class="sub-type type-anchor">TAB</span> City Guides <span class="sub-arrow">↗</span></a></li>
+            <li><a href="https://renewalsforlifestyle.com/#tab-usa" target="_blank"><span class="sub-type type-anchor">TAB</span> USA Bucket List <span class="sub-arrow">↗</span></a></li>
+            <li><a href="https://renewalsforlifestyle.com/#tab-world" target="_blank"><span class="sub-type type-anchor">TAB</span> World Bucket List <span class="sub-arrow">↗</span></a></li>
+            <li><a href="https://renewalsforlifestyle.com/#tab-legacy" target="_blank"><span class="sub-type type-anchor">TAB</span> Your Legacy Tab <span class="sub-arrow">↗</span></a></li>
+            <li><a href="https://renewalsforlifestyle.com/#calc-sliders" target="_blank"><span class="sub-type type-anchor">CALC</span> Free & Clear Calculator <span class="sub-arrow">↗</span></a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="site-card" style="--card-color:#34d399" data-cat="finance">
+        <div class="card-status status-live">✅ LIVE</div>
+        <div class="card-top" onclick="toggleCard(this)">
+          <div class="card-icon">📊</div>
+          <div class="card-info">
+            <div class="card-name">Dreams Income Calculator</div>
+            <div class="card-domain">dbrincomecalc.com</div>
+          </div>
+          <div class="card-toggle">▼</div>
+        </div>
+        <div class="card-desc">The Elite Interactive Compensation Suite for the DBR network. Calculate personal and generational override income across Quantum Health 125, Group Health, and R&D Tax Credit verticals — with live projections up to $640M+ annuity equivalency.</div>
+        <div class="sub-pages">
+          <div class="sub-label">Indexed Pages & Deep Links</div>
+          <ul class="sub-list">
+            <li><a href="https://dbrincomecalc.com/" target="_blank"><span class="sub-type type-main">MAIN</span> Home — Income Calculator Suite <span class="sub-arrow">↗</span></a></li>
+            <li><a href="https://dbrincomecalc.com/#guidelines" target="_blank"><span class="sub-type type-anchor">TAB</span> Guidelines Tab <span class="sub-arrow">↗</span></a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="site-card" style="--card-color:#34d399" data-cat="finance">
+        <div class="card-status status-live">✅ LIVE</div>
+        <div class="card-top" onclick="toggleCard(this)">
+          <div class="card-icon">🏆</div>
+          <div class="card-info">
+            <div class="card-name">The 12 Week Year</div>
+            <div class="card-domain">dreamsfaststart.com/brian-moran</div>
+          </div>
+          <div class="card-toggle">▼</div>
+        </div>
+        <div class="card-desc">A Morning with Brian Moran — New York Times bestselling author. Fasttrack your productivity and get more done in 12 weeks than most people accomplish in 12 months.</div>
+        <div class="sub-pages">
+          <div class="sub-label">Indexed Pages</div>
+          <ul class="sub-list">
+            <li><a href="https://dreamsfaststart.com/brian-moran-12-week-year.html" target="_blank"><span class="sub-type type-main">MAIN</span> The 12 Week Year Page <span class="sub-arrow">↗</span></a></li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ── PARTNER PROGRAMS ── -->
+  <div class="cat-section" data-cat="partner">
+    <div class="cat-header">
+      <div class="cat-dot" style="background:#f87171"></div>
+      <div class="cat-title">🤝 Partner Programs</div>
+      <div class="cat-count">2 SITES</div>
+    </div>
+    <div class="sites-grid">
+
+      <div class="site-card" style="--card-color:#f87171" data-cat="partner">
+        <div class="card-status status-live">✅ LIVE</div>
+        <div class="card-top" onclick="toggleCard(this)">
+          <div class="card-icon">🌐</div>
+          <div class="card-info">
+            <div class="card-name">The Dreams Partner Program</div>
+            <div class="card-domain">strategicpartners.pro</div>
+          </div>
+          <div class="card-toggle">▼</div>
+        </div>
+        <div class="card-desc">A strategic alliance ecosystem for professionals who already advise, serve, sell to, or influence business owners. Built to create new revenue, deepen client loyalty, and uncover hidden money for every business you touch.</div>
+        <div class="sub-pages">
+          <div class="sub-label">Indexed Pages & Deep Links</div>
+          <ul class="sub-list">
+            <li><a href="https://strategicpartners.pro/" target="_blank"><span class="sub-type type-main">MAIN</span> Home — Partner Program <span class="sub-arrow">↗</span></a></li>
+            <li><a href="https://strategicpartners.pro/#score-analyzer" target="_blank"><span class="sub-type type-anchor">TAB</span> Score Analyzer <span class="sub-arrow">↗</span></a></li>
+            <li><a href="https://strategicpartners.pro/#alliance-map" target="_blank"><span class="sub-type type-anchor">TAB</span> Alliance Map <span class="sub-arrow">↗</span></a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="site-card" style="--card-color:#f87171" data-cat="partner">
+        <div class="card-status status-live">✅ LIVE</div>
+        <div class="card-top" onclick="toggleCard(this)">
+          <div class="card-icon">🏗️</div>
+          <div class="card-info">
+            <div class="card-name">DBR AI Leverage Lab™ — B2B Division</div>
+            <div class="card-domain">aileveragelab.pro/curriculum#week-12</div>
+          </div>
+          <div class="card-toggle">▼</div>
+        </div>
+        <div class="card-desc">Week 12 of the AI Leverage Lab reveals the B2B Division opportunity — how AI skills position you to approach business owners as an AI advisor, opening group sales conversations where one "yes" earns residual income on an entire team.</div>
+        <div class="sub-pages">
+          <div class="sub-label">Deep Link</div>
+          <ul class="sub-list">
+            <li><a href="https://aileveragelab.pro/curriculum#week-12" target="_blank"><span class="sub-type type-anchor">ANCHOR</span> Week 12: B2B Division Reveal <span class="sub-arrow">↗</span></a></li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ── CONTENT & RESEARCH ── -->
+  <div class="cat-section" data-cat="content">
+    <div class="cat-header">
+      <div class="cat-dot" style="background:#60a5fa"></div>
+      <div class="cat-title">📚 Content & Research</div>
+      <div class="cat-count">4 SITES</div>
+    </div>
+    <div class="sites-grid">
+
+      <div class="site-card" style="--card-color:#60a5fa" data-cat="content">
+        <div class="card-status status-live">✅ LIVE</div>
+        <div class="card-top" onclick="toggleCard(this)">
+          <div class="card-icon">🎬</div>
+          <div class="card-info">
+            <div class="card-name">Video Book Summaries</div>
+            <div class="card-domain">dreamsfaststart.com/vf-video-book-summaries</div>
+          </div>
+          <div class="card-toggle">▼</div>
+        </div>
+        <div class="card-desc">The most powerful books in business and financial freedom — distilled into key insights you can apply today. From Think and Grow Rich to the latest leadership classics, each summary is presented in an engaging video format for busy professionals.</div>
+        <div class="sub-pages">
+          <div class="sub-label">Indexed Pages</div>
+          <ul class="sub-list">
+            <li><a href="https://dreamsfaststart.com/vf-video-book-summaries.html" target="_blank"><span class="sub-type type-main">MAIN</span> Video Book Summaries Library <span class="sub-arrow">↗</span></a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="site-card" style="--card-color:#60a5fa" data-cat="content">
+        <div class="card-status status-live">✅ LIVE</div>
+        <div class="card-top" onclick="toggleCard(this)">
+          <div class="card-icon">🏛️</div>
+          <div class="card-info">
+            <div class="card-name">Oldest Companies in the World & USA</div>
+            <div class="card-domain">100oldest.pro</div>
+          </div>
+          <div class="card-toggle">▼</div>
+        </div>
+        <div class="card-desc">A fascinating legacy report showcasing the Top 100 oldest companies in the world and Top 50 in the USA — still operating in 2026. From Japan's 1,448-year-old Kongō Gumi to America's oldest firms. A powerful reminder to build an institution, not just a company.</div>
+        <div class="sub-pages">
+          <div class="sub-label">Indexed Pages</div>
+          <ul class="sub-list">
+            <li><a href="https://100oldest.pro/" target="_blank"><span class="sub-type type-main">MAIN</span> Home — Oldest Companies Report <span class="sub-arrow">↗</span></a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="site-card" style="--card-color:#60a5fa" data-cat="content">
+        <div class="card-status status-live">✅ LIVE</div>
+        <div class="card-top" onclick="toggleCard(this)">
+          <div class="card-icon">📐</div>
+          <div class="card-info">
+            <div class="card-name">DBR Ecosystem Map</div>
+            <div class="card-domain">dreamsfaststart.com/ecosystem</div>
+          </div>
+          <div class="card-toggle">▼</div>
+        </div>
+        <div class="card-desc">This page — the complete interactive map of the entire DBR digital ecosystem. All 27 sites, 103+ indexed pages, color-coded by category with expandable sub-pages and direct links.</div>
+        <div class="sub-pages">
+          <div class="sub-label">Indexed Pages</div>
+          <ul class="sub-list">
+            <li><a href="https://dreamsfaststart.com/ecosystem.html" target="_blank"><span class="sub-type type-main">MAIN</span> DBR Ecosystem Map (this page) <span class="sub-arrow">↗</span></a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="site-card" style="--card-color:#60a5fa" data-cat="content">
+        <div class="card-status status-live">✅ LIVE</div>
+        <div class="card-top" onclick="toggleCard(this)">
+          <div class="card-icon">📰</div>
+          <div class="card-info">
+            <div class="card-name">DBR Business Portfolio</div>
+            <div class="card-domain">dreamsfaststart.com/portfolio</div>
+          </div>
+          <div class="card-toggle">▼</div>
+        </div>
+        <div class="card-desc">Visual showcase of all 27 DBR platforms — screenshot cards with descriptions and direct links. The go-to page to show a prospect or new rep the full scope of the DBR digital infrastructure.</div>
+        <div class="sub-pages">
+          <div class="sub-label">Indexed Pages</div>
+          <ul class="sub-list">
+            <li><a href="https://dreamsfaststart.com/portfolio.html" target="_blank"><span class="sub-type type-main">MAIN</span> DBR Business Portfolio <span class="sub-arrow">↗</span></a></li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+</div><!-- /ecosystem -->
+
+<!-- SCOPE SUMMARY BAR -->
+<div style="background:var(--bg2); border-top:1px solid var(--border); border-bottom:1px solid var(--border); padding:32px 28px; margin-bottom:0;">
+  <div style="max-width:1300px; margin:0 auto; text-align:center;">
+    <div style="font-size:0.68rem; font-weight:700; letter-spacing:0.2em; text-transform:uppercase; color:var(--teal); margin-bottom:16px;">// THE SCOPE OF WHAT WE'VE BUILT</div>
+    <div style="display:flex; gap:32px; justify-content:center; flex-wrap:wrap;">
+      <div style="text-align:center;"><div style="font-family:'Cormorant Garamond',serif; font-size:2.4rem; font-weight:700; color:var(--teal); line-height:1;">27</div><div style="font-size:0.7rem; color:var(--muted); letter-spacing:0.1em; text-transform:uppercase;">Live Sites</div></div>
+      <div style="text-align:center;"><div style="font-family:'Cormorant Garamond',serif; font-size:2.4rem; font-weight:700; color:var(--gold); line-height:1;">103+</div><div style="font-size:0.7rem; color:var(--muted); letter-spacing:0.1em; text-transform:uppercase;">Indexed Pages</div></div>
+      <div style="text-align:center;"><div style="font-family:'Cormorant Garamond',serif; font-size:2.4rem; font-weight:700; color:#a78bfa; line-height:1;">18</div><div style="font-size:0.7rem; color:var(--muted); letter-spacing:0.1em; text-transform:uppercase;">GitHub Repos</div></div>
+      <div style="text-align:center;"><div style="font-family:'Cormorant Garamond',serif; font-size:2.4rem; font-weight:700; color:#34d399; line-height:1;">5</div><div style="font-size:0.7rem; color:var(--muted); letter-spacing:0.1em; text-transform:uppercase;">Categories</div></div>
+      <div style="text-align:center;"><div style="font-family:'Cormorant Garamond',serif; font-size:2.4rem; font-weight:700; color:#f59e0b; line-height:1;">10</div><div style="font-size:0.7rem; color:var(--muted); letter-spacing:0.1em; text-transform:uppercase;">Module Sub-Pages</div></div>
+      <div style="text-align:center;"><div style="font-family:'Cormorant Garamond',serif; font-size:2.4rem; font-weight:700; color:#f87171; line-height:1;">48+</div><div style="font-size:0.7rem; color:var(--muted); letter-spacing:0.1em; text-transform:uppercase;">Hash Anchors</div></div>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand">DBR Fast Start · Dreams Business Resources</div>
+    <div class="footer-sub">The complete DBR digital ecosystem — built for financial services producers, B2B entrepreneurs, and team builders.</div>
+    <div class="footer-links">
+      <a href="https://dreamsfaststart.com">Fast Start Home</a>
+      <a href="https://dreamsfaststart.com/portfolio.html">Portfolio</a>
+      <a href="https://renewalsforlife.com">Renewals For Life</a>
+      <a href="https://aileveragelab.pro">AI Leverage Lab</a>
+      <a href="https://dreamsscores.com/?refid=AA0233">Dreams Score</a>
+      <a href="https://familylegacy.pro">Family Legacy</a>
+    </div>
+    <div class="footer-copy">© 2026 Dreams Business Resources · Mike Hinsvark · All rights reserved.</div>
+  </div>
+</footer>
+
+<button id="scrollTop" onclick="window.scrollTo({top:0,behavior:'smooth'})" title="Back to top">↑</button>
+
+<script>
+  // Toggle individual card
+  function toggleCard(btn) {
+    const card = btn.closest('.site-card');
+    card.classList.toggle('expanded');
+  }
+
+  // Expand all
+  function expandAll() {
+    document.querySelectorAll('.site-card').forEach(c => c.classList.add('expanded'));
+  }
+
+  // Collapse all
+  function collapseAll() {
+    document.querySelectorAll('.site-card').forEach(c => c.classList.remove('expanded'));
+  }
+
+  // Filter by category
+  function filterCat(cat, btn) {
+    // Update active button
+    document.querySelectorAll('.ctrl-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+
+    const sections = document.querySelectorAll('.cat-section');
+    sections.forEach(sec => {
+      if (cat === 'all' || sec.dataset.cat === cat) {
+        sec.style.display = '';
+      } else {
+        sec.style.display = 'none';
+      }
+    });
+  }
+
+  // Scroll top button
+  window.addEventListener('scroll', () => {
+    document.getElementById('scrollTop').classList.toggle('visible', window.scrollY > 500);
+  });
+
+  // Animate cards in on load
+  document.addEventListener('DOMContentLoaded', () => {
+    const cards = document.querySelectorAll('.site-card');
+    cards.forEach((card, i) => {
+      card.style.opacity = '0';
+      card.style.transform = 'translateY(16px)';
+      card.style.transition = 'opacity 0.4s ease, transform 0.4s ease';
+      setTimeout(() => {
+        card.style.opacity = '1';
+        card.style.transform = 'translateY(0)';
+      }, 60 + i * 30);
+    });
+  });
+</script>
+
+</body>
+</html>
