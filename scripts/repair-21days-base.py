@@ -42,10 +42,12 @@ js, asset_count = asset_pattern.subn(r'const \1=\2=>`/21days/assets/${\2}`', js,
 if asset_count != 1 and "/21days/assets/${" not in js:
     raise SystemExit("Could not locate the compiled local-asset factory")
 
-router_pattern = re.compile(r'(\b[A-Za-z_$][\w$]*=\{hook:[^{}]{0,220}?parser:[^,{}]+,base:)""(,ssrPath:)')
-js, router_count = router_pattern.subn(r'\1"/21days"\2', js, count=1)
-if router_count != 1 and 'base:"/21days",ssrPath:' not in js:
-    raise SystemExit("Could not locate the compiled Wouter base configuration")
+app_router_safe = '="/21days/".replace(/\\/$/,"")' in js
+if not app_router_safe:
+    router_pattern = re.compile(r'(\b[A-Za-z_$][\w$]*=\{hook:[^{}]{0,220}?parser:[^,{}]+,base:)""(,ssrPath:)')
+    js, router_count = router_pattern.subn(r'\1"/21days"\2', js, count=1)
+    if router_count != 1 and 'base:"/21days",ssrPath:' not in js:
+        raise SystemExit("Could not locate the compiled Wouter base configuration")
 
 js_path.write_text(js, encoding="utf-8")
 
@@ -56,7 +58,7 @@ for html_path in HTML_FILES:
     if found:
         raise SystemExit(f"Unsafe root paths remain in {html_path}: {found}")
 
-if 'base:"/21days",ssrPath:' not in js:
+if 'base:"/21days",ssrPath:' not in js and not app_router_safe:
     raise SystemExit("Router base verification failed")
 if "/21days/assets/${" not in js:
     raise SystemExit("Media base verification failed")
