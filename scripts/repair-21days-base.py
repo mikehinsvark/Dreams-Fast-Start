@@ -39,7 +39,7 @@ if not (ROUTE / "favicon.svg").is_file():
 js = js_path.read_text(encoding="utf-8")
 asset_pattern = re.compile(r'const ([A-Za-z_$][\w$]*)=([A-Za-z_$][\w$]*)=>`/assets/\$\{\2\}`')
 js, asset_count = asset_pattern.subn(r'const \1=\2=>`/21days/assets/${\2}`', js, count=1)
-if asset_count != 1 and "/21days/assets/${" not in js:
+if asset_count != 1 and "/21days/assets/${" not in js and "https://dreamsfaststart.com/21days/assets/" not in js:
     raise SystemExit("Could not locate the compiled local-asset factory")
 
 app_router_safe = '="/21days/".replace(/\\/$/,"")' in js
@@ -60,7 +60,7 @@ for html_path in HTML_FILES:
 
 if 'base:"/21days",ssrPath:' not in js and not app_router_safe:
     raise SystemExit("Router base verification failed")
-if "/21days/assets/${" not in js:
+if "/21days/assets/${" not in js and "https://dreamsfaststart.com/21days/assets/" not in js:
     raise SystemExit("Media base verification failed")
 
 print(f"Repaired {ROUTE}")
