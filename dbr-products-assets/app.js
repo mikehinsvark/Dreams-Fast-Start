@@ -109,7 +109,7 @@
   cards.forEach(card=>{card.hidden=!words.every(word=>card.textContent.toLowerCase().includes(word));if(!card.hidden) count++;});
   sections.forEach(section=>{const n=section.querySelectorAll('.card:not([hidden])').length;section.hidden=n===0;section.querySelector('.section-count').textContent=n+' resource'+(n===1?'':'s');});
   document.getElementById('empty').hidden=count!==0;
-  document.getElementById('search-status').textContent=words.length?`${count} of 18 resources found`:'18 resources across 6 pathways';
+  document.getElementById('search-status').textContent=words.length?`${count} of ${cards.length} resources found`:`${cards.length} resources across ${sections.length} pathways`;
  }
  input.addEventListener('input',filter);
  document.getElementById('clear-search').addEventListener('click',()=>{input.value='';filter();input.focus();});
