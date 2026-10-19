@@ -1,0 +1,12 @@
+/* Keep the existing Products layout inside phone and tablet viewports. */
+@media (max-width: 1100px) {
+  .hero { grid-template-columns: minmax(0, 1fr); overflow: hidden; }
+  .hero-copy, .universe { min-width: 0; }
+  .hero-copy { width: 100%; }
+}
+@media (max-width: 700px) {
+  .universe { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .hero h1 { font-size: clamp(34px, 10vw, 45px); }
+  .agent-personalize-inner { grid-template-columns: minmax(0, 1fr); }
+  .agent-personalize-inner > * { min-width: 0; }
+}
