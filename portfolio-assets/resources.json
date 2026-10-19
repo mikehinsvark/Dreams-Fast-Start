@@ -37,12 +37,12 @@
     "featuredLabel": "Business prospecting"
   },
   {
-    "title": "DREAMS + Vantage Financial Alliance",
-    "url": "https://dreamsvantage.com/",
-    "image": "https://dreamsfaststart.com/portfolio-assets/dreams-vantage-alliance-2026.webp",
-    "description": "Our newest strategic alliance with Vantage Financial Alliance. Explore the DREAMS Insurance Solutions partnership, carrier access, training and support, and opportunities to help families build protection, lasting wealth, and a stronger financial future.",
+    "title": "Dreams Business Resources Products Hub",
+    "url": "https://dreams.tax/",
+    "image": "https://dreamsfaststart.com/portfolio-assets/dreams-business-resources-products-hub.webp",
+    "description": "One relationship. A world of possibilities. Explore Dreams Business Resources, Tax Prep Advocates, Dreams Technology Solutions, Bank Breezy & DAC, and Tariff Refund Recovery. Connect business owners with expertise in tax credits, smarter technology, working capital, and tariff recovery\u2014starting with the need and building the relationship.",
     "category": "business",
-    "featuredLabel": "New strategic alliance"
+    "featuredLabel": "Business products hub"
   },
   {
     "title": "The AI Genie Database Goldmine",
@@ -61,12 +61,12 @@
     "featuredLabel": "Health benefits portfolio"
   },
   {
-    "title": "Prospect Accountability Coach",
-    "url": "https://dreamscoach.pro/",
-    "image": "https://dreamsfaststart.com/portfolio-assets/prospect-accountability-coach.webp",
-    "description": "Build the week. See the pattern. The PROSPECT framework gives sales activity a clear weekly rhythm across Phone, Partners, Outreach, Submitted, Pipeline, Engagements, Closed, and Target. Set goals, reflect on your activity, and turn follow-through into a repeatable plan.",
-    "category": "skills",
-    "featuredLabel": "Weekly sales accountability"
+    "title": "DREAMS + Vantage Financial Alliance",
+    "url": "https://dreamsvantage.com/",
+    "image": "https://dreamsfaststart.com/portfolio-assets/dreams-vantage-alliance-2026.webp",
+    "description": "Our newest strategic alliance with Vantage Financial Alliance. Explore the DREAMS Insurance Solutions partnership, carrier access, training and support, and opportunities to help families build protection, lasting wealth, and a stronger financial future.",
+    "category": "business",
+    "featuredLabel": "New strategic alliance"
   },
   {
     "title": "Build Your Database",
@@ -209,11 +209,12 @@
     "category": "ai"
   },
   {
-    "title": "Craigslist Command Center",
-    "url": "https://craigslist-command-center.mikeceo1840.chatgpt.site/",
-    "image": "https://dreamsfaststart.com/portfolio-img-44-tariff-partner-routes.png",
-    "description": "A focused command-center resource for organizing and directing Craigslist-based outreach and prospecting activity from one streamlined workspace.",
-    "category": "ai"
+    "title": "Prospect Accountability Coach",
+    "url": "https://dreamscoach.pro/",
+    "image": "https://dreamsfaststart.com/portfolio-assets/prospect-accountability-coach.webp",
+    "description": "Build the week. See the pattern. The PROSPECT framework gives sales activity a clear weekly rhythm across Phone, Partners, Outreach, Submitted, Pipeline, Engagements, Closed, and Target. Set goals, reflect on your activity, and turn follow-through into a repeatable plan.",
+    "category": "skills",
+    "featuredLabel": "Weekly sales accountability"
   },
   {
     "title": "Tariff Refund Agent Training",
