@@ -31,8 +31,17 @@
       function applyAgentId(agentId) {
         referralLinks.forEach((link) => {
           const url = new URL(link.dataset.referralOriginal, window.location.href);
+          const referralType = link.getAttribute('data-agent-referral');
+
+          if (referralType === 'path') {
+            // Always start from the captured source URL so repeated changes do not compound.
+            url.pathname = url.pathname.replace(/\/AA0233\/?$/, '/' + agentId);
+            url.searchParams.delete('refid');
+          } else if (referralType === 'query') {
+            // Explicit query links always carry an ID, including the default representative.
+            url.searchParams.set('refid', agentId);
           // Keep the supplied GOALL base URL for the default rep; add saved IDs for replication.
-          if (link.hasAttribute('data-agent-referral') && agentId === DEFAULT_AGENT_ID && !url.searchParams.has('refid')) {
+          } else if (link.hasAttribute('data-agent-referral') && agentId === DEFAULT_AGENT_ID && !url.searchParams.has('refid')) {
             url.searchParams.delete('refid');
           } else {
             url.searchParams.set('refid', agentId);
