@@ -1,0 +1,98 @@
+/* Compact insurance setup link beneath the protection cards. */
+.insurance-setup-row {
+  display: flex;
+  justify-content: center;
+  min-width: 0;
+  width: 100%;
+  margin: 24px 0 0;
+  padding: 0 4px;
+}
+
+.insurance-setup-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  min-width: 44px;
+  min-height: 48px;
+  max-width: 100%;
+  padding: 10px 17px;
+  border: 1px solid #286477;
+  border-radius: 9px;
+  background: linear-gradient(110deg, #0b2a40, #092139 72%, #102b3d);
+  color: #eaf8fb;
+  font-family: inherit;
+  font-size: 13px;
+  font-weight: 600;
+  line-height: 1.4;
+  text-align: center;
+  text-decoration: none;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.035), 0 5px 16px rgba(0, 0, 0, 0.14);
+  transition: border-color 180ms ease, box-shadow 180ms ease, background-color 180ms ease, color 180ms ease, transform 180ms ease;
+}
+
+.insurance-setup-button span {
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+
+.insurance-setup-button svg {
+  display: block;
+  flex: 0 0 auto;
+  width: 18px;
+  height: 18px;
+  fill: none;
+  stroke: currentColor;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 1.7;
+}
+
+.insurance-setup-button svg:first-child {
+  color: #55e6d5;
+}
+
+.insurance-setup-button svg:last-child {
+  width: 16px;
+  height: 16px;
+  color: #e8c879;
+}
+
+.insurance-setup-button:hover,
+.insurance-setup-button:focus-visible {
+  border-color: #58dcca;
+  background: linear-gradient(110deg, #0d3548, #0b2d43 72%, #24344a);
+  color: #ffffff;
+  box-shadow: 0 0 0 1px rgba(48, 229, 210, 0.18), 0 0 19px rgba(48, 229, 210, 0.16), 0 0 26px rgba(232, 200, 121, 0.09);
+}
+
+.insurance-setup-button:hover {
+  transform: translateY(-1px);
+}
+
+.insurance-setup-button:focus-visible {
+  outline: 3px solid #78f9df;
+  outline-offset: 4px;
+}
+
+@media (max-width: 420px) {
+  .insurance-setup-row {
+    margin-top: 20px;
+  }
+
+  .insurance-setup-button {
+    gap: 8px;
+    padding-inline: 12px;
+    font-size: 12px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .insurance-setup-button {
+    transition: none;
+  }
+
+  .insurance-setup-button:hover {
+    transform: none;
+  }
+}

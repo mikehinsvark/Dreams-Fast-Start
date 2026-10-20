@@ -9,9 +9,9 @@
       const clearButton = document.getElementById('agentIdClear');
       if (!form || !input || !status || !clearButton) return;
 
-      const referralLinks = Array.from(document.querySelectorAll('a[href*="refid="]')).filter((link) => {
+      const referralLinks = Array.from(document.querySelectorAll('a[href*="refid="], a[data-agent-referral]')).filter((link) => {
         try {
-          return new URL(link.href, window.location.href).searchParams.get('refid') === DEFAULT_AGENT_ID;
+          return link.hasAttribute('data-agent-referral') || new URL(link.href, window.location.href).searchParams.get('refid') === DEFAULT_AGENT_ID;
         } catch (_) {
           return false;
         }
@@ -31,7 +31,12 @@
       function applyAgentId(agentId) {
         referralLinks.forEach((link) => {
           const url = new URL(link.dataset.referralOriginal, window.location.href);
-          url.searchParams.set('refid', agentId);
+          // Keep the supplied GOALL base URL for the default rep; add saved IDs for replication.
+          if (link.hasAttribute('data-agent-referral') && agentId === DEFAULT_AGENT_ID && !url.searchParams.has('refid')) {
+            url.searchParams.delete('refid');
+          } else {
+            url.searchParams.set('refid', agentId);
+          }
           link.href = url.toString();
         });
       }
