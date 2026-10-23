@@ -111,18 +111,19 @@
     "category": "skills"
   },
   {
-    "title": "Show Me The Money",
-    "url": "https://showmethemoney.pro/",
-    "image": "https://dreamsfaststart.com/portfolio-img-25-show-me-the-money.webp",
-    "description": "The DREAMS Score simulcast site for business owners who are done overpaying. Uncovers hidden tax credits, overpriced benefits, bloated expenses, and untapped growth \u2014 then shows exactly what recurring savings are worth to your EBITDA and business valuation. One relationship. Multiple revenue streams. Infinite possibilities.",
-    "category": "business"
+    "title": "Dreams AI Data Licensing",
+    "url": "https://dreamsaidata.com/",
+    "image": "https://dreamsfaststart.com/portfolio-assets/dreams-ai-data-licensing.webp",
+    "description": "Turn business knowledge into new possibilities. Explore AI-ready data licensing, introduce business owners to the partner network, and learn how buyer fit, privacy, ownership rights, and agreement terms shape potential opportunities.",
+    "category": "ai",
+    "featuredLabel": "Data licensing"
   },
   {
-    "title": "The C-Suite Outreach Playbook",
-    "url": "https://dbrlibrary.com/csuite/",
-    "image": "https://dreamsfaststart.com/portfolio-img-28-csuite.webp",
-    "description": "A 2026 field-sales intelligence playbook for getting in front of the people who sign the check. The system pairs executive-level research, focused messaging, proof, multi-touch sequences, scripts, objection handling, and a disciplined first-week action plan.",
-    "category": "skills"
+    "title": "DREAMS Score Online",
+    "url": "https://dreamsscoreai.pro/",
+    "image": "https://dreamsfaststart.com/portfolio-img-47-dreams-score-online.png",
+    "description": "A private, browser-session financial health assessment that makes educational score and scenario illustrations visible across six personal-finance pillars. No sign-in is required to begin.",
+    "category": "business"
   },
   {
     "title": "Dreams Intelligent Prospecting Playbooks",
@@ -287,11 +288,11 @@
     "category": "lifestyle"
   },
   {
-    "title": "DREAMS Score Online",
-    "url": "https://dreamsscoreai.pro/",
-    "image": "https://dreamsfaststart.com/portfolio-img-47-dreams-score-online.png",
-    "description": "A private, browser-session financial health assessment that makes educational score and scenario illustrations visible across six personal-finance pillars. No sign-in is required to begin.",
-    "category": "business"
+    "title": "The C-Suite Outreach Playbook",
+    "url": "https://dbrlibrary.com/csuite/",
+    "image": "https://dreamsfaststart.com/portfolio-img-28-csuite.webp",
+    "description": "A 2026 field-sales intelligence playbook for getting in front of the people who sign the check. The system pairs executive-level research, focused messaging, proof, multi-touch sequences, scripts, objection handling, and a disciplined first-week action plan.",
+    "category": "skills"
   },
   {
     "title": "Oldest Companies in the World & USA",
@@ -301,12 +302,11 @@
     "category": "lifestyle"
   },
   {
-    "title": "Dreams AI Data Licensing",
-    "url": "https://dreamsaidata.com/",
-    "image": "https://dreamsfaststart.com/portfolio-assets/dreams-ai-data-licensing.webp",
-    "description": "Turn business knowledge into new possibilities. Explore AI-ready data licensing, introduce business owners to the partner network, and learn how buyer fit, privacy, ownership rights, and agreement terms shape potential opportunities.",
-    "category": "ai",
-    "featuredLabel": "Data licensing"
+    "title": "Show Me The Money",
+    "url": "https://showmethemoney.pro/",
+    "image": "https://dreamsfaststart.com/portfolio-img-25-show-me-the-money.webp",
+    "description": "The DREAMS Score simulcast site for business owners who are done overpaying. Uncovers hidden tax credits, overpriced benefits, bloated expenses, and untapped growth \u2014 then shows exactly what recurring savings are worth to your EBITDA and business valuation. One relationship. Multiple revenue streams. Infinite possibilities.",
+    "category": "business"
   },
   {
     "title": "Meet Your AI Agent Team",
