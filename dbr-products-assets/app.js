@@ -55,6 +55,13 @@
         status.classList.toggle('is-error', Boolean(isError));
       }
 
+      function syncPageAgentId(agentId) {
+        const url = new URL(window.location.href);
+        if (agentId) url.searchParams.set('refid', agentId);
+        else url.searchParams.delete('refid');
+        window.history.replaceState(null, '', url.pathname + url.search + url.hash);
+      }
+
       function useDefaultAgentId(message) {
         applyAgentId(DEFAULT_AGENT_ID);
         input.value = '';
@@ -93,6 +100,7 @@
         } catch (_) {}
         input.value = agentId;
         applyAgentId(agentId);
+        syncPageAgentId(agentId);
         setStatus(`Saved ${agentId}. ${referralLinks.length} personal links now use your code.`);
       });
 
@@ -100,6 +108,7 @@
         try {
           localStorage.removeItem(STORAGE_KEY);
         } catch (_) {}
+        syncPageAgentId(null);
         useDefaultAgentId(`Saved ID cleared. Using the default ${DEFAULT_AGENT_ID} link on ${referralLinks.length} personal links.`);
       });
     })();
