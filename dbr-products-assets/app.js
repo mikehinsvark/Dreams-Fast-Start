@@ -66,7 +66,13 @@
         savedId = normalizeAgentId(localStorage.getItem(STORAGE_KEY));
       } catch (_) {}
 
-      if (savedId) {
+      // A shared rep link takes priority over a previously saved local preference.
+      const sharedId = normalizeAgentId(new URL(window.location.href).searchParams.get('refid'));
+      if (sharedId) {
+        input.value = sharedId;
+        applyAgentId(sharedId);
+        setStatus(`${referralLinks.length} personal links are ready with ${sharedId}. Save ID to remember it on this device.`);
+      } else if (savedId) {
         input.value = savedId;
         applyAgentId(savedId);
         setStatus(`${referralLinks.length} personal links are ready with ${savedId}.`);

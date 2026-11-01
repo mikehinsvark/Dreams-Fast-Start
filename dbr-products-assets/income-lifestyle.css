@@ -1,0 +1,21 @@
+/* Section 08: a single, spacious landscape feature using the existing card system. */
+.income-lifestyle-section .portfolio-grid{grid-template-columns:minmax(0,1fr)}
+.income-lifestyle-section .income-lifestyle-card{display:grid;grid-template-columns:1fr 1fr}
+.income-lifestyle-section .card-img-wrap{min-height:365px;aspect-ratio:auto;isolation:isolate;display:block}
+.income-lifestyle-section .card-img-wrap img{height:100%;width:100%;object-fit:cover;position:absolute;inset:0}
+.income-lifestyle-section .card-img-wrap::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,#03152910 15%,#031529e6 100%);z-index:0}
+.income-art-caption{position:absolute;inset:auto 30px 30px;z-index:1;display:grid;gap:12px}
+.income-art-caption small{font-size:10px;font-weight:600;letter-spacing:.18em;color:#f3fbff}
+.income-art-caption strong{font-size:clamp(25px,2.6vw,38px);line-height:1.08;letter-spacing:-.03em;text-shadow:0 2px 18px #00121f}
+.income-art-caption em{font-style:normal;color:#b4ff55}
+.income-art-caption>span{font-size:9px;letter-spacing:.15em;color:#cbf2f3}
+.income-lifestyle-section .card-body{padding:34px}
+.income-lifestyle-section .card-body>.eyebrow{font-size:9px;line-height:1.6;margin-bottom:12px}
+.income-lifestyle-section .card-title{font-size:28px;line-height:1.15}
+.income-lifestyle-section .card-desc{font-size:14px;line-height:1.8;margin-bottom:10px}
+.income-features{padding:0;list-style:none;display:grid;gap:9px;margin:10px 0 24px;color:#c0d9e3;font-size:12px}
+.income-features li::before{content:"✓";color:#5cebd4;margin-right:10px}
+.income-lifestyle-section .card-link{font-size:13px;line-height:1.5}
+.section-nav{scrollbar-width:thin;scrollbar-color:#2b637d #071529}
+@media(max-width:700px){.income-lifestyle-section .income-lifestyle-card{grid-template-columns:1fr}.income-lifestyle-section .card-img-wrap{min-height:290px}.income-lifestyle-section .card-body{padding:24px}.income-art-caption{inset:auto 24px 24px}.income-art-caption strong{font-size:32px}.income-lifestyle-section .card-title{font-size:26px}.portfolio-scroll-nav{display:none!important}}
+@media(min-width:1101px) and (max-width:1250px){.section-nav{justify-content:flex-start}}
