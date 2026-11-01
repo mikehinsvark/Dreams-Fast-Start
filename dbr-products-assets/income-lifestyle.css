@@ -19,3 +19,4 @@
 .section-nav{scrollbar-width:thin;scrollbar-color:#2b637d #071529}
 @media(max-width:700px){.income-lifestyle-section .income-lifestyle-card{grid-template-columns:1fr}.income-lifestyle-section .card-img-wrap{min-height:290px}.income-lifestyle-section .card-body{padding:24px}.income-art-caption{inset:auto 24px 24px}.income-art-caption strong{font-size:32px}.income-lifestyle-section .card-title{font-size:26px}.portfolio-scroll-nav{display:none!important}}
 @media(min-width:1101px) and (max-width:1250px){.section-nav{justify-content:flex-start}}
+@media(min-width:701px) and (max-width:1400px){.income-lifestyle-section .section-heading{padding-right:60px}}
