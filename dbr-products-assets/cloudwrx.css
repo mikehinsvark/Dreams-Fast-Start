@@ -1,0 +1,30 @@
+#cloudwrx{--cloudwrx-accent:#8ee9ff}
+#cloudwrx .agent-personalize{margin:0 0 32px;background:radial-gradient(ellipse at 100% 0,#1e547c70,transparent 70%),linear-gradient(120deg,#122c43,#0b2035);border-color:#4383a0}
+#cloudwrx .agent-personalize-inner{gap:32px}
+#cloudwrx .agent-help{font-size:14px;line-height:1.6}
+#cloudwrx .agent-status{font-size:15px;overflow-wrap:anywhere}
+#cloudwrx .portfolio-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:30px}
+#cloudwrx .card{display:flex;flex-direction:column;min-width:0;border:1px solid #315a77;background:linear-gradient(145deg,#0b223a,#09182a);transition:transform .25s,border-color .25s,box-shadow .25s}
+#cloudwrx .cloudwrx-agent-card{border-color:#695638;background:linear-gradient(145deg,#16263e,#0d192b)}
+#cloudwrx .card-img-wrap{height:auto;min-height:0;flex-shrink:0;aspect-ratio:16/9;position:relative;overflow:hidden;background:#0b1f36}
+#cloudwrx .card-img-wrap>img{width:100%;height:100%;object-fit:cover}
+#cloudwrx .cloudwrx-art-caption{position:absolute;inset:0;display:flex;flex-direction:column;justify-content:flex-end;gap:10px;padding:28px;background:linear-gradient(0deg,#031324fa,#03132488 42%,transparent 75%);color:#fff}
+#cloudwrx .cloudwrx-art-caption small{font-size:14px;font-weight:700;letter-spacing:.15em;color:#b9edff}
+#cloudwrx .cloudwrx-art-caption strong{font-size:clamp(24px,2.5vw,38px);line-height:1.12;letter-spacing:-.02em;max-width:90%}
+#cloudwrx .cloudwrx-agent-card .cloudwrx-art-caption small{color:#f6d58e}
+#cloudwrx .card-num{z-index:2}
+#cloudwrx .card-title{font-size:clamp(24px,2vw,30px)}
+#cloudwrx .card-desc{font-size:18px;line-height:1.65}
+#cloudwrx .card-link{font-size:17px;color:#8ee9ff;margin-top:22px}
+#cloudwrx .cloudwrx-agent-card .card-link{color:#f6d58e}
+#cloudwrx .cloudwrx-share{margin-top:auto;padding-top:24px}
+#cloudwrx .cloudwrx-share label{display:block;font-size:14px;color:#acc5d8;margin-bottom:8px}
+#cloudwrx .cloudwrx-share-row{display:flex;gap:8px}
+#cloudwrx input{text-transform:none}
+#cloudwrx .cloudwrx-share input{min-width:0;flex:1;background:#041426;color:#d8edff;border:1px solid #315a77;border-radius:9px;padding:12px;font-family:inherit;font-size:14px;line-height:1.4}
+#cloudwrx .cloudwrx-share button{flex-shrink:0;padding:12px 16px;border:1px solid #528aaa;border-radius:9px;background:#13364c;color:#dff9ff;font-family:inherit;font-weight:600;font-size:14px;line-height:1.4;cursor:pointer}
+#cloudwrx .cloudwrx-share button:hover{background:#1d506a}
+#cloudwrx :is(input,button,a):focus-visible{outline:3px solid #eacb80;outline-offset:4px}
+@media(hover:hover){#cloudwrx .card:hover{transform:translateY(-5px);border-color:#86dcf2;box-shadow:0 0 30px #58c1ff25,0 18px 45px #0004}#cloudwrx .cloudwrx-agent-card:hover{border-color:#f4d18b;box-shadow:0 0 30px #f5c36725,0 18px 45px #0004}}
+@media(max-width:720px){#cloudwrx .portfolio-grid{grid-template-columns:1fr}#cloudwrx .cloudwrx-art-caption{padding:22px}#cloudwrx .cloudwrx-share-row{flex-wrap:wrap}#cloudwrx .cloudwrx-share input{flex-basis:100%}#cloudwrx .cloudwrx-share button{width:100%}#cloudwrx .card-desc{font-size:17px}}
+@media(prefers-reduced-motion:reduce){#cloudwrx .card{transition:none}#cloudwrx .card:hover{transform:none}}
