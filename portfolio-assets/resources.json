@@ -342,5 +342,29 @@
     "image": "https://dreamsfaststart.com/portfolio-img-38-ecosystem-map.webp",
     "description": "An interactive map of every DBR site, tool, training hub, and AI platform\u2014organized by category, linked, and indexed. It gives producers and team builders a single place to see the scope of the complete DBR digital ecosystem.",
     "category": "business"
+  },
+  {
+    "title": "Financial Freedom Command Center",
+    "url": "https://renewalsforlifestyle.com/AA0000/",
+    "image": "https://dreamsfaststart.com/portfolio-assets/financial-freedom-command-center.webp",
+    "description": "Build the income. Live the dream. Explore an interactive income dashboard that compares recurring and one-time income, models what happens when new sales stop, and connects your numbers with your lifestyle goals. Your entries stay in your browser; projections are educational illustrations.",
+    "category": "income",
+    "featuredLabel": "Income & lifestyle builder"
+  },
+  {
+    "title": "CloudWRX AI Partner Training",
+    "url": "https://cloudwrxai.com/training/",
+    "image": "https://dreamsfaststart.com/portfolio-assets/cloudwrx-ai-partner-training.webp",
+    "description": "Know the story. Open the door. A practical field guide for AI data-licensing referral partners, with 11 lessons, prospecting plays, conversation scripts, email templates, privacy guidance, and a downloadable 26-page playbook. Learn the opportunity and make introductions with confidence.",
+    "category": "skills",
+    "featuredLabel": "AI data partner training"
+  },
+  {
+    "title": "Ready90 Family Preparedness",
+    "url": "https://renewalsforlifestyle.com/ready90/",
+    "image": "https://dreamsfaststart.com/portfolio-assets/ready90-family-preparedness.webp",
+    "description": "Ninety days of ready. Build a practical family game plan around water, food, power, and safety. Explore 10 chapters, a household planning calculator, shopping checklists, a four-weekend build, and a downloadable brochure. Start small, build steadily, and prepare together.",
+    "category": "lifestyle",
+    "featuredLabel": "Family preparedness"
   }
 ]
