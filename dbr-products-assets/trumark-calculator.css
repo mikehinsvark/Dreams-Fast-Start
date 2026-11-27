@@ -1,0 +1,26 @@
+/* Section 04's calculator companion, using the existing portfolio card system. */
+#benefits .trumark-calculator-card { grid-column: 1 / -1; display: grid; grid-template-columns: minmax(0, .8fr) minmax(0, 1.2fr); }
+.trumark-calc-art { position: relative; display: flex; flex-direction: column; justify-content: center; align-items: flex-start; gap: 22px; min-height: 350px; padding: 40px; overflow: hidden; background: radial-gradient(ellipse at 80% 80%, #0873b744, transparent 65%), linear-gradient(145deg, #0a2249, #051326); border-right: 1px solid #21435f; }
+.trumark-calc-art::after { content: ''; position: absolute; width: 230px; height: 230px; right: -85px; bottom: -100px; border: 1px solid #28c9ef44; border-radius: 50%; box-shadow: 0 0 0 28px #28c9ef09, 0 0 0 58px #28c9ef05; pointer-events: none; }
+.trumark-calc-art img { display: block; width: min(100%, 280px); height: auto; }
+.trumark-calc-art .calc-art-icon { width: 64px; height: 72px; fill: none; stroke: #45e4ec; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+.trumark-calc-art strong { font-size: clamp(26px, 2.8vw, 38px); line-height: 1.1; letter-spacing: -.02em; color: #f2f8ff; }
+.trumark-calc-art strong span { display: block; color: #45e4ec; }
+.trumark-calculator-card .card-body { padding: 34px; }
+.trumark-calculator-card .eyebrow { margin-bottom: 12px; }
+.trumark-calculator-card .card-title { font-size: clamp(24px, 2.3vw, 30px); line-height: 1.2; }
+.trumark-calculator-card .card-desc { font-size: 16px; line-height: 1.75; }
+.trumark-calculator-card .calculator-note { color: #9fb8ce; font-size: 14px; line-height: 1.65; margin: 16px 0 24px; }
+.trumark-calculator-card .card-link { font-size: 16px; min-height: 48px; }
+/* Keep the two existing resources in their established side-by-side desktop layout. */
+@media (min-width: 1150px) {
+  #benefits .product-art-card { display: grid; grid-template-columns: 42% 58%; }
+  #benefits .product-art-card .card-img-wrap { aspect-ratio: auto; min-height: 0; }
+}
+@media (max-width: 700px) {
+  #benefits .trumark-calculator-card { grid-template-columns: minmax(0, 1fr); }
+  .trumark-calc-art { min-height: 300px; padding: 30px 26px; gap: 18px; border-right: 0; border-bottom: 1px solid #21435f; }
+  .trumark-calc-art .calc-art-icon { width: 48px; height: 54px; }
+  .trumark-calc-art strong { font-size: 30px; }
+  .trumark-calculator-card .card-body { padding: 26px; }
+}
